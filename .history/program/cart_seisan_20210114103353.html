@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>えびすマート標準テンプレート</title>
 <link rel="stylesheet" href="css/base.css" type="text/css" />
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
 <!-- Google Tag Manager カルテット用-->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -161,17 +161,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<tr>
 		<th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
 		<td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname"
-			type="text" size="20" value="" id="lastname"/> 名 <input
+			type="text" size="20" value="" /> 名 <input
 			m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text"
-			size="20" value="" id="firstname"/><br />
+			size="20" value="" /><br />
 		例：山田 太郎</td>
 	</tr>
 	<tr>
 		<th class="title">氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
 		<td>セイ <input m:id='LAST_KANA_INPUT_HERE'
-			name="lastname_kana" type="text" size="20" value="" id="lastname_kana"/> メイ <input
+			name="lastname_kana" type="text" size="20" value="" /> メイ <input
 			m:id='FIRST_KANA_INPUT_HERE' name="firstname_kana"
-			type="text" size="20" value=""  id="firstname_kana"/><br />
+			type="text" size="20" value="" /><br />
 		例：ヤマダ タロウ （全角カナで入力してください。）</td>
 	</tr>
 	<tr>
@@ -955,16 +955,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </noscript>
 
 
+
+
+
+
+
+
+
+
+
 <script src="jquery.autoKana.js"></script>
-
-
-<script type="text/javascript">
-    $(function() {
-    $.fn.autoKana('#firstname', '#firstname_kana');
-    $.fn.autoKana('#lastname', '#lastname_kana');
-});
-</script>
-
-
 </body>
 </html>
