@@ -6,35 +6,7 @@
     <title>えびすマート標準テンプレート</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/sample.css">
-    <style>
-        .tab {
-  border-bottom: 3px solid #fb4343;
-}
-.tab li {
-  color: #333;
-  float: left;
-  margin: 0 10px -1px 0;
-  padding: 10px 20px;
-  border: 1px solid #fb4343;
-  cursor: pointer;
-  list-style: none;
-  transition: .3s;
-}
-.tab li.active {
-  color: #fff;
-  background: #fb4343;
-  cursor: auto;
-}
-
-.area ul {
-  display: none;
-}
-.area ul.show {
-  display: block;
-}
-    </style>
 </head>
-
 
 <body>
     <!-- Google Tag Manager カルテット用(noscript) -->
@@ -667,103 +639,115 @@
                         </tr>
                     </table>
                     <div m:id="IF_CREDIT">
-                        <!-- タブメニュー
- activeクラスに、クリック済のデザインを設定したcssを指定 -->
-<ul class="tab clearfix">
-    <li class="active">クレジットカード</li>
-    <li>代引き</li>
-  </ul>
-
-  <!-- コンテンツ
-   全体を非表示にし、showクラスが付いたコンテンツのみ表示 -->
-  <div class="area">
-    <ul class="show">
-      <li><div m:id='IF_CREDIT'>
-        <h3>お支払い情報</h3>
-        <p>クレジットカードご利用の方のみご記入ください。</p>
-        <table summary="お支払い情報">
-            <tr m:id='IF_CREDIT_KAISU'>
-                <th class="title">お支払い回数</th>
-                <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
-                        <option value="" selected="selected">-- 回数を指定 --</option>
-                        <option value="01">1回</option>
-                        <option value="02">2回</option>
-                        <option value="03">3回</option>
-                    </select></td>
-            </tr>
-            <tr>
-                <th class="title">カード名義</th>
-                <td><input m:id='CREDIT_NAME_INPUT_HERE' placeholder="例：TARO YAMADA（半角英数）" name="card_name" type="text" size="50" value="" /></td>
-            </tr>
-            <tr>
-                <th class="title">カード番号</th>
-                <td><input m:id='CREDIT_NUMBER_INPUT_HERE' placeholder="例：1111222233334444（ハイフンなし。半角英数）" name="card_number" type="text" size="50" value="" /><br />
-                </td>
-            </tr>
-            <tr>
-                <th class="title">有効期限</th>
-                <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
-                        <option value="" selected="selected">-- 月を指定 --</option>
-                        <option value="01">1</option>
-                        <option value="02">2</option>
-                        <option value="03">3</option>
-                        <option value="04">4</option>
-                        <option value="05">5</option>
-                        <option value="06">6</option>
-                        <option value="07">7</option>
-                        <option value="08">8</option>
-                        <option value="09">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select> 月 <select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE' name="card_year">
-                        <option value="" selected="selected">-- 年を指定 --</option>
-                        <option value="09">2009</option>
-                        <option value="10">2010</option>
-                        <option value="11">2011</option>
-                        <option value="12">2012</option>
-                        <option value="13">2013</option>
-                        <option value="14">2014</option>
-                        <option value="15">2015</option>
-                        <option value="16">2016</option>
-                        <option value="17">2017</option>
-                        <option value="18">2018</option>
-                        <option value="19">2019</option>
-                    </select> 年</td>
-            </tr>
-            <tr m:id='IF_CREDIT_SECURITY_CD'>
-                <th class="title">セキュリティーコード</th>
-                <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
-            </tr>
-        </table>
-    </div></li>
-    </ul>
-    <ul>
-      <li></li>
-    </ul>
-    <ul>
-      <li>小倉</li>
-      <li>博多</li>
-      <li>久留米</li>
-    </ul>
-  </div>
-                        <!-- <select> -->
-                            <!-- <option value="select">選択してください</option> -->
-                            <!-- <option value="a01">要素1</option> -->
-                            <!-- <option value="a02">要素2</option> -->
-                            <!-- <option value="a03">要素3</option> -->
-                        <!-- </select> -->
-                        <!-- <section id="a01"> -->
-                            <!-- 要素１ -->
-                        <!-- </section> -->
-                        <!-- <section id="a02"> -->
-                            <!-- 要素2 -->
-                        <!-- </section> -->
-                        <!-- <section id="a03"> -->
-                            <!-- 要素3 -->
-                        <!-- </section> -->
+                        <div class="tab-area">
+                            <div class="tab active">
+                              タブ１
+                            </div>
+                            <div class="tab">
+                              タブ２
+                            </div>
+                            <div class="tab">
+                              タブ３
+                            </div>
+                            <div class="tab">
+                              タブ４
+                            </div>
+                            <div class="tab">
+                              タブ５
+                            </div>
+                          </div>
+                          <div class="content-area">
+                            <div class="content show">
+                              タブ１の中身です
+                            </div>
+                            <div class="content">
+                              タブ２の中身です
+                            </div>
+                            <div class="content">
+                              タブ３の中身です
+                            </div>
+                            <div class="content">
+                              タブ４の中身です
+                            </div>
+                            <div class="content">
+                              タブ５の中身です
+                            </div>
+                          </div>
+                        <select>
+                            <option value="select">選択してください</option>
+                            <option value="a01">要素1</option>
+                            <option value="a02">要素2</option>
+                            <option value="a03">要素3</option>
+                        </select>
+                        <section id="a01">
+                            要素１
+                        </section>
+                        <section id="a02">
+                            要素2
+                        </section>
+                        <section id="a03">
+                            要素3
+                        </section>
                     </div>
-
+                    <div m:id='IF_CREDIT'>
+                        <h3>お支払い情報</h3>
+                        <p>クレジットカードご利用の方のみご記入ください。</p>
+                        <table summary="お支払い情報">
+                            <tr m:id='IF_CREDIT_KAISU'>
+                                <th class="title">お支払い回数</th>
+                                <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+                                        <option value="" selected="selected">-- 回数を指定 --</option>
+                                        <option value="01">1回</option>
+                                        <option value="02">2回</option>
+                                        <option value="03">3回</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <th class="title">カード名義</th>
+                                <td><input m:id='CREDIT_NAME_INPUT_HERE' placeholder="例：TARO YAMADA（半角英数）" name="card_name" type="text" size="50" value="" /></td>
+                            </tr>
+                            <tr>
+                                <th class="title">カード番号</th>
+                                <td><input m:id='CREDIT_NUMBER_INPUT_HERE' placeholder="例：1111222233334444（ハイフンなし。半角英数）" name="card_number" type="text" size="50" value="" /><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="title">有効期限</th>
+                                <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
+                                        <option value="" selected="selected">-- 月を指定 --</option>
+                                        <option value="01">1</option>
+                                        <option value="02">2</option>
+                                        <option value="03">3</option>
+                                        <option value="04">4</option>
+                                        <option value="05">5</option>
+                                        <option value="06">6</option>
+                                        <option value="07">7</option>
+                                        <option value="08">8</option>
+                                        <option value="09">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select> 月 <select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE' name="card_year">
+                                        <option value="" selected="selected">-- 年を指定 --</option>
+                                        <option value="09">2009</option>
+                                        <option value="10">2010</option>
+                                        <option value="11">2011</option>
+                                        <option value="12">2012</option>
+                                        <option value="13">2013</option>
+                                        <option value="14">2014</option>
+                                        <option value="15">2015</option>
+                                        <option value="16">2016</option>
+                                        <option value="17">2017</option>
+                                        <option value="18">2018</option>
+                                        <option value="19">2019</option>
+                                    </select> 年</td>
+                            </tr>
+                            <tr m:id='IF_CREDIT_SECURITY_CD'>
+                                <th class="title">セキュリティーコード</th>
+                                <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div m:id='IF_HAISO'>
                         <h3>配送方法</h3>
                         <p>下記の中から配送方法をご選択ください。 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></p>
@@ -1135,29 +1119,18 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2242087806116352&ev=PageView&noscript=1" /></noscript>
-
-    <!-- End Facebook Pixel Code -->
     <script>
         $(function() {
-
- // ①タブをクリックしたら発動
- $('.tab li').click(function() {
-
-   // ②クリックされたタブの順番を変数に格納
-   var index = $('.tab li').index(this);
-
-   // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
-   $('.tab li').removeClass('active');
-
-   // ④クリックされたタブにクリック済みデザインを適用する
-   $(this).addClass('active');
-
-   // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
-   $('.area ul').removeClass('show').eq(index).addClass('show');
-
- });
-});
+  let tabs = $(".tab"); // tabのクラスを全て取得し、変数tabsに配列で定義
+  $(".tab").on("click", function() { // tabをクリックしたらイベント発火
+    $(".active").removeClass("active"); // activeクラスを消す
+    $(this).addClass("active"); // クリックした箇所にactiveクラスを追加
+    const index = tabs.index(this); // クリックした箇所がタブの何番目か判定し、定数indexとして定義
+    $(".content").removeClass("show").eq(index).addClass("show"); // showクラスを消して、contentクラスのindex番目にshowクラスを追加
+  })
+})
     </script>
+    <!-- End Facebook Pixel Code -->
 </body>
 
 </html>
