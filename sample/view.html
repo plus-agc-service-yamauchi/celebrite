@@ -5,11 +5,8 @@
     <script data-obct type="text/javascript">
     /** DO NOT MODIFY THIS CODE**/ ! function(_window, _document) {
         var OB_ADV_ID = '00e832791f4436d811227db137b3a935b5';
-        if (_window.obApi) {
-            var toArray = function(object) { return Object.prototype.toString.call(object) === '[object Array]' ? object : [object]; };
-            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
-            return;
-        }
+        if (_window.obApi) { var toArray = function(object) { return Object.prototype.toString.call(object) === '[object Array]' ? object : [object]; };
+            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID)); return; }
         var api = _window.obApi = function() { api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments); };
         api.version = '1.1';
         api.loaded = true;
@@ -643,22 +640,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </tr>
                             </tr>
                             <!--
-  <tr>
-    <th class="title">PCメール形式</th>
-    <td><input type="radio" m:id='PC_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_TEXt" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_TEXt">テキスト</label>
-    &nbsp;&nbsp;<input type="radio" m:id='PC_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_HTML" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_HTML">HTML</label><br />
-    </td>
-  </tr>
-  <tr>
-    <th class="title">携帯メール形式</th>
-    <td><input type="radio" m:id='MOBILE_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt">テキスト</label>
-    &nbsp;&nbsp;<input type="radio" m:id='MOBILE_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_HTML" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_HTML">HTML</label><br />
-    </td>
-  </tr>
+	<tr>
+		<th class="title">PCメール形式</th>
+		<td><input type="radio" m:id='PC_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_TEXt" />
+		&nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_TEXt">テキスト</label>
+		&nbsp;&nbsp;<input type="radio" m:id='PC_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_HTML" />
+		&nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_HTML">HTML</label><br />
+		</td>
+	</tr>
+	<tr>
+		<th class="title">携帯メール形式</th>
+		<td><input type="radio" m:id='MOBILE_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt" />
+		&nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt">テキスト</label>
+		&nbsp;&nbsp;<input type="radio" m:id='MOBILE_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_HTML" />
+		&nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_HTML">HTML</label><br />
+		</td>
+	</tr>
 -->
                             <tr>
                                 <th class="title">メールマガジン <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_MUST_REGIST_MEMBER' /></th>
@@ -953,7 +950,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         <tr>
                                             <th class="title">カード番号</th>
                                             <td class="cardnumber_td">
-                                                <!--            <input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
+                                                <!--						<input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
                                                 <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
                                                 <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
                                                 <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
