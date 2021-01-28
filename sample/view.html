@@ -5,8 +5,11 @@
     <script data-obct type="text/javascript">
     /** DO NOT MODIFY THIS CODE**/ ! function(_window, _document) {
         var OB_ADV_ID = '00e832791f4436d811227db137b3a935b5';
-        if (_window.obApi) { var toArray = function(object) { return Object.prototype.toString.call(object) === '[object Array]' ? object : [object]; };
-            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID)); return; }
+        if (_window.obApi) {
+            var toArray = function(object) { return Object.prototype.toString.call(object) === '[object Array]' ? object : [object]; };
+            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+            return;
+        }
         var api = _window.obApi = function() { api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments); };
         api.version = '1.1';
         api.loaded = true;
@@ -210,42 +213,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <table summary="ご依頼主（ご請求先）情報">
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" />
-                                名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" /><br />
+                            <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" id="L_NAME" />
+                                名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" id="F_NAME" /><br />
                                 例：山田 太郎</td>
                         </tr>
                         <tr>
                             <th class="title">氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>セイ <input m:id='LAST_KANA_INPUT_HERE' name="lastname_kana" type="text" size="20" value="" /> メイ <input m:id='FIRST_KANA_INPUT_HERE' name="firstname_kana" type="text" size="20" value="" /><br />
+                            <td>セイ <input m:id='LAST_KANA_INPUT_HERE' name="lastname_kana" type="text" size="20" value="" id="L_KANA"/> メイ <input m:id='FIRST_KANA_INPUT_HERE' name="firstname_kana" type="text" size="20" value="" id="F_KANA"/><br />
                                 例：ヤマダ タロウ （全角カナで入力してください。）</td>
                         </tr>
                         <tr>
-                            <th class="title">PCメールアドレス</th>
+                            <th class="title">メールアドレス</th>
                             <td><input m:id='PC_MAIL_INPUT_HERE' name="PC_MAIL" type="text" size="50" value="" /><br />
                                 <span class="hissu">PCメールアドレスか携帯メールアドレスが必須になります。</span><br />
                                 例：sample@sample.jp （半角英数字で入力してください。）<br />
                                 ※確認のためメールアドレスを再入力してください。<br />
                                 <input m:id='PC_MAIL_CONFIRM1_INPUT_HERE' name="PC_MAIL_CONFIRM1" type="text" size="23" value="" />@
                                 <input m:id='PC_MAIL_CONFIRM2_INPUT_HERE' name="PC_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
-                        </tr>
-                        <tr>
-                            <th class="title">携帯メールアドレス</th>
-                            <td><input m:id='MOBILE_MAIL_INPUT_HERE' name="MOBILE_MAIL" type="text" size="50" value="" /><br />
-                                <span class="hissu">PCメールアドレスか携帯メールアドレスが必須になります。</span><br />
-                                例：sample@sample.jp （半角英数字で入力してください。）<br />
-                                ※確認のためメールアドレスを再入力してください。<br />
-                                <input m:id='MOBILE_MAIL_CONFIRM1_INPUT_HERE' name="MOBILE_MAIL_CONFIRM1" type="text" size="23" value="" />@
-                                <input m:id='MOBILE_MAIL_CONFIRM2_INPUT_HERE' name="MOBILE_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
-                        </tr>
-                        <tr>
-                            <th class="title">確認メール送信先</th>
-                            <td><input type="radio" m:id='SEND_MAIL_PC_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_PC_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_PC">PC</label>
-                                &nbsp;&nbsp;<input type="radio" m:id='SEND_MAIL_MOBILE_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_MOBILE_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_MOBILE">携帯</label>
-                                &nbsp;&nbsp;<input type="radio" m:id='SEND_MAIL_BOTH_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_BOTH_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_BOTH">PCと携帯</label><br />
-                            </td>
                         </tr>
                         <tr>
                             <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
@@ -1264,6 +1248,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // トークン決済JavaScript
         </script>
     </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/jquery.autoKana.js"></script>
+    <script src="js/jquery.focused.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $.fn.autoKana("#L_NAME", "#L_KANA", { katakana: true });
+        $.fn.autoKana("#F_NAME", "#F_KANA", { katakana: true });
+        $.fn.autoKana("#SEND_L_NAME", "#SEND_L_KANA", { katakana: true });
+        $.fn.autoKana("#SEND_F_NAME", "#SEND_F_KANA", { katakana: true });
+    });
+    </script>
 </body>
 
 </html>
