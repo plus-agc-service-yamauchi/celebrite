@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>えびすマート標準テンプレート</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <!-- Google Tag Manager カルテット用-->
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PX7G3KX');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- facebook カルテット用-->
+    <script>
+    fbq('track', 'Purchase');
+    </script>
+    <!-- End facebook カルテット用 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113349409-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113349409-1');
+    </script>
+    <!-- end Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-1071957-1");
+        pageTracker._trackPageview();
+    } catch (err) {}
+    </script>
+    <!-- adEbis ITP対応タグ ここから-->
+    <!-- EBiS customize area start -->
+    <script type="text/javascript">
+    window.ebis = window.ebis || [];
+    ebis.push({
+        argument: 'DN62ts6K',
+        page_id: 'complete',
+        member_name: '',
+        amount: '',
+        other1: '',
+        other2: '',
+        other3: '',
+        other4: '',
+        other5: '',
+    });
+    </script>
+    <!-- EBiS customize area end -->
+    <!-- EBiS tag version4.10 start -->
+    <script type="text/javascript">
+    (function(a, d, e, b, i, s) {
+        window[i] = window[i] || [];
+        var f = function(a, d, e, b, i, s) {
+                var o = a.getElementsByTagName(d)[0],
+                    h = a.createElement(d),
+                    t = 'text/javascript';
+                h.type = t;
+                h.async = e;
+                h.onload = function() {
+                    window[i].init({ argument: s, auto: true });
+                };
+                h._p = o;
+                return h;
+            },
+            h = f(a, d, e, b, i, s),
+            l = '//taj',
+            j = b + s + '/cmt.js';
+        h.src = l + '1.' + j;
+        h._p.parentNode.insertBefore(h, h._p);
+        h.onerror = function(k) {
+            k = f(a, d, e, b, i, s);
+            k.src = l + '2.' + j;
+            k._p.parentNode.insertBefore(k, k._p);
+        };
+    })(document, 'script', true, 'ebis.ne.jp/', 'ebis', 'DN62ts6K');
+    </script>
+    <!-- EBiS tag end -->
+    <!-- adEbis ITP対応タグ ここまで-->
+    <!-- ycd cvtag start -->
+    <script type="text/javascript">
+    window._tfa = window._tfa || [];
+    _tfa.push({ notify: 'action', name: 'conversion' });
+    </script>
+    <script src="//cdn.taboola.com/libtrc/3500038052-SC-prod/tfa.js"></script>
+    <noscript>
+        <img src="//trc.taboola.com/3500038052-SC-prod/log/3/action?name=conversion&item-url={encoded_page_url}" width="0" height="0" /> </noscript>
+    <!-- ycd cvtag end -->
+    <!-- start Taboola -->
+    <script type='text/javascript'>
+    window._tfa = window._tfa || [];
+    window._tfa.push({ notify: 'event', name: 'page_view' });
+    ! function(t, f, a, x) {
+        if (!document.getElementById(x)) {
+            t.async = 1;
+            t.src = a;
+            t.id = x;
+            f.parentNode.insertBefore(t, f);
+        }
+    }(document.createElement('script'),
+        document.getElementsByTagName('script')[0],
+        '//cdn.taboola.com/libtrc/unip/1142151/tfa.js',
+        'tb_tfa_script');
+    </script>
+    <noscript>
+        <img src='//trc.taboola.com/1142151/log/3/unip?en=page_view' width='0' height='0' style='display:none' />
+    </noscript>
+    <!-- end Taboola -->
+    <!-- start popIn -->
+    <script type="text/javascript">
+    window._pop = window._pop || [];
+    window._pop.push(["_set_conversion_id", "Golden_emyu"]);
+    (function() {
+        var el = document.createElement("script");
+        el.type = "text/javascript";
+        el.async = true;
+        el.src = (("https:" == document.location.protocol) ? "https://" : "http://") + "api.popin.cc/conversion.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+    })();
+    </script>
+    <!-- end popIn -->
+    <!-- Facebook Pixel Code -->
+    <script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2242087806116352');
+    fbq('track', 'PageView');
+    fbq('track', 'CompleteRegistration');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2242087806116352&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+    <script data-obct type="text/javascript">
+    /** DO NOT MODIFY THIS CODE**/ ! function(_window, _document) {
+        var OB_ADV_ID = '00e832791f4436d811227db137b3a935b5';
+        if (_window.obApi) { var toArray = function(object) { return Object.prototype.toString.call(object) === '[object Array]' ? object : [object]; };
+            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID)); return; }
+        var api = _window.obApi = function() { api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments); };
+        api.version = '1.1';
+        api.loaded = true;
+        api.marketerId = OB_ADV_ID;
+        api.queue = [];
+        var tag = _document.createElement('script');
+        tag.async = true;
+        tag.src = '//amplify.outbrain.com/cp/obtp.js';
+        tag.type = 'text/javascript';
+        var script = _document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(tag, script);
+    }(window, document);
+    obApi('track', 'PAGE_VIEW');
+    </script>
+    <script src="css/iframe.js" m:id='DUMMY'></script>
+    <form name="HIDDEN_DATA_FORM" m:id="HIDDEN_DATA_TAGS_HERE">
+        <input type="hidden" name="ITEM_NAME" value="商品1" />
+        <input type="hidden" name="ITEM_CD" value="ITEM01" />
+        <input type="hidden" name="ITEM_AMOUNT" value="3" />
+        <input type="hidden" name="ITEM_TEIKA" value="1000" />
+        <input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="0" />
+        <input type="hidden" name="ITEM_SYOKEI" value="3000" />
+        <input type="hidden" name="ITEM_NAME" value="商品2" />
+        <input type="hidden" name="ITEM_CD" value="ITEM02" />
+        <input type="hidden" name="ITEM_AMOUNT" value="2" />
+        <input type="hidden" name="ITEM_TEIKA" value="100" />
+        <input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="0" />
+        <input type="hidden" name="ITEM_SYOKEI" value="200" />
+        <input type="hidden" name="ITEM_NAME" value="商品3" />
+        <input type="hidden" name="ITEM_CD" value="ITEM03" />
+        <input type="hidden" name="ITEM_AMOUNT" value="1" />
+        <input type="hidden" name="ITEM_TEIKA" value="12000" />
+        <input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="2000" />
+        <input type="hidden" name="ITEM_SYOKEI" value="10000" />
+        <input type="hidden" name="ORDER_NO" value="12345" />
+        <input type="hidden" name="ALL_AMOUNT" value="6" />
+        <input type="hidden" name="SORYO" value="500" />
+        <input type="hidden" name="SYOKEI" value="13200" />
+        <input type="hidden" name="GOKEI" value="13700" />
+    </form>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX7G3KX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- accesstrade TAG -->
+    <img id="ACCESSTRADE_IMG_TAG" width="1" height="1" />
+    <img id="A8_IMG_TAG" width="1" height="1" />
+    <img id="A8_IMG_TAG2" width="1" height="1" />
+    <!-- /accesstrade TAG -->
+    <script type="text/javascript">
+    //<![CDATA[
+    var syokei = document.forms.HIDDEN_DATA_FORM.SYOKEI.value;
+    var order_no = document.forms.HIDDEN_DATA_FORM.ORDER_NO.value;;
+    var src = "https://is.accesstrade.net/cgi-bin/isatV2/celebrite/isatWeaselV2.cgi?result_id=25&verify=" +
+        encodeURI(order_no) + "&value=" +
+        encodeURI(syokei);
+    document.getElementById("ACCESSTRADE_IMG_TAG").setAttribute('src', src);
+
+
+
+
+    // ここにA8のIDを設定してください。
+    var pid = "s00000003620001";
+    var pid2 = "s00000003620002";
+
+    var param = "";
+    var item_cds = document.forms.HIDDEN_DATA_FORM.ITEM_CD;
+    var tankas = document.forms.HIDDEN_DATA_FORM.ITEM_TEIKA;
+    var amounts = document.forms.HIDDEN_DATA_FORM.ITEM_AMOUNT;
+    var syokeis = document.forms.HIDDEN_DATA_FORM.ITEM_SYOKEI;
+    var discount = document.forms.HIDDEN_DATA_FORM.ITEM_MEMBER_DISCOUNT;
+    if (item_cds.length == undefined) {
+        var item_cds = new Array(item_cds);
+        var tankas = new Array(tankas);
+        var amounts = new Array(amounts);
+        var syokeis = new Array(syokeis);
+        var discount = new Array(discount);
+    }
+    for (var i = 0; i < item_cds.length; i++) {
+        var tanka = tankas[i].value;
+        if (discount[i].value != null) {
+            tanka -= discount[i].value;
+        }
+        var amount = amounts[i].value;
+        var syokei = syokeis[i].value;
+        var item_cd = item_cds[i].value;
+        param += "&si=" + tanka + "." + amount + "." + syokei + "." + item_cd;
+    }
+    src = 'https://px.a8.net/cgi-bin/a8fly/sales?pid=' + pid + '&so=' + order_no + param;
+    src2 = 'https://px.a8.net/cgi-bin/a8fly/sales?pid=' + pid2 + '&so=' + order_no + param;
+    document.getElementById("A8_IMG_TAG").setAttribute('src', src);
+    document.getElementById("A8_IMG_TAG2").setAttribute('src', src2);
+    //]]>
+    </script>
+    <script type="text/javascript">
+    var order_disp_no = document.forms.HIDDEN_DATA_FORM.ORDER_DISP_NO.value;
+    var soryo = document.forms.HIDDEN_DATA_FORM.SORYO.value;
+    var gokei = document.forms.HIDDEN_DATA_FORM.GOKEI.value;
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1071957-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_addTrans',
+        order_disp_no, // 注文番号 - 必須
+        '', // affiliation or store name
+        gokei, // 注文合計金額 - 必須
+        '', // tax
+        soryo, // 送料
+        '', // city
+        '', // state or province
+        '' // country
+    ]);
+    _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <!-- =============================================================================== -->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1071957-1']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_addTrans',
+        '$ORDER_NO$', // order ID - required
+        '$ショップ名$', // affiliation or store name
+        '$GOKEI$', // total - required
+        '$税金$', // tax
+        '$SORYO$', // shipping
+        '$市区町村$', // city
+        '$県$', // state or province
+        '$日本$' // country
+    ]);
+
+    // add item might be called for every item in the shopping cart
+    // where your ecommerce engine loops through each item in the cart and
+    // prints out _addItem for each
+
+    _gaq.push(['_addItem',
+        '$ORDER_NO$', // order ID - required
+        '$ITEM_CD$', // SKU/code - required
+        '$ITEM_NAME$', // product name
+        '$商品カテゴリーorブランド$', // category or variation
+        '$ITEM_TEIKA$', // unit price - required
+        '$ITEM_AMOUNT$' // quantity - required
+    ]);
+
+    _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <!-- =============================================================================== -->
+    <iframe m:id='common.HEADER_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+    <!--container start-->
+    <div id="container">
+        <div id="extra-col">
+            <iframe m:id='common.SIDEBAR_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+        </div>
+        <!-- =============================================================================== -->
+        <!-- ==================メインコンテンツ ================================================== -->
+        <!-- =============================================================================== -->
+        <div id="main">
+            <!--cartComplete start-->
+            <div id="cartComplete">
+                <h2>ご注文完了</h2>
+                <img src="images/cart_step05.gif" width="560" height="40" alt="STEP5 ご注文完了" class="step" />
+                <center>
+                    <img src="images/tyumonfin_02.gif" alt="ご注文ありがとうございました" width="680" height="420" border="0" />
+                    <div style="line-height: 16px; letter-spacing: 1px; font-size: 12px; background-color:#FFF0F1; padding:15px 15px 15px 15px;">
+                        <b>
+                            <font color="#ff0000" size="3">【この度は、当店をご利用いただきまして誠にありがとうございます。】</font>
+                        </b><br />
+                        商品発送後、別途ご連絡のメールを送信させていただきますので、<br>
+                        今しばらくお待ちくださいませ。
+                    </div>
+                </center>
+                <div m:id='common.IF_MEMBER'>
+                    <p m:id='common.IF_USE_MEMBER_HISTORY'><a href="member_history.html">→購買履歴を確認する</a></p>
+                </div>
+                <h3>ご注文内容</h3>
+                <table summary="買い物かごの中身">
+                    <tr>
+                        <th>商品コード</th>
+                        <th>商品名</th>
+                        <th>数量</th>
+                        <th>単価</th>
+                        <th m:id='common.IF_USE_MEMBER_DISCOUNT'>会員割引額</th>
+                        <th>小計</th>
+                    </tr>
+                    <tr m:id='LOOP_ITEM'>
+                        <td><span m:id='ITEM_CODE_HERE'>00001234</span></td>
+                        <td>
+                            <span m:id='ITEM_NAME_HERE'>商品名</span><br />
+                            <span m:id='ITEM_COMMENT_HERE'>ここに商品のカート用商品コメントが入ります</span>
+                        </td>
+                        <td class="amount"><span m:id='AMOUNT_HERE'>2</span></td>
+                        <td class="price"><span m:id='TANKA_HERE'>1,000円</span></td>
+                        <td class="price" m:id='common.IF_USE_MEMBER_DISCOUNT'><span m:id='ITEM_MEMBER_DISCOUNT_HERE'>1,980円</span></td>
+                        <td class="price"><span m:id='SYOKEI_HERE'>2,000円</span></td>
+                    </tr>
+                </table>
+                <div m:id='IF_MEMBER_DISCOUNT' class="total">会員値引き：<span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></div>
+                <div class="total">小計：<span m:id='TOTAL_SYOKEI_HERE'>1,000円</span></div>
+                <div m:id='common.IF_SOTOZEI' class="total">消費税：<span m:id='TOTAL_TAX_HERE'>50円</span></div>
+                <div m:id='common.IF_UCHIZEI' class="total">消費税：内税</div>
+                <div m:id='IF_SORYO' class="total">送料：<span m:id='SORYO_HERE'>500円</span></div>
+                <div m:id='IF_DAIBIKI' class="total">代引き手数料：<span m:id='DAIBIKI_HERE'>500円</span></div>
+                <div m:id='IF_POINT_USE' class="total">ポイント値引き：<span m:id='POINT_DISCOUNT_HERE'>500円</span></div>
+                <div class="total">合計：<span m:id='TOTAL_GOKEI_HERE' class="price">1,000円</span></div>
+                <div m:id='IF_SHOW_POINT_FORM'>
+                    <div m:id='IF_POINT_USE'>
+                        <h3>ポイント情報</h3>
+                        <table summary="ポイント情報">
+                            <tr>
+                                <th class="title">ポイント使用</th>
+                                <td>使用する</td>
+                            </tr>
+                            <tr>
+                                <th class="title">使用ポイント数</th>
+                                <td><span m:id='USE_POINT_HERE'>100</span> ポイント</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <h3>ご依頼主（ご請求先）情報</h3>
+                <table summary="ご依頼主（ご請求先）情報">
+                    <tr>
+                        <th class="title">氏名（漢字）</th>
+                        <td><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></td>
+                    </tr>
+                    <tr>
+                        <th class="title">氏名（カナ）</th>
+                        <td><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></td>
+                    </tr>
+                    <tr>
+                        <th class="title">PCメールアドレス</th>
+                        <td><span m:id='PC_MAIL_HERE'>sample@sample.jp</span></td>
+                    </tr>
+                    <tr>
+                        <th class="title">携帯メールアドレス</th>
+                        <td><span m:id='MOBILE_MAIL_HERE'>sample@sample.jp</span></td>
+                    </tr>
+                    <tr m:id="IF_CONFIRM_MAIL_KBN_PC">
+                        <th class="title">確認メール送信先</th>
+                        <td>PCメールアドレス</td>
+                    </tr>
+                    <tr m:id="IF_CONFIRM_MAIL_KBN_BOTH">
+                        <th class="title">確認メール送信先</th>
+                        <td>PCメールアドレスと携帯メールアドレス</td>
+                    </tr>
+                    <tr m:id="IF_CONFIRM_MAIL_KBN_MOBILE">
+                        <th class="title">確認メール送信先</th>
+                        <td>携帯メールアドレス</td>
+                    </tr>
+                    <tr>
+                        <th class="title">住所</th>
+                        <td>
+                            〒<span m:id='ZIP_HERE'>1234567</span>
+                            <span m:id='ADDRESS1_HERE'>東京都</span> <span m:id='ADDRESS2_HERE'>○○市 ○○町1-2-3</span>
+                            <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">電話番号</th>
+                        <td><span m:id='TEL_HERE'>03-1234-5678</span></td>
+                    </tr>
+                </table>
+                <div m:id='common.IF_MEMBER'>
+                    <h3>変更登録</h3>
+                    <table summary="変更登録">
+                        <tr m:id="IF_UPDATE_MEMBER">
+                            <th class="title">変更を登録しますか？</th>
+                            <td>登録する</td>
+                        </tr>
+                        <tr m:id="IF_NOT_UPDATE_MEMBER">
+                            <th class="title">変更を登録しますか？</th>
+                            <td>登録しない</td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>お届け先情報</h3>
+                <table summary="お届け先情報">
+                    <tr>
+                        <th class="title">氏名（漢字）</th>
+                        <td><span m:id='SEND_LAST_NAME_HERE'>山田</span> <span m:id='SEND_FIRST_NAME_HERE'>太郎</span></td>
+                    </tr>
+                    <tr>
+                        <th class="title">氏名（カナ）</th>
+                        <td><span m:id='SEND_LAST_KANA_HERE'>ヤマダ</span> <span m:id='SEND_FIRST_KANA_HERE'>タロウ</span></td>
+                    </tr>
+                    <tr>
+                        <th class="title">住所</th>
+                        <td>
+                            <span m:id='IF_NOT_SEND_SAME'>〒<span m:id='SEND_ZIP_HERE'>1234567</span></span>
+                            <span m:id='SEND_ADDRESS1_HERE'>東京都</span> <span m:id='SEND_ADDRESS2_HERE'>○○市 ○○町 1-2-3</span>
+                            <span m:id='SEND_ADDRESS3_HERE'>○○ビル101</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">電話番号</th>
+                        <td><span m:id='SEND_TEL_HERE'>03-1234-5678</span></td>
+                    </tr>
+                </table>
+                <div m:id='IF_REGIST_MEMBER'>
+                    <h3>会員登録情報</h3>
+                    <table summary="会員登録情報">
+                        <tr>
+                            <th class="title">ログインID</th>
+                            <td><span m:id='LOGIN_ID_HERE'>yamada</span></td>
+                        </tr>
+                        <tr m:id="IF_SEX_MAN">
+                            <th class="title">性別</th>
+                            <td>男性</td>
+                        </tr>
+                        <tr m:id="IF_SEX_WOMAN">
+                            <th class="title">性別</th>
+                            <td>女性</td>
+                        </tr>
+                        <tr m:id="IF_BIRTH">
+                            <th class="title">生年月日</th>
+                            <td><span m:id='BIRTH_YEAR_HERE'>1900</span>年<span m:id='BIRTH_MONTH_HERE'>01</span>月<span m:id='BIRTH_DAY_HERE'>01</span>日</td>
+                        </tr>
+                        <tr>
+                            <th class="title">メールマガジン</th>
+                            <td><span m:id="MAILMAG_REGIST_HERE">受け付ける</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE1'>
+                            <th class="title"><span m:id='MEMBER_FREE1_TITLE_HERE'>自由項目１</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE1_VALUE_HERE'>自由項目１</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE2'>
+                            <th class="title"><span m:id='MEMBER_FREE2_TITLE_HERE'>自由項目２</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE2_VALUE_HERE'>自由項目２</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE3'>
+                            <th class="title"><span m:id='MEMBER_FREE3_TITLE_HERE'>自由項目３</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE3_VALUE_HERE'>自由項目３</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE4'>
+                            <th class="title"><span m:id='MEMBER_FREE4_TITLE_HERE'>自由項目４</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE4_VALUE_HERE'>自由項目４</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE5'>
+                            <th class="title"><span m:id='MEMBER_FREE5_TITLE_HERE'>自由項目５</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE5_VALUE_HERE'>自由項目５</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE6'>
+                            <th class="title"><span m:id='MEMBER_FREE6_TITLE_HERE'>自由項目６</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE6_VALUE_HERE'>自由項目６</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE7'>
+                            <th class="title"><span m:id='MEMBER_FREE7_TITLE_HERE'>自由項目７</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE7_VALUE_HERE'>自由項目７</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE8'>
+                            <th class="title"><span m:id='MEMBER_FREE8_TITLE_HERE'>自由項目８</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE8_VALUE_HERE'>自由項目８</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE9'>
+                            <th class="title"><span m:id='MEMBER_FREE9_TITLE_HERE'>自由項目９</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE9_VALUE_HERE'>自由項目９</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE10'>
+                            <th class="title"><span m:id='MEMBER_FREE10_TITLE_HERE'>自由項目１０</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE10_VALUE_HERE'>自由項目１０</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE11'>
+                            <th class="title"><span m:id='MEMBER_FREE11_TITLE_HERE'>自由項目１１</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE11_VALUE_HERE'>自由項目１１</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE12'>
+                            <th class="title"><span m:id='MEMBER_FREE12_TITLE_HERE'>自由項目１２</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE12_VALUE_HERE'>自由項目１２</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE13'>
+                            <th class="title"><span m:id='MEMBER_FREE13_TITLE_HERE'>自由項目１３</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE13_VALUE_HERE'>自由項目１３</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE14'>
+                            <th class="title"><span m:id='MEMBER_FREE14_TITLE_HERE'>自由項目１４</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE14_VALUE_HERE'>自由項目１４</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE15'>
+                            <th class="title"><span m:id='MEMBER_FREE15_TITLE_HERE'>自由項目１５</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE15_VALUE_HERE'>自由項目１５</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE16'>
+                            <th class="title"><span m:id='MEMBER_FREE16_TITLE_HERE'>自由項目１６</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE16_VALUE_HERE'>自由項目１６</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE17'>
+                            <th class="title"><span m:id='MEMBER_FREE17_TITLE_HERE'>自由項目１７</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE17_VALUE_HERE'>自由項目１７</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE18'>
+                            <th class="title"><span m:id='MEMBER_FREE18_TITLE_HERE'>自由項目１８</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE18_VALUE_HERE'>自由項目１８</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE19'>
+                            <th class="title"><span m:id='MEMBER_FREE19_TITLE_HERE'>自由項目１９</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE19_VALUE_HERE'>自由項目１９</span></td>
+                        </tr>
+                        <tr m:id='IF_MEMBER_FREE20'>
+                            <th class="title"><span m:id='MEMBER_FREE20_TITLE_HERE'>自由項目２０</span>
+                            </th>
+                            <td><span m:id='MEMBER_FREE20_VALUE_HERE'>自由項目２０</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>お支払い情報</h3>
+                <table summary="お支払い情報">
+                    <tr>
+                        <th class="title">お支払方法</th>
+                        <td><span m:id='KESSAI_NAME_HERE'>クレジットカード</span></td>
+                    </tr>
+                    <tr m:id='IF_KESSAI_CREDIT'>
+                        <th class="title">お支払い回数</th>
+                        <td><span m:id='CREDIT_KAISU_HERE'>一括</span></td>
+                    </tr>
+                    <tr m:id='IF_KESSAI_CREDIT'>
+                        <th class="title">カード名義</th>
+                        <td><span m:id='CREDIT_NAME_HERE'>TARO YAMADA</span></td>
+                    </tr>
+                    <tr m:id='IF_KESSAI_CREDIT'>
+                        <th class="title">カード番号</th>
+                        <td><span m:id='CREDIT_NUMBER_HERE'>1111222233334444</span></td>
+                    </tr>
+                    <tr m:id='IF_KESSAI_CREDIT'>
+                        <th class="title">有効期限</th>
+                        <td><span m:id='CREDIT_EXPIRE_MONTH_HERE'>03</span>/<span m:id='CREDIT_EXPIRE_YEAR_HERE'>2011</span></td>
+                    </tr>
+                </table>
+                <div m:id='IF_HAISO'>
+                    <h3>配送方法</h3>
+                    <table summary="配送方法">
+                        <tr>
+                            <th class="title">配送方法</th>
+                            <td><span m:id='HAISO_DISP_NAME_HERE'>ここに選択された配送方法名称が入ります。</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div m:id='IF_DELIVERY_DAY'>
+                    <h3>お届け日・お届け時間</h3>
+                    <table summary="お届け日・お届け時間">
+                        <tr m:id='IF_DELIVERY_DATE'>
+                            <th class="title">お届け日</th>
+                            <td><span m:id='DELIVERY_YEAR_HERE'>2009</span>年 <span m:id='DELIVERY_MONTH_HERE'>3</span>月 <span m:id='DELIVERY_DAY_HERE'>3</span>日</td>
+                        </tr>
+                        <tr m:id='IF_NOT_DELIVERY_DATE'>
+                            <th class="title">お届け日</th>
+                            <td>希望なし</td>
+                        </tr>
+                        <tr m:id='IF_DELIVERY_TIME'>
+                            <th class="title">お届け時間</th>
+                            <td><span m:id='DELIVERY_TIME_HERE'>20時から21時</span></td>
+                        </tr>
+                        <tr m:id='IF_NOT_DELIVERY_TIME'>
+                            <th class="title">お届け時間</th>
+                            <td>希望なし</td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>備考</h3>
+                <table summary="備考">
+                    <tr>
+                        <th class="title">備考</th>
+                        <td><span m:id='BIKOU_HERE'>ここに備考が入ります。ここに備考が入ります。ここに備考が入ります。</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE1'>
+                        <th class="title"><span m:id='FREE1_TITLE_HERE'>自由項目１</span>
+                        </th>
+                        <td><span m:id='FREE1_VALUE_HERE'>自由項目１</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE2'>
+                        <th class="title"><span m:id='FREE2_TITLE_HERE'>自由項目２</span>
+                        </th>
+                        <td><span m:id='FREE2_VALUE_HERE'>自由項目２</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE3'>
+                        <th class="title"><span m:id='FREE3_TITLE_HERE'>自由項目３</span>
+                        </th>
+                        <td><span m:id='FREE3_VALUE_HERE'>自由項目３</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE4'>
+                        <th class="title"><span m:id='FREE4_TITLE_HERE'>自由項目４</span>
+                        </th>
+                        <td><span m:id='FREE4_VALUE_HERE'>自由項目４</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE5'>
+                        <th class="title"><span m:id='FREE5_TITLE_HERE'>自由項目５</span>
+                        </th>
+                        <td><span m:id='FREE5_VALUE_HERE'>自由項目５</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE6'>
+                        <th class="title"><span m:id='FREE6_TITLE_HERE'>自由項目６</span>
+                        </th>
+                        <td><span m:id='FREE6_VALUE_HERE'>自由項目６</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE7'>
+                        <th class="title"><span m:id='FREE7_TITLE_HERE'>自由項目７</span>
+                        </th>
+                        <td><span m:id='FREE7_VALUE_HERE'>自由項目７</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE8'>
+                        <th class="title"><span m:id='FREE8_TITLE_HERE'>自由項目８</span>
+                        </th>
+                        <td><span m:id='FREE8_VALUE_HERE'>自由項目８</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE9'>
+                        <th class="title"><span m:id='FREE9_TITLE_HERE'>自由項目９</span>
+                        </th>
+                        <td><span m:id='FREE9_VALUE_HERE'>自由項目９</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE10'>
+                        <th class="title"><span m:id="FREE10_TITLE_HERE">自由項目１０</span>
+                        </th>
+                        <td><span m:id='FREE10_VALUE_HERE'>自由項目１０</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE11'>
+                        <th class="title"><span m:id='FREE11_TITLE_HERE'>自由項目１１</span>
+                        </th>
+                        <td><span m:id='FREE11_VALUE_HERE'>自由項目１１</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE12'>
+                        <th class="title"><span m:id='FREE12_TITLE_HERE'>自由項目１２</span>
+                        </th>
+                        <td><span m:id='FREE12_VALUE_HERE'>自由項目１２</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE13'>
+                        <th class="title"><span m:id='FREE13_TITLE_HERE'>自由項目１３</span>
+                        </th>
+                        <td><span m:id='FREE13_VALUE_HERE'>自由項目１３</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE14'>
+                        <th class="title"><span m:id='FREE14_TITLE_HERE'>自由項目１４</span>
+                        </th>
+                        <td><span m:id='FREE14_VALUE_HERE'>自由項目１４</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE15'>
+                        <th class="title"><span m:id='FREE15_TITLE_HERE'>自由項目１５</span>
+                        </th>
+                        <td><span m:id='FREE15_VALUE_HERE'>自由項目１５</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE16'>
+                        <th class="title"><span m:id='FREE16_TITLE_HERE'>自由項目１６</span>
+                        </th>
+                        <td><span m:id='FREE16_VALUE_HERE'>自由項目１６</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE17'>
+                        <th class="title"><span m:id='FREE17_TITLE_HERE'>自由項目１７</span>
+                        </th>
+                        <td><span m:id='FREE17_VALUE_HERE'>自由項目１７</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE18'>
+                        <th class="title"><span m:id='FREE18_TITLE_HERE'>自由項目１８</span>
+                        </th>
+                        <td><span m:id='FREE18_VALUE_HERE'>自由項目１８</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE19'>
+                        <th class="title"><span m:id='FREE19_TITLE_HERE'>自由項目１９</span>
+                        </th>
+                        <td><span m:id='FREE19_VALUE_HERE'>自由項目１９</span></td>
+                    </tr>
+                    <tr m:id='IF_FREE20'>
+                        <th class="title"><span m:id='FREE20_TITLE_HERE'>自由項目２０</span>
+                        </th>
+                        <td><span m:id='FREE20_VALUE_HERE'>自由項目２０</span></td>
+                    </tr>
+                </table>
+                <div class="buttonarea">
+                    <a href="top.html"><img src="images/button_top.gif" width="150" height="27" alt="トップページへ" /></a>
+                </div>
+            </div>
+            <!--cartComplete end-->
+        </div>
+        <!-- =============================================================================== -->
+        <!-- ==================メインコンテンツ END================================================== -->
+        <!-- =============================================================================== -->
+    </div>
+    <!--container end-->
+    <iframe m:id='common.FOOTER_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+    <!-- Yahoo Code for &#37237;&#27597;&#20837;&#12426;&#12520;&#12540;&#12464;&#12523;&#12488;&#36009;&#20419;2013_05_01 Conversion Page -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var yahoo_conversion_id = 1000059018;
+    var yahoo_conversion_label = "7VxFCIX_6wYQu4u41QM";
+    var yahoo_conversion_value = 2480;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://i.yimg.jp/images/listing/tool/cv/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="http://b91.yahoo.co.jp/pagead/conversion/1000059018/?value=2480&amp;label=7VxFCIX_6wYQu4u41QM&amp;guid=ON&amp;script=0&amp;disvt=true" />
+        </div>
+    </noscript>
+    <script type="text/javascript">
+    (function() {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=s0lSO0z";
+        s.parentNode.insertBefore(tagjs, s);
+    }());
+    </script>
+    <noscript>
+        <iframe src="//b.yjtag.jp/iframe?c=s0lSO0z" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+    <img src="https://px.a8.net/cgi-bin/a8fly/sales?pid=s00000003620004&so=order_disp_no&si=6000.1.6000.a8" width="1" height="1">
+    <img src="https://px.a8.net/cgi-bin/a8fly/sales?pid=s00000003620005&so=order_disp_no&si=item_teika.item_amount.gokei.item_cd_only" width="1" height="1">
+    <!-- グローバル変数 -->
+    <img src="https://affiliateone.jp/ad/p/cv?_buyer=376&_article=680&_price=&_buid=order_no" width="1" height="1">
+    <script type="text/javascript" src="https://stardium.jp/sv/action.js"></script>
+    <script type="text/javascript">
+    var adSpid = '60'; //(固定)
+    var adOid = document.forms.HIDDEN_DATA_FORM.ORDER_DISP_NO.value; //注文番号
+    var adQuant = document.forms.HIDDEN_DATA_FORM.ITEM_AMOUNT.value; //数量
+    var adAmount = document.forms.HIDDEN_DATA_FORM.GOKEI.value; //売上合計金額
+    var adPm1 = '*******'; //その他の独自パラメータ
+    adConversion(adSpid, adOid, adQuant, adAmount, adPm1);
+    </script>
+    <noscript><img src="https://stardium.jp/sv/action.php?spid=60&orderid=1&amount=1&quantity=1&adpm1=1&imgtrk=1" width="1" height="1" border="0"></noscript>
+    <!-- afb　ITP対応タグ ここから-->
+    <script src="https://t.afi-b.com/jslib/lpcv.js?cid=91b90834&pid=u8848R" id="afilpcv_u8848R" async="async"></script>
+    <script>
+    document.querySelector("#afilpcv_u8848R").addEventListener("load", function() {
+        afblpcv.cv({
+            siteId: "91b90834",
+            commitData: {
+                pid: "u8848R",
+                u: document.forms.HIDDEN_DATA_FORM.ORDER_DISP_NO.value
+            }
+        });
+    });
+    </script>
+    <!-- afb　ITP対応タグ ここまで-->
+</body>
+
+</html>
