@@ -151,7 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <iframe m:id='common.SIDEBAR_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
         </div>
         <!-- =============================================================================== -->
-        <!-- ==================メインコンテンツ ================================================== -->
+        <!-- ==================メイン コンテンツ ================================================== -->
         <!-- =============================================================================== -->
         <div id="main">
             <!--cartInput start-->
@@ -213,25 +213,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <table summary="ご依頼主（ご請求先）情報">
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" />
-                                名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" /><br />
+                            <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" id="L_NAME" />
+                                名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" id="F_NAME" /><br />
                                 例：山田 太郎</td>
                         </tr>
                         <tr>
                             <th class="title">氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>セイ <input m:id='LAST_KANA_INPUT_HERE' name="lastname_kana" type="text" size="20" value="" /> メイ <input m:id='FIRST_KANA_INPUT_HERE' name="firstname_kana" type="text" size="20" value="" /><br />
+                            <td>セイ <input m:id='LAST_KANA_INPUT_HERE' name="lastname_kana" type="text" size="20" value="" id="L_KANA" /> メイ <input m:id='FIRST_KANA_INPUT_HERE' name="firstname_kana" type="text" size="20" value="" id="F_KANA" /><br />
                                 例：ヤマダ タロウ （全角カナで入力してください。）</td>
                         </tr>
                         <tr>
-                            <th class="title">PCメールアドレス</th>
+                            <th class="title">メールアドレス</th>
                             <td><input m:id='PC_MAIL_INPUT_HERE' name="PC_MAIL" type="text" size="50" value="" /><br />
-                                <span class="hissu">PCメールアドレスか携帯メールアドレスが必須になります。</span><br />
+                                <span class="hissu">メールアドレスが必須になります。</span><br />
                                 例：sample@sample.jp （半角英数字で入力してください。）<br />
                                 ※確認のためメールアドレスを再入力してください。<br />
                                 <input m:id='PC_MAIL_CONFIRM1_INPUT_HERE' name="PC_MAIL_CONFIRM1" type="text" size="23" value="" />@
                                 <input m:id='PC_MAIL_CONFIRM2_INPUT_HERE' name="PC_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th class="title">携帯メールアドレス</th>
                             <td><input m:id='MOBILE_MAIL_INPUT_HERE' name="MOBILE_MAIL" type="text" size="50" value="" /><br />
                                 <span class="hissu">PCメールアドレスか携帯メールアドレスが必須になります。</span><br />
@@ -239,8 +239,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 ※確認のためメールアドレスを再入力してください。<br />
                                 <input m:id='MOBILE_MAIL_CONFIRM1_INPUT_HERE' name="MOBILE_MAIL_CONFIRM1" type="text" size="23" value="" />@
                                 <input m:id='MOBILE_MAIL_CONFIRM2_INPUT_HERE' name="MOBILE_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                             <th class="title">確認メール送信先</th>
                             <td><input type="radio" m:id='SEND_MAIL_PC_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_PC_RADIO_TAG" />
                                 &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_PC">PC</label>
@@ -249,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 &nbsp;&nbsp;<input type="radio" m:id='SEND_MAIL_BOTH_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_BOTH_RADIO_TAG" />
                                 &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_BOTH">PCと携帯</label><br />
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
                             <td><input m:id='ZIP_INPUT_HERE' name="zipcode_first" type="text" size="15" value="" /><br />
@@ -341,94 +341,109 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </table>
                     </div>
                     <h3>お届け先情報</h3>
-                    <p>ご依頼主情報と、お届け先が異なる場合のみご記入ください。</p>
-                    <table summary="お届け先情報">
-                        <tr>
-                            <th class="title">氏名（漢字）</th>
-                            <td>姓 <input m:id='SEND_LAST_NAME_INPUT_HERE' name="send_lastname" type="text" size="20" value="" /> 名 <input m:id='SEND_FIRST_NAME_INPUT_HERE' name="send_firstname" type="text" size="20" value="" /><br />
-                                例：山田 太郎</td>
-                        </tr>
-                        <tr>
-                            <th class="title">氏名（カナ）</th>
-                            <td>セイ <input m:id='SEND_LAST_KANA_INPUT_HERE' name="send_lastname_kana" type="text" size="20" value="" /> メイ <input m:id='SEND_FIRST_KANA_INPUT_HERE' name="send_firstname_kana" type="text" size="20" value="" /><br />
-                                例：ヤマダ タロウ （全角カナで入力してください。）</td>
-                        </tr>
-                        <tr>
-                            <th class="title">郵便番号</th>
-                            <td><input m:id='SEND_ZIP_INPUT_HERE' name="send_zipcode_first" type="text" size="15" value="" /><br />
-                                例：1234567 （半角数字で入力してください。）
-                                <input m:id='SEND_GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" />
-                                <span m:id='SEND_ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td>
-                        </tr>
-                        <tr>
-                            <th class="title">都道府県</th>
-                            <td><select m:id='SEND_ADDRESS1_INPUT_HERE' name="send_prefecture">
-                                    <option selected="selected">-- 選択してください --</option>
-                                    <option value="北海道">北海道</option>
-                                    <option value="青森県">青森県</option>
-                                    <option value="岩手県">岩手県</option>
-                                    <option value="宮城県">宮城県</option>
-                                    <option value="秋田県">秋田県</option>
-                                    <option value="山形県">山形県</option>
-                                    <option value="福島県">福島県</option>
-                                    <option value="茨城県">茨城県</option>
-                                    <option value="栃木県">栃木県</option>
-                                    <option value="群馬県">群馬県</option>
-                                    <option value="埼玉県">埼玉県</option>
-                                    <option value="千葉県">千葉県</option>
-                                    <option value="東京都">東京都</option>
-                                    <option value="神奈川県">神奈川県</option>
-                                    <option value="新潟県">新潟県</option>
-                                    <option value="富山県">富山県</option>
-                                    <option value="石川県">石川県</option>
-                                    <option value="福井県">福井県</option>
-                                    <option value="山梨県">山梨県</option>
-                                    <option value="長野県">長野県</option>
-                                    <option value="岐阜県">岐阜県</option>
-                                    <option value="静岡県">静岡県</option>
-                                    <option value="愛知県">愛知県</option>
-                                    <option value="三重県">三重県</option>
-                                    <option value="滋賀県">滋賀県</option>
-                                    <option value="京都府">京都府</option>
-                                    <option value="大阪府">大阪府</option>
-                                    <option value="兵庫県">兵庫県</option>
-                                    <option value="奈良県">奈良県</option>
-                                    <option value="和歌山県">和歌山県</option>
-                                    <option value="鳥取県">鳥取県</option>
-                                    <option value="島根県">島根県</option>
-                                    <option value="岡山県">岡山県</option>
-                                    <option value="広島県">広島県</option>
-                                    <option value="山口県">山口県</option>
-                                    <option value="徳島県">徳島県</option>
-                                    <option value="香川県">香川県</option>
-                                    <option value="愛媛県">愛媛県</option>
-                                    <option value="高知県">高知県</option>
-                                    <option value="福岡県">福岡県</option>
-                                    <option value="佐賀県">佐賀県</option>
-                                    <option value="長崎県">長崎県</option>
-                                    <option value="熊本県">熊本県</option>
-                                    <option value="大分県">大分県</option>
-                                    <option value="宮崎県">宮崎県</option>
-                                    <option value="鹿児島県">鹿児島県</option>
-                                    <option value="沖縄県">沖縄県</option>
-                                </select></td>
-                        </tr>
-                        <tr>
-                            <th class="title">市区町村・番地</th>
-                            <td><input m:id='SEND_ADDRESS2_INPUT_HERE' name="send_city" type="text" size="50" value="" /><br />
-                                例：○○市○○町1-2-3</td>
-                        </tr>
-                        <tr>
-                            <th class="title">ビル・マンション名</th>
-                            <td><input m:id='SEND_ADDRESS3_INPUT_HERE' name="send_building" type="text" size="50" value="" /><br />
-                                例：○○ビル101</td>
-                        </tr>
-                        <tr>
-                            <th class="title">電話番号</th>
-                            <td><input m:id='SEND_TEL_INPUT_HERE' name="send_tel" type="text" size="50" value="" /><br />
-                                例：03-1234-5678 （半角英数字で入力してください。）</td>
-                        </tr>
-                    </table>
+                    <div class="demo">
+                        <table summary="お届先情報">
+                            <tr>
+                                <th class="title">お届先情報</th>
+                                <td>
+                                    <select name="focus" id="">
+                                        <option value="one">自分の住所に送る</option>
+                                        <option value="two">別な住所に送る</option>
+                                    </select></td>
+                            </tr>
+                        </table>
+                        <div data-focus="one"></div>
+                        <div data-focus="two">
+                            <p>ご依頼主情報と、お届け先が異なる場合のみご記入ください。</p>
+                            <table summary="お届け先情報">
+                                <tr>
+                                    <th class="title">氏名（漢字）</th>
+                                    <td>姓 <input m:id='SEND_LAST_NAME_INPUT_HERE' name="send_lastname" type="text" size="20" value="" id="SEND_L_NAME" /> 名 <input m:id='SEND_FIRST_NAME_INPUT_HERE' name="send_firstname" type="text" size="20" value="" id="SEND_F_NAME" /><br />
+                                        例：山田 太郎</td>
+                                </tr>
+                                <tr>
+                                    <th class="title">氏名（カナ）</th>
+                                    <td>セイ <input m:id='SEND_LAST_KANA_INPUT_HERE' name="send_lastname_kana" type="text" size="20" value="" id="SEND_L_KANA" /> メイ <input m:id='SEND_FIRST_KANA_INPUT_HERE' name="send_firstname_kana" type="text" size="20" value="" id="SEND_F_KANA" /><br />
+                                        例：ヤマダ タロウ （全角カナで入力してください。）</td>
+                                </tr>
+                                <tr>
+                                    <th class="title">郵便番号</th>
+                                    <td><input m:id='SEND_ZIP_INPUT_HERE' name="send_zipcode_first" type="text" size="15" value="" /><br />
+                                        例：1234567 （半角数字で入力してください。）
+                                        <input m:id='SEND_GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" />
+                                        <span m:id='SEND_ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td>
+                                </tr>
+                                <tr>
+                                    <th class="title">都道府県</th>
+                                    <td><select m:id='SEND_ADDRESS1_INPUT_HERE' name="send_prefecture">
+                                            <option selected="selected">-- 選択してください --</option>
+                                            <option value="北海道">北海道</option>
+                                            <option value="青森県">青森県</option>
+                                            <option value="岩手県">岩手県</option>
+                                            <option value="宮城県">宮城県</option>
+                                            <option value="秋田県">秋田県</option>
+                                            <option value="山形県">山形県</option>
+                                            <option value="福島県">福島県</option>
+                                            <option value="茨城県">茨城県</option>
+                                            <option value="栃木県">栃木県</option>
+                                            <option value="群馬県">群馬県</option>
+                                            <option value="埼玉県">埼玉県</option>
+                                            <option value="千葉県">千葉県</option>
+                                            <option value="東京都">東京都</option>
+                                            <option value="神奈川県">神奈川県</option>
+                                            <option value="新潟県">新潟県</option>
+                                            <option value="富山県">富山県</option>
+                                            <option value="石川県">石川県</option>
+                                            <option value="福井県">福井県</option>
+                                            <option value="山梨県">山梨県</option>
+                                            <option value="長野県">長野県</option>
+                                            <option value="岐阜県">岐阜県</option>
+                                            <option value="静岡県">静岡県</option>
+                                            <option value="愛知県">愛知県</option>
+                                            <option value="三重県">三重県</option>
+                                            <option value="滋賀県">滋賀県</option>
+                                            <option value="京都府">京都府</option>
+                                            <option value="大阪府">大阪府</option>
+                                            <option value="兵庫県">兵庫県</option>
+                                            <option value="奈良県">奈良県</option>
+                                            <option value="和歌山県">和歌山県</option>
+                                            <option value="鳥取県">鳥取県</option>
+                                            <option value="島根県">島根県</option>
+                                            <option value="岡山県">岡山県</option>
+                                            <option value="広島県">広島県</option>
+                                            <option value="山口県">山口県</option>
+                                            <option value="徳島県">徳島県</option>
+                                            <option value="香川県">香川県</option>
+                                            <option value="愛媛県">愛媛県</option>
+                                            <option value="高知県">高知県</option>
+                                            <option value="福岡県">福岡県</option>
+                                            <option value="佐賀県">佐賀県</option>
+                                            <option value="長崎県">長崎県</option>
+                                            <option value="熊本県">熊本県</option>
+                                            <option value="大分県">大分県</option>
+                                            <option value="宮崎県">宮崎県</option>
+                                            <option value="鹿児島県">鹿児島県</option>
+                                            <option value="沖縄県">沖縄県</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <th class="title">市区町村・番地</th>
+                                    <td><input m:id='SEND_ADDRESS2_INPUT_HERE' name="send_city" type="text" size="50" value="" /><br />
+                                        例：○○市○○町1-2-3</td>
+                                </tr>
+                                <tr>
+                                    <th class="title">ビル・マンション名</th>
+                                    <td><input m:id='SEND_ADDRESS3_INPUT_HERE' name="send_building" type="text" size="50" value="" /><br />
+                                        例：○○ビル101</td>
+                                </tr>
+                                <tr>
+                                    <th class="title">電話番号</th>
+                                    <td><input m:id='SEND_TEL_INPUT_HERE' name="send_tel" type="text" size="50" value="" /><br />
+                                        例：03-1234-5678 （半角英数字で入力してください。）</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <div m:id='common.IF_NOT_MEMBER'>
                         <h3>会員登録情報</h3>
                         <p m:id='IF_MUST_REGIST_MEMBER'>会員登録のため、下記の情報もご記入ください。</p>
@@ -643,22 +658,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </tr>
                             </tr>
                             <!--
-  <tr>
-    <th class="title">PCメール形式</th>
-    <td><input type="radio" m:id='PC_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_TEXt" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_TEXt">テキスト</label>
-    &nbsp;&nbsp;<input type="radio" m:id='PC_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_HTML" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_HTML">HTML</label><br />
-    </td>
-  </tr>
-  <tr>
-    <th class="title">携帯メール形式</th>
-    <td><input type="radio" m:id='MOBILE_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt">テキスト</label>
-    &nbsp;&nbsp;<input type="radio" m:id='MOBILE_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_HTML" />
-    &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_HTML">HTML</label><br />
-    </td>
-  </tr>
+    <tr>
+        <th class="title">PCメール形式</th>
+        <td><input type="radio" m:id='PC_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_TEXt" />
+        &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_TEXt">テキスト</label>
+        &nbsp;&nbsp;<input type="radio" m:id='PC_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_PC_HTML" />
+        &nbsp;<label for="CART_SEISAN_MAIL_TYPE_PC_HTML">HTML</label><br />
+        </td>
+    </tr>
+    <tr>
+        <th class="title">携帯メール形式</th>
+        <td><input type="radio" m:id='MOBILE_MAIL_TYPE_TEXT_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt" />
+        &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_TEXt">テキスト</label>
+        &nbsp;&nbsp;<input type="radio" m:id='MOBILE_MAIL_TYPE_HTML_INPUT_HERE' id="CART_SEISAN_MAIL_TYPE_MOBILE_HTML" />
+        &nbsp;<label for="CART_SEISAN_MAIL_TYPE_MOBILE_HTML">HTML</label><br />
+        </td>
+    </tr>
 -->
                             <tr>
                                 <th class="title">メールマガジン <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_MUST_REGIST_MEMBER' /></th>
@@ -797,208 +812,230 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <font color="#FF0000">
                                     <!--※</font>定期購入（トクトク便含む）をご注文の場合、クレジットカードを選択頂きますと、<strong>初回お届け時のみのご利用</strong>となります。2回目以降のお届けは、<strong>自動的に"代金引換"</strong>でのお支払いとなりますこと、何卒ご了承ください。-->
                             </p>
-                            <table summary="お支払い方法">
+                            <div class="demo">
+                                <table summary="お支払い方法">
+                                    <tr>
+                                        <th class="title">
+                                            お支払い方法
+                                        </th>
+                                        <td>
+                                            <select name="focus" id="">
+                                            <option value="daibiki">
+                                                代引き
+                                            </option>
+                                            <option value="credit">
+                                                クレジットカード
+                                            </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- <table summary="お支払い方法">
                                 <tr m:id='LOOP_KESSAI'>
-                                    <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" class="js-check" value="1" onclick="formSwitch()"/></th>
+                                    <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" /></th>
                                     <td><span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span></td>
                                 </tr>
-                            </table>
-                            <div m:id='IF_CREDIT'>
-                                <h3>お支払い情報</h3>
-                                <!-- ゼウストークン決済用入力フォーム -->
-                                <div id="zeus_token_card_info_area" m:id='IF_ZEUS_CREDIT_TOKEN'>
-                                    <table m:id="INPUT_CREDIT_INFO_TABLE_TAG">
-                                        <tbody>
-                                            <tr m:id='IF_CREDIT_KAISU'>
-                                                <th>お支払い回数</th>
-                                                <td>
-                                                    <select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
-                                                        <option value="" selected="selected">-- 回数を指定 --</option>
-                                                        <option value="01">1回</option>
-                                                        <option value="02">2回</option>
-                                                        <option value="03">3回</option>
-                                                    </select>
-                                                    <label class="error_color" id="CREDIT_COUNT_ERROR" style="color :red;"></label>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody m:id="IF_SAVED_CARD">
-                                            <tr>
-                                                <th>登録済みカード</th>
-                                                <td>
-                                                    <div m:id='LOOP_SAVED_CARD'>
-                                                        <input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' />
-                                                        ****-****-****-<span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span>
-                                                        <span class="expiration_date">
-                                                            有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>02</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2019</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="new">
-                                                        <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" /> 新規クレジットカード
-                                                        <table class="newCreditCard">
-                                                            <tr>
-                                                                <th class="title">カード名義</th>
-                                                                <td>
-                                                                    <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br />
-                                                                    例：TARO YAMADA
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class="title">カード番号</th>
-                                                                <td>
-                                                                    <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br />
-                                                                    例：1111222233334444（ハイフン不要）
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class="title">カード有効期限</th>
-                                                                <td>
-                                                                    <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
-                                                                        <option>-- 月を指定 --</option>
-                                                                    </select> 月
-                                                                    <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
-                                                                        <option>-- 年を指定 --</option>
-                                                                    </select> 年
-                                                                </td>
-                                                            </tr>
-                                                            <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
-                                                                <th>カードの登録</th>
-                                                                <td>
-                                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
-                                                                    <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
-                                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
-                                                                    <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody m:id="IF_SAVED_CARD" m:NOT="">
-                                            <tr id="zeus_token_action_type_new_area">
-                                                <th class="title">新規クレジットカード</th>
-                                                <td>
-                                                    <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">カード名義</th>
-                                                <td>
-                                                    <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br />
-                                                    例：TARO YAMADA
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">カード番号</th>
-                                                <td>
-                                                    <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br />
-                                                    例：1111222233334444（ハイフン不要）
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">カード有効期限</th>
-                                                <td>
-                                                    <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
-                                                        <option>-- 月を指定 --</option>
-                                                    </select> 月
-                                                    <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
-                                                        <option>-- 年を指定 --</option>
-                                                    </select> 年
-                                                </td>
-                                            </tr>
-                                            <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
-                                                <th>カードの登録</th>
-                                                <td>
-                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
-                                                    <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
-                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
-                                                    <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody>
-                                            <tr id="zeus_token_card_cvv_area">
-                                                <th class="title">セキュリティコード</th>
-                                                <td>
-                                                    <input type="tel" value="" id="zeus_token_card_cvv" name="zeus_token_card_cvv" size="4" maxlength="5" /><br />
-                                                    <img src="images/security_code.gif" alt="セキュリティコード表示例" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div id="zeus_token_card_hidden_area"></div>
-                                </div>
-                                <!-- ゼウストークン決済用入力フォーム ここまで-->
-                                <div m:id='IF_CREDIT_TOKEN'>
-                                    <span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
-                                </div>
-                                <div m:id='IF_ZEUS_CREDIT_TOKEN' m:NOT="">
-                                    <!-- 既存のカード入力フォーム -->
-                                    <table summary="お支払い情報">
-                                        <tr m:id='IF_CREDIT_KAISU'>
-                                            <th class="title">お支払い回数</th>
-                                            <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
-                                                    <option value="" selected="selected">-- 回数を指定 --</option>
-                                                    <option value="01">1回</option>
-                                                    <option value="02">2回</option>
-                                                    <option value="03">3回</option>
-                                                </select></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="title">カード名義</th>
-                                            <td><input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" /><br />
-                                                例：TARO YAMADA</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="title">カード番号</th>
-                                            <td class="cardnumber_td">
-                                                <!--            <input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
-                                                <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                <input m:id='CREDIT_NUMBER4_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                <label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label>
-                                                <br />例：1111222233334444（ハイフン不要）
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="title">有効期限</th>
-                                            <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
-                                                    <option value="" selected="selected">-- 月を指定 --</option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
-                                                    <option value="06">6</option>
-                                                    <option value="07">7</option>
-                                                    <option value="08">8</option>
-                                                    <option value="09">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                </select> 月 <select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE' name="card_year">
-                                                    <option value="" selected="selected">-- 年を指定 --</option>
-                                                    <option value="09">2009</option>
-                                                    <option value="10">2010</option>
-                                                    <option value="11">2011</option>
-                                                    <option value="12">2012</option>
-                                                    <option value="13">2013</option>
-                                                    <option value="14">2014</option>
-                                                    <option value="15">2015</option>
-                                                    <option value="16">2016</option>
-                                                    <option value="17">2017</option>
-                                                    <option value="18">2018</option>
-                                                    <option value="19">2019</option>
-                                                </select> 年</td>
-                                        </tr>
-                                        <tr m:id='IF_CREDIT_SECURITY_CD'>
-                                            <th class="title">セキュリティコード</th>
-                                            <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
-                                        </tr>
-                                    </table>
-                                    　　　　　　　　　　　　
+                            </table> -->
+                            <div data-focus="daibiki"></div>
+                                <div data-focus="credit">
+                                    <div m:id='IF_CREDIT'>
+                                        <h3>お支払い情報</h3>
+                                        <!-- ゼウストークン決済用入力フォーム -->
+                                        <div id="zeus_token_card_info_area" m:id='IF_ZEUS_CREDIT_TOKEN'>
+                                            <table m:id="INPUT_CREDIT_INFO_TABLE_TAG">
+                                                <tbody>
+                                                    <tr m:id='IF_CREDIT_KAISU'>
+                                                        <th>お支払い回数</th>
+                                                        <td>
+                                                            <select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+                                                                <option value="" selected="selected">-- 回数を指定 --</option>
+                                                                <option value="01">1回</option>
+                                                                <option value="02">2回</option>
+                                                                <option value="03">3回</option>
+                                                            </select>
+                                                            <label class="error_color" id="CREDIT_COUNT_ERROR" style="color :red;"></label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody m:id="IF_SAVED_CARD">
+                                                    <tr>
+                                                        <th>登録済みカード</th>
+                                                        <td>
+                                                            <div m:id='LOOP_SAVED_CARD'>
+                                                                <input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' />
+                                                                ****-****-****-<span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span>
+                                                                <span class="expiration_date">
+                                                                    有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>02</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2019</span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="new">
+                                                                <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" /> 新規クレジットカード
+                                                                <table class="newCreditCard">
+                                                                    <tr>
+                                                                        <th class="title">カード名義</th>
+                                                                        <td>
+                                                                            <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br />
+                                                                            例：TARO YAMADA
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="title">カード番号</th>
+                                                                        <td>
+                                                                            <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br />
+                                                                            例：1111222233334444（ハイフン不要）
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="title">カード有効期限</th>
+                                                                        <td>
+                                                                            <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
+                                                                                <option>-- 月を指定 --</option>
+                                                                            </select> 月
+                                                                            <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
+                                                                                <option>-- 年を指定 --</option>
+                                                                            </select> 年
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
+                                                                        <th>カードの登録</th>
+                                                                        <td>
+                                                                            <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
+                                                                            <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
+                                                                            <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
+                                                                            <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody m:id="IF_SAVED_CARD" m:NOT="">
+                                                    <tr id="zeus_token_action_type_new_area">
+                                                        <th class="title">新規クレジットカード</th>
+                                                        <td>
+                                                            <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="title">カード名義</th>
+                                                        <td>
+                                                            <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br />
+                                                            例：TARO YAMADA
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="title">カード番号</th>
+                                                        <td>
+                                                            <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br />
+                                                            例：1111222233334444（ハイフン不要）
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="title">カード有効期限</th>
+                                                        <td>
+                                                            <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
+                                                                <option>-- 月を指定 --</option>
+                                                            </select> 月
+                                                            <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
+                                                                <option>-- 年を指定 --</option>
+                                                            </select> 年
+                                                        </td>
+                                                    </tr>
+                                                    <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
+                                                        <th>カードの登録</th>
+                                                        <td>
+                                                            <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
+                                                            <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
+                                                            <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
+                                                            <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr id="zeus_token_card_cvv_area">
+                                                        <th class="title">セキュリティコード</th>
+                                                        <td>
+                                                            <input type="tel" value="" id="zeus_token_card_cvv" name="zeus_token_card_cvv" size="4" maxlength="5" /><br />
+                                                            <img src="images/security_code.gif" alt="セキュリティコード表示例" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div id="zeus_token_card_hidden_area"></div>
+                                        </div>
+                                        <!-- ゼウストークン決済用入力フォーム ここまで-->
+                                        <div m:id='IF_CREDIT_TOKEN'>
+                                            <span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
+                                        </div>
+                                        <div m:id='IF_ZEUS_CREDIT_TOKEN' m:NOT="">
+                                            <!-- 既存のカード入力フォーム -->
+                                            <table summary="お支払い情報">
+                                                <tr m:id='IF_CREDIT_KAISU'>
+                                                    <th class="title">お支払い回数</th>
+                                                    <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+                                                            <option value="" selected="selected">-- 回数を指定 --</option>
+                                                            <option value="01">1回</option>
+                                                            <option value="02">2回</option>
+                                                            <option value="03">3回</option>
+                                                        </select></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="title">カード名義</th>
+                                                    <td><input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" /><br />
+                                                        例：TARO YAMADA</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="title">カード番号</th>
+                                                    <td class="cardnumber_td">
+                                                        <!--                        <input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
+                                                        <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                        <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                        <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                        <input m:id='CREDIT_NUMBER4_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                        <label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label>
+                                                        <br />例：1111222233334444（ハイフン不要）
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="title">有効期限</th>
+                                                    <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
+                                                            <option value="" selected="selected">-- 月を指定 --</option>
+                                                            <option value="01">1</option>
+                                                            <option value="02">2</option>
+                                                            <option value="03">3</option>
+                                                            <option value="04">4</option>
+                                                            <option value="05">5</option>
+                                                            <option value="06">6</option>
+                                                            <option value="07">7</option>
+                                                            <option value="08">8</option>
+                                                            <option value="09">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select> 月 <select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE' name="card_year">
+                                                            <option value="" selected="selected">-- 年を指定 --</option>
+                                                            <option value="09">2009</option>
+                                                            <option value="10">2010</option>
+                                                            <option value="11">2011</option>
+                                                            <option value="12">2012</option>
+                                                            <option value="13">2013</option>
+                                                            <option value="14">2014</option>
+                                                            <option value="15">2015</option>
+                                                            <option value="16">2016</option>
+                                                            <option value="17">2017</option>
+                                                            <option value="18">2018</option>
+                                                            <option value="19">2019</option>
+                                                        </select> 年</td>
+                                                </tr>
+                                                <tr m:id='IF_CREDIT_SECURITY_CD'>
+                                                    <th class="title">セキュリティコード</th>
+                                                    <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
+                                                </tr>
+                                            </table>
+                                            　　　　　　　　　　　　
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1267,84 +1304,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // トークン決済JavaScript
         </script>
     </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/jquery.autoKana.js"></script>
+    <script src="js/jquery.focused.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $.fn.autoKana("#F_NAME", "#F_KANA", { katakana: true });
+        $.fn.autoKana("#L_NAME", "#L_KANA", { katakana: true });
+        $.fn.autoKana("#SEND_F_NAME", "#SEND_F_KANA", { katakana: true });
+        $.fn.autoKana("#SEND_L_NAME", "#SEND_L_KANA", { katakana: true });
+    });
+    </script>
     <script>
-    var selecterBox = document.getElementById('sample');
-    var selecter = document.getElementById('changeSelect');
-    var item1 = document.getElementById('Box');
-    var item2 = document.getElementById('Box2');
-    var item3 = document.getElementById('Box3');
-    var item4 = document.getElementById('Box4');
-    var item5 = document.getElementById('Box5');
-    selecterBox.style.display = "none";
-    item1.style.display = "none";
-    item2.style.display = "none";
-    item3.style.display = "none";
-    item4.style.display = "none";
-    item5.style.display = "none";
-
-    function formSwitch() {
-        check = document.getElementsByClassName('js-check')
-        if (check[0].checked) {
-            selecterBox.style.display = "none";
-            item1.style.display = "none";
-            item2.style.display = "none";
-            item3.style.display = "none";
-            item4.style.display = "none";
-            item5.style.display = "none";
-            selecter.selectedIndex = 0;
-
-        } else if (check[1].checked) {
-            selecterBox.style.display = "block";
-
-        } else {
-            selecterBox.style.display = "none";
-        }
-    }
-    window.addEventListener('load', formSwitch());
-
-    function entryChange2() {
-        if (document.getElementById('changeSelect')) {
-            id = document.getElementById('changeSelect').value;
-
-            if (id == 'select2') {
-                item1.style.display = "block";
-                item2.style.display = "none";
-                item3.style.display = "none";
-                item4.style.display = "none";
-                item5.style.display = "none";
-            } else if (id == 'select3') {
-                item1.style.display = "none";
-                item2.style.display = "block";
-                item3.style.display = "none";
-                item4.style.display = "none";
-                item5.style.display = "none";
-            } else if (id == 'select4') {
-                item1.style.display = "none";
-                item2.style.display = "none";
-                item3.style.display = "block";
-                item4.style.display = "none";
-                item5.style.display = "none";
-            } else if (id == 'select5') {
-                item1.style.display = "none";
-                item2.style.display = "none";
-                item3.style.display = "none";
-                item4.style.display = "block";
-                item5.style.display = "none";
-            } else if (id == 'select6') {
-                item1.style.display = "none";
-                item2.style.display = "none";
-                item3.style.display = "none";
-                item4.style.display = "none";
-                item5.style.display = "block";
-            } else {
-                item1.style.display = "none";
-                item2.style.display = "none";
-                item3.style.display = "none";
-                item4.style.display = "none";
-                item5.style.display = "none";
-            }
-        }
-    }
+    $(function domReady() {
+        $(".demo").focused();
+    });
     </script>
 </body>
 
