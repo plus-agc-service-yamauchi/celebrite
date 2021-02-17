@@ -1026,6 +1026,7 @@
                                     </table>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div m:id='IF_HAISO'>
@@ -1314,6 +1315,22 @@
         $(function domReady() {
             $(".demo").focused();
         });
+    </script>
+    <script>
+        function formSwitch() {
+            hoge = document.getElementsByName('maker')
+            if (hoge[0].checked) {
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.3').style.display = "";
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.17').style.display = "none";
+            } else if (hoge[1].checked) {
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.3').style.display = "none";
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.17').style.display = "";
+            } else {
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.3').style.display = "none";
+                document.getElementById('jp.co.interfactory.util.httpKESSAI_ID.17').style.display = "none";
+            }
+        }
+        window.addEventListener('load', formSwitch());
     </script>
 </body>
 
