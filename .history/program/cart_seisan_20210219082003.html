@@ -151,15 +151,6 @@
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2242087806116352&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
-    <style>
-        .text {
-            display: none;
-        }
-
-        .text01 {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
@@ -837,174 +828,169 @@
                                     <!--※</font>定期購入（トクトク便含む）をご注文の場合、クレジットカードを選択頂きますと、<strong>初回お届け時のみのご利用</strong>となります。2回目以降のお届けは、<strong>自動的に"代金引換"</strong>でのお支払いとなりますこと、何卒ご了承ください。-->
                             </p>
                             <table summary="お支払い方法">
-                                <!-- <tr m:id='LOOP_KESSAI'> -->
-                                <!-- <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" /></th> -->
-                                <!-- <td><span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span></td> -->
-                                <!-- </tr> -->
                                 <tr m:id='LOOP_KESSAI'>
-                                    <th class="title"><input m:kessai_id="3" name="payment" type="radio" value="" checked="checked" /></th>
+                                    <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" /></th>
                                     <td><span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span></td>
                                 </tr>
                             </table>
-                            <div class="text text01">代引き</div>
-                            <div class="text text02">
-                                <div m:id='IF_CREDIT'>
-                                    <h3>お支払い情報</h3>
-                                    <!-- ゼウストークン決済用入力フォーム -->
-                                    <div id="zeus_token_card_info_area" m:id='IF_ZEUS_CREDIT_TOKEN'>
-                                        <table m:id="INPUT_CREDIT_INFO_TABLE_TAG">
-                                            <tbody>
-                                                <tr m:id='IF_CREDIT_KAISU'>
-                                                    <th>お支払い回数</th>
-                                                    <td>
-                                                        <select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+
+                            <div m:id='IF_CREDIT'>
+                                <h3>お支払い情報</h3>
+                                <!-- ゼウストークン決済用入力フォーム -->
+                                <div id="zeus_token_card_info_area" m:id='IF_ZEUS_CREDIT_TOKEN'>
+                                    <table m:id="INPUT_CREDIT_INFO_TABLE_TAG">
+                                        <tbody>
+                                            <tr m:id='IF_CREDIT_KAISU'>
+                                                <th>お支払い回数</th>
+                                                <td>
+                                                    <select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
                                                             <option value="" selected="selected">-- 回数を指定 --</option>
                                                             <option value="01">1回</option>
                                                             <option value="02">2回</option>
                                                             <option value="03">3回</option>
                                                         </select>
-                                                        <label class="error_color" id="CREDIT_COUNT_ERROR" style="color :red;"></label>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                            <tbody m:id="IF_SAVED_CARD">
-                                                <tr>
-                                                    <th>登録済みカード</th>
-                                                    <td>
-                                                        <div m:id='LOOP_SAVED_CARD'>
-                                                            <input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' /> ****-****-****-
-                                                            <span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span>
-                                                            <span class="expiration_date">
+                                                    <label class="error_color" id="CREDIT_COUNT_ERROR" style="color :red;"></label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody m:id="IF_SAVED_CARD">
+                                            <tr>
+                                                <th>登録済みカード</th>
+                                                <td>
+                                                    <div m:id='LOOP_SAVED_CARD'>
+                                                        <input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' /> ****-****-****-
+                                                        <span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span>
+                                                        <span class="expiration_date">
                                                                 有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>02</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2019</span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="new">
-                                                            <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" /> 新規クレジットカード
-                                                            <table class="newCreditCard">
-                                                                <tr>
-                                                                    <th class="title">カード名義</th>
-                                                                    <td>
-                                                                        <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br /> 例：TARO YAMADA
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="title">カード番号</th>
-                                                                    <td>
-                                                                        <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br /> 例：1111222233334444（ハイフン不要）
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="title">カード有効期限</th>
-                                                                    <td>
-                                                                        <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
+                                                        </span>
+                                                    </div>
+                                                    <div class="new">
+                                                        <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" /> 新規クレジットカード
+                                                        <table class="newCreditCard">
+                                                            <tr>
+                                                                <th class="title">カード名義</th>
+                                                                <td>
+                                                                    <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br /> 例：TARO YAMADA
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="title">カード番号</th>
+                                                                <td>
+                                                                    <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br /> 例：1111222233334444（ハイフン不要）
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="title">カード有効期限</th>
+                                                                <td>
+                                                                    <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
                                                                             <option>-- 月を指定 --</option>
                                                                         </select> 月
-                                                                        <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
+                                                                    <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
                                                                             <option>-- 年を指定 --</option>
                                                                         </select> 年
-                                                                    </td>
-                                                                </tr>
-                                                                <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
-                                                                    <th>カードの登録</th>
-                                                                    <td>
-                                                                        <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
-                                                                        <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
-                                                                        <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
-                                                                        <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                            <tbody m:id="IF_SAVED_CARD" m:NOT="">
-                                                <tr id="zeus_token_action_type_new_area">
-                                                    <th class="title">新規クレジットカード</th>
-                                                    <td>
-                                                        <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="title">カード名義</th>
-                                                    <td>
-                                                        <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br /> 例：TARO YAMADA
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="title">カード番号</th>
-                                                    <td>
-                                                        <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br /> 例：1111222233334444（ハイフン不要）
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="title">カード有効期限</th>
-                                                    <td>
-                                                        <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
+                                                                </td>
+                                                            </tr>
+                                                            <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
+                                                                <th>カードの登録</th>
+                                                                <td>
+                                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
+                                                                    <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
+                                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
+                                                                    <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody m:id="IF_SAVED_CARD" m:NOT="">
+                                            <tr id="zeus_token_action_type_new_area">
+                                                <th class="title">新規クレジットカード</th>
+                                                <td>
+                                                    <input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="title">カード名義</th>
+                                                <td>
+                                                    <input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /><br /> 例：TARO YAMADA
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="title">カード番号</th>
+                                                <td>
+                                                    <input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" /><br /> 例：1111222233334444（ハイフン不要）
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="title">カード有効期限</th>
+                                                <td>
+                                                    <select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
                                                             <option>-- 月を指定 --</option>
                                                         </select> 月
-                                                        <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
+                                                    <select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
                                                             <option>-- 年を指定 --</option>
                                                         </select> 年
-                                                    </td>
-                                                </tr>
-                                                <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
-                                                    <th>カードの登録</th>
-                                                    <td>
-                                                        <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
-                                                        <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
-                                                        <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
-                                                        <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                            <tbody>
-                                                <tr id="zeus_token_card_cvv_area">
-                                                    <th class="title">セキュリティコード</th>
-                                                    <td>
-                                                        <input type="tel" value="" id="zeus_token_card_cvv" name="zeus_token_card_cvv" size="4" maxlength="5" /><br />
-                                                        <img src="images/security_code.gif" alt="セキュリティコード表示例" />
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div id="zeus_token_card_hidden_area"></div>
-                                    </div>
-                                    <!-- ゼウストークン決済用入力フォーム ここまで-->
-                                    <div m:id='IF_CREDIT_TOKEN'>
-                                        <span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
-                                    </div>
-                                    <div m:id='IF_ZEUS_CREDIT_TOKEN' m:NOT="">
-                                        <!-- 既存のカード入力フォーム -->
-                                        <table summary="お支払い情報">
-                                            <tr m:id='IF_CREDIT_KAISU'>
-                                                <th class="title">お支払い回数</th>
-                                                <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+                                                </td>
+                                            </tr>
+                                            <tr m:id='common.IF_USE_MEMBER_CREDIT_SAVE'>
+                                                <th>カードの登録</th>
+                                                <td>
+                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_ON_TAG" id="SAVE_NEW_CARD_RADIO_ON" />
+                                                    <label for="SAVE_NEW_CARD_RADIO_ON">このカードを登録する</label>
+                                                    <input type="radio" name="save_card" m:id="SAVE_NEW_CARD_RADIO_OFF_TAG" id="SAVE_NEW_CARD_RADIO_OFF" />
+                                                    <label for="SAVE_NEW_CARD_RADIO_OFF">このカードを登録しない</label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr id="zeus_token_card_cvv_area">
+                                                <th class="title">セキュリティコード</th>
+                                                <td>
+                                                    <input type="tel" value="" id="zeus_token_card_cvv" name="zeus_token_card_cvv" size="4" maxlength="5" /><br />
+                                                    <img src="images/security_code.gif" alt="セキュリティコード表示例" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div id="zeus_token_card_hidden_area"></div>
+                                </div>
+                                <!-- ゼウストークン決済用入力フォーム ここまで-->
+                                <div m:id='IF_CREDIT_TOKEN'>
+                                    <span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
+                                </div>
+                                <div m:id='IF_ZEUS_CREDIT_TOKEN' m:NOT="">
+                                    <!-- 既存のカード入力フォーム -->
+                                    <table summary="お支払い情報">
+                                        <tr m:id='IF_CREDIT_KAISU'>
+                                            <th class="title">お支払い回数</th>
+                                            <td><select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
                                                         <option value="" selected="selected">-- 回数を指定 --</option>
                                                         <option value="01">1回</option>
                                                         <option value="02">2回</option>
                                                         <option value="03">3回</option>
                                                     </select></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">カード名義</th>
-                                                <td><input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" /><br /> 例：TARO YAMADA</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">カード番号</th>
-                                                <td class="cardnumber_td">
-                                                    <!--						<input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
-                                                    <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                    <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                    <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                    <input m:id='CREDIT_NUMBER4_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
-                                                    <label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label>
-                                                    <br />例：1111222233334444（ハイフン不要）
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="title">有効期限</th>
-                                                <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
+                                        </tr>
+                                        <tr>
+                                            <th class="title">カード名義</th>
+                                            <td><input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" /><br /> 例：TARO YAMADA</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="title">カード番号</th>
+                                            <td class="cardnumber_td">
+                                                <!--						<input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
+                                                <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                <input m:id='CREDIT_NUMBER4_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+                                                <label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label>
+                                                <br />例：1111222233334444（ハイフン不要）
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="title">有効期限</th>
+                                            <td><select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
                                                         <option value="" selected="selected">-- 月を指定 --</option>
                                                         <option value="01">1</option>
                                                         <option value="02">2</option>
@@ -1032,13 +1018,12 @@
                                                         <option value="18">2018</option>
                                                         <option value="19">2019</option>
                                                     </select> 年</td>
-                                            </tr>
-                                            <tr m:id='IF_CREDIT_SECURITY_CD'>
-                                                <th class="title">セキュリティコード</th>
-                                                <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                        </tr>
+                                        <tr m:id='IF_CREDIT_SECURITY_CD'>
+                                            <th class="title">セキュリティコード</th>
+                                            <td><input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" /></td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
