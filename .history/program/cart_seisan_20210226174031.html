@@ -1338,18 +1338,18 @@
     </script>
     <script>
         function formSwitch() {
-            hoge = document.getElementsByName('KESSAI_ID')
+            hoge = document.getElementsByName('maker')
             if (hoge[0].checked) {
-                // 代引きが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "";
-                document.getElementById('creditcard').style.display = "none";
+                // 好きな食べ物が選択されたら下記を実行します
+                document.getElementById('foodList').style.display = "";
+                document.getElementById('placeList').style.display = "none";
             } else if (hoge[1].checked) {
-                // クレジットが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "";
+                // 好きな場所が選択されたら下記を実行します
+                document.getElementById('foodList').style.display = "none";
+                document.getElementById('placeList').style.display = "";
             } else {
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "none";
+                document.getElementById('foodList').style.display = "none";
+                document.getElementById('placeList').style.display = "none";
             }
         }
         window.addEventListener('load', formSwitch());

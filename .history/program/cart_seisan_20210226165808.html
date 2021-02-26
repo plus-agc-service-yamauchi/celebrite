@@ -837,23 +837,23 @@
                                     <!--※</font>定期購入（トクトク便含む）をご注文の場合、クレジットカードを選択頂きますと、<strong>初回お届け時のみのご利用</strong>となります。2回目以降のお届けは、<strong>自動的に"代金引換"</strong>でのお支払いとなりますこと、何卒ご了承ください。-->
                             </p>
                             <table summary="お支払い方法">
-                                <tbody>
-                                    <tr>
-                                        <th class="title"><span class="HTMLFORM_ELEMENT"><input type="radio" name="KESSAI_ID" value="3" id="jp.co.interfactory.util.httpKESSAI_ID.3" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" onclick="formSwitch()" checked>&nbsp;<label for="jp.co.interfactory.util.httpKESSAI_ID.3">代金引換</label></span></th>
-                                        <td>商品をお届けの際、配達員に代金をお支払いただく方法です。</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="title"><span class="HTMLFORM_ELEMENT"><input type="radio" name="KESSAI_ID" value="17" id="jp.co.interfactory.util.httpKESSAI_ID.17" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" onclick="formSwitch()">&nbsp;<label for="jp.co.interfactory.util.httpKESSAI_ID.17">クレジットカード</label></span></th>
-                                        <td>オンライン上でのクレジット決済になります。</td>
-                                    </tr>
-                                </tbody>
-                                <!-- <tr m:id='LOOP_KESSAI'> -->
-                                <!-- <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" /></th> -->
-                                <!-- <td><span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span></td> -->
+                                <!-- <tbody> -->
+                                <!-- <tr> -->
+                                <!-- <th class="title"><span class="HTMLFORM_ELEMENT"><input type="radio" name="KESSAI_ID" value="3" id="jp.co.interfactory.util.httpKESSAI_ID.3" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" checked="checked">&nbsp;<label for="jp.co.interfactory.util.httpKESSAI_ID.3">代金引換</label></span></th> -->
+                                <!-- <td>商品をお届けの際、配達員に代金をお支払いただく方法です。</td> -->
                                 <!-- </tr> -->
+                                <!-- <tr> -->
+                                <!-- <th class="title"><span class="HTMLFORM_ELEMENT"><input type="radio" name="KESSAI_ID" value="17" id="jp.co.interfactory.util.httpKESSAI_ID.17" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);">&nbsp;<label for="jp.co.interfactory.util.httpKESSAI_ID.17">クレジットカード</label></span></th> -->
+                                <!-- <td>オンライン上でのクレジット決済になります。</td> -->
+                                <!-- </tr> -->
+                                <!-- </tbody> -->
+                                <tr m:id='LOOP_KESSAI'>
+                                    <th class="title"><input m:id='KESSAI_ID_INPUT_RADIO_HERE' name="payment" type="radio" value="" /></th>
+                                    <td><span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span></td>
+                                </tr>
                             </table>
-                            <div id="daibiki">代引き</div>
-                            <div id="creditcard">
+                            <div class="text text01">代引き</div>
+                            <div class="text text02">
                                 <div m:id='IF_CREDIT'>
                                     <h3>お支払い情報</h3>
                                     <!-- ゼウストークン決済用入力フォーム -->
@@ -1337,22 +1337,17 @@
         });
     </script>
     <script>
-        function formSwitch() {
-            hoge = document.getElementsByName('KESSAI_ID')
-            if (hoge[0].checked) {
-                // 代引きが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "";
-                document.getElementById('creditcard').style.display = "none";
-            } else if (hoge[1].checked) {
-                // クレジットが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "";
-            } else {
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "none";
-            }
-        }
-        window.addEventListener('load', formSwitch());
+        $(function() {
+            $('[name="KESSAI_ID"]:radio').change(function() {
+                if ($('[id=jp.co.interfactory.util.httpKESSAI_ID.3]').prop('checked')) {
+                    $('.text').fadeOut();
+                    $('.text01').fadeIn();
+                } else if ($('[id=jp.co.interfactory.util.httpKESSAI_ID.17]').prop('checked')) {
+                    $('.text').fadeOut();
+                    $('.text02').fadeIn();
+                }
+            });
+        });
     </script>
 </body>
 

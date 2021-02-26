@@ -1337,22 +1337,17 @@
         });
     </script>
     <script>
-        function formSwitch() {
-            hoge = document.getElementsByName('KESSAI_ID')
-            if (hoge[0].checked) {
-                // 代引きが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "";
-                document.getElementById('creditcard').style.display = "none";
-            } else if (hoge[1].checked) {
-                // クレジットが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "";
-            } else {
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "none";
-            }
-        }
-        window.addEventListener('load', formSwitch());
+        $(function() {
+            $('[name="KESSAI_ID"]:radio').change(function() {
+                if ($('[id=jp.co.interfactory.util.httpKESSAI_ID.3]').prop('checked')) {
+                    $('.text').fadeOut();
+                    $('.text01').fadeIn();
+                } else if ($('[id=jp.co.interfactory.util.httpKESSAI_ID.17]').prop('checked')) {
+                    $('.text').fadeOut();
+                    $('.text02').fadeIn();
+                }
+            });
+        });
     </script>
 </body>
 
