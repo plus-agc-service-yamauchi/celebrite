@@ -155,7 +155,7 @@
         .text {
             display: none;
         }
-
+        
         .text01 {
             display: block;
         }
@@ -1312,25 +1312,38 @@
             // トークン決済JavaScript
         </script>
     </div>
-
-    <script src="js/jquery.autoKana.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+    <!-- <script src="js/jquery.autoKana.js"></script> -->
     <script src="js/jquery.focused.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $.fn.autoKana("#F_NAME", "#F_KANA", {
+    <script src="js/autokana.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AutoKana.bind("#L_NAME", "#L_KANA", {
                 katakana: true
             });
-            $.fn.autoKana("#L_NAME", "#L_KANA", {
+            AutoKana.bind("#F_NAME", "#F_KANA", {
+                katakana: true
+            });
+            AutoKana.bind("#SEND_L_NAME", "#SEND_L_KANA", {
+                katakana: true
+            });
+            AutoKana.bind("#SEND_F_NAME", "#SEND_F_KANA", {
                 katakana: true
             });
         });
     </script>
     <!-- <script type="text/javascript"> -->
     <!-- $(function() { -->
-    <!-- $.fn.autoKana("#SEND_F_NAME", "#SEND_F_KANA", { -->
+    <!-- $.fn.autoKana("#L_NAME", "#L_KANA", { -->
+    <!-- katakana: true -->
+    <!-- }); -->
+    <!-- $.fn.autoKana("#F_NAME", "#F_KANA", { -->
     <!-- katakana: true -->
     <!-- }); -->
     <!-- $.fn.autoKana("#SEND_L_NAME", "#SEND_L_KANA", { -->
+    <!-- katakana: true -->
+    <!-- }); -->
+    <!-- $.fn.autoKana("##SEND_F_NAME", "#SEND_F_KANA", { -->
     <!-- katakana: true -->
     <!-- }); -->
     <!-- }); -->
