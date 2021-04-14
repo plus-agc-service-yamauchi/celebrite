@@ -3,30 +3,30 @@
 
 <head>
     <script data-obct type="text/javascript">
-        /** DO NOT MODIFY THIS CODE**/ ! function(_window, _document) {
-            var OB_ADV_ID = '00e832791f4436d811227db137b3a935b5';
-            if (_window.obApi) {
-                var toArray = function(object) {
-                    return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
-                };
-                _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
-                return;
-            }
-            var api = _window.obApi = function() {
-                api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+    /** DO NOT MODIFY THIS CODE**/ ! function(_window, _document) {
+        var OB_ADV_ID = '00e832791f4436d811227db137b3a935b5';
+        if (_window.obApi) {
+            var toArray = function(object) {
+                return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
             };
-            api.version = '1.1';
-            api.loaded = true;
-            api.marketerId = OB_ADV_ID;
-            api.queue = [];
-            var tag = _document.createElement('script');
-            tag.async = true;
-            tag.src = '//amplify.outbrain.com/cp/obtp.js';
-            tag.type = 'text/javascript';
-            var script = _document.getElementsByTagName('script')[0];
-            script.parentNode.insertBefore(tag, script);
-        }(window, document);
-        obApi('track', 'PAGE_VIEW');
+            _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+            return;
+        }
+        var api = _window.obApi = function() {
+            api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+        };
+        api.version = '1.1';
+        api.loaded = true;
+        api.marketerId = OB_ADV_ID;
+        api.queue = [];
+        var tag = _document.createElement('script');
+        tag.async = true;
+        tag.src = '//amplify.outbrain.com/cp/obtp.js';
+        tag.type = 'text/javascript';
+        var script = _document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(tag, script);
+    }(window, document);
+    obApi('track', 'PAGE_VIEW');
     </script>
     <!-- Google Tag Manager -->
     <script>
@@ -53,74 +53,74 @@
     <script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
     <!-- Google Tag Manager カルテット用-->
     <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PX7G3KX');
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PX7G3KX');
     </script>
     <!-- End Google Tag Manager -->
     <!-- adEbis ITP対応タグ ここから-->
     <!-- EBiS tag version4.10 start -->
     <script type="text/javascript">
-        (function(a, d, e, b, i, s) {
-            window[i] = window[i] || [];
-            var f = function(a, d, e, b, i, s) {
-                    var o = a.getElementsByTagName(d)[0],
-                        h = a.createElement(d),
-                        t = 'text/javascript';
-                    h.type = t;
-                    h.async = e;
-                    h.onload = function() {
-                        window[i].init({
-                            argument: s,
-                            auto: true
-                        });
-                    };
-                    h._p = o;
-                    return h;
-                },
-                h = f(a, d, e, b, i, s),
-                l = '//taj',
-                j = b + s + '/cmt.js';
-            h.src = l + '1.' + j;
-            h._p.parentNode.insertBefore(h, h._p);
-            h.onerror = function(k) {
-                k = f(a, d, e, b, i, s);
-                k.src = l + '2.' + j;
-                k._p.parentNode.insertBefore(k, k._p);
-            };
-        })(document, 'script', true, 'ebis.ne.jp/', 'ebis', 'DN62ts6K');
+    (function(a, d, e, b, i, s) {
+        window[i] = window[i] || [];
+        var f = function(a, d, e, b, i, s) {
+                var o = a.getElementsByTagName(d)[0],
+                    h = a.createElement(d),
+                    t = 'text/javascript';
+                h.type = t;
+                h.async = e;
+                h.onload = function() {
+                    window[i].init({
+                        argument: s,
+                        auto: true
+                    });
+                };
+                h._p = o;
+                return h;
+            },
+            h = f(a, d, e, b, i, s),
+            l = '//taj',
+            j = b + s + '/cmt.js';
+        h.src = l + '1.' + j;
+        h._p.parentNode.insertBefore(h, h._p);
+        h.onerror = function(k) {
+            k = f(a, d, e, b, i, s);
+            k.src = l + '2.' + j;
+            k._p.parentNode.insertBefore(k, k._p);
+        };
+    })(document, 'script', true, 'ebis.ne.jp/', 'ebis', 'DN62ts6K');
     </script>
     <!-- EBiS tag end -->
     <!-- adEbis ITP対応タグ ここまで-->
     <!--Taboola用　CVタグ-->
     <script type='text/javascript'>
-        window._tfa = window._tfa || [];
-        window._tfa.push({
-            notify: 'event',
-            name: 'page_view'
-        });
-        ! function(t, f, a, x) {
-            if (!document.getElementById(x)) {
-                t.async = 1;
-                t.src = a;
-                t.id = x;
-                f.parentNode.insertBefore(t, f);
-            }
-        }(document.createElement('script'),
-            document.getElementsByTagName('script')[0],
-            '//cdn.taboola.com/libtrc/unip/1142151/tfa.js',
-            'tb_tfa_script');
+    window._tfa = window._tfa || [];
+    window._tfa.push({
+        notify: 'event',
+        name: 'page_view'
+    });
+    ! function(t, f, a, x) {
+        if (!document.getElementById(x)) {
+            t.async = 1;
+            t.src = a;
+            t.id = x;
+            f.parentNode.insertBefore(t, f);
+        }
+    }(document.createElement('script'),
+        document.getElementsByTagName('script')[0],
+        '//cdn.taboola.com/libtrc/unip/1142151/tfa.js',
+        'tb_tfa_script');
     </script>
     <noscript>
         <img src='//trc.taboola.com/1142151/log/3/unip?en=page_view' width='0' height='0' style='display:none' />
@@ -128,26 +128,26 @@
     <!--Taboola用　CVタグ　ここまで-->
     <!-- Facebook Pixel Code -->
     <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2242087806116352');
-        fbq('track', 'PageView');
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2242087806116352');
+    fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2242087806116352&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
@@ -250,41 +250,37 @@
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
                             <!-- <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" id="L_NAME" /> 名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" id="F_NAME" /><br /> 例：山田 太郎</td> -->
-                            <td>姓 <input type="text" name="L_NAME" id="L_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_NAME"
-                                    value="">
+                            <td>姓 <input type="text" name="L_NAME" id="L_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_NAME" value="">
                                 <script type="text/javascript">
-                                    if (document.getElementById('L_NAME').type != "hidden" && !document.getElementById('L_NAME').disabled)
-                                        document.getElementById('L_NAME');
+                                if (document.getElementById('L_NAME').type != "hidden" && !document.getElementById('L_NAME').disabled)
+                                    document.getElementById('L_NAME');
                                 </script>
-                                名 <input type="text" name="F_NAME" id="F_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_NAME"
-                                    value=""><br> 例：山田 太郎</td>
+                                名 <input type="text" name="F_NAME" id="F_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_NAME" value=""><br> 例：山田 太郎
+                            </td>
                         </tr>
                         <tr>
                             <th class="title">氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>セイ <input type="text" name="L_KANA" id="L_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_KANA"
-                                    value="">
+                            <td>セイ <input type="text" name="L_KANA" id="L_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_KANA" value="">
                                 <script type="text/javascript">
-                                    if (document.getElementById('L_KANA').type != "hidden" && !document.getElementById('L_KANA').disabled)
-                                        document.getElementById('L_KANA');
+                                if (document.getElementById('L_KANA').type != "hidden" && !document.getElementById('L_KANA').disabled)
+                                    document.getElementById('L_KANA');
                                 </script>
-                                メイ <input type="text" name="F_KANA" id="F_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_KANA"
-                                    value=""><br> 例：ヤマダ タロウ （全角カナで入力してください。）</td>
+                                メイ <input type="text" name="F_KANA" id="F_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_KANA" value=""><br> 例：ヤマダ タロウ （全角カナで入力してください。）
+                            </td>
                         </tr>
                         <tr>
                             <th class="title">メールアドレス</th>
-                            <td><input type="text" name="PC_MAIL" id="PC_MAIL" value="" size="40" maxlength="200" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=" ime-mode:inactive;" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL"
-                                    value="" />
+                            <td><input type="text" name="PC_MAIL" id="PC_MAIL" value="" size="40" maxlength="200" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=" ime-mode:inactive;" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL" value="" />
                                 <script type="text/javascript">
-                                    if (document.getElementById('PC_MAIL').type != "hidden" && !document.getElementById('PC_MAIL').disabled)
-                                        document.getElementById('PC_MAIL');
+                                if (document.getElementById('PC_MAIL').type != "hidden" && !document.getElementById('PC_MAIL').disabled)
+                                    document.getElementById('PC_MAIL');
                                 </script>
                                 <br />
                                 <span class="hissu">メールアドレスが必須になります。</span><br /> 例：sample@sample.jp （半角英数字で入力してください。）<br /> ※確認のためメールアドレスを再入力してください。
                                 <br />
-                                <input type="text" name="PC_MAIL_CONFIRM1" id="PC_MAIL_CONFIRM1" value="" size="12" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM1"
-                                    value="" />@
-                                <input type="text" name="PC_MAIL_CONFIRM2" id="PC_MAIL_CONFIRM2" value="" size="20" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM2"
-                                    value="" /></td>
+                                <input type="text" name="PC_MAIL_CONFIRM1" id="PC_MAIL_CONFIRM1" value="" size="12" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM1" value="" />@
+                                <input type="text" name="PC_MAIL_CONFIRM2" id="PC_MAIL_CONFIRM2" value="" size="20" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM2" value="" />
+                            </td>
                         </tr>
                         <!-- <tr>
                             <th class="title">携帯メールアドレス</th>
@@ -306,18 +302,19 @@
                             </td>
                         </tr> -->
                         <tr>
-                            <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" autofocus/></th>
+                            <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" autofocus /></th>
                             <!-- <td><input m:id='ZIP_INPUT_HERE' name="zipcode_first" type="text" size="15" value="" /><br /> 例：1234567 （半角数字で入力してください。） -->
                             <!-- <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" /> -->
                             <!-- <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td> -->
                             <td><input type="text" name="ZIP" id="ZIP" value="" size="15" maxlength="15" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.ZIP" value="">
                                 <script type="text/javascript">
-                                    if (document.getElementById('ZIP').type != "hidden" && !document.getElementById('ZIP').disabled)
-                                        document.getElementById('ZIP');
+                                if (document.getElementById('ZIP').type != "hidden" && !document.getElementById('ZIP').disabled)
+                                    document.getElementById('ZIP');
                                 </script>
                                 <br> 例：1234567 （半角数字で入力してください。）
                                 <input onclick="getZipAddress(document.seisanForm.ZIP, document.seisanForm.ADDR1, document.seisanForm.ADDR2, 'CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL', false,  document.seisanForm.ADDR3); return false;" type="button" value="〒住所検索">
-                                <span id="CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL" class="minfo"></span></td>
+                                <span id="CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL" class="minfo"></span>
+                            </td>
                         </tr>
                         <tr>
                             <th class="title">都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
@@ -420,13 +417,11 @@
                             <table summary="お届け先情報">
                                 <tr>
                                     <th class="title">氏名（漢字）</th>
-                                    <td>姓 <input m:id='SEND_LAST_NAME_INPUT_HERE' name="send_lastname" type="text" size="20" value="" id="SEND_L_NAME" /> 名 <input m:id='SEND_FIRST_NAME_INPUT_HERE' name="send_firstname" type="text" size="20" value="" id="SEND_F_NAME"
-                                        /><br /> 例：山田 太郎</td>
+                                    <td>姓 <input m:id='SEND_LAST_NAME_INPUT_HERE' name="send_lastname" type="text" size="20" value="" id="SEND_L_NAME" /> 名 <input m:id='SEND_FIRST_NAME_INPUT_HERE' name="send_firstname" type="text" size="20" value="" id="SEND_F_NAME" /><br /> 例：山田 太郎</td>
                                 </tr>
                                 <tr>
                                     <th class="title">氏名（カナ）</th>
-                                    <td>セイ <input m:id='SEND_LAST_KANA_INPUT_HERE' name="send_lastname_kana" type="text" size="20" value="" id="SEND_L_KANA" /> メイ <input m:id='SEND_FIRST_KANA_INPUT_HERE' name="send_firstname_kana" type="text" size="20" value=""
-                                            id="SEND_F_KANA" /><br /> 例：ヤマダ タロウ （全角カナで入力してください。）</td>
+                                    <td>セイ <input m:id='SEND_LAST_KANA_INPUT_HERE' name="send_lastname_kana" type="text" size="20" value="" id="SEND_L_KANA" /> メイ <input m:id='SEND_FIRST_KANA_INPUT_HERE' name="send_firstname_kana" type="text" size="20" value="" id="SEND_F_KANA" /><br /> 例：ヤマダ タロウ （全角カナで入力してください。）</td>
                                 </tr>
                                 <tr>
                                     <th class="title">郵便番号</th>
@@ -1016,7 +1011,7 @@
                                             <tr>
                                                 <th class="title">カード番号</th>
                                                 <td class="cardnumber_td">
-                                                    <!--						<input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
+                                                    <!--                        <input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="21" value="" m:autocomplete="off" />-->
                                                     <input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
                                                     <input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
                                                     <input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
@@ -1313,63 +1308,68 @@
     <!--container end-->
     <iframe m:id='common.FOOTER_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
     <script type="text/javascript">
-        (function() {
-            var tagjs = document.createElement("script");
-            var s = document.getElementsByTagName("script")[0];
-            tagjs.async = true;
-            tagjs.src = "//s.yjtag.jp/tag.js#site=s0lSO0z";
-            s.parentNode.insertBefore(tagjs, s);
-        }());
+    (function() {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=s0lSO0z";
+        s.parentNode.insertBefore(tagjs, s);
+    }());
     </script>
     <noscript>
         <iframe src="//b.yjtag.jp/iframe?c=s0lSO0z" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </noscript>
     <div m:id='IF_CREDIT_TOKEN'>
         <script m:id='CREDIT_TOKEN_JS_HERE' type="text/javascript">
-            // トークン決済JavaScript
+        // トークン決済JavaScript
         </script>
     </div>
     <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+    <script src="js/form-persistence.js"></script>
     <script src="js/jquery.focused.js"></script>
     <script src="js/autokana.js" defer></script>
     <script>
-        window.addEventListener("DOMContentLoaded", function() {
-            AutoKana.bind("#L_NAME", "#L_KANA", {
-                katakana: true
-            });
-            AutoKana.bind("#F_NAME", "#F_KANA", {
-                katakana: true
-            });
-            AutoKana.bind("#SEND_L_NAME", "#SEND_L_KANA", {
-                katakana: true
-            });
-            AutoKana.bind("#SEND_F_NAME", "#SEND_F_KANA", {
-                katakana: true
-            });
-        });
+    let form = document.getElementById('seisanForm');
+    FormPersistence.persist(form);
     </script>
     <script>
-        $(function domReady() {
-            $(".demo").focused();
+    window.addEventListener("DOMContentLoaded", function() {
+        AutoKana.bind("#L_NAME", "#L_KANA", {
+            katakana: true
         });
+        AutoKana.bind("#F_NAME", "#F_KANA", {
+            katakana: true
+        });
+        AutoKana.bind("#SEND_L_NAME", "#SEND_L_KANA", {
+            katakana: true
+        });
+        AutoKana.bind("#SEND_F_NAME", "#SEND_F_KANA", {
+            katakana: true
+        });
+    });
     </script>
     <script>
-        function formSwitch() {
-            hoge = document.getElementsByName('KESSAI_ID')
-            if (hoge[0].checked) {
-                // 代引きが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "";
-                document.getElementById('creditcard').style.display = "none";
-            } else if (hoge[1].checked) {
-                // クレジットが選択されたら下記を実行します
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "";
-            } else {
-                document.getElementById('daibiki').style.display = "none";
-                document.getElementById('creditcard').style.display = "none";
-            }
+    $(function domReady() {
+        $(".demo").focused();
+    });
+    </script>
+    <script>
+    function formSwitch() {
+        hoge = document.getElementsByName('KESSAI_ID')
+        if (hoge[0].checked) {
+            // 代引きが選択されたら下記を実行します
+            document.getElementById('daibiki').style.display = "";
+            document.getElementById('creditcard').style.display = "none";
+        } else if (hoge[1].checked) {
+            // クレジットが選択されたら下記を実行します
+            document.getElementById('daibiki').style.display = "none";
+            document.getElementById('creditcard').style.display = "";
+        } else {
+            document.getElementById('daibiki').style.display = "none";
+            document.getElementById('creditcard').style.display = "none";
         }
-        window.addEventListener('load', formSwitch());
+    }
+    window.addEventListener('load', formSwitch());
     </script>
 </body>
 
