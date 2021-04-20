@@ -303,10 +303,10 @@
                         </tr> -->
                         <tr>
                             <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" autofocus /></th>
-                            <!-- <td><input m:id='ZIP_INPUT_HERE' name="zipcode_first" type="text" size="15" value="" /><br /> 例：1234567 （半角数字で入力してください。） -->
-                            <!-- <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" /> -->
-                            <!-- <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td> -->
-                            <td><input type="text" name="ZIP" id="ZIP" value="" size="15" maxlength="15" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.ZIP" value="">
+                            <td><input m:id='ZIP_INPUT_HERE' name="zipcode_first" type="text" size="15" value="" /><br /> 例：1234567 （半角数字で入力してください。）
+                            <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" />
+                            <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td>
+                            <!-- <td><input type="text" name="ZIP" id="ZIP" value="" size="15" maxlength="15" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.ZIP" value="">
                                 <script type="text/javascript">
                                 if (document.getElementById('ZIP').type != "hidden" && !document.getElementById('ZIP').disabled)
                                     document.getElementById('ZIP');
@@ -314,7 +314,7 @@
                                 <br> 例：1234567 （半角数字で入力してください。）
                                 <input onclick="getZipAddress(document.seisanForm.ZIP, document.seisanForm.ADDR1, document.seisanForm.ADDR2, 'CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL', false,  document.seisanForm.ADDR3); return false;" type="button" value="〒住所検索">
                                 <span id="CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL" class="minfo"></span>
-                            </td>
+                            </td> -->
                         </tr>
                         <tr>
                             <th class="title">都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
@@ -1325,9 +1325,15 @@
         </script>
     </div>
     <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+    <!-- <script src="js/garlic.js"></script> -->
     <script src="js/form-persistence.js"></script>
     <script src="js/jquery.focused.js"></script>
     <script src="js/autokana.js" defer></script>
+    <!-- <script>
+    $(function() {
+        $("form").garlic();
+    });
+    </script> -->
     <script>
     let form = document.getElementById('seisanForm');
     FormPersistence.persist(form);
