@@ -249,28 +249,30 @@
                     <table summary="ご依頼主（ご請求先）情報">
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <!-- <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="lastname" type="text" size="20" value="" id="L_NAME" /> 名 <input m:id='FIRST_NAME_INPUT_HERE' name="firstname" type="text" size="20" value="" id="F_NAME" /><br /> 例：山田 太郎</td> -->
-                            <td>姓 <input type="text" name="L_NAME" id="L_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_NAME" value="">
-                                <script type="text/javascript">
-                                if (document.getElementById('L_NAME').type != "hidden" && !document.getElementById('L_NAME').disabled)
-                                    document.getElementById('L_NAME');
-                                </script>
-                                名 <input type="text" name="F_NAME" id="F_NAME" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_NAME" value=""><br> 例：山田 太郎
-                            </td>
+                            <td>姓 <input m:id='LAST_NAME_INPUT_HERE' name="L_NAME" type="text" size="20" value="" id="L_NAME" /> 名 <input m:id='FIRST_NAME_INPUT_HERE' name="F_NAME" type="text" size="20" value="" id="F_NAME" /><br />
+                                例：山田 太郎</td>
                         </tr>
                         <tr>
                             <th class="title">氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td>セイ <input type="text" name="L_KANA" id="L_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_KANA" value="">
+                            <td>セイ <input m:id='LAST_KANA_INPUT_HERE' name="L_KANA" type="text" size="20" value="" id="L_KANA" /> メイ <input m:id='FIRST_KANA_INPUT_HERE' name="F_KANA" type="text" size="20" value="" id="F_KANA" /><br />
+                                例：ヤマダ タロウ （全角カナで入力してください。）</td>
+                            <!-- <td>セイ <input type="text" name="L_KANA" id="L_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.L_KANA" value="">
                                 <script type="text/javascript">
                                 if (document.getElementById('L_KANA').type != "hidden" && !document.getElementById('L_KANA').disabled)
                                     document.getElementById('L_KANA');
                                 </script>
                                 メイ <input type="text" name="F_KANA" id="F_KANA" value="" size="25" maxlength="30" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.F_KANA" value=""><br> 例：ヤマダ タロウ （全角カナで入力してください。）
-                            </td>
+                            </td> -->
                         </tr>
                         <tr>
                             <th class="title">メールアドレス</th>
-                            <td><input type="text" name="PC_MAIL" id="PC_MAIL" value="" size="40" maxlength="200" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=" ime-mode:inactive;" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL" value="" />
+                            <td><input m:id='PC_MAIL_INPUT_HERE' name="PC_MAIL" type="text" size="50" value="" /><br />
+                                <span class="hissu">メールアドレスが必須になります。</span><br />
+                                例：sample@sample.jp （半角英数字で入力してください。）<br />
+                                ※確認のためメールアドレスを再入力してください。<br />
+                                <input m:id='PC_MAIL_CONFIRM1_INPUT_HERE' name="PC_MAIL_CONFIRM1" type="text" size="23" value="" />@
+                                <input m:id='PC_MAIL_CONFIRM2_INPUT_HERE' name="PC_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
+                            <!-- <td><input type="text" name="PC_MAIL" id="PC_MAIL" value="" size="40" maxlength="200" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=" ime-mode:inactive;" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL" value="" />
                                 <script type="text/javascript">
                                 if (document.getElementById('PC_MAIL').type != "hidden" && !document.getElementById('PC_MAIL').disabled)
                                     document.getElementById('PC_MAIL');
@@ -280,32 +282,13 @@
                                 <br />
                                 <input type="text" name="PC_MAIL_CONFIRM1" id="PC_MAIL_CONFIRM1" value="" size="12" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM1" value="" />@
                                 <input type="text" name="PC_MAIL_CONFIRM2" id="PC_MAIL_CONFIRM2" value="" size="20" maxlength="100" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" /><input type="hidden" name="jp.co.interfactory.framework.trim.PC_MAIL_CONFIRM2" value="" />
-                            </td>
+                            </td> -->
                         </tr>
-                        <!-- <tr>
-                            <th class="title">携帯メールアドレス</th>
-                            <td><input m:id='MOBILE_MAIL_INPUT_HERE' name="MOBILE_MAIL" type="text" size="50" value="" /><br />
-                                <span class="hissu">PCメールアドレスか携帯メールアドレスが必須になります。</span><br />
-                                例：sample@sample.jp （半角英数字で入力してください。）<br />
-                                ※確認のためメールアドレスを再入力してください。<br />
-                                <input m:id='MOBILE_MAIL_CONFIRM1_INPUT_HERE' name="MOBILE_MAIL_CONFIRM1" type="text" size="23" value="" />@
-                                <input m:id='MOBILE_MAIL_CONFIRM2_INPUT_HERE' name="MOBILE_MAIL_CONFIRM2" type="text" size="25" value="" /></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <th class="title">確認メール送信先</th>
-                            <td><input type="radio" m:id='SEND_MAIL_PC_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_PC_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_PC">PC</label>
-                                &nbsp;&nbsp;<input type="radio" m:id='SEND_MAIL_MOBILE_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_MOBILE_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_MOBILE">携帯</label>
-                                &nbsp;&nbsp;<input type="radio" m:id='SEND_MAIL_BOTH_RADIO_TAG' id="CART_SEISAN_SEND_MAIL_BOTH_RADIO_TAG" />
-                                &nbsp;<label for="SELECT_CONFIRM_MAIL_TYPE_BOTH">PCと携帯</label><br />
-                            </td>
-                        </tr> -->
                         <tr>
                             <th class="title">郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" autofocus /></th>
                             <td><input m:id='ZIP_INPUT_HERE' name="zipcode_first" type="text" size="15" value="" /><br /> 例：1234567 （半角数字で入力してください。）
-                            <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" />
-                            <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td>
+                                <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒住所検索" />
+                                <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span></td>
                             <!-- <td><input type="text" name="ZIP" id="ZIP" value="" size="15" maxlength="15" onblur="unfocusBgColorChange(this);" onfocus="focusBgColorChange(this);" style=""><input type="hidden" name="jp.co.interfactory.framework.trim.ZIP" value="">
                                 <script type="text/javascript">
                                 if (document.getElementById('ZIP').type != "hidden" && !document.getElementById('ZIP').disabled)
@@ -316,58 +299,57 @@
                                 <span id="CART_SEISAN_ZIP_ADDRESS_MESSAGE_PANEL" class="minfo"></span>
                             </td> -->
                         </tr>
-                        <tr>
-                            <th class="title">都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <td><select m:id='ADDRESS1_INPUT_HERE' name="prefecture">
-                                    <option selected="selected">-- 選択してください --</option>
-                                    <option value="北海道">北海道</option>
-                                    <option value="青森県">青森県</option>
-                                    <option value="岩手県">岩手県</option>
-                                    <option value="宮城県">宮城県</option>
-                                    <option value="秋田県">秋田県</option>
-                                    <option value="山形県">山形県</option>
-                                    <option value="福島県">福島県</option>
-                                    <option value="茨城県">茨城県</option>
-                                    <option value="栃木県">栃木県</option>
-                                    <option value="群馬県">群馬県</option>
-                                    <option value="埼玉県">埼玉県</option>
-                                    <option value="千葉県">千葉県</option>
-                                    <option value="東京都">東京都</option>
-                                    <option value="神奈川県">神奈川県</option>
-                                    <option value="新潟県">新潟県</option>
-                                    <option value="富山県">富山県</option>
-                                    <option value="石川県">石川県</option>
-                                    <option value="福井県">福井県</option>
-                                    <option value="山梨県">山梨県</option>
-                                    <option value="長野県">長野県</option>
-                                    <option value="岐阜県">岐阜県</option>
-                                    <option value="静岡県">静岡県</option>
-                                    <option value="愛知県">愛知県</option>
-                                    <option value="三重県">三重県</option>
-                                    <option value="滋賀県">滋賀県</option>
-                                    <option value="京都府">京都府</option>
-                                    <option value="大阪府">大阪府</option>
-                                    <option value="兵庫県">兵庫県</option>
-                                    <option value="奈良県">奈良県</option>
-                                    <option value="和歌山県">和歌山県</option>
-                                    <option value="鳥取県">鳥取県</option>
-                                    <option value="島根県">島根県</option>
-                                    <option value="岡山県">岡山県</option>
-                                    <option value="広島県">広島県</option>
-                                    <option value="山口県">山口県</option>
-                                    <option value="徳島県">徳島県</option>
-                                    <option value="香川県">香川県</option>
-                                    <option value="愛媛県">愛媛県</option>
-                                    <option value="高知県">高知県</option>
-                                    <option value="福岡県">福岡県</option>
-                                    <option value="佐賀県">佐賀県</option>
-                                    <option value="長崎県">長崎県</option>
-                                    <option value="熊本県">熊本県</option>
-                                    <option value="大分県">大分県</option>
-                                    <option value="宮崎県">宮崎県</option>
-                                    <option value="鹿児島県">鹿児島県</option>
-                                    <option value="沖縄県">沖縄県</option>
-                                </select></td>
+                        <th class="title">都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+                        <td><select m:id='ADDRESS1_INPUT_HERE' name="prefecture">
+                                <option selected="selected">-- 選択してください --</option>
+                                <option value="北海道">北海道</option>
+                                <option value="青森県">青森県</option>
+                                <option value="岩手県">岩手県</option>
+                                <option value="宮城県">宮城県</option>
+                                <option value="秋田県">秋田県</option>
+                                <option value="山形県">山形県</option>
+                                <option value="福島県">福島県</option>
+                                <option value="茨城県">茨城県</option>
+                                <option value="栃木県">栃木県</option>
+                                <option value="群馬県">群馬県</option>
+                                <option value="埼玉県">埼玉県</option>
+                                <option value="千葉県">千葉県</option>
+                                <option value="東京都">東京都</option>
+                                <option value="神奈川県">神奈川県</option>
+                                <option value="新潟県">新潟県</option>
+                                <option value="富山県">富山県</option>
+                                <option value="石川県">石川県</option>
+                                <option value="福井県">福井県</option>
+                                <option value="山梨県">山梨県</option>
+                                <option value="長野県">長野県</option>
+                                <option value="岐阜県">岐阜県</option>
+                                <option value="静岡県">静岡県</option>
+                                <option value="愛知県">愛知県</option>
+                                <option value="三重県">三重県</option>
+                                <option value="滋賀県">滋賀県</option>
+                                <option value="京都府">京都府</option>
+                                <option value="大阪府">大阪府</option>
+                                <option value="兵庫県">兵庫県</option>
+                                <option value="奈良県">奈良県</option>
+                                <option value="和歌山県">和歌山県</option>
+                                <option value="鳥取県">鳥取県</option>
+                                <option value="島根県">島根県</option>
+                                <option value="岡山県">岡山県</option>
+                                <option value="広島県">広島県</option>
+                                <option value="山口県">山口県</option>
+                                <option value="徳島県">徳島県</option>
+                                <option value="香川県">香川県</option>
+                                <option value="愛媛県">愛媛県</option>
+                                <option value="高知県">高知県</option>
+                                <option value="福岡県">福岡県</option>
+                                <option value="佐賀県">佐賀県</option>
+                                <option value="長崎県">長崎県</option>
+                                <option value="熊本県">熊本県</option>
+                                <option value="大分県">大分県</option>
+                                <option value="宮崎県">宮崎県</option>
+                                <option value="鹿児島県">鹿児島県</option>
+                                <option value="沖縄県">沖縄県</option>
+                            </select></td>
                         </tr>
                         <tr>
                             <th class="title">市区町村・番地 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
@@ -381,8 +363,8 @@
                         </tr>
                         <tr>
                             <th class="title">電話番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
-                            <!-- <td><input m:id='TEL_INPUT_HERE' name="tel" type="text" size="50" value="" /><br /> 例：03-1234-5678 （半角英数字で入力してください。）</td> -->
-                            <td><input type="text" name="TEL" id="TEL" value="" size="30" maxlength="30" style=" ime-mode:disabled;"><input type="hidden" name="jp.co.interfactory.framework.trim.TEL" value="" autofocus><br> 例：03-1234-5678 （半角英数字で入力してください。）</td>
+                            <td><input m:id='TEL_INPUT_HERE' name="tel" type="text" size="50" value="" /><br /> 例：03-1234-5678 （半角英数字で入力してください。）</td>
+                            <!-- <td><input type="text" name="TEL" id="TEL" value="" size="30" maxlength="30" style=" ime-mode:disabled;"><input type="hidden" name="jp.co.interfactory.framework.trim.TEL" value="" autofocus><br> 例：03-1234-5678 （半角英数字で入力してください。）</td> -->
                         </tr>
                     </table>
                     <div m:id='common.IF_MEMBER'>
