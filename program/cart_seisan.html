@@ -49,7 +49,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>えびすマート標準テンプレート</title>
     <link rel="stylesheet" href="css/base.css" type="text/css" />
-    <!-- <script type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
     <!-- Google Tag Manager カルテット用-->
     <script>
@@ -245,7 +245,13 @@
                             </table>
                         </div>
                     </div>
-                    <h3>ご依頼主（ご請求先）情報</h3>
+                    <h3 id="goirai">ご依頼主（ご請求先）情報</h3>
+                    <button type="button" onclick="focusMethod()">クリックしてテキストフィールドにフォーカスしてください！</button>
+                    <script type="text/javascript">
+                    focusMethod = function getFocus() {
+                        document.getElementById("goirai").focus();
+                    }
+                    </script>
                     <table summary="ご依頼主（ご請求先）情報">
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
