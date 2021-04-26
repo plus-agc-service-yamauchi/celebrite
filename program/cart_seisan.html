@@ -245,13 +245,15 @@
                             </table>
                         </div>
                     </div>
-                    <h3 id="goirai">ご依頼主（ご請求先）情報</h3>
-                    <button type="button" onclick="focusMethod()">クリックしてテキストフィールドにフォーカスしてください！</button>
-                    <script type="text/javascript">
-                    focusMethod = function getFocus() {
-                        document.getElementById("goirai").focus();
-                    }
+                    <h3>ご依頼主（ご請求先）情報</h3>
+                    <script>
+                        focusMethod = function getFocus() {
+  document.getElementById("L_NAME").focus();
+}
                     </script>
+                    <!-- <input type="text" id="L_NAME" value="テキストフィールド"> -->
+                    <p></p>
+                    <button type="button" onclick="focusMethod()">クリックして入力を開始</button>
                     <table summary="ご依頼主（ご請求先）情報">
                         <tr>
                             <th class="title">氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
