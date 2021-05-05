@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/mailmag.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!--mailmag start-->
+<h2>メールマガジンの購読</h2>
+<div m:id='IF_INPUT'>
+	<p>メールマガジンを購読したい方は、下記フォームに登録に使用したメールアドレスを入力して「登録する」ボタンを押してください。</p>
+	<div m:id='common.IF_MAILMAG_ERROR' id="error">
+		<table summary="エラー">
+			<tr>
+				<td class="ico"><img src="images/icon_error.png" alt="エラー" /></td>
+				<td class="content"><span m:id='common.MAILMAG_ERROR_HERE'>ここにエラーが入ります。</span></td>
+			</tr>
+		</table>
+	</div>
+	<div m:id='common.IF_MAILMAG_INFO' id="error">
+		<table summary="情報">
+			<tr>
+				<td class="ico"><img src="images/icon_info.png" alt="情報" /></td>
+				<td class="content"><span m:id='common.MAILMAG_INFO_HERE'>ここに情報が入ります。</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<form m:id='common.MAILMAG_FORM_TAG'>
+		<table summary="メールマガジンの購読">
+			<tr>
+				<th class="title">メールアドレス</th>
+				<td>
+					<input type="text" id="magazine_form" name="MAIL" size="30" style="ime-mode:inactive;"/><br />
+					例：sample@example.jp （半角英数字で入力してください。）
+				</td>
+			</tr>
+			<!--<tr>
+				<th class="title">メール形式</th>
+				<td>
+					<input type="radio" m:id='common.MAILMAG_MAILTYPE_TEXT_RADIO_TAG' id="MAILMAG_TYPE_TEXT" class="radio" />
+					<label for="MAILMAG_TYPE_TEXT">テキスト</label>
+					 <input type="radio" m:id='common.MAILMAG_MAILTYPE_HTML_RADIO_TAG' id="MAILMAG_TYPE_HTML" class="radio" />
+					<label for="MAILMAG_TYPE_HTML">HTML</label>
+				</td>
+			</tr>-->
+		</table>
+		<div class="buttonarea">
+			<input m:id='common.MAILMAG_REGIST_BUTTON_TAG' type="submit" value="購読する" class="button positive medium" />
+		</div>
+	</form>
+
+</div>
+
+<!--mailmag end-->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

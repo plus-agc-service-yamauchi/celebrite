@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:aps="eb:AMAZON_PAYMENTS/view_amazon_payments.json" xmlns:apv2="eb:AMAZON_PAYMENTS_V2/view_amazon_payments_v2_login.json" xmlns:social_plus="eb:SOCIAL_PLUS/view_common.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../userweb/js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../userweb/js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/ebisu.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="../userweb/js/EbisuAmazonPayments.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'></script>
+<script type="text/javascript" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+eb$(function(){
+	window.EbisuAmazonPayments.initAmazonPayButton(false, eb$('#apsColorSp').val(), eb$('#apsSizeSp').val());
+});
+</script>
+<script type="text/javascript" charset="utf-8" src="https://static-fe.payments-amazon.com/checkout.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/EbisuAmazonPaymentsV2.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'></script>
+<script type="text/javascript" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+//<![CDATA[
+eb$(document).ready(function(){
+	// ソーシャルPLUSアプリをインストールしている時だけ記述します
+	if(document.getElementById('social_plus_error') != null){
+		document.getElementById('social_plus_error').style.display = 'none';
+		social_plus_message_disp();
+	}
+});
+//]]>
+</script>
+</head>
+<body>
+
+<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+	<!-- amazon payments -->
+	<input type="hidden" id="apsClientId" name="apsClientId" aps:attr="apsClientId" />
+	<input type="hidden" id="apsSellerId" name="apsSellerId" aps:attr="apsSellerId" />
+	<input type="hidden" id="apsRedirectURL" name="apsRedirectURL" aps:attr="apsRedirectURL" />
+	<input type="hidden" id="apsType" name="apsType" aps:attr="apsType" />
+	<input type="hidden" id="apsColorSp" name="apsColorSp" aps:attr="apsColorSp" />
+	<input type="hidden" id="apsSizeSp" name="apsSizeSp" aps:attr="apsSizeSp" />
+	<input type="hidden" id="apsScope" name="apsScope" aps:attr="apsScope" />
+	<input type="hidden" id="apsEnv" name="apsEnv" aps:attr="apsEnv" />
+	<input type="hidden" id="apsWidgetsJsUrl" name="apsWidgetsJsUrl" aps:attr="apsWidgetsJsUrl" />
+	<!-- /amazon payments -->
+</div>
+
+<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'>
+	<div apv2:if="apv2IsUse">
+		<!-- amazon payments v2 -->
+		<input type="hidden" id="apv2LedgerCurrency" name="apv2LedgerCurrency" apv2:attr="apv2LedgerCurrency" />
+		<input type="hidden" id="apv2SellerId" name="apv2SellerId" apv2:attr="apv2SellerId" />
+		<input type="hidden" id="apv2IsSandBox" name="apv2IsSandBox" apv2:attr="apv2IsSandBox" />
+		<input type="hidden" id="apv2CheckoutLanguage" name="apv2CheckoutLanguage" apv2:attr="apv2CheckoutLanguage" />
+		<input type="hidden" id="apv2ProductType" name="apv2ProductType" apv2:attr="apv2ProductType" />
+		<input type="hidden" id="apv2Placement" name="apv2Placement" apv2:attr="apv2Placement" />
+		<input type="hidden" id="apv2ButtonColor" name="apv2ButtonColor" apv2:attr="apv2ButtonColorSp" />
+		<input type="hidden" id="apv2Payload" name="apv2Payload" apv2:attr="apv2Payload" />
+		<input type="hidden" id="apv2Signature" name="apv2Signature" apv2:attr="apv2Signature" />
+		<input type="hidden" id="apv2PublicKeyId" name="apv2PublicKeyId" apv2:attr="apv2PublicKeyId" />
+		<input type="hidden" id="apv2AuthToken" name="apv2AuthToken" apv2:attr="apv2AuthToken" />
+		<!-- /amazon payments v2 -->
+	</div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- cartLogin -->
+<section id="content">
+	<form m:id='FORM_TAG'>
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='CACCO'>
+			<!-- O-PLUX連携 -->
+			<input type="hidden" id="fraudbuster" name="fraudbuster" />
+			<script type="text/javascript" src="https://fraud-buster.appspot.com/js/fraudbuster.js" ></script>
+			<!-- / O-PLUX連携 -->
+		</div>
+		<div id="cartLogin">
+			<h2>会員の方</h2>
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe> 
+			<h3>ログインID</h3>
+			<div class="sentence">
+				<input m:id='ID_INPUT_HERE' type="text" />
+			</div>
+			<h3>パスワード</h3>
+			<div class="sentence">
+				<input m:id='PASSWORD_INPUT_HERE' type="password" />
+			</div>
+			<div class="sentence"><p><a href="password_reminder.html">ログインID・パスワードを忘れた方はこちら</a></p></div>
+			<div class="buttonarea">
+				<input m:id='LOGIN_BUTTON_TAG' type="submit" value="ログインする" />
+			</div>
+	
+			<div m:id="IF_NO_LOGIN_BUTTON">
+				<h2>会員登録されていない方</h2>
+				<div class="sentence">
+					<p>
+						※会員の方で、ログインせずに注文手続きへ<br />
+						進みたい方もこちらをご利用ください。
+					</p>
+				</div>
+				<div class="buttonarea">
+					<input m:id='NO_LOGIN_BUTTON_TAG' type="submit" value="会員登録せずお支払い" class="cancel" />
+					<span m:id="common.IF_MEMBER" m:NOT="">
+						<a href="member_regist_new.html?request=cart_member_regist">会員登録してお支払い</a>
+					</span>
+				</div>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+					<!-- amazon payments -->
+					<div aps:if="apsIsUse">
+						<div aps:if="apsIsAvailable" class="sentence">
+							<p>
+								Amazonアカウントでのお支払いや、<br />
+								Amazonギフト券を利用する場合はこちらから先へお進みください。
+							</p>
+							<div class="buttonarea" id="AmazonPayButton"></div>
+						</div>
+						<div aps:if="apsIsNotAvailable" class="sentence">
+							<p>Amazon Pay利用対象外の商品が含まれています。</p>
+						</div>
+					</div>
+					<!-- /amazon payments -->
+				</div>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'>
+					<!-- amazon payments v2 -->
+					<div apv2:if="apv2IsUse">
+						<div apv2:if="apv2IsAvailable">
+							<div class="sentence">
+								<p>
+									Amazonアカウントでのお支払いや、<br />
+									Amazonギフト券を利用する場合はこちらから先へお進みください。
+								</p>
+								<div class="buttonarea">
+									<div id="AmazonPayV2Button"></div>
+								</div>
+							</div>
+						</div>
+						<div apv2:if="apv2IsAvailable" m:NOT="">
+							<div class="sentence">
+								<p>
+									Amazon Pay利用対象外の商品が含まれています。
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- /amazon payments v2 -->
+				</div>
+				<!-- social_plus -->
+				<h2 m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>他サイトのアカウントでログイン/新規会員登録</h2>
+				<!-- social plus error -->
+				<div id="social_plus_error" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+					<div social_plus:write="SOCIAL_PLUS_ERROR_MSG_DISP_SCRIPT" m:HTML="">
+						<!-- メッセージ用スクリプト排出エリア -->
+					</div>
+					<div id="social_plus_error_tbl">
+						<table summary="メッセージ">
+							<tr>
+								<td class="ico"><img src="images/icon_error.gif" /></td>
+								<td class="content"><span id="social_plus_error_msg">ここにエラーメッセージが表示されます</span></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- / social plus error -->
+				<div class="buttonarea social_provider" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+					<a social_plus:attr="SOCIAL_PLUS_FACEBOOK_CART_LOGIN_TAG" class="facebook">
+						<span>facebook</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_TWITTER_CART_LOGIN_TAG" class="twitter">
+						<span>twitter</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_GPLUS_CART_LOGIN_TAG" class="google">
+						<span>google</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_YAHOO_CART_LOGIN_TAG" class="yahoo">
+						<span>yahoo!</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_MIXI_CART_LOGIN_TAG" class="mixi">
+						<span>mixi</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_LINE_CART_LOGIN_TAG" class="line">
+						<span>LINE</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_PAYPAL_CART_LOGIN_TAG" class="paypal">
+						<span>PayPal</span>
+					</a>
+					<a social_plus:attr="SOCIAL_PLUS_RAKUTEN_CART_LOGIN_TAG" class="rakuten">
+						<img src="https://static.id.rakuten.co.jp/static/btn-japanese-2x/idconnect_01-login_r_640.png" />
+					</a>
+				</div>
+				<!-- / social_plus -->
+				
+			</div>
+		</div>
+	</form>
+
+</section>
+<!-- / cartLogin -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

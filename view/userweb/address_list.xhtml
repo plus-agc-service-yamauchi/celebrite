@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+eb$(document).ready(function(){
+	// n番目のboxから右余白削除
+	eb$('ul li:nth-child(even)').css("margin-right","0px");
+});
+//]]>
+</script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+		$('.box ul li').tile(2);
+});
+//]]>
+</script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/address_list.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- ======================================カートフロー中の場合、サイドバー無し========================================= -->
+<div id="main" class="no-sidebar" m:id="IF_CART_SELECT">
+	<!-- list -->
+	<div id="addressList">    
+		<h2>アドレス帳一覧</h2>
+	
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+		<p m:id='IF_ADDRESS_EXIST' m:NOT="">登録済みのアドレスはありません</p>
+		
+		<div m:id='IF_ADDRESS_EXIST'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			<div class="pagelink">
+				<span m:id='PAGE_NAVIGATION_HERE'>
+					<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+				</span>
+			</div>
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+			<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+			
+			<!--<div class='pagelink'>
+				<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+				<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+				<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+						<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span> 
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+						</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+						<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+						</span>
+						 | 
+					</span>
+				</span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+				<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+			</div>-->
+			
+			<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+		</div>
+		
+		<!-- pointList -->
+		<div class="widebox box">
+			<ul>
+				<li m:id='LOOP_ADDRESS_LIST'>
+					<strong>
+						<span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span>
+					</strong>
+					<span m:id="IF_KANA">（<span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span>）</span><br />
+					〒<span m:id='ZIP_HERE'>1234567</span><br />
+					<span m:id='ADDRESS1_HERE'>東京都</span> 
+					<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> 
+					<span m:id='ADDRESS3_HERE'>○○ビル101</span><br />
+					電話番号：<span m:id='TEL_HERE'>03-1234-5678</span><br />
+					<span m:id='IF_FREE' m:free_item_no='1'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目1</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目1</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='2'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目2</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目2</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='3'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目3</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目3</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='4'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目4</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目4</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='5'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目5</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目5</span><br />
+					</span>
+					<div class="button_area">
+						<a m:id='ADDRESS_CHANGE_LINK_TAG' href="#" class="button positive small">変更する</a>
+						<a m:id='SELECT_TO_CART_LINK_TAG' href="#" class="button positive small">配送先として追加</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- /pointList -->
+	
+		<div m:id='IF_ADDRESS_EXIST'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			
+			<div class="pagelink">
+				<span m:id='PAGE_NAVIGATION_HERE'>
+					<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+				</span>
+			</div>
+			
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+			<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+			
+			<!--<div class='pagelink'>
+				<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+				<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+				<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+						<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span> 
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+						</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+						<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+						</span>
+						 | 
+					</span>
+				</span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+				<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+			</div>-->
+			
+			<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+		</div>
+	
+		<div class="buttonarea" m:id="IF_BACK_LINK">
+			<a m:id='BACK_LINK_TAG' href="#" class="button negative medium">戻る</a>
+		</div>
+	</div>
+</div>
+<!-- ======================================カートフロー中の場合、サイドバー無し========================================= -->
+
+
+
+
+
+<!-- ======================================通常の場合、サイドバー有り========================================= -->
+<div id="sidebar" m:id="IF_CART_SELECT" m:NOT="">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" m:id="IF_CART_SELECT" m:NOT="">
+	<!-- list -->
+	<div id="addressList">    
+		<h2>アドレス帳一覧</h2>
+	
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+		<p m:id='IF_ADDRESS_EXIST' m:NOT="">登録済みのアドレスはありません</p>
+		
+		<div m:id='IF_ADDRESS_EXIST'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			<div class="pagelink">
+				<span m:id='PAGE_NAVIGATION_HERE'>
+					<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+				</span>
+			</div>
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+			
+			<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+			<!--<div class='pagelink'>
+				<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+				<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+				<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+						<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span> 
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+						</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+						<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+						</span>
+						 | 
+					</span>
+				</span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+				<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+			</div>-->
+			<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+		</div>
+		
+		<!-- pointList -->
+		<div class="box">
+			<ul>
+				<li m:id='LOOP_ADDRESS_LIST'>
+					<strong>
+						<span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span>
+					</strong>
+					<span m:id="IF_KANA">（<span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span>）</span><br />
+					〒<span m:id='ZIP_HERE'>1234567</span><br />
+					<span m:id='ADDRESS1_HERE'>東京都</span> 
+					<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> 
+					<span m:id='ADDRESS3_HERE'>○○ビル101</span><br />
+					電話番号：<span m:id='TEL_HERE'>03-1234-5678</span><br />
+					<span m:id='IF_FREE' m:free_item_no='1'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目1</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目1</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='2'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目2</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目2</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='3'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目3</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目3</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='4'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目4</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目4</span><br />
+					</span>
+					<span m:id='IF_FREE' m:free_item_no='5'>
+						<span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目5</span>：<span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目5</span><br />
+					</span>
+					<div class="button_area">
+						<a m:id='ADDRESS_CHANGE_LINK_TAG' href="#" class="button positive small">変更する</a>
+						<a m:id='ADDRESS_DELETE_LINK_TAG' href="#" class="button negative small">削除する</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- /pointList -->
+	
+		<div m:id='IF_ADDRESS_EXIST'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			<div class="pagelink">
+				<span m:id='PAGE_NAVIGATION_HERE'>
+					<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+				</span>
+			</div>
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+			
+			<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+			<!--<div class='pagelink'>
+				<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+				<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+				<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+						<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span> 
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+						</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+						<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+						</span>
+						 | 
+					</span>
+				</span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+				<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+			</div>-->
+			<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+		</div>
+		
+		<div class="buttonarea" m:id="IF_BACK_LINK">
+			<a m:id='BACK_LINK_TAG' href="#" class="button negative medium">戻る</a>
+		</div>
+	
+	</div>
+	<!-- /list -->
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

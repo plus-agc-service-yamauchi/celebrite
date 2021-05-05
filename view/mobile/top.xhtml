@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="css/mobile.css" type="text/css" />
+</head>
+<body>
+<a id="top" name="top"></a>
+
+<!-- header -->
+<div style="font-size:small; text-align:center;">
+	<img src="images/header_title.gif" />
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+<!-- / header -->
+
+<!-- login -->
+<div m:id='common.IF_NOT_MEMBER' style="font-size:small; text-align:center;">
+	<span m:id='EMOJI_63869' /><span m:id='common.IF_NOT_MEMBER'><a href="login.html">ﾛｸﾞｲﾝ</a></span> |
+	<span m:id='EMOJI_63826' /><span m:id='common.IF_NOT_MEMBER'><a href="member_regist.html">会員登録</a></span>
+</div>
+<div m:id='common.IF_MEMBER' style="font-size:small; text-align:center;">
+	<span m:id='common.MEMBER_NAME_HERE'>山田 太郎</span>さん こんにちは<br />
+	<span m:id='common.IF_USE_POINT'>現在のﾎﾟｲﾝﾄは <span style="color:#CC0000;"><span m:id='common.POINT_HERE'>1000</span>ﾎﾟｲﾝﾄ</span>です！</span>
+	<div m:id='common.IF_USE_WISHLIST'><a href="wishlist.html">お気に入りﾘｽﾄを見る</a></div>
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / login -->
+
+<!-- search -->
+<div style="font-size:small; text-align:center;">
+	<form m:id='common.KEYWORD_SEARCH_FORM_TAG'>
+		<input type="text" name="keyword" size="14" value="" /><input type="submit" value="検索" />
+	</form>
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / search -->
+
+<!-- cart -->
+<div style="font-size:small; text-align:center;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かごを見る</a>
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / cart -->
+
+<!-- menu -->
+<div style="padding:5px 0px; background-color:#F3F3F3; font-size:x-small; text-align:center;">
+	<span m:id='common.IF_INFORMATION'><span m:id='EMOJI_63879' /><a href="#topics" accesskey="1">ｵｼﾗｾ</a> |</span>
+    <span m:id='common.IF_TOP_CATEGORY'><span m:id='EMOJI_63880' /><a href="#category" accesskey="2">ｶﾃｺﾞﾘ</a> |</span>
+    <span m:id='common.IF_SINTYAKU'><span m:id='EMOJI_63881' /><a href="#new" accesskey="3">新着商品</a><br /></span>
+    <span m:id='common.IF_RECOMMEND'><span m:id='EMOJI_63882' /><a href="#recommend" accesskey="4">ｵｽｽﾒ商品</a> |</span>
+    <span m:id='common.IF_RANKING'><span m:id='EMOJI_63883' /><a href="#ranking" accesskey="5">ﾗﾝｷﾝｸﾞ</a></span>
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / menu -->
+
+<!-- topics -->
+<div m:id='common.IF_INFORMATION'>
+	<a id="topics" name="topics"></a>
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63879' />ｵｼﾗｾ</div>
+	<div m:id='common.LOOP_INFORMATION' style="font-size:x-small;">
+		<span m:id='EMOJI_63874' /><span m:id='common.INFORMATION_DATE_HERE'>09/10/13</span><br />
+		<span m:id='common.INFORMATION_MESSAGE_HERE'>ここにトピックスの内容が表示されます。</span><br />
+		<img m:id='common.INFORMATION_IMAGE_HERE' src="images/sample.jpg" />
+	</div>
+	<div style="font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<!-- / topics -->
+
+<!-- topCategory -->
+<div m:id='common.IF_TOP_CATEGORY'>
+	<a id="category" name="category"></a>
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63880' />ｶﾃｺﾞﾘ</div>
+<span m:id='common.LOOP_TOP_CATEGORY' style="font-size:small;"><span m:id='EMOJI_63727' /><a m:id='common.TOP_CATEGORY_LINK_TAG' href="#"><span m:id='common.TOP_CATEGORY_NAME_HERE'>ﾘﾋﾞﾝｸﾞ</span><span m:id='common.TOP_CATEGORY_COUNT_HERE'>(15)</span></a>|</span>
+	<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<!-- / topCategory -->
+
+<!-- new -->
+<div m:id='common.IF_SINTYAKU'>
+	<a id="new" name="new"></a>
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63881' />新着商品</div>
+	<div m:id='common.LOOP_SINTYAKU'>
+		<table>
+			<tr>
+				<td><a m:id='common.SINTYAKU_LINK_TAG' href="#"><img m:id="common.SINTYAKU_MOBILE_IMAGE_TAG" src="images/sample.jpg" width="60" height="60" alt="" /></a></td>
+				<td style="font-size:x-small;">
+					<div><a m:id='common.SINTYAKU_LINK_TAG' href="#"><span m:id='common.SINTYAKU_ITEM_NAME_HERE'>商品名</span></a></div>
+					<div>
+						<span style="color:#CC0000;">
+							<span m:id='common.SINTYAKU_TEIKA_ZEIKOMI_HERE'>1,575円</span>
+							<!--(本体価格：<span m:id='common.SINTYAKU_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_TEIKA_TAX_HERE'>475円</span>)-->
+						</span>
+					</div>
+					<div m:id='common.IF_SINTYAKU_DISCOUNT'><span style="color:#CC0000;">[会員割引価格：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+					<div m:id='common.IF_SINTYAKU_TIMESALE_KAKAKU'><span style="color:#CC0000;">[ﾀｲﾑｾｰﾙ価格：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+				</td>
+			</tr>
+		</table>
+		<hr />
+	</div>
+	<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<!-- / new -->
+
+<!-- recommend -->
+<div m:id='common.IF_RECOMMEND'>
+	<a id="recommend" name="recommend"></a>
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63882' />ｵｽｽﾒ商品</div>
+	<div m:id='common.LOOP_RECOMMEND'>
+		<table>
+			<tr>
+				<td style="font-size:x-small;">
+					<div><a m:id='common.RECOMMEND_LINK_TAG' href="#"><span m:id='common.RECOMMEND_ITEM_NAME_HERE'>商品名</span></a></div>
+					<div>
+						<span style="color:#CC0000;">
+							<span m:id='common.RECOMMEND_TEIKA_ZEIKOMI_HERE'>1,575円</span>
+							<!--(本体価格：<span m:id='common.RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+						</span>
+					</div>
+					<div m:id='common.IF_RECOMMEND_DISCOUNT'><span style="color:#CC0000;">[会員割引価格：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+					<div m:id='common.IF_RECOMMEND_TIMESALE_KAKAKU'><span style="color:#CC0000;">[ﾀｲﾑｾｰﾙ価格：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+				</td>
+				<td><a m:id='common.RECOMMEND_LINK_TAG' href="#"><img m:id="common.RECOMMEND_MOBILE_IMAGE_TAG" src="images/sample.jpg" width="60" height="60" alt="" /></a></td>
+			</tr>
+		</table>
+		<hr />
+	</div>
+	<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<!-- / recommend -->
+
+<!-- ranking -->
+<div m:id='common.IF_RANKING'>
+	<a id="ranking" name="ranking"></a>
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63883' />ﾗﾝｷﾝｸﾞ</div>
+    <div m:id='common.LOOP_RANKING'>
+		<table>
+			<tr>
+				<td><a m:id='common.RANKING_LINK_TAG' href="#"><img m:id="common.RANKING_MOBILE_IMAGE_TAG" src="images/sample.jpg" width="60" height="60" alt="" /></a></td>
+				<td style="font-size:x-small;">
+                	<div><span m:id='EMOJI_63717' /><span m:id="common.RANKING_NUMBER_HERE" >1</span>位</div>
+					<div><a m:id='common.RANKING_LINK_TAG' href="#"><span m:id='common.RANKING_ITEM_NAME_HERE'>商品名</span></a></div>
+					<div>
+						<span style="color:#CC0000;">
+							<span m:id='common.RANKING_TEIKA_ZEIKOMI_HERE'>1,575円</span>
+							<!--(本体価格：<span m:id='common.RANKING_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_TEIKA_TAX_HERE'>475円</span>)-->
+						</span>
+					</div>
+					<div m:id='common.IF_RANKING_DISCOUNT'><span style="color:#CC0000;">[会員割引価格：<span m:id='common.RANKING_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+					<div m:id='common.IF_RANKING_TIMESALE_KAKAKU'><span style="color:#CC0000;">[ﾀｲﾑｾｰﾙ価格：<span m:id='common.RANKING_TIMESALE_KAKAKU_ZEIKOMI_HERE'>1,050円</span>]</span></div>
+				</td>
+			</tr>
+		</table>
+		<hr />
+	</div>
+	<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<!-- / ranking -->
+
+<!-- ext -->
+<div style="padding:5px 0px; background-color:#F3F3F3; font-size:x-small;">
+	<span m:id='EMOJI_63727' /><a href="ext/tokushou.html">特定商取引法に基づく表示</a><br />
+	<span m:id='EMOJI_63878' /><a href="ext/guide.html">ご利用ｶﾞｲﾄﾞ</a><br />
+	<span m:id='EMOJI_63685' /><a href="ext/company.html">会社概要</a>
+</div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / ext -->
+
+<!-- footer -->
+<div m:id='common.IF_NOT_MEMBER' style="font-size:x-small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id='EMOJI_63869' /><a href="login.html">ﾛｸﾞｲﾝ</a><br />
+	<span m:id='EMOJI_63897' /><a href="password_reminder.html">ﾊﾟｽﾜｰﾄﾞを忘れた方</a><br />
+	<span m:id='EMOJI_63826' /><a href="member_regist.html">会員登録</a><br />
+	<span m:id='EMOJI_63863' /><a href="mailmag.html">ﾒｰﾙﾏｶﾞｼﾞﾝ購読・解除</a>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div m:id='common.IF_MEMBER' style="font-size:x-small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id='EMOJI_63826' /><a href="member_mypage.html">マイページ</a><br />
+	<span m:id='EMOJI_63826' /><a href="member_regist.html?request=edit">会員情報変更</a><br />
+<!-- ${/* 2013/03/09 クレジットカード保存機能携帯はカート側の対応が未完了のため現在利用できません。
+	<span m:id='common.IF_USE_MEMBER_CREDIT_SAVE'><a href="member_credit_entry.html">クレジットカードの登録</a><br /></span>
+*/} -->
+	<span m:id='common.IF_USE_MEMBER_HISTORY'><span m:id='EMOJI_63866' /><a href="member_history.html">購入履歴</a></span><br />
+	<span m:id='EMOJI_63837' /><a href="#" m:id='common.LOGOUT_LINK_TAG'>ﾛｸﾞｱｳﾄ</a><br />
+	<span m:id='EMOJI_63863' /><a href="mailmag.html">ﾒｰﾙﾏｶﾞｼﾞﾝ購読・解除</a><br />
+	<span m:id='common.IF_USE_MEMBER_TAIKAI'><span m:id='EMOJI_63891' /><a href="member_taikai.html">退会する</a></span>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div style="margin-bottom:5px; padding:3px; font-size:x-small; text-align:center;"><span m:id='common.COPYRIGHT_HERE'>ここにｺﾋﾟｰﾗｲﾄを表示します。</span></div>
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<!-- / footer -->
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- pointRecord -->
+<section id="content">
+	<h2>ポイント履歴</h2>
+	<div class="sentence">
+		<p>現在のポイントは「<span m:id="common.POINT_HERE">00</span>」ポイントです。</p>
+		<span m:id="common.IF_USE_POINT_RECORD_UNIT_MEMBER">
+			<span m:id="common.IF_POINT_OVER_ZERO">
+				<span m:id="common.IF_POINT_LIMIT_DATE_FOR_MEMBER">
+					<p>有効期限は<span m:id="common.POINT_LIMIT_DATE_FOR_MEMBER_HERE">YYYY/MM/DD</span>です。</p>				
+				</span>
+				<span m:id="common.IF_POINT_LIMIT_DATE_FOR_MEMBER" m:NOT="">
+					<p>有効期限はありません。</p>
+				</span>
+			</span>
+		</span>
+		<p>登録の新しい順に表示しています。</p>
+	</div>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<form m:id='PAGE_FORM' />
+	
+	<form m:id='FORM_TAG'>
+		<div class="sentence">
+			<p class="pageguide">
+				<span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span>
+			</p>
+		</div>
+
+		<div m:id="LOOP_POINT_RECORD">
+			<h3>
+				<span m:id="POINT_RECORD_YEAR_HERE">2014</span>年
+				<span m:id="POINT_RECORD_MONTH_HERE">11</span>月
+				<span m:id="POINT_RECORD_DAY_HERE">11</span>日
+			</h3>
+			
+			<h4>ポイント数</h4>
+			<div class="sentence">
+				<p><span m:id="PLUS_MINUS_POINT_HERE">100</span>ポイント</p>
+			</div>
+			
+			<h4>備考</h4>
+			<div class="sentence">
+				<p>
+					<span m:id="POINT_RECORD_KBN_HERE"></span>
+					<span m:id="IF_POINT_LIMIT_DATE">
+						<span m:id="common.IF_USE_POINT_RECORD_UNIT_MEMBER" m:NOT="">
+							有効期限：<span m:id="POINT_LIMIT_YEAR_HERE">2014</span>年
+							<span m:id="POINT_LIMIT_MONTH_HERE">11</span>月
+							<span m:id="POINT_LIMIT_DAY_HERE">11</span>日
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<table class="pagelink" m:id="IF_MAX_PAGE_OVER_ONE">
+			<tr>
+				<td class="button"><span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">＜ 前へ</a></span></td>
+				<td class="link">
+					<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+						<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+							<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+								<span m:id="PAGE_LINK_NO_HERE">1</span> 
+							</span>
+							<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+								<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+							</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_LAST" m:NOT="" m:max_link_count="5">
+							<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+								<span m:id="PAGE_LINK_NO_HERE">1</span>
+							</span>
+							<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+								<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+							</span>
+							 | 
+						</span>
+					</span>
+					<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				</td>
+				<td class="button"><span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次へ ＞</a></span></td>
+			</tr>
+		</table>
+	</form>
+<!-- / pointRecord -->
+
+</section>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

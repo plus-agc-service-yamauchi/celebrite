@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/coupon_detail.html?coupon_id=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<!-- <iframe m:id='IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+-->
+<!-- subwindow -->
+<div id="subwindow">
+
+<!-- header -->
+	<div id="header">
+		<h1><a href="/" target="_blank">ここにショップ名が入ります。</a></h1>
+	</div>
+<!-- / header -->
+
+<!-- coupon_detail -->
+<div id="content">
+	<h2>クーポン詳細</h2>
+	<div m:id='IF_COUPON'>
+		<div class="images">
+			<img m:id='COUPON_IMAGE_TAG' src="images/sample.jpg" alt="" />
+		</div>
+		<table>
+			<tr>
+				<th>クーポン名</th>
+				<td><span m:id='COUPON_NAME_HERE'>クーポン名</span></td>
+			</tr>
+			<tr>
+				<th>クーポンコード</th>
+				<td><span m:id='COUPON_CODE_HERE'>クーポンコード</span></td>
+			</tr>
+			<tr m:id='IF_COUPON_DISCOUNT'>
+				<th>クーポン割引額</th>
+				<td><span m:id='COUPON_DISCOUNT_HERE'>100</span>円</td>
+			</tr>
+			<tr m:id='IF_COUPON_DISCOUNT_RATE'>
+				<th>クーポン割引率</th>
+				<td><span m:id='COUPON_DISCOUNT_RATE_HERE'>80</span>％</td>
+			</tr>
+			<tr m:id='IF_COUPON_MIN_PRICE'>
+				<th>クーポン適用開始金額</th>
+				<td><span m:id='COUPON_MIN_PRICE_HERE'>500</span>円以上</td>
+			</tr>
+			<tr m:id='IF_COUPON_COMMENT'>
+				<th>クーポンコメント</th>
+				<td><span m:id='COUPON_COMMENT_HERE'>クーポンコメントです。</span></td>
+			</tr>
+			<tr>
+				<th>有効期限</th>
+				<td>
+					<span m:id='IF_COUPON_FROM' >
+						<span m:id='COUPON_FROM_YEAR_HERE'>2016</span>年<span m:id='COUPON_FROM_MONTH_HERE'>05</span>月<span m:id='COUPON_FROM_DAY_HERE'>05</span>日から
+					</span>
+					<!--<span m:id='IF_COUPON_FROM' m:NOT="">
+						期限なし
+					</span>-->
+					<span m:id='IF_COUPON_TO' >
+						<span m:id='COUPON_TO_YEAR_HERE'>2016</span>年<span m:id='COUPON_TO_MONTH_HERE'>05</span>月<span m:id='COUPON_TO_DAY_HERE'>05</span>日まで
+					</span>
+					<span m:id='IF_COUPON_TO' m:NOT="">
+						期限なし
+					</span>
+				</td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='1'>
+				<th><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>受注自由項目1</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>受注自由項目1</span></td>
+			</tr>
+		</table>
+	</div>
+	<div m:id='IF_COUPON' m:NOT="">
+		<p>該当のクーポンは存在しません。</p>
+	</div>
+	<p><a href="javascript:window.close()">×このウィンドウを閉じる</a></p>
+</div>
+<!-- / coupon_detail -->
+
+</div>
+<!-- / subwindow -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+</body>
+</html>

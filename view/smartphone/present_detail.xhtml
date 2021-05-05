@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- present_detail -->
+<div id="itemDetail">
+	<h2>プレゼント詳細</h2>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+		<div class="present_box">
+			<div class="img_box">
+				<img m:id='PRESENT_IMAGE_TAG' src="images/sample.jpg" width="220" height="220" />
+			</div>
+			
+			<div class="text">
+				<h3><span m:id='PRESENT_NAME_HERE'>プレゼント名</span></h3>
+				<p class="price">
+					<span class="teika">
+						応募期間：<span m:id='OUBO_KIKAN_FROM_HERE'>2009/1/1</span>～<span m:id='OUBO_KIKAN_TO_HERE'>2009/12/12</span>
+					</span>
+					<span class="other">
+							<span m:id='IF_OUBO_KIKAN_NAI'>（応募終了まであと<span m:id='RESTDAYS_HERE'>1</span>日）</span>
+					</span>
+				</p>
+				<p class="information">当選人数：<span m:id='TOSEN_NINZU_HERE'>100</span>名</p>
+				<p class="information" m:id='IF_CHUSEN_MAE'>抽選中です</p>
+				<p class="information" m:id='IF_CHUSEN_GO'>当選発表しました</p>
+				<p class="explanation2"><span m:id='PRESENT_MESSAGE_HERE'>プレセント当選に関して内容が入ります。</span></p>
+				<div m:id='IF_OUBO_KIKAN_NAI'>
+					<p class="appeal">
+						<span m:id='IF_ENTRYED'>プレゼントにご応募ありがとうございました！</span>
+					</p>
+					<div class="buttonarea" m:id='IF_ENTRYED' m:NOT="">
+						<input m:id='LOGIN_BUTTON_TAG' type="submit" value="プレゼントに応募する" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- / present_detail -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

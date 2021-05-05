@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>	
+<script m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION" type="text/javascript" charset="utf-8" src="js/sales_campaign_banner.js"></script>
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+	
+
+<!-- search -->
+<section id="search">
+	<form m:id='common.KEYWORD_SEARCH_FORM_TAG' method="get">
+		<table>
+			<tr>
+				<td><input type="search" class="form" m:id='common.KEYWORD_SEARCH_INPUT_TAG' /></td>
+				<td class="button"><input type="submit" class="button" value="検索" /></td>
+			</tr>
+		</table>
+	</form>
+	<p><a href="item_detail_search.html">条件を指定して検索する</a></p>
+</section>
+<!-- / search -->
+
+<!-- personal -->
+<section id="personal">
+	<!-- loginBefore -->
+	<div m:id='common.IF_MEMBER' m:NOT="" id="loginBefore">
+		<p>こんにちは、<strong>ゲスト</strong>さん</p>
+		<a href="login.html">ログイン</a>
+	</div>
+	<!-- / loginBefore -->
+	
+	<!-- loginAfter -->
+	<div m:id='common.IF_MEMBER' id="loginAfter">
+		<p>こんにちは、<strong><span m:id='common.MEMBER_NAME_HERE'>山田 太郎</span></strong>さん</p>
+		<!-- 性と名を分けて表示する場合 / -->
+		<!-- <p>こんにちは、<strong><span m:id='common.MEMBER_L_NAME_HERE'>姓</span><span m:id='common.MEMBER_F_NAME_HERE'>名</span></strong>さん</p>  -->
+		<!-- / 性と名を分けて表示する場合 -->
+		<p m:id='common.IF_USE_POINT'>現在のポイントは<span class="point"><span m:id='common.POINT_HERE'>100000000</span></span>ポイントです</p>
+		<ul>
+			<li m:id='common.IF_USE_MEMBER_HISTORY'><a href="member_history.html">購入履歴</a></li>
+			<li><a href="member_regist.html?request=edit">会員情報変更</a></li>
+			<li m:id="common.IF_USE_ESTIMATE_RECORD"><a href="member_estimate_record.html">見積履歴</a></li>
+			<li m:id="common.IF_USE_ESTIMATE_RECORD" m:NOT=""><a href="#" m:id='common.LOGOUT_LINK_TAG'>ログアウト</a></li>
+		</ul>
+	</div>
+	<!-- / loginAfter -->
+	
+	<!-- cart -->
+	<div id="cart">
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+				<a href="cart_index.html">カートを見る</a>
+				<!-- ${/* 
+					送料オプション「高額購入割引を使用する」がオンの場合下記m:idが使用できます
+					高額送料割引店舗
+					<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+						<p>送料<span m:id='common.SORYO_DISCOUNT_HERE'>0,000円</span>まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+					</div>
+					
+					高額送料無料店舗
+					<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+						<p>送料無料まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+					</div>
+				*/} -->
+			</div>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<a href="cart_index.html">カートを見る</a>
+			<!-- ${/* 
+				送料オプション「高額購入割引を使用する」がオンの場合下記m:idが使用できます
+				高額送料割引店舗
+				<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+					<p>送料<span m:id='common.SORYO_DISCOUNT_HERE'>0,000円</span>まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+				</div>
+				
+				高額送料無料店舗
+				<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+					<p>送料無料まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+				</div>
+			*/} -->
+		</div>
+	</div>
+	<!-- / cart -->
+</section>
+<!-- / personal -->
+
+<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+<div m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+	<section m:id="common.IF_CAMPAIGN" id="mainCampaign" class="sales_campaign_banner">
+		<h2>キャンペーン一覧</h2>
+		<ul>
+			<li m:id="common.LOOP_CAMPAIGN" m:campaign_kikan="CAMPAIGN_PERIOD_DURING" m:targetonly="true">
+				<div m:id="common.IF_SALES_CAMPAIGN_URL" class="box">
+					<a m:id='common.SALES_CAMPAIGN_URL_LINK_TAG' href="">
+						<div m:id="common.IF_SALES_CAMPAIGN_IMAGE">
+							<img m:id="common.SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+						</div>
+						<h3>
+							<span m:id="common.SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span>
+						</h3>
+						<p>
+							<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_YEAR_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_MONTH_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_DAY_HERE"></span> <span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_TIME_HERE"></span>:<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_MINUTE_HERE"></span> 〜
+							<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_YEAR_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_MONTH_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_DAY_HERE"></span> <span m:id="common.SALES_CAMPAIGN_KIKAN_TO_TIME_HERE"></span>:<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_MINUTE_HERE"></span>まで
+						</p>
+						<div><span m:id="common.SALES_CAMPAIGN_DETAIL_HERE">キャンペーン内容</span></div>
+						<div m:id="common.IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+							<div m:id="common.IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+								<h4><span m:id="common.SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h4>
+								<p>
+									<span m:id="common.SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div m:id="common.IF_SALES_CAMPAIGN_URL" m:NOT="" class="box">
+					<div m:id="common.IF_SALES_CAMPAIGN_IMAGE">
+						<img m:id="common.SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+					</div>
+					<h3><span m:id="common.SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span></h3>
+					<p>
+						<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_YEAR_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_MONTH_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_DAY_HERE"></span> <span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_TIME_HERE"></span>:<span m:id="common.SALES_CAMPAIGN_KIKAN_FROM_MINUTE_HERE"></span> 〜
+						<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_YEAR_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_MONTH_HERE"></span>/<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_DAY_HERE"></span> <span m:id="common.SALES_CAMPAIGN_KIKAN_TO_TIME_HERE"></span>:<span m:id="common.SALES_CAMPAIGN_KIKAN_TO_MINUTE_HERE"></span>まで
+					</p>
+					<div><span m:id="common.SALES_CAMPAIGN_DETAIL_HERE">キャンペーン内容</span></div>
+					<div m:id="common.IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+						<div m:id="common.IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+							<h4><span m:id="common.SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h4>
+							<p>
+								<span m:id="common.SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>
+<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+
+<!-- topics --> 
+<section id="topics" m:id='common.IF_INFORMATION'>
+	<h2>トピックス</h2>
+	<div m:id='common.LOOP_INFORMATION' class="topics_box">
+		<a href="#" m:id='common.INFORMATION_LINK_TAG'>
+			<h3><span m:id='common.INFORMATION_DATE_HERE'>09/10/13</span></h3>
+			<div class="img_box" m:id='common.IF_INFORMATION_IMAGE'>
+				<img m:id='common.INFORMATION_IMAGE_TAG' src="images/sample.jpg" alt="" />
+			</div>
+			<p>
+				<span m:id="common.IF_INFORMATION_TITLE"><span m:id='common.INFORMATION_TITLE_HERE'>ここにトピックスのタイトルが入ります。</span><br /></span>
+				<span m:id='common.INFORMATION_MESSAGE_HERE'>ここにトピックスの内容が入ります。</span>
+			</p>
+		</a>
+	</div>
+</section>
+<!-- / topics -->
+
+
+<!-- category -->
+<section m:id='common.IF_TOP_CATEGORY' id="category">
+	<h2>カテゴリ一覧</h2>
+	<ul>
+		<li m:id='common.LOOP_TOP_CATEGORY'>
+				<a m:id='common.TOP_CATEGORY_LINK_TAG' href="">
+					<span m:id='common.TOP_CATEGORY_NAME_HERE'>カテゴリ1</span>
+					<span m:id='common.TOP_CATEGORY_COUNT_HERE'>(10)</span>
+				</a>
+		</li>
+		<li m:id='DUMMY'><a href="">カテゴリ2</a></li>
+		<li m:id='DUMMY'><a href="">カテゴリ3</a></li>
+		<li m:id='DUMMY'><a href="">カテゴリ4</a></li>
+		<li m:id='DUMMY'><a href="">カテゴリ5</a></li>
+	</ul>
+</section>
+<!-- / category -->
+
+
+<!-- new -->
+<section id="new" m:id='common.IF_SINTYAKU'>
+	<h2>新着商品</h2>
+	<div class="box" m:id='common.LOOP_SINTYAKU'>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<a m:id='common.SINTYAKU_LINK_TAG' href="">
+				<div class="img_box">
+					<img m:id='common.SINTYAKU_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h3><span m:id='common.SINTYAKU_ITEM_NAME_40_HERE'>商品名</span></h3>
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price">
+							<span m:id='common.SINTYAKU_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+							<!--(本体価格：<span m:id='common.SINTYAKU_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_TEIKA_TAX_HERE'>475円</span>)-->
+						</p>
+						<p class="price_sub" m:id='common.IF_SINTYAKU_MAKER_TEIKA'>
+							[希望小売価格：<span m:id='common.SINTYAKU_MAKER_TEIKA_HERE'>9,980円</span>]
+						</p>
+						<p class="price_sub" m:id='common.IF_SINTYAKU_DISCOUNT'>
+							[会員割引価格：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+						<p class="price_sub" m:id='common.IF_SINTYAKU_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<a m:id='common.SINTYAKU_LINK_TAG' href="">
+				<div class="img_box">
+					<img m:id='common.SINTYAKU_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h3><span m:id='common.SINTYAKU_ITEM_NAME_40_HERE'>商品名</span></h3>
+					<p class="price">
+						<span m:id='common.SINTYAKU_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+						<!--(本体価格：<span m:id='common.SINTYAKU_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_TEIKA_TAX_HERE'>475円</span>)-->
+					</p>
+					<p class="price_sub" m:id='common.IF_SINTYAKU_MAKER_TEIKA'>
+						[希望小売価格：<span m:id='common.SINTYAKU_MAKER_TEIKA_HERE'>9,980円</span>]
+					</p>
+					<p class="price_sub" m:id='common.IF_SINTYAKU_DISCOUNT'>
+						[会員割引価格：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+					</p>
+					<p class="price_sub" m:id='common.IF_SINTYAKU_TIMESALE_KAKAKU'>
+						[タイムセール価格：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.SINTYAKU_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+					</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+<!-- / new -->
+
+
+<!-- recommend -->
+<section id="recommend" m:id='common.IF_RECOMMEND'>
+	<h2>おすすめ商品</h2>
+
+	<div class="box" m:id='common.LOOP_RECOMMEND'>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<a m:id='common.RECOMMEND_LINK_TAG' href="">
+				<div class="img_box">
+					<img m:id='common.RECOMMEND_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h3><span m:id='common.RECOMMEND_ITEM_NAME_40_HERE'>商品名</span></h3>
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price">
+							<span m:id='common.RECOMMEND_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+							<!--(本体価格：<span m:id='common.RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+						</p>
+						<p class="price_sub" m:id='common.IF_RECOMMEND_MAKER_TEIKA'>
+							[希望小売価格：<span m:id='common.RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+						</p>
+						<p class="price_sub" m:id='common.IF_RECOMMEND_DISCOUNT'>
+							[会員割引価格：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+						<p class="price_sub" m:id='common.IF_RECOMMEND_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<a m:id='common.RECOMMEND_LINK_TAG' href="">
+				<div class="img_box">
+					<img m:id='common.RECOMMEND_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h3><span m:id='common.RECOMMEND_ITEM_NAME_40_HERE'>商品名</span></h3>
+					<p class="price">
+						<span m:id='common.RECOMMEND_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+						<!--(本体価格：<span m:id='common.RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+					</p>
+					<p class="price_sub" m:id='common.IF_RECOMMEND_MAKER_TEIKA'>
+						[希望小売価格：<span m:id='common.RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+					</p>
+					<p class="price_sub" m:id='common.IF_RECOMMEND_DISCOUNT'>
+						[会員割引価格：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+					</p>
+					<p class="price_sub" m:id='common.IF_RECOMMEND_TIMESALE_KAKAKU'>
+						[タイムセール価格：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RECOMMEND_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+					</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+<!-- / recommend -->
+
+
+<!-- ranking -->
+<section id="ranking" m:id='common.IF_RANKING'>
+	<h2>人気商品ランキング</h2>
+	<div m:id='common.LOOP_RANKING' id="ranking_no1" class="box">
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<a m:id='common.RANKING_LINK_TAG' href="#">
+				<div class="img_box">
+					<img m:id='common.RANKING_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<div class="text">
+						<h3>第<span m:id='common.RANKING_NUMBER_HERE'>1</span>位</h3>
+						<h4><span m:id='common.RANKING_ITEM_NAME_40_HERE'>ランキング1位の商品名</span></h4>
+						<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+							<p class="price">
+								<span m:id='common.RANKING_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+								<!--(本体価格：<span m:id='common.RANKING_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_TEIKA_TAX_HERE'>475円</span>)-->
+							</p>
+							<p class="price_sub" m:id='common.IF_RANKING_MAKER_TEIKA'>
+								[希望小売価格：<span m:id='common.RANKING_MAKER_TEIKA_HERE'>9,980円</span>]
+							</p>
+							<p class="price_sub" m:id='common.IF_RANKING_DISCOUNT'>
+								[会員割引価格：<span m:id='common.RANKING_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+								<!--(本体価格：<span m:id='common.RANKING_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+							</p>
+							<p class="price_sub" m:id='common.IF_RANKING_TIMESALE_KAKAKU'>
+								[タイムセール価格：<span m:id='common.RANKING_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+								<!--(本体価格：<span m:id='common.RANKING_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+							</p>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<a m:id='common.RANKING_LINK_TAG' href="#">
+				<div class="img_box">
+					<img m:id='common.RANKING_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<h3>第<span m:id='common.RANKING_NUMBER_HERE'>1</span>位</h3>
+					<h4><span m:id='common.RANKING_ITEM_NAME_40_HERE'>ランキング1位の商品名</span></h4>
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price">
+							<span m:id='common.RANKING_TEIKA_ZEIKOMI_HERE'>21,000円</span>
+							<!--(本体価格：<span m:id='common.RANKING_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_TEIKA_TAX_HERE'>475円</span>)-->
+						</p>
+						<p class="price_sub" m:id='common.IF_RANKING_MAKER_TEIKA'>
+							[希望小売価格：<span m:id='common.RANKING_MAKER_TEIKA_HERE'>9,980円</span>]
+						</p>
+						<p class="price_sub" m:id='common.IF_RANKING_DISCOUNT'>
+							[会員割引価格：<span m:id='common.RANKING_DISCOUNT_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.RANKING_DISCOUNT_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_DISCOUNT_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+						<p class="price_sub" m:id='common.IF_RANKING_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='common.RANKING_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='common.RANKING_TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='common.RANKING_TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->]
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div m:id='DUMMY' id="ranking_no2" class="box">
+		<a href="#">
+            <div class="img_box">
+                <img src="images/sample.jpg" width="80" height="80" alt="" />
+            </div>
+			<div class="text">
+				<h3>第2位</h3>
+				<h4>ランキング2位の商品名</h4>
+				<p class="price">5,980円</p>
+			</div>
+		</a>
+	</div>
+</section>
+<!-- / ranking -->
+
+<!-- present --> 
+<section id="present" m:id='common.IF_PRESENT'>
+	<h2>プレゼント</h2>
+	<div m:id='common.LOOP_PRESENT' class="box">
+		<a href="#" m:id='common.PRESENT_LINK_TAG'>
+			<h3>応募期間：<span m:id='common.PRESENT_KIKAN_FROM'>2009年12月12日</span>～<span  m:id='common.PRESENT_KIKAN_TO'>2009年12月12日</span></h3>
+			<p>
+				<span m:id='common.PRESENT_NAME_HERE'>プレゼント名</span>
+			</p>
+		</a>
+	</div>
+	<div class="all"><a href="present_list.html">プレゼント一覧はこちら</a></div>
+</section>
+<!-- / present -->
+
+<!-- 商品のタイムセール価格 -->
+<!-- アイテムコードを入れることで特定の商品のタイムセール価格を出力できます
+<section m:id='common.IF_TIMESALE_PRICE' m:itemcd='任意のアイテムコード'>
+	<p><span m:id='common.TIMESALE_PRICE_HERE' m:itemcd='任意のアイテムコード'>1000円</span></p>
+</section> -->
+<!-- / 商品のタイムセール価格 -->
+
+<!-- apparea -->
+<!-- 任意のV4APPコードを入れると表示されます。（店舗にV4のアプリがインストールされている時のみ使用できる）
+<section id="apparea" m:id='common.IF_APP_INSTALLED' m:app_cd='任意のコード'>
+	<p>条件にあった文言</p>
+</section>
+-->
+<!-- / apparea -->
+
+<!-- coupon -->
+<section id="coupon" m:id="common.IF_COUPON">
+	<h2>クーポン</h2>
+	<div m:id='common.LOOP_COUPON' class="box">
+		<p><span m:id='common.COUPON_NAME_HERE'>クーポン名</span></p>
+		<div m:id='common.IF_COUPON_IMAGE'><img m:id='common.COUPON_IMAGE_TAG' src="images/sample_coupon.png" /></div>
+	</div>
+</section>
+<!-- / coupon -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<span m:id='common.CRITEO_TOP_PAGE_TRACKER_HERE'></span>
+
+</body>
+</html>

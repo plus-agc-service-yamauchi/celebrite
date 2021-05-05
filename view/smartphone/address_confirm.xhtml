@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- memberConfirm -->
+<section id="content">
+	<h2>
+		<span m:id="IF_ADDRESS_DELETE" m:NOT="">
+			<span m:id='IF_ADDRESS_NEW'>新規アドレス帳登録</span>
+			<span m:id='IF_ADDRESS_NEW' m:NOT="">アドレス帳情報変更</span>
+		</span>
+		<span m:id='IF_ADDRESS_DELETE'>アドレス帳情報削除</span>
+	</h2>
+	<div class="sentence">
+        <p m:id="IF_ADDRESS_DELETE" m:NOT="">入力内容を確認してください。<br />正しければ「送信」ボタンを押してください。</p>
+        <p m:id="IF_ADDRESS_DELETE">アドレス帳情報を削除します。削除する内容をご確認してください。<br />正しければ「削除」ボタンを押してください。</p>
+	</div>
+
+    <iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+
+		<h3>氏名（漢字）</h3>
+		<div class="sentence">
+			<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+		</div>
+
+		<h3>氏名（カナ）</h3>
+		<div class="sentence">
+			<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></p>
+		</div>
+
+		<h3>住所</h3>
+		<div class="sentence">
+			<p>
+				<span m:id='ZIP_HERE'>1234567</span> <span m:id='ADDRESS1_HERE'>東京都</span>
+				<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+			</p>
+		</div>
+
+		<h3>電話番号</h3>
+		<div class="sentence">
+			<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='1'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目１</span>
+				</p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='2'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目１</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目１</span>
+				</p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='3'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目１</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目１</span>
+				</p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='4'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目１</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目１</span>
+				</p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='5'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目１</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目１</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="buttonarea">
+			<span m:id="IF_ADDRESS_DELETE" m:NOT=""><input type="submit" value="送信" /></span>
+			<span m:id="IF_ADDRESS_DELETE"><input type="submit" value="削除" /></span>
+			<a m:id='BACK_BUTTON_TAG' href="#" class="cancel">戻る</a>
+		</div>
+	</form>
+
+</section>
+<!-- / memberConfirm -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

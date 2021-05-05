@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/wishlist_edit.html?request=edit&WISH_LIST_ID=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- wishlistEdit -->
+	<h2>お気に入りリスト</h2>
+	<p>お気に入り商品のコメントを編集します。</p>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<form m:id='FORM_TAG'>
+		<table summary="お気に入りリスト">
+			<tr>
+				<th class="title">商品名</th>
+				<td><span m:id="ITEM_NAME_HERE">ここに商品名が入ります。</span></td>
+			</tr>
+			<tr>
+				<th class="title">コメント</th>
+				<td><textarea m:id='COMMENT_INPUT_HERE' rows="8" cols="60"></textarea></td>
+			</tr>
+		</table>
+		<div class="buttonarea">
+			<a href="wishlist.html" class="button negative medium">一覧に戻る</a>
+			<input type="submit" value="送信する" class="button positive medium" />
+		</div>
+	</form>
+<!-- / wishlistEdit -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END=============================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

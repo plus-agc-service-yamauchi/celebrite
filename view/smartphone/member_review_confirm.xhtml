@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:aps="eb:AMAZON_PAYMENTS/view_amazon_payments.json" xmlns:social_plus="eb:SOCIAL_PLUS/view_common.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<section id="content">
+<!-- review -->
+	<form m:id='REVIEW_FORM_TAG'>
+		<span m:id='IF_UPDATE'>
+			<h2>レビューの編集</h2>
+		</span>
+		<span m:id='IF_DELETE'>
+			<h2>レビューの削除</h2>
+		</span>
+		<div class="sentence">
+			<p>
+				<span m:id='IF_UPDATE'>
+					レビューの編集を行います。<br />
+					【編集に関して】<br />
+					<span m:id='IF_REVIEW_AUTH_NEED'>　編集頂いたレビューは管理者により確認された後、画面に表示されます。<br /></span>
+					<span m:id='IF_REVIEW_GOOD_BAD'>　レビューの編集を行うことで、これまでに他のユーザが評価した情報も削除されます。<br /></span>
+					　ニックネームを変更した場合は変更後のニックネームが会員情報に反映されます。<br />
+				</span>
+				<span m:id='IF_DELETE'>
+					レビューの削除を行います。<br />
+					【削除に関して】<br />
+					　削除後、この商品に対しての再レビューはできませんのでご注意ください。<br />				
+				</span>
+			</p>
+		</div>
+		
+		<h3>ニックネーム</h3>
+		<div class="sentence">
+			<p><span m:id='REVIEWER_NICKNAME_HERE'>ニックネームを表示します。</span></p>
+		</div>
+		
+		<h3>評価</h3>
+		<div class="sentence">
+			<p><span m:id="REVIEW_STAR_HERE">評価を表示します。</span></p>
+		</div>
+		
+		<h3>タイトル</h3>
+		<div class="sentence">
+			<p><span m:id='REVIEW_TITLE_HERE'>タイトルを表示します。</span></p>
+		</div>
+		
+		<h3>レビュー</h3>
+		<div class="sentence">
+			<p><span m:id='REVIEW_COMMENT_HERE'>レビューを表示します。</span></p>
+		</div>
+		
+		<div class="buttonarea">
+			<input m:id="REVIEW_EXECUTE_BUTTON_TAG" type="submit" value="確認" />
+			<input m:id="REVIEW_BACK_BUTTON_TAG" type="submit" value="戻る" class="cancel" />
+		</div>
+	</form>
+</section>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

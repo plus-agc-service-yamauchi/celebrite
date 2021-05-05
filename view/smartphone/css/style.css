@@ -1,0 +1,1174 @@
+@charset "UTF-8";
+@import url("smoothness/jquery-ui-1.8.4.custom.css");
+
+/* =======================================================================
+CSSの名前：style.css 
+最終更新日時：2016/3/2
+--------------------------------------------------------------------------
+1.リセット
+2.基本設定
+3.ヘッダー
+4.トップページ
+5.商品一覧
+6.商品詳細
+7.カート系
+8.その他のページ
+9.レビュー
+10.メッセージ
+11.フッター
+12.プレゼント
+13.extファイル用
+14.クレジットカード情報
+15.クーポン詳細
+16.購入履歴
+17.トピックス一覧
+18.マイページ
+19.ログイン
+20.拡張版セールスキャンペーン
+21.会員登録
+22.子会員リスト
+======================================================================= */
+
+
+/* =================================================================
+1.リセット
+使用ファイル：すべてのファイル
+
+html5doctor.com Reset Stylesheet
+v1.6
+Last Updated: 2010-08-18
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+=================================================================*/
+
+html,body,div,span,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+abbr,address,cite,code,
+del,dfn,em,img,ins,kbd,q,samp,
+small,strong,sub,sup,var,
+b,i,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure, 
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{margin:0; padding:0; border:0; background:transparent; outline:0; font-size:100%; vertical-align:baseline;}
+
+input{padding:0;}
+body{line-height:1;}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{display:block;}
+li{list-style:none;}
+blockquote, q{quotes:none;}
+blockquote:before, blockquote:after,
+q:before, q:after{content:''; content:none;}
+a{margin:0; padding:0; background:transparent; font-size:100%; vertical-align:baseline;}
+
+/*  change colours to suit your needs
+-------------------------------------------------------------*/
+ins{background-color:#ff9; color:#000; text-decoration:none;}
+
+/*  change colours to suit your needs
+-------------------------------------------------------------*/
+mark{background-color:#ff9; color:#000; font-style:italic; font-weight:bold;}
+del{text-decoration:line-through;}
+abbr[title], dfn[title]{border-bottom:1px dotted inherit; cursor:help;}
+table{border-collapse:collapse; border-spacing:0;}
+
+/*  change border colour to suit your needs
+-------------------------------------------------------------*/
+hr{display:block; height:1px; margin:1em 0; padding:0; border:0; border-top:1px solid #cccccc;}
+input, select{vertical-align:middle; border-radius:0;}
+
+
+/* =================================================================
+2.基本設定
+使用ファイル：すべてのファイル
+=================================================================*/
+
+body{font:15px/1.231 "HiraKakuProN-W3"; -webkit-text-size-adjust:none;}
+body #bg{background-color: rgba(0,0,0,0.75); position:fixed; height:100%; width:100%; z-index:9999;}/* cart_seisan.xhtmlのカレンダー表示時背景 */
+
+
+/*  基本のlink color
+-------------------------------------------------------------*/
+a:link{color:#1D3994;}
+a:visited{color:#941D55;}
+
+/*  ボタンデザイン
+-------------------------------------------------------------*/
+/*基本デザイン-下記クラスに加えpositive　negative等のクラスを合わせて付与する*/
+a.button{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 13px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; width: 100%;}
+input.button{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 13px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; width: 100%;}
+
+/*マウスホバー時*/
+a.button:hover{opacity: 0.7; cursor: pointer; transition: all .3s;}
+input.button:hover{opacity: 0.7; cursor: pointer; transition: all .3s;}
+
+/*次へ・入力内容を確認する・注文する・ログイン・登録する・送信・検索・ご注文手続きへ進む等*/
+a.positive{background: #D21E21; color: #FFFFFF;}
+input.positive{background: #D21E21; color: #FFFFFF;}
+
+/*戻る・クリア・削除・ログアウト等*/
+a.negative{background: #4c4c4c; color: #FFFFFF;}/*戻る・クリア・削除・ログアウト等*/
+input.negative{background: #4c4c4c; color: #FFFFFF;}
+
+/*上記以外のボタン*/
+a.normal{background: #f7f7f7; color: #333333; border: 1px solid #adadad;}
+input.normal{background: #f7f7f7; color: #333333; border: 1px solid #adadad;}
+.medium.normal{ padding:9px !important;}
+.small.normal{ padding:5px 9px !important;}
+
+/*押せないボタン*/
+.not_click{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 12px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; background: #d2d2d2; color: #a5a5a5;}
+.not_click.medium{max-width: 230px; min-width: 200px;}
+
+/*普通サイズの時にはクラスに下記を追加*/
+.medium{ min-width: 200px; font-size: 16px;}
+a.medium{max-width: 320px; min-width: 200px; font-size: 16px;}
+input.medium{max-width: 320px; min-width: 200px; font-size: 16px;}
+
+/*小さいサイズの時にはクラスに下記を追加*/
+.small{padding: 6px 10px; font-size: 12px;}
+a.small{padding: 6px 10px; font-size: 12px;}
+input.small{padding: 6px 10px; font-size: 12px;}
+
+/*  画像の縦横比調整
+-------------------------------------------------------------*/
+.img_box{text-align:center; position:relative;}
+.img_box img{width:auto; display:block; position:absolute; top:0; right:0; bottom:0; left:0; margin:auto;}
+
+/*  カートフローチャート
+-------------------------------------------------------------*/
+.cart_step{position: relative; overflow: hidden;}
+.cart_step:after {content: ""; clear: both; display: block;}/* clearfix */
+.cart_step ul{position: relative; left: 50%; float: left; margin-bottom: 45px;}
+.cart_step ul li{position: relative; left: -50%; float: left; text-align: center; width: 60px; line-height: 1.2; color: #CDCDCD; font-size: 11px;}
+.cart_step ul li.active{color: #000000; font-weight: bold;}
+.cart_step ul li strong{font-size: 25px; display: block;}
+
+.step{display:block; margin:25px auto 45px auto;}
+
+/*  フォーム類部品
+-------------------------------------------------------------*/
+input[type="text"]{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input[type="email"]{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input[type="password"]{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input[type="tel"]{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input[type="number"]{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+textarea{border:solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input, textarea, select, button{font-size:13px; margin-right:5px;}
+
+/*  ソーシャルPLUSのスタイル
+-------------------------------------------------------------*/
+#social_plus_error_tbl{padding-bottom:20px;}
+#social_plus_error_tbl td{padding:0 10px;}
+#social_plus_error_tbl .ico{width:30px; text-align:center; vertical-align:top;}
+#social_plus_error_tbl .ico img{width:27px; height:25px;}
+#social_plus_error_tbl .content{color:#C00; font-size:90%; font-weight:bold; line-height:150%; vertical-align:middle;}
+
+/* calendar - カレンダー
+-------------------------------------------------------------*/
+img.ui-datepicker-trigger {vertical-align: top !important; padding-left: 5px !important;}
+#calendar{zoom:1; width:190px; margin-bottom:10px; padding:10px 0 5px; border-top:solid 1px #CCC; border-bottom:solid 1px #CCC; background:url("../images/sidebar_middle_bg.gif") repeat-y;}
+#calendar h2{width:170px; height:20px; overflow:hidden; margin:0 10px; background:url("../images/calendar_title.gif") no-repeat; text-indent:-9999px;}
+#calendar p{margin:0 10px; font-size:80%;}
+#calendar span.day_color1{color:#FF7F7E;}
+#SIDE_CALENDAR{width:180px; overflow:hidden; margin:0 5px; font-size:9px;}
+#ui-datepicker-div {width: 14em !important;	border: 1px solid #AAA !important;}
+#ui-datepicker-div .ui-datepicker-header {background: #CCC repeat-x scroll 50% 50% !important; width: 100% !important;}
+#ui-datepicker-div table.ui-datepicker-calendar {width: 100% !important;}
+#ui-datepicker-div select.ui-datepicker-year, #ui-datepicker-div select.ui-datepicker-month{width:40% !important; border:1px solid #e0e0e0; height:23px;}
+.ui-widget-content{border:1px solid #FFF;}
+.ui-datepicker{padding:1px}
+.ui-datepicker-title{font-size:12px;}
+.ui-widget-header{width:178px; border-top:none; border-left:none; border-right:none; border-bottom:solid 1px #CCC; border-radius:0; background:none;}
+.ui-datepicker table{width:178px;}
+.ui-datepicker th,.ui-datepicker td{width:10px !important; margin:0; padding:1px; border:none;}
+.ui-datepicker th a,.ui-datepicker td a{padding:1px; border:none !important;}
+.ui-datepicker th div,.ui-datepicker td div{padding:1px; border:none !important;}
+.ui-datepicker-week-end{color:#C00;}
+
+/* jquery-ui-1.8.4.custom.css　上書き用（カレンダー）
+-------------------------------------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{padding: 11px 5px; border: none; background: #e6e6e6;}/* 選択可能日付 */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{border: 1px solid #aaaaaa; background: #ffffff;}/* 選択した日付 */
+
+/* 矢印アイコン関連 */
+.ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev{width: 58px; height: 22px;}
+.ui-datepicker-next.ui-corner-all.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker-prev.ui-corner-all.ui-state-hover.ui-datepicker-prev-hover,
+.ui-datepicker-next.ui-corner-all.ui-state-disabled.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker-prev.ui-corner-all.ui-state-disabled.ui-state-hover.ui-datepicker-prev-hover{box-sizing: border-box; border: none; background: none;}
+.ui-state-disabled span.ui-icon-circle-triangle-w, .ui-datepicker .ui-datepicker-prev-hover span.ui-icon-circle-triangle-w{background-image: url("./smoothness/images/ui-icons_454545_256x240.png"); opacity: .75; border: none;}
+.ui-state-disabled span.ui-icon-circle-triangle-e, .ui-datepicker .ui-datepicker-next-hover span.ui-icon-circle-triangle-e{background-image: url("./smoothness/images/ui-icons_454545_256x240.png"); opacity: .75; border: none;}
+
+/*  ローディング表示のスタイル
+-------------------------------------------------------------*/
+#loading{position: fixed; top: 50%; left: 50%; padding-top: 100px; width: 100px; background-image: url("../images/loader_icon_sp.gif"); background-position: center center; background-repeat: no-repeat;}
+
+/* =================================================================
+3.ヘッダー
+使用ファイル：common/header.xhtml
+=================================================================*/
+
+header p.preview{display:block; padding:5px; background:#1c8600; color:#FFF; text-align:center;}
+header h1 a{display:block; height:80px; background:url("../images/header_title.png") center no-repeat; text-indent:-9999px;}
+
+
+/* =================================================================
+4.トップページ
+使用ファイル：top.xhtml
+=================================================================*/
+
+/* search - 商品検索
+-------------------------------------------------------------*/
+#search{padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}/* top menu */
+#search table{width:100%;}
+#search td{vertical-align:middle;}
+#search td.button{width:60px;}
+#search .form{display:block; width:100%; height:30px; font-size:110%;}
+#search input.button{display:block; width:50px; margin-left:10px; padding:3px 0;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	border-radius:5px; border:1px solid #900; text-shadow:-1px 1px 1px #666; color:#FFF; font-size:110%; font-weight:bold; text-align:center; text-decoration:none;}/* color button */
+#search p a{display:block; clear:both; margin-top:5px; color:#FFF; font-size:90%; text-align:center;}
+
+/* loginBefore - ログイン前
+-------------------------------------------------------------*/
+#loginBefore{padding:5px 10px; box-shadow:0 2px 2px #CCC;}
+#loginBefore:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#loginBefore p{float:left; margin-top:5px; font-size:90%;}
+#loginBefore a{display:block; float:right; width:60px; padding:3px 0; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+	border-radius:5px; border:1px solid #333; text-shadow:-1px 1px 1px #666; color:#FFF; font-size:90%; font-weight:bold; text-align:center; text-decoration:none;}/* gray button */
+	
+/* loginAfter - ログイン後
+-------------------------------------------------------------*/
+#loginAfter{padding:5px 10px; box-shadow:0 2px 2px #CCC;}
+#loginAfter p{display:block; font-size:90%; text-align:center;}
+#loginAfter span.point{color:#C00; font-weight:bold;}
+#loginAfter ul{width:100%; margin:5px auto 0; border:1px solid #333; border-radius:5px; 
+	background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666)); text-shadow:-1px 1px 1px #666; font-size:90%;}/* gray button */
+#loginAfter ul:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#loginAfter li{float:left; width:33%; border-left:1px solid #FFF; font-weight:bold; text-align:center;}
+#loginAfter  li a{display:block; padding:5px 0;}
+#loginAfter li:first-child{border:none;}
+#loginAfter ul a{color:#FFF; text-decoration:none;}
+
+/* cart - 買い物かごへ
+-------------------------------------------------------------*/
+#cart a{display:block; padding:15px; background:url("../images/top_cart.png") 60px center no-repeat; color:#333; text-align:center; text-decoration:none;}
+
+/* topics - トピックス
+-------------------------------------------------------------*/
+#topics{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#topics h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#topics .topics_box{padding:10px 0 10px 10px; border-bottom:1px solid #CCC;}
+#topics a{display:block; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#topics a:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#topics h3{display:block; font-size:80%;}
+#topics p{display:block; padding:0 10px 0 0;}
+
+#topics .img_box{width:80px; height:80px;}
+#topics .img_box img{max-width:80px; max-height:80px;}
+
+/* category - 商品カテゴリ
+-------------------------------------------------------------*/
+#category{margin-bottom:20px; background:#F3F3F3; box-shadow:0 2px 2px #CCC;}/* change background color */
+#category h2{padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}/* top menu */
+#category li{border-bottom:1px solid #CCC;}
+#category li a{display:block; padding:10px 10px 10px 25px; background:url("../images/marker.png") 10px center no-repeat; color:#333; text-decoration:none;}
+
+/* new - 新着商品
+-------------------------------------------------------------*/
+#new{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#new h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#new div.box{border-bottom:1px solid #CCC;}
+#new a{display:block; padding:10px; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#new a:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#new h3{display:block; margin-bottom:5px; color:#333; font-weight:normal;}
+#new p.price{display:block; color:#C00;}
+#new p.price_sub{display:block; color:#C00; font-size:80%;}
+#new .explanation1{margin-top:5px; color:#333; font-size:85%;}
+#new .text{margin-left:90px;}
+
+#new .img_box{width:80px; height:80px; float:left;}
+#new .img_box img{max-width:80px; max-height:80px;}
+
+/* recommend - おすすめ商品
+-------------------------------------------------------------*/
+#recommend{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#recommend h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#recommend div.box{border-bottom:1px solid #CCC;}
+#recommend a{display:block; padding:10px; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#recommend a:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#recommend h3{display:block; margin-bottom:5px; color:#333; font-weight:normal;}
+#recommend p.price{display:block; color:#C00;}
+#recommend p.price_sub{display:block; color:#C00; font-size:80%;}
+#recommend .explanation1{margin-top:5px; color:#333; font-size:85%;}
+#recommend .text{margin-left:90px;}
+
+#recommend .img_box{width:80px; height:80px; float:left;}
+#recommend .img_box img{max-width:80px; max-height:80px;}
+
+/* ranking - ランキング
+-------------------------------------------------------------*/
+#ranking{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#ranking h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#ranking div.box{border-bottom:1px solid #CCC;}
+#ranking a{display:block; padding:10px; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#ranking a:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#ranking h3{display:block; margin-bottom:5px; color:#333; font-size:85%;}
+#ranking h4{display:block; margin-bottom:5px; color:#333; font-weight:normal;}
+#ranking p.price{display:block; color:#C00;}
+#ranking p.price_sub{display:block; color:#C00; font-size:80%;}
+#ranking .text{margin-left:90px;}
+
+#ranking .img_box{width:80px; height:80px; float:left;}
+#ranking .img_box img{max-width:80px; max-height:80px;}
+
+/* present - プレゼント
+-------------------------------------------------------------*/
+#present{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#present h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#present .box{padding:10px 0 10px 10px; border-bottom:1px solid #CCC;}
+#present .box a{display:block; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#present h3{display:block; font-size:80%;}
+#present p{display:block;}
+#present .all a{display:block; padding:10px 0 10px 10px; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+
+/* coupon - クーポン
+-------------------------------------------------------------*/
+#coupon{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#coupon h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#coupon .box{padding:10px 0 10px 10px; border-bottom:1px solid #CCC;}
+#coupon .box a{display:block; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+#coupon h3{display:block; font-size:80%;}
+#coupon p{display:block;}
+#coupon .all a{display:block; padding:10px 0 10px 10px; background:url("../images/link_bg.png") right center no-repeat; text-decoration:none;}
+
+/* =================================================================
+5.商品一覧
+使用ファイル：item_list.xhtml
+=================================================================*/
+
+/* itemListCategory - 商品カテゴリ
+-------------------------------------------------------------*/
+#itemListCategory{margin-bottom:20px; background:#F3F3F3; box-shadow:0 2px 2px #CCC;}/* change background color */
+#itemListCategory h2{padding:8px 10px; color:#FFF; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); text-shadow:-1px 1px 1px #666;}/* top menu */
+#itemListCategory ul{padding:8px 5px 5px; font-size:85%;}
+#itemListCategory ul:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#itemListCategory li{float:left;}
+#itemListCategory li a.select{color:#000; font-weight:bold; text-decoration:none;}
+#itemListCategory .sub{position:relative; margin:8px 0 0; border-top:1px solid #CCC; color:#333;}
+#itemListCategory .sub:before{content:""; display:block; position:absolute; top:-16px; left:30px; width:0; height:0; border:8px solid transparent; border-bottom-color:#CCC;}
+#itemListCategory .sub:after{content:""; display:block; position:absolute; top:-14px; left:31px; width:0; height:0; border:7px solid transparent; border-bottom-color:#F3F3F3;}/* change background color */
+
+/* narrowListCategory - 絞り込みカテゴリ
+-------------------------------------------------------------*/
+#narrowListCategory{margin:10px 10px 20px;}
+
+/* Reveal Modals 絞り込みカテゴリ　モーダル部分
+-------------------------------------------------- */	
+#narrowListCategory .reveal-modal-bg{position:fixed; height:100%; width:100%; background:#000; background:rgba(0,0,0,.8); z-index:100; display:none; top:0; left:0;}
+#narrowListCategory .reveal-modal{visibility:hidden; top:50px; left:50%; margin-left:-150px; width:298px; background:#FFF; position:absolute; z-index:10001; padding:0px; border-radius:0px; border:1px solid #ccc;}
+#narrowListCategory .reveal-modal h3{background:#ccc; padding:5px 9px; font-size:16px; margin-bottom:9px;}
+#narrowListCategory .reveal-modal .modal_content{padding:9px;}
+#narrowListCategory  #myModal .button{padding:10px 0px; clear:both;}
+#narrowListCategory  #myModal .button a{display:block !important;}
+#narrowListCategory  #myModal .close-reveal-modal.close{font-size:12px; height:18px; background:#f5f5f5; border:1px solid #ccc; margin:0 0px; text-align:center; padding:7px 0 0 0; color:#333333; cursor:pointer; font-weight:bold;}
+
+/* itemList - 商品一覧
+-------------------------------------------------------------*/
+#itemList h2{margin-bottom:10px; padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}
+#itemList p.pageguide{display:block; margin-bottom:10px; padding:0 10px; font-size:80%;}
+#itemList .breadcrumbs{margin:10px 10px 20px; font-size:13px;}
+#itemList ul{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+#itemList ul a{display:block; padding:10px; text-decoration:none;}
+#itemList li{border-top:1px solid #CCC;}
+#itemList li a:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#itemList li .text{margin-left:90px;}
+#itemList li .text h3{margin-bottom:5px; color:#333;}
+#itemList li .text .appeal{margin-bottom:5px; color:#999; font-size:85%;}
+#itemList li .text .img_box{width:80px; height:80px;}
+#itemList li .text .img_box img{max-width:80px; max-height:80px;}
+#itemList li .text .price{color:#C00; font-weight:bold;}
+#itemList li .text .price_sub{color:#C00; font-size:80%;}
+#itemList li .text .explanation1{margin-top:5px; color:#333; font-size:85%;}
+#itemList li .text .explanation1 a{display:inline;margin:0;}
+#itemList li .img{float:left;}
+#itemList .pagelink .button a{display:block; width:60px; padding:8px 0; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+	border-radius:5px; border:1px solid #333; text-shadow:-1px 1px 1px #666; color:#FFF; font-weight:bold; text-align:center; text-decoration:none;}/* gray button */
+#itemList .pagelink td{padding-right:10px;}
+#itemList .pagelink td:first-child{padding-left:10px;}
+#itemList .pagelink td.button{width:60px;}
+#itemList .pagelink td.link{text-align:center; letter-spacing:0.2em;}
+#itemList .pagelink{width:100%; margin-bottom:20px;}
+#itemList .rearrange{width:100%; margin-bottom:20px;font-size:85%;}
+#itemList .rearrange td{padding-right:10px;}
+#itemList .rearrange td.text{width:50px; padding-left:10px; font-size:85%;}
+#itemList .rearrange select{display:block; width:100%; height:28px; border:1px solid #CCC; border-radius:5px;}
+#itemList .box_off{display: block; padding: 10px; text-decoration: none;}
+#itemList .box_off:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+
+#itemList .img_box{width:80px; height:80px; float:left;}
+#itemList img{max-width:80px; max-height:80px;}
+
+/* itemList - 商品一覧カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemList .cartSubmitButton{position:relative;}
+#itemList .cartSubmitButton .cartMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemList .cartSubmitButton .cartMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemList .cartSubmitButton .cartMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemList .cartSubmitButton .cartMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .cartSubmitButton .cartMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .cartSubmitButton .cartMessage .link a{color: #FFF; text-decoration: none;}
+#itemList .cartSubmitButton .cartMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* #itemList - 商品一覧ウィッシュリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemList .wishlistSubmitButton{position:relative;}
+#itemList .wishlistSubmitButton .wishlistMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemList .wishlistSubmitButton .wishlistMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemList .wishlistSubmitButton .wishlistMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemList .wishlistSubmitButton .wishlistMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .wishlistSubmitButton .wishlistMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .wishlistSubmitButton .wishlistMessage .link a{color: #FFF; text-decoration: none;}
+#itemList .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+#itemList .wishlistSubmitButton .wishlistDelMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemList .wishlistSubmitButton .wishlistDelMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemList .wishlistSubmitButton .wishlistDelMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemList .wishlistSubmitButton .wishlistDelMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .wishlistSubmitButton .wishlistDelMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemList .wishlistSubmitButton .wishlistDelMessage .link a{color: #FFF; text-decoration: none;}
+#itemList .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+/* =================================================================
+6.商品詳細
+使用ファイル：item_detail.xhtml
+=================================================================*/
+
+/* itemDetail - 商品詳細
+-------------------------------------------------------------*/
+#itemDetail{margin-bottom:20px;}
+#itemDetail .breadcrumbs{margin:10px 10px 20px; font-size:13px;}
+#itemDetail h2{padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}/* top menu */
+#itemDetail .itemproperty{}
+#itemDetail .itemproperty .img_box{width:80px; height:80px; margin:10px 0;}
+#itemDetail .itemproperty img{max-width:80px; max-height:80px;}
+#itemDetail .itemproperty figure{margin:10px; padding-bottom:10px; border-bottom:1px solid #CCC;}
+/*#itemDetail .itemproperty figure img{display:block; margin:auto;}*/
+#itemDetail .itemproperty figure .property{float:left; margin:0 10px; width:80px; height:80px;}
+#itemDetail .itemproperty figure .property .inner{width:80px; height:80px; layout-grid-line: 80px;*layout-grid-line:0px; vertical-align: middle; text-align: center; display: table-cell;}
+#itemDetail .itemproperty figure .property .inner img{max-width:80px !important; max-height:80px !important;}
+#itemDetail .nosale{display: block; float: right; width: 170px; margin-left: 10px; padding: 5px 0; border: 1px solid #AAA; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC));
+color: #FFF; font-size: 117%; font-weight: bold; text-align: center; text-decoration: none;}
+
+#itemDetail figure figcaption{clear:both; padding:5px 10px 0; font-size:90%; color:#666;}
+#itemDetail .content{margin:10px; padding-bottom:10px; border-bottom:1px solid #CCC;}
+#itemDetail .free{border-bottom:none;}
+#itemDetail h3{display:block; margin-bottom:5px; color:#333;}
+#itemDetail .appeal{margin-bottom:5px; color:#999; font-size:85%;}
+#itemDetail .appeal .img_box{width:80px; height:80px;}
+#itemDetail .appeal .img_box img{max-width:80px; max-height:80px;}
+#itemDetail p.price{display:block; margin-bottom:5px; color:#C00;}
+#itemDetail span.price_sub{display:block; color:#C00; font-size:80%;}
+#itemDetail p.information{display:block; color:#666; font-size:85%;}
+#itemDetail .recommend{display:block; clear:both; padding-top:20px; font-size:85%; text-align:center;}
+#itemDetail .other_seisan{ clear:both; text-align:center; padding:20px 0 0px; font-size:85%;}
+#itemDetail .explanation2{margin:10px; padding-bottom:10px; border-bottom:1px solid #CCC; color:#333; font-size:85%;}
+#itemDetail .explanation3{padding-bottom:10px; margin:10px; border-bottom:1px solid #CCC; color:#333; font-size:85%;}
+#itemDetail .property{}
+#itemDetail .property select{display:block; float:left; width:100%; height:30px; margin-bottom:10px; border:1px solid #CCC; font-size:110%;}
+#itemDetail .amount:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemDetail .amount p{display:block; float:left; margin-top:5px;}
+#itemDetail .amount select{display:block; float:left; width:60px; height:30px; margin:0 10px; border:1px solid #CCC; font-size:110%;}
+#itemDetail input.add,#itemDetail .property_one .add{display:block; float:right; width:170px; margin-left:10px; padding:3px 0; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:110%; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#itemDetail .property_one .add{padding:5px 0;}
+#itemDetail input.quick{ clear:both; float:right; margin:0 auto;display:block; width:170px; padding:3px 0; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:110%; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+
+/* 写真
+-------------------------------------------------------------*/
+#itemDetail #products {width:100%; margin-right:0px; zoom:1; position:relative; margin-top:20px;}
+#itemDetail #products .slides_container {width:220px; overflow:hidden; position:relative; display:none; margin:0px auto 20px;}
+#itemDetail #products .slides_container a {display:block;}
+#itemDetail #products .thumbox{background:none; width:320px ; clear:both; margin:0 auto;}
+#itemDetail #products .thumbox h3{ margin:10px 0 0 15px; font-weight:bold; font-size:12px;}
+
+#itemDetail #products .slides_container .img_box{width:220px; height:220px; margin:0 auto;}
+#itemDetail #products .slides_container img{max-width:220px; max-height:220px;}
+
+/* Next/prev buttons
+-------------------------------------------------------------*/
+#itemDetail #products .next,#products .prev 
+{
+ width:21px; height:21px; padding:7px 0 0 7px; overflow:hidden; display:block; z-index:101; border-radius:5px; margin-top:-151px;
+ color:#FFFFFF; text-decoration:none; font-size:13px; font-weight:bold; border:1px solid #333333; border-radius:5px;
+ background:-webkit-gradient(linear,left top,left bottom,from(#6B6B6B),to(#323132));
+}
+#itemDetail #products .prev {float:left; margin-left:10px;}
+#itemDetail #products .prev:after{content:"＜";}
+#itemDetail #products .next {float:right; margin-right:10px;}
+#itemDetail #products .next:after{content:"＞";}
+
+/* itemDetail - 商品詳細カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemDetail .cartSubmitButton{position:relative;}
+#itemDetail .cartSubmitButton .cartMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemDetail .cartSubmitButton .cartMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemDetail .cartSubmitButton .cartMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemDetail .cartSubmitButton .cartMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .cartSubmitButton .cartMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .cartSubmitButton .cartMessage .link a{color: #FFF; text-decoration: none;}
+#itemDetail .cartSubmitButton .cartMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* itemDetail - 商品詳細ウィッシュリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemDetail .wishlistSubmitButton{position:relative;}
+#itemDetail .wishlistSubmitButton .wishlistMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemDetail .wishlistSubmitButton .wishlistMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .link a{color: #FFF; text-decoration: none;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .link a{color: #FFF; text-decoration: none;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* inline_content - 商品属性1つの時のポップアップ
+-------------------------------------------------------------*/
+#itemDetail #inline_content{padding:10px; background:#fff; clear:both; display:none;}
+#inline_content h3{padding:10px; font-size:110%; background: -webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow: 1px 1px 0 #CCC,0 1px 0 #CCC;}
+#inline_content #cboxContent{margin-top:0px;}
+#cboxLoadedContent{border: none;}
+#colorbox #subwindow{padding:10px;}
+
+#inline_content .box{padding:10px; border-bottom:1px solid #CCC;}
+#inline_content .box:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#inline_content .box label{vertical-align: -webkit-baseline-middle;}
+#inline_content .box .buttonbox{float:right;}
+#inline_content input.add{display:block; width:170px; margin-left:10px; padding:3px 0; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:110%; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666; margin-right:0px;}/* color button */
+#inline_content .box .nosale{display: block; width: 170px; padding: 5px 0; border: 1px solid #AAA; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC));
+color: #FFF; font-size: 110%; font-weight: bold; text-align: center; text-decoration: none; margin-left:10px;}
+#inline_content input.add.NegativeButton{border: 1px solid #333; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666)); margin-top:10px;}
+#inline_content .box .nyuka{display: block; width: 170px; padding: 5px 0; border-radius: 5px; border: 1px solid #333; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 110%; font-weight: bold; text-align: center; text-decoration: none; margin:10px 0 0 10px;}
+
+#cboxClose{position:absolute; top:12px; right:10px; display:block; background:url("../images/close.jpg") no-repeat top center; width:15px; height:15px; text-indent:-9999px;}
+
+
+/* itemDetail - プレゼントページの詳細
+-------------------------------------------------------------*/
+#itemDetail .present_box div.buttonarea{padding:0; text-align:center;}
+#itemDetail .present_box .explanation2{margin:10px 0;}
+#itemDetail .present_box div.buttonarea input{display:block; width:100%; margin-bottom:10px; padding:5px 10px; border:1px solid #900; border-radius:5px; background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22)); color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}
+#itemDetail .present_box{margin:0 10px;}
+#itemDetail .present_box .img_box{width:220px; height:220px; margin:10px 0;}
+#itemDetail .present_box img{max-width:220px; max-height:220px;}
+
+/* itemDetail - トピックスページの詳細
+-------------------------------------------------------------*/
+#itemDetail .topics_box{margin:0 10px;}
+#itemDetail .topics_box .img_box{width:250px; height:250px; margin:0 auto 10px;}
+#itemDetail .topics_box .img_box img{max-width:250px; max-height:250px;}
+#itemDetail .topics_box .information{padding: 10px 0px;}
+#itemDetail .topics_box .buttonarea a{display:block; margin-bottom:10px; padding:5px 10px; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#itemDetail .topics_box .buttonarea .cancel{border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));}/* gray button */
+
+/* itemDetail - 他の写真を見るページ
+-------------------------------------------------------------*/
+#itemDetail.otherimage #products .img_box{width:300px; height:300px; margin:0 auto 20px;}
+#itemDetail.otherimage #products .img_box img{max-width:300px; max-height:300px;}
+#itemDetail.otherimage #products h3{text-align:center;}
+#itemDetail.otherimage #products .otherproperty{padding:20px 0 0 0;}
+
+
+/* =================================================================
+7.カート系、定期系
+使用ファイル：cart_***.xhtml teiki_***.xhtml
+=================================================================*/
+#cartLogin .social_provider.buttonarea a{background:#FFF; text-shadow:none; background-size:contain !important; background-repeat: no-repeat; border:1px solid #e1e1e1;}
+#cartLogin .social_provider.buttonarea a span{margin-left:29px;}
+#cartLogin .social_provider a.facebook{background-image: url("../images/social_facebook.png"); color: #3b5998;}
+#cartLogin .social_provider a.twitter{background-image:url("../images/social_twitter.png"); color:#55acee;}
+#cartLogin .social_provider a.google{background-image:url("../images/social_google.png"); color:#dc4e41;}
+#cartLogin .social_provider a.yahoo{background-image:url("../images/social_yahoo.png"); color:#e71017;}
+#cartLogin .social_provider a.mixi{background-image:url("../images/social_mixi.png"); color:#d1ad59;}
+#cartLogin .social_provider a.line{background-image:url("../images/social_line.png"); color:#00b300;}
+#cartLogin .social_provider a.paypal{background-image:url("../images/social_paypal.png"); color:#293e7f;}
+#cartLogin .social_provider a.rakuten{display:block; padding:0; background:none; text-shadow:none; background:none; border:none;}
+#cartLogin .social_provider a.rakuten img{width:100%;}
+@media screen and (min-width: 415px) {
+	#cartLogin .social_provider a.rakuten img{max-width:350px;}
+}
+
+#cartFlow.cartIndex .sentence.box{border-top: 1px solid #CCC;}
+
+#cartFlow .img_box {width: 80px; height: 80px; float: left;}
+#cartFlow .img_box img {max-width: 80px; max-height: 80px;}
+#cartFlow .text {margin-left: 90px;}
+
+#cartFlow{margin-bottom:20px;}
+#cartFlow h2{margin-bottom:10px; padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}/* top menu */
+#cartFlow h3{margin-bottom:10px; padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#cartFlow h4{margin:5px 10px; padding-left:5px; border-left:5px solid #960; font-size:110%;}/* third menu */
+#cartFlow h5{margin:5px 10px; font-size:110%;}
+#cartFlow div.sentence{margin:0 10px 15px;}
+#cartFlow div.sentenceBorder{margin:0 10px 15px; border-bottom:#999 1px dotted;}
+#cartFlow table {margin-bottom:20px;}
+#cartFlow table th{padding:0 25px 5px 10px; font-size: 110%; text-align:left; white-space: nowrap;}
+#cartFlow div.sentence p.item_name{padding-top:10px; font-size:110%; font-weight:bold;}
+#cartFlow div.sentence p.comment{color:#999; font-size:90%;}
+#cartFlow div.sentence p.information{color:#666; font-size:90%; text-align:right;}
+#cartFlow div.price{padding-top:10px; border-top:1px solid #CCC; text-align:right;}
+#cartFlow div.sentence .teiki_text{margin:5px 0; font-size:10px;}
+#cartFlow div.sentence p.total{color:#C00; font-size:110%;}
+#cartFlow div.sentence input[type="text"]{width:100%; height:30px;}
+#cartFlow div.sentence input[type="email"]{width:100%; height:30px;}
+#cartFlow div.sentence input[type="password"]{width:100%; height:30px;}
+#cartFlow div.sentence input[type="tel"]{width:100%; height:30px;}
+#cartFlow div.sentence input[type="number"]{width:100%; height:30px;}
+#cartFlow div.sentence input[type="button"]{padding:5px;}
+#cartFlow div.sentence select{width:100%; height:30px;}
+#cartFlow div.sentence textarea{width:100%; height:50px;}
+#cartFlow div.sentence.cardnumber_td input[type="text"]{width:45px !important;}
+#cartFlow input[type="radio"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#cartFlow input[type="checkbox"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#cartFlow div.buttonarea{padding:10px 10px 20px; text-align:center;}
+#cartFlow div.buttonarea input{display:block; width:100%; margin-bottom:10px; padding:5px 10px; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* gray button */
+#cartFlow div.buttonarea #gmoRakutenId{display:inline; max-width:240px; padding:initial;}/* 楽天PAY用の画像に対するCSS。横幅最大値を画像本来の大きさにしておく */
+#cartFlow div.buttonarea a{display:block; margin-bottom:10px; padding:5px 10px; color:#FFF;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	border:1px solid #900; border-radius:5px; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#cartFlow div.buttonarea a.cancel{border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));}/* gray button */
+#cartFlow div.buttonarea input.estimate{border:1px solid #d99002; background:-webkit-gradient(linear,left top,left bottom,from(#F2BC50),to(#ED9E00));}/* estimate button */
+#cartFlow div.buttonarea a.estimate{border:1px solid #d99002; background:-webkit-gradient(linear,left top,left bottom,from(#F2BC50),to(#ED9E00));}/* estimate button */
+#cartFlow div.buttonarea_detail{padding:5px 10px 0 0px; text-align:center; float:right;}
+#cartFlow div.buttonarea_detail a{display:block; margin-bottom:0px; padding:5px 15px; color:#FFF;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	border:1px solid #900; border-radius:5px; font-size:110%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#cartFlow div.teiki{zoom:1; padding-bottom:15px;}
+#cartFlow div.teiki:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#cartFlow div.teiki h4{margin:13px 10px 5px; padding-left:5px; border-left:5px solid #960; font-size:110%; float:left;}/* third menu */
+#cartFlow div.teiki .pagelink .button a{display:block; width:60px; padding:8px 0; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+	border-radius:5px; border:1px solid #333; text-shadow:-1px 1px 1px #666; color:#FFF; font-weight:bold; text-align:center; text-decoration:none;}/* gray button */
+#cartFlow div.teiki .pagelink td{padding-right:10px;}
+#cartFlow div.teiki .pagelink td:first-child{padding-left:10px;}
+#cartFlow div.teiki .pagelink td.button{width:60px;}
+#cartFlow div.teiki .pagelink td.link{text-align:center; letter-spacing:0.2em;}
+#cartFlow div.teiki .pagelink{width:100%; margin-bottom:20px;}
+
+#cartFlow .quantity{padding:0 10px 15px;}
+
+#cartFlow #reCAPTCHA{margin:20px 10px;}
+#cartFlow #reCAPTCHA .g-recaptcha{display:block; -webkit-transform:scale(1.10); -ms-transform:scale(1.10); transform:scale(1.10); -webkit-transform-origin:0 0; -ms-transform-origin:0 0; transform-origin:0 0;}
+
+#cartFlow .error{color:#C00; font-size:90%; font-weight:bold; line-height:150%; vertical-align:middle;}
+#cartFlow .point{color:#C00;}
+#cartFlow .expiration_date{padding-left:10px;}
+
+#cartFlow .sentence .inner{border-bottom:1px solid #CCC; padding:5px 0 0 0;}
+#cartFlow .cart_novelty .sentence .inner:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#cartFlow .cart_novelty .box{display: block; float: left;}
+#cartFlow .cart_novelty .img{margin:10px 10px;}
+#cartFlow .cart_novelty .img_box{width:80px; height:80px; float:left; margin:10px;}
+#cartFlow .cart_novelty .img_box img{max-width:80px; max-height:80px;}
+#cartFlow .sentence .inner .img{float:left; width: 90px; height: auto;}
+#cartFlow .sentence .inner .text {margin-left:84px;}
+#cartFlow .sentence .inner .text p.item_name{border-top:none; padding-top:0; margin-bottom:5px;}
+#cartFlow .sentence .inner .text p.novelty_message{font-size:90%; color:#999; margin-bottom:5px;}
+#cartFlow .reducedTax{ color: #999; font-size: 90%;}
+
+#cartFlow .sentence p.number{margin:30px 0; text-align:center; font-size:20px;}
+#cartFlow .attention_message{color:#C00; font-weight:bold;}
+
+/* #cartFlow.cartIndex .amazonpayarea{text-align: left;} */
+.amazon_btn{font-size:18px !important;}
+#AmazonPayV2Button{margin: 10px auto;}
+
+#cartFlow .card-supplement {color: #368bc6; font-weight: bold; margin-top: 10px;}
+#cartFlow .lock{vertical-align: bottom;}
+
+/* クーポンラジオボタン制御に仕様 */
+.couponHide{display:none;}
+
+/* クロネコ代金後払いスマホタイプ
+-------------------------------------------------------------*/
+#cartFlow .yamato_atobarai_auth_code{text-align: center; font-size: 0;}
+#cartFlow  div.sentence .yamato_atobarai_auth_code input[type="text"]{margin: 0; width: 20%; height: 50px; font-size: 18px; text-align: center;}
+#cartFlow  div.sentence .yamato_atobarai_auth_code input[type="text"]+input[type="text"]{margin-left: 10px;}
+
+/* =================================================================
+8.その他のページ
+使用ファイル：すべてのファイル
+=================================================================*/
+#content{margin-bottom:20px;}
+#content h2{margin-bottom:10px; padding:8px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000)); color:#FFF; text-shadow:-1px 1px 1px #666;}/* top menu */
+#content h3{margin:5px 10px; padding-left:5px; border-left:5px solid #960; font-size:110%; clear:both;}/* third menu */
+#content h4{margin:5px 10px; font-size:100%;}
+#content div.sentence{padding:0 10px 15px;}
+#content div.sentence input[type="text"]{width:100%; height:30px; font-size:110%;}
+#content div.sentence input[type="email"]{width:100%; height:30px; font-size:110%;}
+#content div.sentence input[type="password"]{width:100%; height:30px; font-size:110%;}
+#content div.sentence input[type="tel"]{width:100%; height:30px; font-size:110%;}
+#content div.sentence input[type="number"]{width:100%; height:30px; font-size:110%;}
+#content div.sentence input[type="button"]{padding:5px;}
+#content div.sentence select{width:100%; height:30px; font-size:110%;}
+#content div.sentence textarea{width:100%; height:50px;}
+#content dl.sentence{padding:10px 10px 15px;}
+#content dl.sentence dt{margin:0 0 10px 0; color:#C00;}
+#content dl.sentence dd{margin:0 0 10px 0; color:#000080;}
+#content input[type="radio"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#content input[type="checkbox"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#content div.sentence p.form_attention{color:#666; font-size:85%;}
+#content div.buttonarea{padding:10px 10px 20px; text-align:center;}
+#content div.buttonarea:after{content:""; clear:both; display:block;}/* clearfix */
+#content div.buttonarea input{display:block; width:100%; margin-bottom:10px; padding:5px 10px; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#content div.buttonarea a{display:block; margin-bottom:10px; padding:5px 10px; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#content div.buttonarea .small{width:40%;}
+#content div.buttonarea .smallPositiveButton{width:30%; float:left; margin-right:20px;}
+#content div.buttonarea .cancel{border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));}/* gray button */
+#content div.buttonarea .cancelSmall{width:40%;border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));}/* gray button */
+#content div.buttonarea .smallNegativeButton{width:30%; border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666)); float:left;}/* gray button */
+#content div.buttonarea .estimateButton{border:1px solid #d99002; background:-webkit-gradient(linear,left top,left bottom,from(#F2BC50),to(#ED9E00));}/* estimate button */
+
+#content div.listBorder{ border-bottom:#CCCCCC 1px solid; margin-bottom:10px;}
+
+#content .pagelink .button a{display:block; width:60px; padding:8px 0; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+	border-radius:5px; border:1px solid #333; text-shadow:-1px 1px 1px #666; color:#FFF; font-weight:bold; text-align:center; text-decoration:none;}/* gray button */
+#content .pagelink td{padding-right:10px;}
+#content .pagelink td:first-child{padding-left:10px;}
+#content .pagelink td.button{width:60px;}
+#content .pagelink td.link{text-align:center; letter-spacing:0.2em;}
+#content .pagelink{width:100%; margin-bottom:20px;}
+#content table.credit td{padding-right:5px;}
+#content .amazon_comment{color:#C00; font-weight:bold; margin:10px 0 0;}
+
+#content.wish_list .img_box{width:80px; height:80px;}
+#content.wish_list .img_box img{max-width:80px; max-height:80px;}
+
+#content .compare_list{margin:0 0 35px; border-bottom:1px solid #CCC;}
+#content .compare_list .img_box{width:80px; height:80px;}
+#content .compare_list .img_box img{max-width:80px; max-height:80px;}
+
+/* お問い合わせページ画像項目用
+-------------------------------------------------------------*/
+#content .apply_area img{max-width: 100%;}
+
+/* compare_list - 商品比較リストカートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#content .compare_list .cartSubmitButton{position:relative;}
+#content .compare_list .cartSubmitButton .cartMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#content .compare_list .cartSubmitButton .cartMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#content .compare_list .cartSubmitButton .cartMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#content .compare_list .cartSubmitButton .cartMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#content .compare_list .cartSubmitButton .cartMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#content .compare_list .cartSubmitButton .cartMessage .link a{color: #FFF; text-decoration: none;}
+#content .compare_list .cartSubmitButton .cartMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* wish_list - ウィッシュリストカートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#content.wish_list .cartSubmitButton{position:relative;}
+#content.wish_list .cartSubmitButton .cartMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#content.wish_list .cartSubmitButton .cartMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#content.wish_list .cartSubmitButton .cartMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#content.wish_list .cartSubmitButton .cartMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#content.wish_list .cartSubmitButton .cartMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#content.wish_list .cartSubmitButton .cartMessage .link a{color: #FFF; text-decoration: none; margin: 0; border: none;}
+#content.wish_list .cartSubmitButton .cartMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* リキャプチャー機能用
+-------------------------------------------------------------*/
+#content #reCAPTCHA{width: 304px; margin: 0 auto 40px;}
+
+/* =================================================================
+9.レビュー
+使用ファイル：item_detail.xhtml, member_review.xhtml, 
+　　　　　　　item_review_result.xhtml, item_review.xhtml
+=================================================================*/
+#review{margin-bottom:40px;}
+#review h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#review p{font-size:90%;}
+#review p.item_name{font-size:95%; font-weight:bold;}
+#review h3{float:left; margin:0 10px 0 0; font-size:80%;}
+#review .box{zoom:1; margin:10px 0 5px; padding:10px; border:#CCC 1px solid;}
+#review .box h3{float:none; font-size:90%;}
+#review .box p{margin:0;}
+#review .box p.name{padding:5px 0; margin-bottom:10px; border-bottom:1px dashed #CCC; color:#666; font-size:75%;}
+#review p.goodButton{margin-bottom:5px; color:#666; font-size:75%;}
+#review p.goodButton input{margin-left:5px;}
+#review p.goodNumber{margin-bottom:20px; color:#666; font-size:75%;}
+#review p.more{margin-bottom:20px; text-align:right;}
+#review p.pageguide{margin:10px;}
+#review p.pagelink{text-align:center; margin-bottom:20px;}
+#review ul.star{float:left; margin-right:10px;}
+#review ul.star li{display:block; float:left; width:15px; height:15px; text-indent:-9999px;}
+#review ul.star li.good{background:url("../images/review_good.gif") no-repeat;}
+#review ul.star li.bad{background:url("../images/review_bad.gif") no-repeat;}
+#review .contribution{margin-top:10px; padding:10px 0 0;}
+#review .contribution table{margin:0; border:none;}
+#review .contribution th{width:80px; padding:5px 10px; border:none; background:none; font-weight:normal; text-align:left;}
+#review .contribution td{padding:5px 10px; border:none;}
+#review .contribution h3{float:none; margin-bottom:10px; padding:3px 5px; border-right:1px solid #EEE; border-bottom:1px solid #DDD; border-left:5px solid #960; background:#F5F5F5; font-size:95%;}
+
+#review .content{margin:10px; padding-bottom:10px; border-bottom:1px solid #CCC;}
+#review .sentence{margin:0 10px 15px;}
+#review .sentence input[type="text"]{width:100%; height:30px; font-size:110%;}
+#review .sentence input[type="email"]{width:100%; height:30px; font-size:110%;}
+#review .sentence input[type="password"]{width:100%; height:30px; font-size:110%;}
+#review .sentence input[type="tel"]{width:100%; height:30px; font-size:110%;}
+#review .sentence input[type="number"]{width:100%; height:30px; font-size:110%;}
+#review .sentence input[type="button"]{padding:5px;}
+#review .sentence select{width:100%; height:30px; font-size:110%;}
+#review .sentence textarea{width:100%; height:50px;}
+#review input[type="radio"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#review input[type="checkbox"]{-webkit-transform:scale(1.8); transform:scale(1.8); margin:10px;}
+#review .buttonarea{padding:10px 0 10px; text-align:center;}
+#review .buttonarea a{display:block; padding:5px 0px; border:1px solid #900; border-radius:5px; background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22)); color:#FFF; font-size:130%; line-height:1.5; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+#review .buttonarea ul{padding:0 0px; zoom:1;}
+#review .buttonarea ul:after{content:"."; display:block; visibility:hidden; height:0.1px; font-size:0.1em; line-height:0; clear:both;}/* clearfix */
+#review .buttonarea ul li{width:50%; float:left;}
+#review .buttonarea a.smallPositiveButton{font-size:14px; margin: 10px 5px;}
+#review .buttonarea a.smallNegativeButton{border:1px solid #333; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666)); font-size:14px; margin: 0 5px;}/* gray button */
+#review .pagelink .button a{display:block; width:60px; padding:8px 0; background:-webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+	border-radius:5px; border:1px solid #333; text-shadow:-1px 1px 1px #666; color:#FFF; font-weight:bold; text-align:center; text-decoration:none;}/* gray button */
+#review .pagelink td{padding-right:0px;}
+#review .pagelink td:first-child{padding-left:0px;}
+#review .pagelink td.button{width:60px;}
+#review .pagelink td.link{text-align:center; letter-spacing:0.2em;}
+#review .pagelink{width:100%; margin:20px 0;}
+
+#review .review-image{padding-top: 20px;}
+#review .review-image:after {content: ""; clear: both; display: block;}/* clearfix */
+#review .review-image .img_box{width: 80px; height: 80px; margin-right: 10px; margin-bottom: 10px; text-align: center; position: relative; float: left;}
+#review .review-image img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/* =================================================================
+10.メッセージ
+使用ファイル：common/messages.xhtml
+=================================================================*/
+#error{padding-bottom:20px;}
+#error td{padding:0 10px;}
+#error .ico{width:30px; text-align:center; vertical-align:top;}
+#error .ico img{width:27px; height:25px;}
+#error .content{color:#C00; font-size:90%; font-weight:bold; line-height:150%; vertical-align:middle;}
+
+
+/* =================================================================
+11.フッター
+使用ファイル：common/footer.xhtml
+=================================================================*/
+
+/* footerNavi - フッターナビゲーション
+-------------------------------------------------------------*/
+nav.footerNavi{margin-bottom:20px; box-shadow:0 2px 2px #CCC;}
+nav.footerNavi .list{display:block; border-top:1px solid #CCC; background:#F3F3F3;}/* change background color */
+nav.footerNavi .list a{display:block; padding:10px; background:url("../images/link_bg.png") right center no-repeat; color:#333; text-decoration:none;}
+
+/* footer - フッター
+-------------------------------------------------------------*/
+footer p.view{display:block; margin-bottom:10px; text-align:center;}
+footer p.copy{display:block; font-size:90%; text-align:center;}
+footer a.cart{display:block; width:200px; margin:auto; margin-bottom:30px; padding:7px 0; border:1px solid #900; border-radius:5px;
+	background:-webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+	color:#FFF; font-size:130%; font-weight:bold; text-align:center; text-decoration:none; text-shadow:-1px 1px 1px #666;}/* color button */
+
+
+/* =================================================================
+12.プレゼント
+使用ファイル：ext/present_input.xhtml等
+=================================================================*/
+.batu_text{margin:0 10px; text-align:right;}
+#subwindow header img{padding:5px; display:block; vertical-align:bottom;}
+#subwindow{margin:0; text-align:left;}
+.item_link{word-break:break-all;}
+
+
+/* =================================================================
+13.静的ページ
+使用ファイル：ext/company.xhtml等
+=================================================================*/
+#ext .social_provider h3{margin:5px 0px; padding:0 0 0 5px; border-left:5px solid #960; font-size:110%; clear:both;}/* third menu */
+#ext .social_provider h4{margin:15px 10px; font-size:100%;}
+
+#ext .social_provider.buttonarea{padding:0 0 20px;}
+#ext .social_provider.buttonarea a{background:#FFF; color:#1D3994; text-shadow:none; background-size:contain !important; background-repeat: no-repeat; border:1px solid #e1e1e1;}
+#ext .social_provider.buttonarea a span{margin-left:29px;}
+#ext .social_provider a.facebook{background-image: url("../images/social_facebook.png");}
+#ext .social_provider a.facebook_off{background-image: url("../images/social_facebook_off.png");}
+#ext .social_provider a.twitter{background-image:url("../images/social_twitter.png");}
+#ext .social_provider a.twitter_off{background-image:url("../images/social_twitter_off.png");}
+#ext .social_provider a.google{background-image:url("../images/social_google.png");}
+#ext .social_provider a.google_off{background-image:url("../images/social_google_off.png");}
+#ext .social_provider a.yahoo{background-image:url("../images/social_yahoo.png");}
+#ext .social_provider a.yahoo_off{background-image:url("../images/social_yahoo_off.png");}
+#ext .social_provider a.mixi{background-image:url("../images/social_mixi.png");}
+#ext .social_provider a.mixi_off{background-image:url("../images/social_mixi_off.png");}
+#ext .social_provider a.line{background-image:url("../images/social_line.png");}
+#ext .social_provider a.line_off{background-image:url("../images/social_line_off.png");}
+#ext .social_provider a.paypal{background-image:url("../images/social_paypal.png");}
+#ext .social_provider a.paypal_off{background-image:url("../images/social_paypal_off.png");}
+#ext .social_provider a.rakuten{display:block; padding:0; background:none; text-shadow:none; background:none; border:none;}
+#ext .social_provider a.rakuten img{width:100%;}
+@media screen and (min-width: 415px) {
+	#ext .social_provider a.rakuten img{max-width:350px;}
+}
+#ext .social_provider .rakuten_not_off{padding:10px; background:#efefef; font-size:130%; border-radius:5px;}
+
+
+/* =================================================================
+14.クレジットカード情報ページ
+使用ファイル：member_credit_entry_input.xhtml等
+=================================================================*/
+#credit .error{color:#C00; font-size:90%; font-weight:bold; line-height:150%; vertical-align:middle;}
+#credit .saved_card{border:1px solid #CCC; margin:10px 10px; padding:10px;}
+
+/* =================================================================
+15.クーポン詳細ページ
+使用ファイル：coupon_detail.xhtml
+=================================================================*/
+#nyukawindow .img_box{width:300px; height:300px; margin:10px;}
+#nyukawindow .img_box img{max-width:300px; max-height:300px;}
+
+/* =================================================================
+16.購入履歴・見積履歴ページ
+使用ファイル：member_history.xhtml,member_estimate_recode.xhtml
+=================================================================*/
+
+#history h3{margin: 5px 0 20px; border: none; padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#history h4{margin:5px 10px; padding-left:5px; border-left:5px solid #960; font-size:110%;}/* third menu */
+
+#history .date_info{margin: 5px 10px; padding-left: 5px; border-left: 5px solid #960; font-size: 110%; clear: both; font-weight:bold;}
+#history .other_info{margin: 5px 10px; padding-top:10px;}
+#history .other_info p{margin-bottom:0px;}
+#history .item_box:first-child{border-top:1px solid #CCC; padding-top:20px;}
+#history .item_box{margin-bottom:20px; padding:0 10px 20px; border-bottom:1px solid #CCC;}
+#history .item_box:after{content:""; clear:both; display:block;}/* clearfix */
+#history .item_box .text{margin-left:90px;}
+#history .item_box .text h3{margin-bottom:5px; color:#333;}
+#history .item_box .text .img_box{width:80px; height:80px;}
+#history .item_box .text .img_box img{max-width:80px; max-height:80px;}
+#history .item_box .text .price{color:#C00; font-weight:bold;}
+#history .item_box .text .price_sub{color:#C00; font-size:80%;}
+#history .item_box .img{float:left;}
+#history .img_box{width:80px; height:80px; float:left;}
+#history img{max-width:80px; max-height:80px;}
+#history .estimate_reply .title{display: block; margin-bottom: 5px;}
+#history .seikyu_price{color:#C00; font-weight: bold;}
+#history .search .order_date input[type="text"]{width:105px; margin: 0;}
+#history .total_price{font-size: 105%; font-weight: bold; color: #c00; margin-bottom: 20px;}
+
+#history .infoarea{padding: 0 10px 5px;}
+#history .status_icon{font-weight: bold; color: #FFF; font-size: 13px; padding: 3px 5px; display: inline-block;}
+#history .status_icon.preparing{background: #336600;}/* 手配中 */
+#history .status_icon.delivered{background: #ff9900;}/* 配送中 */
+#history .status_icon.delivering{background: #000066;}/* 配送済 */
+#history .status_icon.canceled{background: #cc0000;}/* 取消済 */
+#history .status_icon.yoyaku{background: #000000;}/* 予約済 */
+#history .status_icon.teiki_together{background: #996633;}/* 定期にまとめて */
+#history .status_icon.estimate{background: #CCC; color: #333;}
+
+#history .webmoney-usage-detail:after{content: ""; display: inline-block; background: url("../images/otherpage.png") no-repeat; width: 18px; height: 12px;}
+
+/* history - 購入履歴リストカートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#history .cartSubmitButton{position:relative;}
+#history .cartSubmitButton .cartMessage{position:absolute; top: 0; left: 0; right: 0; padding:10px; background-color:#fff; border: #ccc 2px solid; width:270px; z-index:10; display:none; margin: auto;}
+#history .cartSubmitButton .cartMessage:after{content:""; display:block; position:absolute; top:100%; left:50%; margin-left:-3px; width:6px; height:5px;}
+#history .cartSubmitButton .cartMessage .title{text-align:center; font-size:100.0%; font-weight:bold; color:#000; float:none;}
+#history .cartSubmitButton .cartMessage .mainclose{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #333; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#history .cartSubmitButton .cartMessage .link{display: block; width: 150px; margin: 10px auto; padding: 3px 0; border: 1px solid #900; border-radius: 5px; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));
+color: #FFF; font-size: 100%; font-weight: bold; text-align: center; text-decoration: none; text-shadow: -1px 1px 1px #666; clear: both; float: none;}
+#history .cartSubmitButton .cartMessage .link a{color: #FFF; text-decoration: none; margin: 0; border: none;}
+#history .cartSubmitButton .cartMessage .close{position: absolute; top: 0px; right: 5px; cursor: pointer; font-size: 150%; margin: 0;}
+
+/* stimateListDetail - 見積履歴
+-------------------------------------------------------------*/
+#history #estimateListDetail .box{margin-bottom: 20px; border-bottom: 1px solid #CCC;}
+#history #estimateListDetail .box h3{margin-bottom: 15px;}
+#history #estimateListDetail .box li+li{ margin-top:5px;}
+#history #estimateListDetail .box li .title{ font-weight: bold;}
+#history #estimateListDetail .box .sentence ul{padding-left: 5px;}
+
+/* =================================================================
+17.トピックス一覧ページ
+使用ファイル：topics_list.xhtml topics_detail.xhtml
+=================================================================*/
+#topics_list h2{padding-top:20px !important;}
+#topics_list .category ul{background:#eee; padding:10px 5px;}
+#topics_list .category ul li{font-size:13px; margin:0 5px;}
+
+#topics_detail h2{padding-top:20px !important;}
+#topics_detail h3{font-size:13px; font-weight:normal;}
+#topics_detail p{margin:10px;}
+
+/* =================================================================
+18.マイページ
+使用ファイル：member_mypage.xhtml
+=================================================================*/
+#mypage h3{border:none; margin:0px 0 20px; padding:10px 0 0; font-size:14px;}
+#mypage h3 a{float:right; background-image:url("../images/arrow_pink.png"); background-size:5px 9px; background-repeat:no-repeat; background-position:0px 3px; padding-left:8px; font-size:12px; color:#111111;}
+#mypage ul{margin:0 0 20px;}
+#mypage ul li{width:100%; padding:0 0 10px;}
+#mypage ul li h4{font-size:16px; background:#e6e6e6; font-weight:normal; padding:6px 10px; margin:0 0px 15px 0;}
+#mypage ul li .box{border:1px solid #e6e6e6; border-top:none; padding:0px 0px 20px;}
+#mypage ul li .box p{font-size:13px; margin:20px 10px 0px;}
+#mypage ul li a{font-size:13px;}
+
+#mypage .social_provider h3{margin:5px 0px; padding:0 0 0 5px; border-left:5px solid #960; font-size:110%; clear:both;}/* third menu */
+#mypage .social_provider h4{margin:15px 10px; font-size:100%;}
+
+#mypage .social_provider.buttonarea{padding:0 0 20px;}
+#mypage .social_provider.buttonarea a{background:#FFF; color:#1D3994; text-shadow:none; background-size:contain !important; background-repeat: no-repeat; border:1px solid #e1e1e1;}
+#mypage .social_provider.buttonarea a span{margin-left:29px;}
+#mypage .social_provider a.facebook{background-image: url("../images/social_facebook.png");}
+#mypage .social_provider a.facebook_off{background-image: url("../images/social_facebook_off.png");}
+#mypage .social_provider a.twitter{background-image:url("../images/social_twitter.png");}
+#mypage .social_provider a.twitter_off{background-image:url("../images/social_twitter_off.png");}
+#mypage .social_provider a.google{background-image:url("../images/social_google.png");}
+#mypage .social_provider a.google_off{background-image:url("../images/social_google_off.png");}
+#mypage .social_provider a.yahoo{background-image:url("../images/social_yahoo.png");}
+#mypage .social_provider a.yahoo_off{background-image:url("../images/social_yahoo_off.png");}
+#mypage .social_provider a.mixi{background-image:url("../images/social_mixi.png");}
+#mypage .social_provider a.mixi_off{background-image:url("../images/social_mixi_off.png");}
+#mypage .social_provider a.line{background-image:url("../images/social_line.png");}
+#mypage .social_provider a.line_off{background-image:url("../images/social_line_off.png");}
+#mypage .social_provider a.paypal{background-image:url("../images/social_paypal.png");}
+#mypage .social_provider a.paypal_off{background-image:url("../images/social_paypal_off.png");}
+#mypage .social_provider a.rakuten{display:block; padding:0; background:none; text-shadow:none; background:none; border:none;}
+#mypage .social_provider a.rakuten img{width:100%;}
+@media screen and (min-width: 415px) {
+	#mypage .social_provider a.rakuten img{max-width:350px;}
+}
+#mypage .social_provider .rakuten_not_off{padding:10px; background:#efefef; font-size:130%; border-radius:5px;}
+
+
+/* =================================================================
+19.ログイン
+使用ファイル：login.xhtml
+=================================================================*/
+#loginNew .social_provider.buttonarea a{background:#FFF; text-shadow:none; background-size:contain !important; background-repeat: no-repeat; border:1px solid #e1e1e1;}
+#loginNew .social_provider.buttonarea a span{margin-left:29px;}
+
+#loginNew .social_provider a.facebook{background-image: url("../images/social_facebook.png"); color: #3b5998;}
+#loginNew .social_provider a.twitter{background-image:url("../images/social_twitter.png"); color:#55acee;}
+#loginNew .social_provider a.google{background-image:url("../images/social_google.png"); color:#dc4e41;}
+#loginNew .social_provider a.yahoo{background-image:url("../images/social_yahoo.png"); color:#e71017;}
+#loginNew .social_provider a.mixi{background-image:url("../images/social_mixi.png"); color:#d1ad59;}
+#loginNew .social_provider a.line{background-image:url("../images/social_line.png"); color:#00b300;}
+#loginNew .social_provider a.paypal{background-image:url("../images/social_paypal.png"); color:#293e7f;}
+#loginNew .social_provider a.rakuten{display:block; padding:0; background:none; text-shadow:none; background:none; border:none;}
+#loginNew .social_provider a.rakuten img{width:100%;}
+@media screen and (min-width: 415px) {
+	#loginNew .social_provider a.rakuten img{max-width:350px;}
+}
+
+
+/* =================================================================
+20.拡張版セールスキャンペーン
+使用ファイル：top.xhtml,item_detail.xhtml,cart_index.xhtml,cart_seisan.xhtml,cart_confirm.xhtml,cart_confirm$amazon_payments.xhtml,cart_result.xhtml,member_history.xhtml
+=================================================================*/
+/* top,item_detail */
+#mainCampaign{margin-bottom:20px; border-bottom:1px solid #CCC; box-shadow:0 2px 2px #CCC;}
+#mainCampaign h2{padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#mainCampaign ul { width:100%;}
+#mainCampaign ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#mainCampaign li{display:block; width:50%; float:left;}
+#mainCampaign li .box{padding:10px 5px 10px 10px;}
+#mainCampaign li:nth-of-type(2n) .box{padding:10px 10px 10px 5px;}
+#mainCampaign li a{text-decoration:none;}
+#mainCampaign li h3{font-size:100%; font-weight: normal; padding:5px 0;}
+#mainCampaign li h4{font-size:90%;}
+#mainCampaign li p{font-size:80%;}
+#mainCampaign img{width:100%;}
+
+/* cart_index,cart_seisan,cart_confirm,cart_result */
+#cartCampaign{margin-bottom:20px; border-bottom:1px solid #CCC; box-shadow:0 2px 2px #CCC;}
+#cartCampaign h3{padding:7px 10px; margin-bottom:10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}
+#cartCampaign p.heed{padding:0 10px; font-size:90%;}
+#cartCampaign ul{width:100%;}
+#cartCampaign ul:after{content: ""; clear: both; display: block;}/* clearfix */
+#cartCampaign li{display:block; width:50%; float:left;}
+#cartCampaign li .box{padding:10px 5px 10px 10px;}
+#cartCampaign li:nth-of-type(2n) .box{padding:10px 10px 10px 5px;}
+#cartCampaign li a{text-decoration:none;}
+#cartCampaign li h4{font-size:100%; font-weight: normal; padding:5px 0;}
+#cartCampaign li h5{font-size:90%; font-weight: normal;}
+#cartCampaign li p{font-size: 80%;}
+#cartCampaign img{width:100%;}
+
+/* =================================================================
+21.会員登録
+使用ファイル：member_input.xhtml
+=================================================================*/
+#memberInput .social_provider.buttonarea a{background:#FFF; text-shadow:none; background-size:contain !important; background-repeat: no-repeat; border:1px solid #e1e1e1;}
+#memberInput .social_provider.buttonarea a span{margin-left:29px;}
+#memberInput .social_provider a.facebook{background-image: url("../images/social_facebook.png"); color: #3b5998;}
+#memberInput .social_provider a.twitter{background-image:url("../images/social_twitter.png"); color:#55acee;}
+#memberInput .social_provider a.google{background-image:url("../images/social_google.png"); color:#dc4e41;}
+#memberInput .social_provider a.yahoo{background-image:url("../images/social_yahoo.png"); color:#e71017;}
+#memberInput .social_provider a.mixi{background-image:url("../images/social_mixi.png"); color:#d1ad59;}
+#memberInput .social_provider a.line{background-image:url("../images/social_line.png"); color:#00b300;}
+#memberInput .social_provider a.paypal{background-image:url("../images/social_paypal.png"); color:#293e7f;}
+#memberInput .social_provider a.rakuten{display:block; padding:0; background:none; text-shadow:none; background:none; border:none;}
+#memberInput .social_provider a.rakuten img{width:100%;}
+@media screen and (min-width: 415px) {
+	#memberInput .social_provider a.rakuten img{max-width:350px;}
+}
+
+/* =================================================================
+22.子会員リスト
+使用ファイル：child_member_list.xhtml
+=================================================================*/
+#childMemberList h3{margin: 5px 0 20px; border: none; padding:7px 10px; background:-webkit-gradient(linear,left top,left bottom,from(#CCC),to(#CCC)); text-shadow:1px 1px 0 #CCC,0 1px 0 #CCC;}/* second menu */
+#childMemberList h4{margin:5px 10px; padding-left:5px; border-left:5px solid #960; font-size:110%;}/* third menu */
+#childMemberList .search .regist_date input[type="text"]{width:105px; margin: 0;}
+#childMemberList .bulk_update .all_check{margin: 10px 0;}
+#childMemberList .bulk_update .all_check .button{display: inline-block; text-decoration: none; border-radius: 5px; width: 60px; width: 60px; padding: 8px 0;}
+#childMemberList .bulk_update .all_check .button.positive{border: 1px solid #900; background: -webkit-gradient(linear,left top,left bottom,from(#D55),to(#D22));}
+#childMemberList .bulk_update .all_check .button.negative{border: 1px solid #333; background: -webkit-gradient(linear,left top,left bottom,from(#999),to(#666));}
+#childMemberList .bulk_update.sentence select{width: 180px;}
+#childMemberList .explanation{display: block; margin: 10px 0 20px 0; padding: 10px; background: #EEE; color: #666; font-size: 90%;}
+#childMemberList .list_area{margin-bottom: 20px; box-shadow: 0 2px 2px #CCC;}
+#childMemberList .list_area .list{border-top: 1px solid #CCC; padding: 20px;}
+#childMemberList .list_area .list .box:after{content: ""; clear: both; display: block;}/* clearfix */
+#childMemberList .list_area .list .box .check_area{float:left; width: 15%; position: relative;}
+#childMemberList .list_area .list .box .check_area input[type="checkbox"]{position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%) scale(1.8); margin: 0;}
+#childMemberList .list_area .list .box .text{width: 85%; float: left;}
+#childMemberList .list_area .list .box .text .member_authory select{ width:150px;}
+#childMemberList .list_area .list .buttonarea{padding: 0; margin-top:10px;}
+#childMemberList .list_area .list .buttonarea input[type="submit"]{margin: 0 auto;}

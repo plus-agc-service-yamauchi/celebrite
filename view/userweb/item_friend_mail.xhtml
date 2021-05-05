@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_friend_mail_sub.html?item_cd=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<!-- subwindow -->
+<div id="subwindow">
+
+<!-- header -->
+	<div id="header">
+		<h1><a href="/" target="_blank">ここにショップ名が入ります。</a></h1>
+	</div>
+<!-- / header -->
+
+
+<!-- recommend -->
+	<div id="content">
+		<h2>友達にこの商品をすすめる</h2>
+		<p>
+			この商品に興味のあると思うお知り合いの方にのみ送信して下さい。<br />
+			送信ボタンを押すと送信されます。<br />メールは、1つの宛先アドレスのみが記載されて配信されます。<br />
+			<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+		</p>
+	
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+		<form m:id='FORM_TAG'>
+			<table summary="友達にこの商品をすすめる">
+				<tr>
+					<th>商品名</th>
+					<td><span m:id='ITEM_NAME_HERE'>商品名</span></td>
+				</tr>
+				<tr>
+					<th>あなたのお名前 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+					<td><input m:id='YOUR_NAME_INPUT_HERE' name="your_name" type="text" size="40" value="" /><br />全角10文字以内</td>
+				</tr>
+				<tr>
+					<th>あなたのE-mail <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+					<td><input m:id='YOUR_MAIL_INPUT_HERE' name="your_email" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>お友達のE-mail（1） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+					<td><input m:id='MAIL_TO1_INPUT_HERE' name="friend_email01" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>お友達のE-mail（2）</th>
+					<td><input m:id='MAIL_TO2_INPUT_HERE' name="friend_email02" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>お友達のE-mail（3）</th>
+					<td><input m:id='MAIL_TO3_INPUT_HERE' name="friend_email03" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>お友達のE-mail（4）</th>
+					<td><input m:id='MAIL_TO4_INPUT_HERE' name="friend_email04" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>お友達のE-mail（5）</th>
+					<td><input m:id='MAIL_TO5_INPUT_HERE' name="friend_email05" type="text" size="40" value="" /></td>
+				</tr>
+				<tr>
+					<th>紹介文 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+					<td><textarea m:id='CONTENT_TEXT_INPUT_HERE' name="note" cols="40" rows="4"></textarea></td>
+				</tr>
+				<tr>
+					<th>おすすめ商品情報</th>
+					<td>
+						<span m:id='ITEM_NAME_HERE'>商品名</span><br />
+						<a m:id='ITEM_LINK_TAG' href="#"><span m:id='ITEM_URL_HERE'>http://www.商品URL.jp/</span></a>
+					</td>
+				</tr>
+			</table>
+			<div class="buttonarea">
+				<input name="recommend" type="submit" value="送信する" class="button positive medium" />
+			</div>
+		</form>
+		<p><a href="javascript:window.close()">×このウィンドウを閉じる</a></p>
+	</div>
+<!-- / recommend -->
+
+</div>
+<!-- / subwindow -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

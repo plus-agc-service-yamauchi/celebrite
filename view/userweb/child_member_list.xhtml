@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu_datepicker_uw.js"></script>
+
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/child_member_list.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+	<div id="sidebar">
+		<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+	<div id="main">		
+		<div id="childMemberList">
+			<!-- =============================================================================== -->
+			<!-- ==================検索条件 ================================================== -->
+			<!-- =============================================================================== -->
+				
+			<h2>子会員一覧</h2>
+			<p>子会員の会員の検索と権限の変更ができます。会員権限を指定し「更新」ボタンをクリックしてください。</p>
+			<form m:id='FORM_TAG'>
+				<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+				<div class="search">
+					<h3>子会員の検索</h3>
+					<table summary="検索">
+						<tr>
+							<th class="title">会員ID</th>
+							<td>
+								<input m:id='MEMBER_ID_INPUT_HERE' type="text" />
+							</td>
+						</tr>
+						<tr>
+							<th class="title">氏名</th>
+							<td>
+								<input m:id='MEMBER_NAME_INPUT_HERE' type="text" />（部分一致検索）
+							</td>
+						</tr>
+						<tr>
+							<th class="title">登録日</th>
+							<td>
+								<input m:id='REGIST_DATE_FROM_INPUT_HERE'  type="text" /> ～ <input m:id='REGIST_DATE_TO_INPUT_HERE' type="text" />
+							</td>
+						</tr>
+						<tr>
+							<th class="title">会員権限</th>
+							<td>
+								<input m:id='MEMBER_AUTHORY_SEARCH_VALUE_HERE' type="text" />
+							</td>
+						</tr>
+					</table>
+					<div class="buttonarea">
+						<a href="javascript:void(0);" m:id='CLEAR_BUTTON_TAG' class="button negative medium">クリア</a>
+						<input type="submit" value="検索" class="button positive medium" />
+					</div>
+				</div>
+				<!-- =============================================================================== -->
+				<!-- ==================検索結果 ================================================== -->
+				<!-- =============================================================================== -->
+				<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+				<div m:id='IF_CHILD_MEMBER_LIST_EXIST'>
+					<div class="bulk_update">
+						<h3>一括更新</h3>
+						<p>選択した会員の権限を一括で更新します。</p>
+						<div class="explanation">
+							<p>制限なし：ユーザーウェブ上の制限なし</p>
+							<div m:id='common.IF_USE_ESTIMATE'>
+								<p>発注不可：見積のみ可。注文利用不可</p>
+								<p>発注・見積不可：見積も注文も利用不可</p>
+								<p>価格非表示：注文も見積も利用不可に加え、売価が非表示</p>
+							</div>
+							<div m:id='common.IF_USE_ESTIMATE' m:NOT="">
+								<p>発注不可：注文利用不可</p>
+								<p>価格非表示：注文利用不可に加え、売価が非表示</p>
+							</div>
+							<p>停止：会員をロック状態とし、ログインも不可</p>
+						</div>
+						<div class="update_input_area">
+							<p class="select">
+								変更後の権限：
+								<select m:id="MEMBER_AUTHORY_BULK_UPDATE_LABEL_INPUT_HERE">
+									<option value="">制限なし</option>
+									<option value="">発注不可</option>
+									<option value="">発注・見積不可</option>
+								</select>
+							</p>
+							<div m:id="common.IF_CUSTOMER_MANAGEMENT_PARENT_MEMBER">
+								<input type="submit" m:id='MEMBER_AUTHORY_BULK_UPDATE_BUTTON_TAG' class="button positive" value="一括更新" />
+							</div>
+						</div>
+					</div>
+					<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+					<div class="pagelink">
+						<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+						<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+						&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+						<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+					</div>
+					<table class="table">
+						<tr>
+							<th class="title select">
+								会員ID
+								<input type="button" class="button positive small" value="全選択" m:id='LIST_ALL_CHECK_ON'  />
+								<input type="button" class="button negative small" value="全解除" m:id='LIST_ALL_CHECK_OFF'  />
+							</th>
+							<th class="title">氏名</th>
+							<!--<th class="title">氏名（カナ）</th>-->
+							<th class="title">登録日</th>
+							<th class="title">会員権限</th>
+							<th class="title regist">権限更新</th>
+						</tr>
+						<tr m:id="LOOP_CHILD_MEMBER_LIST">
+							<td class="select">
+								<div class="id_and_check">
+									<input m:id="UPDATE_CHECK_BOX_INPUT_HERE" type="checkbox"/>
+									<span m:id="MEMBER_ID_HERE">000</span>
+								</div>
+							</td>
+							<td>
+								<span m:id="MEMBER_L_NAME_HERE">姓</span> <span m:id="MEMBER_F_NAME_HERE">名</span>
+							</td>
+							<!--
+							<td>
+								<span m:id="MEMBER_L_KANA_HERE">セイ</span> <span m:id="MEMBER_F_KANA_HERE">メイ</span>
+							</td>
+							-->
+							<td>
+								<span m:id="REGIST_DATE_YEAR_HERE">2014</span>年<span m:id="REGIST_DATE_MONTH_HERE">11</span>月<span m:id="REGIST_DATE_DAY_HERE">11</span>日
+							</td>
+							<td>
+								<select m:id="MEMBER_AUTHORY_INPUT_HERE">
+									<option value="">制限なし</option>
+									<option value="">発注不可</option>
+									<option value="">発注・見積不可</option>
+								</select>
+							</td>
+							<td>
+								<div m:id="common.IF_CUSTOMER_MANAGEMENT_PARENT_MEMBER">
+									<input type="submit" m:id='MEMBER_AUTHORY_UPDATE_BUTTON_TAG' class="button positive small" value="更新"/>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END=============================================== -->
+<!-- =============================================================================== -->
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

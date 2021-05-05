@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/EbisuAmazonPaymentsV2.js"></script>
+</head>
+<body>
+	<iframe m:id='common.IMPORT_HERE' src="../common/header_cart.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+	<!-- container -->
+	<div id="container">
+		
+		<div id="main" class="no-sidebar">
+			<h2>情報を送信中</h2>
+			<!-- ext -->
+			<div id="ext">自動的に移動しない場合は 
+				<a href="javascript:clickAmazonLoginPreButton()">こちら</a>をクリックしてください。
+				<form id="amazonPayPreLogin" action="custom/amazon_pay_auth_return.html" method="POST">
+					<input type="hidden" id="amazonCheckoutSessionId" name="amazonCheckoutSessionId" value=""/>
+				</form>
+			</div>
+			<!-- / ext -->
+		</div>
+		<iframe m:id='common.IMPORT_HERE' src="../common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	</div>
+	<!-- / container -->
+</body>
+</html>

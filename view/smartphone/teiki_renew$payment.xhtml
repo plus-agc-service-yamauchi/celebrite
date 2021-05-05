@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- teiki_renew -->
+<section id="cartFlow">
+	<h2>定期購入商品お支払方法の変更</h2>
+		<div class="sentence">
+			<p>
+					ご注文いただいている定期購入商品のお支払方法の変更ができます。<br />
+					変更したい内容を入力し、「入力内容を確認する」ボタンを押してください。<br />
+					<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+			</p>
+    </div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+
+		<h3>商品詳細</h3>
+		<h4>商品名</h4>
+		<div class="sentence"><span m:id='ITEM_NAME_HERE'>定期購入商品名</span></div>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+				<h4>ご請求金額</h4>
+				<div class="sentence"><span m:id='SEIKYU_HERE'>8,900円</span></div>
+			</div>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<h4>ご請求金額</h4>
+			<div class="sentence"><span m:id='SEIKYU_HERE'>8,900円</span></div>
+		</div>
+
+        <div m:id="IF_CREDIT_KESSAI_MODIFY">
+            <h3>カード情報変更</h3>
+            <div class="sentence">
+                <p>クレジットカードを変更する場合は、こちらの項目を入力してください。</p>
+            </div>
+    
+            <h4>カード名義</h4>
+            <div class="sentence">
+                <input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" m:autocomplete="off" />
+                <label class="error_color" id="CREDIT_NAME_ERROR" style="color :red;"></label><br />
+                <p class="form_attention">例：TARO YAMADA</p>
+            </div>
+    
+            <h4>カード番号</h4>
+            <div class="sentence">
+                <p m:id="IF_CURRENT_CREDIT_NUMBER">現在のカード番号は <span m:id="CURRENT_CREDIT_NUMBER_HERE">4980********1234</span> です。</p>
+                <input m:id='CREDIT_NUMBER_INPUT_HERE' name="card_number" type="text" size="50" value="" m:autocomplete="off" />
+                <label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label><br />
+                <p class="form_attention">例：1111222233334444<br />（ハイフンで区切らず数字を続けてご入力ください。</p>
+            </div>
+        
+        
+            <h4>有効期限</h4>
+            <div class="sentence">
+                <table>
+                    <tr>
+                        <td>
+                            <select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE'>
+                                <option selected="selected">-- 月を指定 --</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </td>
+                        <td>月</td>
+                        <td>
+                            <select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE'>
+                                <option selected="selected">-- 年を指定 --</option>
+                                <option value="09">2009</option>
+                                <option value="10">2010</option>
+                                <option value="11">2011</option>
+                                <option value="12">2012</option>
+                                <option value="13">2013</option>
+                                <option value="14">2014</option>
+                                <option value="15">2015</option>
+                                <option value="16">2016</option>
+                                <option value="17">2017</option>
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                            </select>
+                        </td>
+                        <td>年</td>
+                    </tr>
+                </table>
+                <label class="error_color" id="CREDIT_LIMIT_ERROR" style="color :red;"></label>
+            </div>
+    		
+			<div m:id='IF_CREDIT_SECURITY_CD'>
+				<h4>セキュリティーコード</h4>
+				<div class="sentence">
+					<input m:id='SECURITY_CODE_INPUT_HERE' type="text" value="" m:autocomplete="off" />
+					<label class="error_color" id="SECURITY_CD_ERROR" style="color :red;"></label>
+				</div>
+			</div>
+		</div>
+
+		<div class="sentence" m:id="IF_EDITABLE" m:NOT="">
+			<p>現在停止中・または一回お休み中のため、情報の変更はできません。</p>
+		</div>
+
+		<div class="buttonarea">
+			<a m:id='CONFIRM_BUTTON_TAG' href="javascript:void(0);">登録</a>
+			<a href="#" m:id="BACK_LINK_TAG" class="cancel">戻る</a>
+		</div>
+
+	</form>
+
+</section>
+<!-- / teiki_renew -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

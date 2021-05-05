@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/present_confirm.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- present_confirm -->
+<div id="cartFlow">
+	<h2>プレゼント応募内容確認</h2>
+	<!--<img src="images/present_step03.gif" width="560" height="40" alt="STEP3 応募内容確認" class="step" />-->
+	<div class="cart_step">
+		<ul>
+			<li><strong>1</strong>ログイン</li>
+			<li><strong>2</strong>お客様情報入力</li>
+			<li class="active"><strong>3</strong>応募内容確認</li>
+			<li><strong>4</strong>応募完了</li>
+		</ul>
+	</div>
+	<p>
+		下記の内容をご確認ください。<br />内容に間違いがございましたら「戻る」ボタンを押して前のページに戻り、情報を修正してください。<br />
+		<span class="attention">「送信」ボタンを押すとプレゼントへの応募が完了します。</span>
+	</p>
+	<form m:id='FORM_TAG'>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<table summary="プレゼント情報">
+		<tr>
+			<th class="title">プレゼント商品名</th>
+			<td><span m:id="PRESENT_NAME_HERE">プレゼント商品名</span></td>
+		</tr>
+		<tr>
+			<th class="title">応募期間</th>
+			<td><span m:id="OUBO_KIKAN_FROM_HERE">2009/1/1</span>　～　<span m:id="OUBO_KIKAN_TO_HERE">2009/12/12</span></td>
+		</tr>
+		<tr>
+			<th class="title">当選人数</th>
+			<td><span m:id="TOSEN_NINZU_HERE">100</span>名</td>
+		</tr>
+	</table>
+	
+	<h3>応募者情報</h3>
+	<table summary="応募者情報">
+		<tr>
+			<th class="title">氏名（漢字）</th>
+			<td><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></td>
+		</tr>
+		<tr>
+			<th class="title">氏名（カナ）</th>
+			<td><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></td>
+		</tr>
+		<tr>
+			<th class="title">PCメールアドレス</th>
+			<td><span m:id='PC_MAIL_HERE'>sample@example.jp</span></td>
+		</tr>
+		<tr>
+			<th class="title">PCメール形式</th>
+			<td><span m:id='IF_PC_MAIL_TYPE_TEXT'>テキストメール</span><span m:id='IF_PC_MAIL_TYPE_HTML'>HTMLメール</span></td>
+		</tr>
+		<tr>
+			<th class="title">住所</th>
+			<td>
+				〒<span m:id='ZIP_HERE'>1234567</span> 
+				<span m:id='ADDRESS1_HERE'>東京都</span> 
+				<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> 
+				<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+			</td>
+		</tr>
+		<tr>
+			<th class="title">電話番号</th>
+			<td><span m:id='TEL_HERE'>03-1234-5678</span></td>
+		</tr>
+		<tr>
+			<th class="title">メールマガジン</th>
+			<td><span m:id='IF_MAILMAG_REGIST'>受け付ける</span><span m:id='IF_MAILMAG_NO_REGIST'>受け付けない</span></td>
+		</tr>
+		<tr>
+			<th class="title">備考</th>
+			<td><span m:id='BIKOU_HERE'>ここに備考が入ります。ここに備考が入ります。ここに備考が入ります。</span></td>
+		</tr>
+	</table>
+	
+	<div m:id='IF_REGEST_MEMBER'>
+		<h3>会員登録情報</h3>
+		<table summary="会員情報">
+			<tr m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+				<th class="title">ログインID</th>
+				<td><span m:id='LOGIN_ID_HERE'>sample</span></td>
+			</tr>
+			<tr>
+				<th class="title">パスワード</th>
+				<td><span m:id='PASSWORD_HERE'>********</span></td>
+			</tr>
+			<tr>
+				<th class="title">性別</th>
+				<td><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span><span m:id='IF_SEX_OTHER'>その他</span></td>
+			</tr>
+			<tr>
+				<th class="title">生年月日</th>
+				<td>
+					西暦 <span m:id='BIRTH_YEAR_HERE'>1986</span>年 
+					<span m:id='BIRTH_MONTH_HERE'>03</span>月 
+					<span m:id='BIRTH_DAY_HERE'>03</span>日
+				</td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='1'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目１</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='2'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='2'>自由項目２</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目２</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='3'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='3'>自由項目３</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目３</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='4'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='4'>自由項目４</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目４</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='5'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='5'>自由項目５</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目５</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='6'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='6'>自由項目６</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='6'>自由項目６</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='7'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='7'>自由項目７</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='7'>自由項目７</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='8'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='8'>自由項目８</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='8'>自由項目８</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='9'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='9'>自由項目９</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='9'>自由項目９</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='10'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='10'>自由項目１０</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='10'>自由項目１０</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='11'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='11'>自由項目１１</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='11'>自由項目１１</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='12'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='12'>自由項目１２</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='12'>自由項目１２</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='13'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='13'>自由項目１３</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='13'>自由項目１３</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='14'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='14'>自由項目１４</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='14'>自由項目１４</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='15'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='15'>自由項目１５</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='15'>自由項目１５</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='16'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='16'>自由項目１６</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='16'>自由項目１６</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='17'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='17'>自由項目１７</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='17'>自由項目１７</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='18'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='18'>自由項目１８</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='18'>自由項目１８</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='19'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='19'>自由項目１９</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='19'>自由項目１９</span></td>
+			</tr>
+			<tr m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='20'>
+				<th class="title"><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='20'>自由項目２０</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='20'>自由項目２０</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="buttonarea">
+		<a m:id='BACK_BUTTON_TAG' href="#" class="button negative medium">戻る</a>
+		<input type="submit" value="登録する" class="button positive medium" />
+	</div>
+	
+	</form>
+</div>
+<!-- / present_confirm -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- item_compare -->
+<section id="content">
+
+	<h2>比較検討リスト</h2>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="sentence">
+		<p m:id="IF_ITEM_EXIST"><a href="" m:id='ITEM_DELETE_ALL_LINK_TAG'>全て削除する</a></p>
+	</div>
+
+	<div m:id="IF_ITEM_EXIST">
+		<div m:id="LOOP_ITEM_LIST" class="compare_list">
+			<h3>商品コード</h3>
+			<div class="sentence">
+				<p>
+					<span m:id='ITEM_CODE_HERE'>ITEM01</span>
+				</p>
+			</div>
+			<h3>商品名</h3>
+			<div class="sentence">
+				<p>
+					<a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id='ITEM_NAME_HERE'>商品名</span></a>
+					<img m:id="IF_SHORT" src="images/item_short.gif" alt="品薄" />
+					<img m:id="IF_SOLDOUT" src="images/item_soldout.gif" alt="品切" />
+					<img m:id="IF_NEW" src="images/item_new.gif" alt="NEW" />
+					<img m:id="IF_BEFORE" src="images/item_before.gif" alt="COMING SOON" />
+					<span m:id='IF_ITEM_APPEAL' class="appeal">
+						<!--<img m:id='ITEM_APPEAL_IMAGE_TAG' src="images/appeal.jpg" alt="アピール画像" /><br />-->
+						<span m:id='ITEM_APPEAL_HERE'>ここにアピールポイントが表示されます。</span>
+					</span>
+				</p>
+			</div>
+			<h3>商品画像</h3>
+			<div class="sentence">
+				<div class="img_box">
+					<a m:id='ITEM_DETAIL_LINK_TAG' href="#">
+						<img src="images/sample.jpg" m:id='ITEM_IMAGE_TAG' />
+					</a>
+				</div>
+			</div>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+					<h3>価格</h3>
+					<div class="sentence">
+						<p>
+							<span m:id='IF_MAKER_TEIKA'>
+							希望小売価格：<span m:id='MAKER_TEIKA_HERE'>9,980円</span>（税込）<br />
+							</span>
+							販売価格：<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi'>9,980円</span>（税込）
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<h3>価格</h3>
+				<div class="sentence">
+					<p>
+						<span m:id='IF_MAKER_TEIKA'>
+						希望小売価格：<span m:id='MAKER_TEIKA_HERE'>9,980円</span>（税込）<br />
+						</span>
+						販売価格：<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi'>9,980円</span>（税込）
+					</p>
+				</div>
+			</div>
+			<h3>説明</h3>
+			<div class="sentence">
+				<p>
+					<span m:id="ITEM_INFO1_HERE">商品説明１</span>
+				</p>
+			</div>
+			<h3>詳細</h3>
+			<div class="sentence">
+				<p>
+					<a m:id='ITEM_DETAIL_LINK_TAG' href="#">詳細を見る</a>
+				</p>
+			</div>
+			<h3>種類</h3>
+			<div class="sentence">
+				<div m:id="LOOP_ITEM_PROPERTY_CATEGORY">
+					＜<span m:id="ITEM_PROPERTY_CATEGORY_NAME_HERE">色：</span>＞
+					<div m:id='LOOP_ITEM_PROPERTY'>
+						<span m:id='ITEM_PROPERTY_NAME_HERE'>赤</span><br />
+						<div class="img_box" m:id="IF_ITEM_PROPERTY_IMAGE">
+							<img src="images/sample.jpg" m:id='ITEM_PROPERTY_IMAGE_TAG' />
+						</div>
+					</div>
+					<div m:id='DUMMY'>
+						<span m:id='ITEM_PROPERTY_NAME_HERE'>赤</span><br />
+						<div class="img_box">
+							<img src="images/sample.jpg" m:id='ITEM_PROPERTY_IMAGE_TAG' />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='1'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目1タイトル</span></h3>
+				<div class="sentence">
+					<p>
+						<span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目1値</span>
+					</p>
+				</div>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='2'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目2タイトル</span></h3>
+				<div class="sentence">
+					<p>
+						<span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目2値</span>
+					</p>
+				</div>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='3'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目3タイトル</span></h3>
+				<div class="sentence">
+					<p>
+						<span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目3値</span>
+					</p>
+				</div>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='4'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目4タイトル</span></h3>
+				<div class="sentence">
+					<p>
+						<span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目4値</span>
+					</p>
+				</div>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='5'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目5タイトル</span></h3>
+				<div class="sentence">
+					<p>
+						<span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目5値</span>
+					</p>
+				</div>
+			</div>
+			<div class="sentence"  m:id='IF_ITEM_PROPERTY'>
+				<p>商品詳細画面で<span m:id='ITEM_PROPERTY_SELECT_NAME_HERE'>サイズ</span>を選択してください。</p>
+			</div>
+			<div class="buttonarea">
+				<a href="#" m:id='ITEM_DELETE_LINK_TAG' class="cancel">削除する</a>
+				<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+					<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+						<span class="buttonarea" m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+							<span m:id='IF_PUT_TO_CART'>
+								<a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);">カートに入れる</a>
+							</span>
+							<a m:id='IF_PUT_TO_CART' m:NOT="" class="cancel">カートに入れる</a>
+						</span>
+						<!-- カート画面に遷移せずポップアップを使用する場合
+						<span m:id='IF_PUT_TO_CART'>
+							<div class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link">
+										<a href="cart_index.html">カートを見る</a>
+									</p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+								</div>
+							</div>
+						</span>
+						<p m:id='IF_ITEM_PROPERTY' class="property">
+							商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+						</p>
+						-->
+					</span>
+					<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+						<span class="buttonarea">
+							<span m:id='IF_PUT_TO_CART'>
+								<a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);">カートに入れる</a>
+							</span>
+							<a m:id='IF_PUT_TO_CART' m:NOT="" class="cancel">カートに入れる</a>
+						</span>
+						<!-- カート画面に遷移せずポップアップを使用する場合
+						<span m:id='IF_PUT_TO_CART'>
+							<div class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link">
+										<a href="cart_index.html">カートを見る</a>
+									</p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+								</div>
+							</div>
+						</span>
+						<p m:id='IF_ITEM_PROPERTY' class="property">
+							商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+						</p>
+						-->
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / item_compare -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

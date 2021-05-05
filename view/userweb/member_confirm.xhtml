@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja" xmlns:social_plus="eb:SOCIAL_PLUS/view_member_input.json"  xmlns:social_plus2="eb:SOCIAL_PLUS/view_member_auth_provider.json">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_regist.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- member_confirm -->
+<h2>
+	<span m:id='common.IF_MEMBER' m:NOT="">新規会員登録</span>
+	<span m:id='common.IF_MEMBER'>会員情報変更</span>
+</h2>
+<p>入力内容を確認してください。<br />正しければ「送信」ボタンを押してください。</p>
+
+<form m:id='FORM_TAG'>
+	<!-- social_plus -->
+	<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+		<input type="hidden" social_plus:attr="SOCIAL_PLUS_ID_HIDDEN_TAG" />
+    	<input type="hidden" social_plus:attr="SOCIAL_PLUS_PROVIDER_HIDDEN_TAG" />
+	</div>
+	<!-- / social_plus -->
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+    
+	<table summary="会員登録情報">
+		<tbody>
+			<tr>
+				<th class="title">氏名（漢字）</th>
+				<td><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></td>
+			</tr>
+			<tr>
+				<th class="title">氏名（カナ）</th>
+				<td><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></td>
+			</tr>
+			<tr>
+				<th class="title">ニックネーム</th>
+				<td><span m:id='NICKNAME_HERE'>タロー</span></td>
+			</tr>
+		</tbody>
+		<tbody m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS' m:NOT="">
+			<tr m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+				<th class="title">ログインID</th>
+				<td><span m:id='LOGIN_ID_HERE'>sample</span></td>
+			</tr>
+			<tr>
+				<th class="title">パスワード</th>
+				<td>********</td>
+			</tr>
+		</tbody>
+		<tbody m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+			<tr social_plus2:if="IS_RAKUTEN_SOCIAL_PLUS_AUTH_PROVIDER" m:NOT="">
+				<th m:id='common.IF_NOT_MAIL_LOGINID_CONFIG' class="title">ログインID</th>
+				<td m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'><span m:id='LOGIN_ID_HERE'>sample</span></td>
+			</tr>
+			<tr social_plus2:if="IS_RAKUTEN_SOCIAL_PLUS_AUTH_PROVIDER" m:NOT="">
+				<th class="title">パスワード</th>
+				<td>********</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th class="title">性別</th>
+				<td><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span><span m:id='IF_SEX_OTHER'>その他</span></td>
+			</tr>
+			<tr>
+				<th class="title">生年月日</th>
+				<td>
+					西暦 <span m:id='BIRTH_YEAR_HERE'>1986</span>年 <span m:id='BIRTH_MONTH_HERE'>03</span>月
+					<span m:id='BIRTH_DAY_HERE'>03</span>日
+				</td>
+			</tr>
+			<tr>
+				<th class="title">メールアドレス</th>
+				<td><span m:id='PC_MAIL_HERE'>sample@example.jp</span></td>
+			</tr>
+			<tr>
+				<th class="title">メール形式</th>
+				<td><span m:id='IF_PC_MAIL_TYPE_TEXT'>テキストメール</span><span m:id='IF_PC_MAIL_TYPE_HTML'>HTMLメール</span></td>
+			</tr>
+			<!--
+			<tr>
+				<th class="title">携帯メールアドレス</th>
+				<td><span m:id='MOBILE_MAIL_HERE'>sample@example.jp</span></td>
+			</tr>
+			<tr m:id="IF_MOBILE_MAIL_TYPE_TEXT">
+				<th class="title">携帯メール形式</th>
+				<td>
+					<span m:id="IF_MOBILE_MAIL_TYPE_TEXT">テキストメール</span>
+					<span m:id="IF_MOBILE_MAIL_TYPE_HTML">HTMLメール</span>
+				</td>
+			</tr>
+			-->
+			<tr>
+				<th class="title">住所</th>
+				<td>
+					<span m:id='ZIP_HERE'>1234567</span> <span m:id='ADDRESS1_HERE'>東京都</span>
+					<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+				</td>
+			</tr>
+			<tr>
+				<th class="title">電話番号</th>
+				<td><span m:id='TEL_HERE'>03-1234-5678</span></td>
+			</tr>
+			<tr>
+				<th class="title">メールマガジン</th>
+				<td>
+					<!--<span m:id="IF_MAILMAG_REGIST">PC/携帯の両方で希望する</span>-->
+					<span m:id="IF_MAILMAG_REGIST_PC">希望する</span>
+					<!--<span m:id="IF_MAILMAG_REGIST_MOBILE">携帯で希望する</span>-->
+					<span m:id="IF_NOT_MAILMAG_REGIST">希望しない</span>
+				</td>
+			</tr>
+			<tr m:id="IF_KESSAI">
+				<th class="title">標準利用支払い方法</th>
+				<td>
+					<span m:id='KESSAI_NAME_HERE'>クレジットカード</span><br />
+					<div m:id='IF_KESSAI_CREDIT'>
+						<div m:id='IF_CREDIT_KAISU'>お支払い回数 <span m:id='CREDIT_KAISU_HERE'>一括</span></div>
+						<div m:id='IF_SAVED_CARD'>
+							<span m:id='SAVED_CARD_CREDIT_NUMBER_HERE'>************4003</span><br />
+							カード名義 : <span m:id='SAVED_CARD_CREDIT_NAME_HERE'>TEST TARO</span><br />
+							有効期限 : <span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>04</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2016</span>
+						</div>
+					</div>
+				</td>
+			</tr>	
+			<tr m:id='common.IF_USE_TWO_STEP_LOGIN'>
+				<th class="title">2段階ログイン設定</th>
+				<td>
+					<span m:id="IF_TWO_STEP_LOGIN_NOT_USE_RADIO_TAG">使用しない</span>
+					<span m:id="IF_TWO_STEP_LOGIN_PC_MAIL">メールを使用する</span>
+					<!--<span m:id="IF_TWO_STEP_LOGIN_MOBILE_MAIL">携帯メールを使用する</span>-->
+				</td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='1'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目１</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='2'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目２</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目２</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='3'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目３</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目３</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='4'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目４</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目４</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='5'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目５</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目５</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='6'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='6'>自由項目６</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='6'>自由項目６</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='7'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='7'>自由項目７</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='7'>自由項目７</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='8'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='8'>自由項目８</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='8'>自由項目８</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='9'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='9'>自由項目９</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='9'>自由項目９</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='10'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='10'>自由項目１０</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='10'>自由項目１０</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='11'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='11'>自由項目１１</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='11'>自由項目１１</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='12'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='12'>自由項目１２</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='12'>自由項目１２</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='13'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='13'>自由項目１３</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='13'>自由項目１３</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='14'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='14'>自由項目１４</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='14'>自由項目１４</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='15'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='15'>自由項目１５</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='15'>自由項目１５</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='16'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='16'>自由項目１６</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='16'>自由項目１６</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='17'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='17'>自由項目１７</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='17'>自由項目１７</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='18'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='18'>自由項目１８</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='18'>自由項目１８</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='19'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='19'>自由項目１９</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='19'>自由項目１９</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='20'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='20'>自由項目２０</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='20'>自由項目２０</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- ======================リキャプチャー機能出力部分====================== / -->
+	<div m:id='IF_GOOGLE_RECAPTCHA_ENABLE' id="reCAPTCHA">
+		<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3' m:NOT="">
+			<script m:id='GOOGLE_RECAPTCHA_SCRIPT_TAG'></script>
+			<div m:id='GOOGLE_RECAPTCHA_TAG'></div>
+		</div>
+		<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3'>
+			<script m:id='GOOGLE_RECAPTCHA_V3_SCRIPT_TAG'></script>
+			<script m:id='GOOGLE_RECAPTCHA_V3_JS_HERE'></script>
+			<input type='hidden' m:id='GOOGLE_RECAPTCHA_V3_RESPONSE_HIDDEN_TAG' />
+		</div>		
+	</div>
+	<!-- / ======================リキャプチャー機能出力部分====================== -->
+	<div class="buttonarea">
+		<a m:id='BACK_BUTTON_TAG' class="button negative medium">戻る</a>
+		<input type="submit" value="送信する" class="button positive medium" />
+	</div>
+
+</form>
+<!-- / member_confirm -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

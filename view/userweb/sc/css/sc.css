@@ -1,0 +1,337 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFF;
+    color: #333;
+    line-height: 1.5;
+    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, 'MS PGothic', 'ＭＳ Ｐゴシック', sans-serif;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/*  すべてのタグのマージン・パディングの設定をリセット
+-------------------------------------------------------------*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: 0;
+}
+
+
+.wrap:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+#main .sc p {
+    margin: 5px 10px;
+    font-size: 90%;
+    margin-bottom: 1.2em;
+    line-height: 1.8em;
+}
+
+#main .sc h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    border-bottom: solid 3px #cccccc;
+    position: relative;
+}
+
+#main .sc h2:after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 3px #373737;
+    bottom: -3px;
+    width: 20%;
+}
+
+
+#main .sc h3 {
+    display: block;
+    font-size: 1.1em;
+    margin: 30px 10px 10px;
+    border-bottom: 1px dashed #cccccc;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+    text-align: left;
+}
+
+#main .sc h4 {
+    display: block;
+    font-size: 1em;
+    margin: 30px 10px 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#main .sc blockquote {
+    margin: 30px;
+    font-size: 0.9em;
+    line-height: 1.8em;
+    background-color: #f0f0f0;
+    padding: 20px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#main .sc strong {
+    font-weight: normal;
+    color: #000;
+    background-color: #fff3b0;
+    padding: 4px;
+    font-size: 1em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    margin: 0 2px;
+    text-align: left;
+}
+
+#main .sc th {
+    text-align: left;
+}
+
+
+/*  ボタンデザイン
+-------------------------------------------------------------*/
+/*基本デザイン-下記クラスに加えpositive　negative等のクラスを合わせて付与する*/
+#main .sc a.button {
+    border: none;
+    display: block;
+    line-height: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    -webkit-border-radius: 6px;
+    /* for Safari and Chrome */
+    -moz-border-radius: 6px;
+    /* for Firefox */
+    -o-border-radius: 6px;
+    /* for opera */
+    border-radius: 6px;
+    width: 100%;
+}
+
+/*マウスホバー時*/
+#main .sc a.button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+/*次へ・入力内容を確認する・注文する・ログイン・登録する・送信・検索・ご注文手続きへ進む等*/
+#main .sc a.positive {
+    background: #D21E21;
+    color: #FFFFFF;
+}
+
+/*戻る・クリア・削除・ログアウト等*/
+#main .sc a.negative {
+    background: #4c4c4c;
+    color: #FFFFFF;
+}
+
+#main .sc a.not_click {
+    background: #d2d2d2;
+    color: #a5a5a5;
+}
+
+/*上記以外のボタン*/
+#main .sc a.normal {
+    background: #f7f7f7;
+    color: #333333;
+    border: 1px solid #adadad;
+}
+
+/*押せないボタン*/
+#main .sc .not_click {
+    border: none;
+    display: block;
+    line-height: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/*普通サイズの時にはクラスに下記を追加*/
+#main .sc a.medium {
+    max-width: 230px;
+    min-width: 200px;
+    font-size: 16px;
+    max-width: 230px;
+    margin-bottom: 1em;
+}
+
+/*小さいサイズの時にはクラスに下記を追加*/
+#main .sc a.small {
+    padding: 6px 10px;
+    font-size: 12px;
+    max-width: 230px;
+    margin-bottom: 1em;
+}
+
+/*  画像とテキストの配置
+-------------------------------------------------------------*/
+#main .sc .img-center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#main .sc .img-left {
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+    max-width: 50%;
+}
+
+#main .sc .img-right {
+    float: right;
+    margin-right: 10px;
+    margin-left: 20px;
+    max-width: 50%;
+}
+
+#main .sc .caption {
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+
+#main .sc .text-center {
+    display: block;
+    text-align: center;
+}
+
+/*  リスト
+-------------------------------------------------------------*/
+#main .sc ul,
+#main .sc dd {
+    padding-bottom: 10px;
+}
+
+#main .sc li {
+    list-style: disc;
+    margin: 5px 40px;
+    font-size: 90%;
+    padding-left: 6px;
+}
+
+#main .sc ol li {
+    list-style-type: decimal;
+}
+
+#main .sc dt {
+    font-size: 90%;
+    margin-left: 20px;
+    font-weight: bold;
+
+}
+
+#main .sc dd {
+    font-size: 90%;
+    margin: 5px 40px;
+}
+
+/*  カラム表示
+-------------------------------------------------------------*/
+
+.clm-2 {
+    width: 50%;
+}
+
+.clm-3 {
+    width: 33%;
+}
+
+.wrap .left {
+    float: left;
+}
+
+.wrap .right {
+    float: right;
+}
+
+
+/*  テーブル
+-------------------------------------------------------------*/
+
+#main th {
+    padding: 10px;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+#main th.title {
+    width: 160px;
+    text-align: left;
+}
+
+#main th.address {
+    width: 55px;
+}
+
+#main td {
+    padding: 10px;
+    border: 1px solid #CCC;
+    vertical-align: top;
+}
+
+/*  左ナビゲーション
+-------------------------------------------------------------*/
+
+.navi-left #sidebar {
+    float: right;
+    margin-left: 20px;
+}
+
+.navi-none #main {
+    float: none;
+    width: 100%;
+}

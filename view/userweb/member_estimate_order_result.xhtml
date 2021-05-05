@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_estimate_order_result.html -->
+
+<form name="HIDDEN_DATA_FORM" m:id="HIDDEN_DATA_TAGS_HERE">
+	<!-- ここに記述されているのはサンプルのデータです。このままJavaScriptの動作チェックを行うことができます。動的に実行すると、実際の注文商品情報がここに記載されます。 -->
+	<input type="hidden" name="ITEM_NAME" value="商品1" />
+	<input type="hidden" name="ITEM_CD" value="ITEM01" />
+	<input type="hidden" name="ITEM_AMOUNT" value="3" />
+	<input type="hidden" name="ITEM_TEIKA" value="1000" />
+	<input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="0" />
+	<input type="hidden" name="ITEM_SYOKEI" value="3000" />
+	<input type="hidden" name="ITEM_FREE_ITEM1" value="AAA" />
+	<input type="hidden" name="ITEM_NAME" value="商品2" />
+	<input type="hidden" name="ITEM_CD" value="ITEM02" />
+	<input type="hidden" name="ITEM_AMOUNT" value="2" />
+	<input type="hidden" name="ITEM_TEIKA" value="100" />
+	<input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="0" />
+	<input type="hidden" name="ITEM_SYOKEI" value="200" />
+	<input type="hidden" name="ITEM_FREE_ITEM1" value="BBB" />
+	<input type="hidden" name="ITEM_NAME" value="商品3" />
+	<input type="hidden" name="ITEM_CD" value="ITEM03" />
+	<input type="hidden" name="ITEM_AMOUNT" value="1" />
+	<input type="hidden" name="ITEM_TEIKA" value="12000" />
+	<input type="hidden" name="ITEM_MEMBER_DISCOUNT" value="2000" />
+	<input type="hidden" name="ITEM_SYOKEI" value="10000" />
+	<input type="hidden" name="ITEM_FREE_ITEM1" value="CCC" />
+	<input type="hidden" name="ORDER_NO" value="12345" />
+	<input type="hidden" name="ORDER_DISP_NO" value="SHOP-12345" />
+	<input type="hidden" name="ALL_AMOUNT" value="6" />
+	<input type="hidden" name="SORYO" value="500" />
+	<input type="hidden" name="SYOKEI" value="13200" />
+	<input type="hidden" name="GOKEI" value="13700" />
+</form>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" width="100%"></iframe>
+
+<!-- container -->
+<div id="container">
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+	<div id="main" class="cart">
+		<div id="cartResult">
+			<div id="estimateOrderResult">
+				<h2>ご注文完了</h2>
+				<p>
+					注文が完了しました。<br />
+					この度は<span m:id='common.SITE_TITLE_HERE'>ここにショップ名が入ります。</span>をご利用いただきまして、誠にありがとうございます。
+				</p>
+				
+				<p class="number">
+					<strong>[ご注文番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>]</strong>
+				</p>
+				<p>
+					<!-- 今回のお客様の注文内容は以下の通りです。<br />-->
+					配信された注文完了メールもしくはこのページを印刷する等して大切に保管くださいますようお願い致します。<br />
+					※30分以内に注文完了メールが届かない場合、サイト管理者までお問合せください。
+				</p>
+				
+				<div m:id='common.IF_USE_MEMBER_HISTORY'>
+					<a href="member_history.html">→購入履歴を確認する</a>
+				</div>
+				<div m:id='common.IF_USE_ESTIMATE_RECORD'>
+					<a href="member_estimate_record.html">→見積履歴を確認する</a>
+				</div>
+				
+				<!-- cart_result -->
+				<div id="cartFlow">
+					<div class="estimateOrderResult">
+						<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+						<div class="buttonarea" >
+							<a href="/" class="button positive medium">トップページへ</a>
+						</div>
+					</div>
+				</div>
+				<!-- / cart_result -->
+			</div>
+		</div>
+	</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

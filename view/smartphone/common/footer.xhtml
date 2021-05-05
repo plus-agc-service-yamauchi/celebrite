@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+</head>
+<body m:id='CONTENT'>
+
+
+<!-- footerNavi -->
+<nav class="footerNavi">
+	<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+		<ul m:id='common.IF_MEMBER' m:NOT="">
+			<li class="list"><a href="login.html">ログイン</a></li>
+			<li class="list" m:id="common.IF_ENABLE_REGIST_MEMBER"><a href="member_regist_new.html">会員登録</a></li>
+			<li class="list" m:id="common.IF_ENABLE_REGIST_CHILD_MEMBER"><a m:id='common.CHILD_MEMBER_REGIST_LINK_TAG'>子会員登録</a></li>
+		</ul>
+	</div>
+	<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+		<ul m:id='common.IF_MEMBER' m:NOT="">
+			<li class="list"><a href="login.html">ログイン</a></li>
+			<li class="list"><a href="member_regist_new.html">会員登録</a></li>
+		</ul>
+	</div>
+	<ul>
+		<li class="list"><a href="ext/tokushou.html">特定商取引法に基づく表示</a></li>
+		<li class="list"><a href="ext/guide.html">ご利用ガイド</a></li>
+		<li class="list"><a href="ext/company.html">会社概要</a></li>
+		<li class="list"><a href="ext/faq.html">FAQ</a></li>
+		<li class="list"><a href="ext/privacy.html">個人情報保護方針</a></li>
+		<li class="list"><a href="apply.html?id=APPLY1">お問合せ</a></li>
+		<li class="list"><a href="mailmag.html">メールマガジン購読・解除</a></li>
+	</ul>
+	<ul m:id='common.IF_MEMBER'>
+		<li class="list"><a href="member_regist.html?request=edit">会員情報変更</a></li>
+		<li class="list"><a href="member_mypage.html">マイページ</a></li>
+		<li class="list" m:id='common.IF_USE_MEMBER_CREDIT_SAVE'><a href="member_credit_entry.html">クレジットカードの登録</a></li>
+		<li class="list" m:id='common.IF_USE_MEMBER_HISTORY'><a href="member_history.html">購入履歴</a></li>
+		<li m:id='common.IF_USE_MEMBER_HISTORY'>
+			<span class="list" m:id='common.IF_CUSTOMER_MANAGEMENT_DISP_OFFICE_MENU_USER'><a href="member_history.html?request=order_from_btob">事業所購入履歴</a></span>
+		</li>
+		<li class="list" m:id='common.IF_USE_ESTIMATE_RECORD'><a href="member_estimate_record.html">見積履歴</a></li>
+		<li class="list" m:id='common.IF_CUSTOMER_MANAGEMENT_DISP_OFFICE_MENU_USER'><a m:id='common.CHILD_MEMBER_LIST_LINK_TAG'>子会員一覧</a></li>
+		<li class="list" m:id='common.IF_USE_WISHLIST'><a href="wishlist.html">お気に入りリスト</a></li>
+		<li class="list" m:id='common.IF_USE_MEMBER_TAIKAI'><a href="member_taikai.html">会員退会</a></li>
+		<li class="list"><a href="#" m:id='common.LOGOUT_LINK_TAG'>ログアウト</a></li>
+	</ul>
+</nav>
+<!-- / footerNavi -->
+
+
+<!-- footer -->
+<footer>
+	<p class="view">表示 ： <strong>スマートフォン</strong> ｜ <a m:id='common.SWITCH_PC_SMARTPHONE_SITE_LINK_TAG' href="#">パソコン</a></p>
+	<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+		<a class="cart" href="cart_index.html" m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">カートを見る</a>
+	</div>
+	<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+		<a class="cart" href="cart_index.html">カートを見る</a>
+	</div>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+
+</body>
+</html>

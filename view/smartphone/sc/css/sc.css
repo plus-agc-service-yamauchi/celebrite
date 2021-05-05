@@ -1,0 +1,200 @@
+#content .sc p {
+    padding: 0 15px 15px;
+    line-height: 1.6em;
+}
+
+#content .sc h2,
+#content .sc h3,
+#content .sc h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+#content .sc blockquote {
+    margin: 15px;
+    line-height: 1.6em;
+    background-color: #f0f0f0;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#content .sc strong {
+    font-weight: normal;
+    color: #000;
+    background-color: #fff3b0;
+    padding: 4px;
+    font-size: 1em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    margin: 0 2px;
+    text-align: left;
+}
+
+
+
+/*  ボタンデザイン
+-------------------------------------------------------------*/
+/*基本デザイン-下記クラスに加えpositive　negative等のクラスを合わせて付与する*/
+#content .sc a.button {
+    border: none;
+    display: block;
+    line-height: 1;
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    text-decoration: none;
+    font-size: 13px;
+    -webkit-border-radius: 6px;
+    /* for Safari and Chrome */
+    -moz-border-radius: 6px;
+    /* for Firefox */
+    -o-border-radius: 6px;
+    /* for opera */
+    border-radius: 6px;
+    width: inherit;
+}
+
+/*戻る・クリア・削除・ログアウト等*/
+#content .sc a.negative {
+    background: #4c4c4c;
+    color: #FFFFFF;
+}
+
+#content .sc a.not_click {
+    background: #d2d2d2;
+    color: #a5a5a5;
+}
+
+/*上記以外のボタン*/
+#content .sc a.normal {
+    background: #f7f7f7;
+    color: #333333;
+    border: 1px solid #adadad;
+}
+
+/*押せないボタン*/
+#content .sc .not_click {
+    border: none;
+    display: block;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/*普通サイズの時にはクラスに下記を追加*/
+#content .sc a.medium {
+    margin-bottom: 1em;
+    max-width: inherit;
+    min-width: inherit;
+    padding: 15px !important;
+}
+
+#content .sc a.small {
+    margin-bottom: 1em;
+    max-width: inherit;
+    min-width: inherit;
+    padding: 8px !important;
+}
+
+
+/*  表組み
+-------------------------------------------------------------*/
+
+#content .sc th {
+    text-align: left;
+}
+
+
+/*  テーブル
+-------------------------------------------------------------*/
+#content .sc table {
+    margin: 0 15px 15px 15px;
+}
+
+#content .sc th {
+    padding: 10px;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+#content .sc th.title {
+    width: 160px;
+    text-align: left;
+}
+
+#content .sc th.address {
+    width: 55px;
+}
+
+#content .sc td {
+    padding: 10px;
+    border: 1px solid #CCC;
+    vertical-align: top;
+}
+
+
+/*  カラム表示
+-------------------------------------------------------------*/
+#content .sc .wrap {
+    display: inline-block;
+}
+
+#content .sc .left p {
+    padding: 0 5px 15px 15px;
+}
+
+#content .sc .right p {
+    padding: 0 10px 15px 15px;
+}
+
+.clm-2 {
+    width: 50%;
+}
+
+.wrap .left {
+    float: left;
+}
+
+.wrap .right {
+    float: right;
+}
+
+/*  リスト
+-------------------------------------------------------------*/
+
+#content .sc ul,
+#content .sc ol,
+#content .sc dd {
+    padding: 15px;
+}
+
+#content .sc li {
+    list-style: disc;
+    margin: 0px 0px 10px 10px;
+    line-height: 1.6em;
+}
+
+#content .sc ol li {
+    list-style-type: decimal;
+}
+
+#content .sc dt {
+    margin-left: 15px;
+    font-weight: bold;
+
+}
+
+#content .sc dd {
+    margin: 0px 0px 10px 0px;
+    line-height: 1.6em;
+}

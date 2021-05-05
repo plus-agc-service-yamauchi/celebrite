@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/teiki_index.html?request=detail&ORDER_NO=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- teikiDetail -->
+<div id="teikiDetail">
+	<h2>定期購入商品詳細</h2>
+	<p>ご注文いただいている定期購入商品の詳細を確認することができます。</p>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="box">
+		<div class="head">
+			<h3><span m:id='ITEM_NAME_HERE'>定期購入商品名</span></h3>
+		</div>
+		<h4>
+			<span m:id="IF_TEIKI_MONTHLY"><span m:id='TEIKI_YM_YEAR_HERE'>2010</span>年<span m:id='TEIKI_YM_MONTH_HERE'>8</span>月分</span>
+			<span m:id="IF_TEIKI_DAILY"><span m:id='SEND_HOPE_YEAR_HERE'>2010</span>年<span m:id='SEND_HOPE_MONTH_HERE'>8</span>月<span m:id='SEND_HOPE_DAY_HERE'>8</span>日分</span>
+		</h4>
+		
+		<h5>商品詳細</h5>
+		<table summary="商品詳細">
+			<tr>
+				<th class="title">商品名</th>
+				<td>
+					<div m:id="LOOP_ORDER_D">
+						<span m:id='ITEM_NAME_HERE'>定期購入商品名</span>
+						<span m:id='IF_START_REDUCED_TAX'><span m:id='IF_ITEM_TAX_RATE'>(消費税率：<span m:id='ITEM_TAX_RATE_HERE'>0</span>％)</span></span>
+					</div>
+				</td>
+			</tr>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<tr m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+					<th class="title">ご請求金額</th>
+					<td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+				</tr>
+			</tbody>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<tr>
+					<th class="title">ご請求金額</th>
+					<td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+				</tr>
+			</tbody>
+			<tr>
+				<th class="title">決済方法</th>
+				<td><span m:id='KESSAI_NAME_HERE'>代金引換</span></td>
+			</tr>
+		</table>
+
+		<h5>配送情報</h5>
+		<table summary="配送情報">
+			<tr>
+				<th class="title">配送希望時間</th>
+				<td><span m:id='SEND_HOPE_TIME_HERE'>午前中</span></td>
+			</tr>
+			<tr m:id="IF_TEIKI_DAILY">
+				<th class="title">発送スパン</th>
+				<td><span m:id="TEIKI_SEND_SPAN_HERE">1</span><span m:id="IF_TEIKI_SEND_SPAN_UNIT_KBN_MONTH">ヶ</span><span m:id="TEIKI_SEND_SPAN_UNIT_KBN_HERE">月</span></td>
+			</tr>
+			<tr m:id="IF_TEIKI_SEND_SPAN_UNIT_KBN_MONTH">
+				<th class="title">お届け指定</th>
+				<td><span m:id="IF_DAY_OF_WEEK_IN_MONTH_NEXT_TEIKI_SEND_HOPE_DATE">第<span m:id="DAY_OF_WEEK_IN_MONTH_NEXT_TEIKI_SEND_HOPE_DATE_HERE">2</span></span><span m:id="IF_DAY_OF_WEEK_NEXT_TEIKI_SEND_HOPE_DATE"><span m:id="DAY_OF_WEEK_NEXT_TEIKI_SEND_HOPE_DATE_HERE">水</span>曜日</span><span m:id="IF_DATE_NUM_FOR_MONTHLY_TEIKI_SEND_HOPE_DATE"><span m:id="DATE_NUM_FOR_MONTHLY_TEIKI_SEND_HOPE_DATE_HERE">15</span>日</span></td>
+			</tr>
+		</table>
+
+		<h5>ご依頼主（ご請求先）情報</h5>
+		<table summary="ご依頼主（ご請求先）情報">
+			<tr>
+				<th class="title">氏名（漢字）</th>
+				<td><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></td>
+			</tr>
+			<tr>
+				<th class="title">氏名（カナ）</th>
+				<td><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span	m:id='FIRST_KANA_HERE'>タロウ</span></td>
+			</tr>
+			<tr>
+				<th class="title">メールアドレス</th>
+				<td><span m:id='PC_MAIL_HERE'>sample@example.jp</span></td>
+			</tr>
+			<!--<tr>
+				<th class="title">携帯メールアドレス</th>
+				<td><span m:id='MOBILE_MAIL_HERE'>sample@example.jp</span></td>
+			</tr>-->
+			<tr>
+				<th class="title">住所</th>
+				<td>
+					〒<span m:id='ZIP_HERE'>1234567</span>
+					<span m:id='ADDRESS1_HERE'>東京都</span> 
+					<span m:id='ADDRESS2_HERE'>○○市 ○○町1-2-3</span> 
+					<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+				 </td>
+			</tr>
+			<tr>
+				<th class="title">電話番号</th>
+				<td><span m:id='TEL_HERE'>03-1234-5678</span></td>
+			</tr>
+		</table>
+
+		<h5>お届け先情報</h5>
+		<table summary="お届け先情報">
+			<tr>
+				<th class="title">氏名（漢字）</th>
+				<td><span m:id='SEND_LAST_NAME_HERE'>山田</span> <span m:id='SEND_FIRST_NAME_HERE'>太郎</span></td>
+			</tr>
+			<tr>
+				<th class="title">氏名（カナ）</th>
+				<td><span m:id='SEND_LAST_KANA_HERE'>ヤマダ</span> <span m:id='SEND_FIRST_KANA_HERE'>タロウ</span></td>
+			</tr>
+			<tr>
+				<th class="title">住所</th>
+				<td>
+					〒<span m:id='SEND_ZIP_HERE'>1234567</span>
+					<span m:id='SEND_ADDRESS1_HERE'>東京都</span>
+					<span m:id='SEND_ADDRESS2_HERE'>○○市 ○○町 1-2-3</span> 
+					<span m:id='SEND_ADDRESS3_HERE'>○○ビル101</span>
+				 </td>
+			</tr>
+			<tr>
+				<th class="title">電話番号</th>
+				<td><span m:id='SEND_TEL_HERE'>03-1234-5678</span></td>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="buttonarea">
+		<a m:id='BACK_LINK_TAG' href="#" class="button negative medium">戻る</a>
+	</div>
+
+</div>
+<!-- / teikiDetail -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

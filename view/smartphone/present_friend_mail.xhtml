@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<!-- subwindow -->
+<section>
+
+<!-- header -->
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+<!-- / header -->
+
+<!-- recommend -->
+	<div id="content">
+		<h2>友達にこのプレゼントへの応募をすすめる</h2>
+		<div class="sentence">
+			<p>
+				このプレゼントに興味のあると思うお知り合いの方にのみ送信して下さい。<br />
+    	        送信ボタンを押すと送信されます。<br />
+        	    メールは、1つの宛先アドレスのみが記載されて配信されます。<br />
+				<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+			</p>
+		</div>
+	
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+		<form m:id='FORM_TAG'>
+
+			<h3>プレゼント名</h3>
+			<div class="sentence"><span m:id='PRESENT_NAME_HERE'>商品名</span></div>
+			<h3>あなたのお名前 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+			<div class="sentence"><input m:id='YOUR_NAME_INPUT_HERE' name="your_name" type="text" size="40" value="" /><br />全角10文字以内</div>
+			<h3>あなたのE-mail <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+			<div class="sentence"><input m:id='YOUR_MAIL_INPUT_HERE' name="your_email" type="text" size="40" value="" /></div>
+			<h3>お友達のE-mail（1） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+			<div class="sentence"><input m:id='MAIL_TO1_INPUT_HERE' name="friend_email01" type="text" size="40" value="" /></div>
+			<h3>お友達のE-mail（2）</h3>
+			<div class="sentence"><input m:id='MAIL_TO2_INPUT_HERE' name="friend_email02" type="text" size="40" value="" /></div>
+			<h3>お友達のE-mail（3）</h3>
+			<div class="sentence"><input m:id='MAIL_TO3_INPUT_HERE' name="friend_email03" type="text" size="40" value="" /></div>
+			<h3>お友達のE-mail（4）</h3>
+			<div class="sentence"><input m:id='MAIL_TO4_INPUT_HERE' name="friend_email04" type="text" size="40" value="" /></div>
+			<h3>お友達のE-mail（5）</h3>
+			<div class="sentence"><input m:id='MAIL_TO5_INPUT_HERE' name="friend_email05" type="text" size="40" value="" /></div>
+			<h3>紹介文 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+			<div class="sentence"><textarea m:id='CONTENT_TEXT_INPUT_HERE' name="note" cols="40" rows="4"></textarea></div>
+			<h3>お勧めプレゼント情報</h3>
+			<div class="sentence">
+				<span m:id='PRESENT_NAME_HERE'>商品名</span><br />
+				<a m:id='PRESENT_LINK_TAG' href="#" class="item_link"><span m:id='PRESENT_URL_HERE'>http://www.URL.jp/http://www.URL.jp/http://www.URL.jp/http://www.URL.jp/http://www.URL.jp/</span></a>
+			</div>		
+			<div class="buttonarea">
+				<input name="recommend" type="submit" alt="送信" />
+			</div>
+		</form>
+		<div class="buttonarea">
+			<a m:id='BACK_LINK_TAG' href="#" class="cancel">前のページへ戻る</a>
+		</div>
+	
+	</div>
+<!-- / recommend -->
+
+</section>
+<!-- / subwindow -->
+
+</body>
+</html>

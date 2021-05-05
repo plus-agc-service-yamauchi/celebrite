@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_credit_edit.html?xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- content -->
+<div id="container">
+	
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- credit -->
+<div id="credit">
+	<form m:id='FORM_TAG'>
+		<h2>クレジットカード情報の変更</h2>
+		<p>クレジットカード情報を記入し、ボタンを押してください。</p>
+
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+		<table summary="お支払い情報">
+			<tr>
+				<th class="title">カード名義</th>
+				<td>
+					<span m:id="IF_CURRENT_CREDIT_NAME">現在のカード名義は <span m:id="CURRENT_CREDIT_NAME_HERE">TARO YAMADA</span> です。<br /></span>
+					<input m:id='CREDIT_NAME_INPUT_HERE' name="card_name" type="text" size="50" value="" m:autocomplete="off" /><br />
+					例：TARO YAMADA
+				</td>
+			</tr>
+			<tr>
+				<th class="title">有効期限</th>
+				<td>
+					<span m:id='IF_CURRENT_CREDIT_LIMIT_YEAR'>
+						現在の有効期限は
+						<span m:id="CURRENT_CREDIT_LIMIT_YEAR_HERE">2014</span>年
+						<span m:id="CURRENT_CREDIT_LIMIT_MONTH_HERE">08</span>月です。<br />
+					</span>
+					<select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE' name="card_month">
+						<option value="" selected="selected">-- 月を指定 --</option>
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select> 月 
+					<select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE' name="card_year">
+						<option value="" selected="selected">-- 年を指定 --</option>
+						<option value="18">2018</option>
+						<option value="19">2019</option>
+					</select> 年
+				</td>
+			</tr>
+		</table>
+
+		<div class="buttonarea">
+			<a m:id='BACK_LINK_TAG' href="#" class="button negative medium">戻る</a>
+			<input type="submit" value="変更する" class="button positive medium" />
+		</div>
+	</form>
+</div>
+<!-- credit -->
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

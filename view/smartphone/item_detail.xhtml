@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script src="js/slides.min.jquery.js"></script>
+<script type="text/javascript" charset="utf-8">
+	eb$(function(){
+		eb$('#products').slides({
+			preload: true,
+			effect: 'slide, fade',
+			crossfade: true,
+			slideSpeed: 350,
+			fadeSpeed: 500,
+			generateNextPrev: true,
+			generatePagination: false
+		});
+	});
+</script>
+<script type="text/javascript">
+eb$(function() {
+	eb$('#itemDetail .content .wishlistSubmitButton').each(function(){
+		var self = eb$(this);
+		if(self.find(".wishStatus").hasClass("wished")) {
+			self.find(".wishlistinserttag").hide();
+			self.find(".wishlistdeletetag").show();
+		} else {
+			self.find(".wishlistinserttag").show();
+			self.find(".wishlistdeletetag").hide();
+		}
+	});
+});    
+</script>
+<script type="text/javascript" charset="utf-8">
+	// ※※※※
+	/**
+	 * AJAXの処理後エラーだった場合の挙動
+	 */
+	function ajaxPutToCartErrorAction(msg, obj){
+		var error = JSON.parse(msg.responseText).ERROR;
+		alert(error);
+	}
+
+	/**
+	 * AJAXの処理後成功だった場合の挙動
+	 */
+	function ajaxPutToCartSuccessAction(msg, obj){
+	    showPop(eb$(obj).find('.cartMessage'));
+	}
+
+	function showPop(msgBox){
+		var delaytime = 3000;
+		 if (msgBox.is(':hidden')) {
+		  msgBox
+		   .css({
+		    'opacity' : 0,
+		    'margin-top': 30
+		   })
+		   .show().animate({
+		    'opacity' : 1,
+		    'margin-top' : 0
+		   }, 200)
+		   .delay(delaytime)
+		   .fadeOut();
+		 }
+	}
+</script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION" type="text/javascript" charset="utf-8" src="js/sales_campaign_banner.js"></script>
+</head>
+<body>
+
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- itemDetail -->
+<section id="itemDetail">
+	<h2>商品詳細</h2>
+
+
+<!-- breadcrumbs  -->
+	<div class="breadcrumbs">
+		<a href="/">トップ</a>
+		<span m:id='common.IF_BREADCRUMBS'>
+			<span m:id='common.LOOP_BREADCRUMBS'>
+				 ＞ <a href="#" m:id='common.BREADCRUMBS_LINK_TAG'><span m:id='common.BREADCRUMBS_NAME_HERE'>カテゴリ</span></a>
+			</span>
+		</span>
+		 ＞ <span m:id='ITEM_NAME_HERE'>商品名</span>
+	</div>
+<!-- / breadcrumbs -->
+
+	<div id="products">
+		<div class="slides_container">
+			<div class="img_box"><img m:id='ITEM_IMAGE1_TAG' src="images/sample.jpg" alt="" /></div>
+            <div m:id='IF_ITEM_IMAGE2' class="img_box"><img m:id='ITEM_IMAGE2_TAG' src="images/sample.jpg" alt="" /></div>
+            <div m:id='IF_ITEM_IMAGE3' class="img_box"><img m:id='ITEM_IMAGE3_TAG' src="images/sample.jpg" alt="" /></div>
+            <div m:id='IF_ITEM_IMAGE4' class="img_box"><img m:id='ITEM_IMAGE4_TAG' src="images/sample.jpg" alt="" /></div>
+			<span m:id="LOOP_ITEM_PROPERTY_IMAGE_GROUP">
+                <div m:id='LOOP_ITEM_PROPERTY_IMAGE' class="img_box"><img m:id='ITEM_PROPERTY_IMAGE_TAG' src="images/sample.jpg" alt="" /></div>
+            </span>
+		</div>        
+	</div>
+	
+	<div m:id="IF_ITEM_PROPERTY_IMAGE" class="itemproperty">
+		<figure m:id="LOOP_ITEM_PROPERTY_IMAGE_GROUP">
+			<div m:id="LOOP_ITEM_PROPERTY_IMAGE" class="img_box">
+				<img m:id="ITEM_PROPERTY_IMAGE_TAG" src="images/sample.jpg" />
+			</div>
+			<figcaption><span m:id="ITEM_PROPERTY_IMAGE_GROUP_NAME_HERE">赤</span></figcaption>
+		</figure>
+	</div>
+
+	<div class="content">
+		<h3>
+			<span m:id='ITEM_NAME_HERE'>商品名</span>
+			<img m:id="IF_SHORT" src="images/item_short.gif" alt="品薄" />
+			<img m:id="IF_SOLDOUT" src="images/item_soldout.gif" alt="品切" />
+			<img m:id="IF_NEW" src="images/item_new.gif" alt="NEW" />
+			<img m:id="IF_BEFORE" src="images/item_before.gif" alt="COMING SOON" />
+			<img m:id="IF_ITEM_VOLUME_DISCOUNT" src="images/icon_volume_discount.gif" alt="ボリュームディスカウントあり" />
+			<img m:id="IF_TEIKI_TOGETHER_OK" src="images/item_teiki_together.gif" alt="定期とまとめて注文可能" />
+		</h3>
+		<div class="appeal" m:id='IF_ITEM_APPEAL'>
+			<div class="img_box">
+				<img m:id='ITEM_APPEAL_IMAGE_TAG' src="images/appeal.jpg" alt="アピール画像" />
+			</div>
+			<p><span m:id='ITEM_APPEAL_HERE'>ここにアピールポイントが表示されます。</span></p>
+		</div>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+				<p class="price">
+					<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）
+					<!--(本体価格：<span m:id='TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税：<span m:id='TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+					<span class="price_sub" m:id='IF_LOT'>
+						1ケースあたり<span m:id="LOT_HERE">10</span>個,
+						1個あたり<span m:id="TEIKA_PRICE_HERE" m:tax='zeikomi' m:quantity='1'>998円</span>
+					</span>
+					<span class="price_sub" m:id='IF_MAKER_TEIKA'>[希望小売価格：<span m:id='MAKER_TEIKA_HERE'>9,980円</span>（税込）]</span>
+					<span class="price_sub" m:id='IF_DISCOUNT'>
+						[会員割引価格：<span m:id='DISCOUNT_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]
+						<!--(本体価格：<span m:id='DISCOUNT_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税:<span m:id='DISCOUNT_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+					</span>
+					<span class="price_sub" m:id='IF_MEMBER_TEIKA'>
+						[お客様限定価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]
+						<!--(本体価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税:<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+					</span>
+					<span class="price_sub" m:id='IF_TIMESALE_KAKAKU'>[タイムセール価格：<span m:id='TIMESALE_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]</span>
+				</p>
+				<p class="price" m:id='IF_ITEM_VOLUME_DISCOUNT'>
+					ボリュームディスカウントあり
+					<span m:id="LOOP_ITEM_VOLUME_DISCOUNT" class="price_sub">
+						<span m:id="ITEM_VOLUME_DISCOUNT_START_AMOUNT_HERE">10</span>個以上：<span m:id="ITEM_VOLUME_DISCOUNT_KAKAKU_PRICE_HERE" m:tax='zeikomi' m:quantity='lot'>9,500円</span>
+					</span>
+				</p>
+			</div>
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<p class="price">
+				<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）
+				<!--(本体価格：<span m:id='TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税：<span m:id='TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+				<span class="price_sub" m:id='IF_LOT'>
+					1ケースあたり<span m:id="LOT_HERE">10</span>個,
+					1個あたり<span m:id="TEIKA_PRICE_HERE" m:tax='zeikomi' m:quantity='1'>998円</span>
+				</span>
+				<span class="price_sub" m:id='IF_MAKER_TEIKA'>[希望小売価格：<span m:id='MAKER_TEIKA_HERE'>9,980円</span>（税込）]</span>
+				<span class="price_sub" m:id='IF_DISCOUNT'>
+					[会員割引価格：<span m:id='DISCOUNT_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]
+					<!--(本体価格：<span m:id='DISCOUNT_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税:<span m:id='DISCOUNT_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+				</span>
+				<span class="price_sub" m:id='IF_MEMBER_TEIKA'>
+					[お客様限定価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]
+					<!--(本体価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>, 消費税:<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>)-->
+				</span>
+				<span class="price_sub" m:id='IF_TIMESALE_KAKAKU'>[タイムセール価格：<span m:id='TIMESALE_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>9,980円</span>（税込）]</span>
+			</p>
+			<p class="price" m:id='IF_ITEM_VOLUME_DISCOUNT'>
+				ボリュームディスカウントあり
+				<span m:id="LOOP_ITEM_VOLUME_DISCOUNT" class="price_sub">
+					<span m:id="ITEM_VOLUME_DISCOUNT_START_AMOUNT_HERE">10</span>個以上：<span m:id="ITEM_VOLUME_DISCOUNT_KAKAKU_PRICE_HERE" m:tax='zeikomi' m:quantity='lot'>9,500円</span>
+				</span>
+			</p>
+		</div>
+		<p class="price" m:id="IF_BUNDLE_SALE_ITEM">
+			<span m:id="BUNDLE_SALE_NAME_HERE">まとめ買い名</span>
+		</p>		
+		<p class="information" m:id='common.IF_USE_POINT'>
+			<span m:id="IF_POINT_ADD_OVER_ZERO">
+				加算ポイント：<span m:id='POINT_ADD_HERE'>1ポイント</span>
+			</span>
+		</p>
+		<p class="information" m:id='common.IF_USE_POINT'>ポイント：<span m:id="IF_POINT_OK">利用可能</span><span m:id="IF_POINT_NG">利用不可</span></p>
+		<p class="information" m:id='IF_ZAIKO_MANAGE'>
+			在庫数：あと <span m:id='ZAIKO_NUMBER_ONLY_HERE'>10</span> 点
+			<span m:id="IF_ZAIKO_TANI_FLG_ITEMPROPERTY">（<span m:id='ITEM_ALL_PROPERTY_NAME_HERE'>サイズ,色</span>によって在庫が異なります。詳しくは<a m:id="SHOW_ZAIKO_LINK_TAG" href="#">こちら</a>をご覧ください。）</span>
+		</p>
+		<p class="information" m:id='IF_ZAIKO_MANAGE_NO_DISP_AND_ZAIKO_TANI_FLG_ITEMPROPERTY'>
+			<span m:id='ITEM_ALL_PROPERTY_NAME_HERE'>サイズ,色</span>によって在庫が異なります。詳しくは<a m:id="SHOW_ZAIKO_LINK_TAG" href="#">こちら</a>をご覧ください。
+		</p>
+		<p class="information" m:id='IF_MINIMUM_AMOUNT'>最低購入数：<span m:id='MINIMUM_AMOUNT_HERE' />個</p>
+		<p class="information" m:id="IF_YOYAKU">この商品は予約商品です。</p>
+	</div>
+
+	<div class="content">
+		<form m:id='FORM_TAG'>
+			<div m:id='LOOP_ITEM_PROPERTY' class="property">
+				<span m:id='ITEM_PROPERTY_NAME_HERE'>色</span>
+				<select m:id='ITEM_PROPERTY_INPUT_HERE'>
+					<option>赤</option>
+					<option>青</option>
+				</select>
+				<!-- ${/* 商品属性の自由項目
+					<div m:id='IF_ITEM_PROPERTY_FREE_VALUE'>
+						<span m:id='ITEM_PROPERTY_FREE_TITLE_HERE'>属性の自由項目タイトル</span>：
+						<span m:id='ITEM_PROPERTY_FREE_VALUE_HERE'>属性の自由項目値</span>
+						<span m:id='ITEM_PROPERTY_FREE_VALUE_HTML_HERE'>属性の自由項目HTML</span>
+					</div>
+					*/} -->
+			</div>
+			
+			<div m:id='IF_PUT_TO_CART' class="amount">
+				<p>数量</p>
+				<select m:id='AMOUNT_INPUT_HERE'>
+					<option selected="selected">1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+						<input m:id='PUT_TO_CART_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+							<!-- カート画面遷移せずポップアップを使用する場合
+							<div class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link">
+										<a href="cart_index.html">カートを見る</a>
+									</p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+								</div>
+							</div>
+							-->
+						<!--<input m:id='QUICK_TO_CART_BUTTON_TAG' type="submit" value="クイック購入する" class="quick" />-->
+					</span>
+				</span>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<input m:id='PUT_TO_CART_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+						<!-- カート画面遷移せずポップアップを使用する場合
+						<div class="cartSubmitButton">
+							<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="add" />
+							<div class="cartMessage">
+								<p class="title">カートに追加されました。</p>
+								<p class="link">
+									<a href="cart_index.html">カートを見る</a>
+								</p>
+								<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+								<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+							</div>
+						</div>
+						-->
+					<!--<input m:id='QUICK_TO_CART_BUTTON_TAG' type="submit" value="クイック購入する" class="quick" />-->
+				</span>
+			</div>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+					<div m:id="IF_PUT_TO_CART" m:NOT="" class="nosale">
+						<p>カートに入れる</p>
+					</div>
+				</div>
+			</div>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<div m:id="IF_PUT_TO_CART" m:NOT="" class="nosale">
+					<p>カートに入れる</p>
+				</div>
+			</div>
+			
+		</form>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+				<div m:id="IF_OTHER_SEISAN_PAGE" class="other_seisan">
+					<p m:id="LOOP_OTHER_SEISAN_PAGE">
+						<a href="javascript:void(0);" m:id="OTHER_SEISAN_PAGE_LINK_TAG">
+							<span m:id="OTHER_SEISAN_PAGE_NAME_HERE">サンプル申し込み画面へ</span>
+						</a>
+					</p>
+				</div>
+			</div>
+			<!-- ${/* ループの他に、下記のように、個別指定することもできます。 */} -->
+			<!-- ${/* 例：
+			<div m:id="IF_OTHER_SEISAN_PAGE" m:seisan_page_id="SAMPLE">
+				<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+					<a href="javascript:void(0);" m:id="OTHER_SEISAN_PAGE_LINK_TAG" m:seisan_page_id="SAMPLE">
+						<span m:id="OTHER_SEISAN_PAGE_NAME_HERE" m:seisan_page_id="SAMPLE">サンプル申し込み画面へ</span>
+					</a>
+				</span>
+			</div>
+			 */} -->
+		</div>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<div m:id="IF_OTHER_SEISAN_PAGE" class="other_seisan">
+				<p m:id="LOOP_OTHER_SEISAN_PAGE">
+					<a href="javascript:void(0);" m:id="OTHER_SEISAN_PAGE_LINK_TAG">
+						<span m:id="OTHER_SEISAN_PAGE_NAME_HERE">サンプル申し込み画面へ</span>
+					</a>
+				</p>
+			</div>
+			<!-- ${/* ループの他に、下記のように、個別指定することもできます。 */} -->
+			<!-- ${/* 例：
+			<div m:id="IF_OTHER_SEISAN_PAGE" m:seisan_page_id="SAMPLE">
+				<a href="javascript:void(0);" m:id="OTHER_SEISAN_PAGE_LINK_TAG" m:seisan_page_id="SAMPLE">
+					<span m:id="OTHER_SEISAN_PAGE_NAME_HERE" m:seisan_page_id="SAMPLE">サンプル申し込み画面へ</span>
+				</a>
+			</div>
+			 */} -->
+		</div>
+		<p class="recommend" m:id='IF_OTHER_IMAGE'>
+			<a m:id='OTHER_IMAGE_BUTTON_TAG' href="javascript:void(0);">他の写真を見る</a>
+		</p>
+
+		<div class="wishlistSubmitButton" m:id='common.IF_USE_WISHLIST'>
+			<p class="recommend" m:id='IF_ALREADY_REGISTERED_WISHLIST' m:NOT="">
+				<a m:id='PUT_TO_WISHLIST_AFTER_AJAX_CHECK_BUTTON_TAG' href="javascript:void(0);">お気に入りリストに追加</a>
+			</p>
+			<p class="recommend" m:id='IF_ALREADY_REGISTERED_WISHLIST'>お気に入リストに追加済みです。</p>
+			<div class="wishlistMessage">
+				<p class="title">ウィッシュリストに登録しました。</p>
+				<p class="link"><a href="wishlist.html">お気に入りリストを見る</a></p>
+				<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+				<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+			</div>
+		</div>
+<!--
+		<div class="wishlistSubmitButton">
+			<span m:id="IF_ALREADY_REGISTERED_WISHLIST" m:NOT=""><span class="wishStatus"></span></span>
+			<span m:id="IF_ALREADY_REGISTERED_WISHLIST"><span class="wishStatus wished"></span></span>
+			<div class="wishlistinserttag"><a m:id='PUT_TO_WISHLIST_AFTER_AJAX_CHECK_BUTTON_TAG' href="javascript:void(0);">お気に入りに追加</a></div>
+			<div class="wishlistdeletetag"><a m:id='DELETE_WISHLIST_AFTER_AJAX_CHECK_BUTTON_TAG' href="javascript:void(0);">お気に入りから削除</a></div>
+				<div class="wishlistMessage">
+					<p class="title">お気に入りに登録しました。</p>
+					<p class="link"><a href="wishlist.html">お気に入りリストをみる</a></p>
+					<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+					<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+				</div>
+				<div class="wishlistDelMessage">
+					<p class="title">お気に入りから削除しました。</p>
+					<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+					<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">×</p>
+				</div>
+		</div>
+-->
+		<p>この商品は<span m:id='WISHLIST_COUNT_HERE'>100</span>人がお気に入りに登録しています。</p>
+
+
+
+
+		
+		<p class="recommend" m:id="common.IF_USE_ITEM_COMPARE">
+			<a m:id='ITEM_COMPARE_BUTTON_TAG' href="javascript:void(0);">この商品を比較する</a>
+		</p>
+		
+		<div m:id="IF_ZAIKO_TANI_FLG_ITEM">
+			<p class="recommend" m:id="IF_NYUKA_NOTICE">
+				<!-- ポップアップせず遷移させる場合 -->
+				<a m:id='NYUKA_NOTICE_BUTTON_TAG' href="javascript:void(0);">入荷お知らせを受け取る</a>
+				
+				<!-- ポップアップさせる場合 -->
+				<!-- <script type="text/javascript" charset="utf-8" src="js/jquery.colorbox.js"></script>
+				<script>
+					//商品属性が1つのとき
+					eb$(document).ready(function(){
+						eb$(".inline").colorbox({inline:true, width:"95%",opacity:"0.6"});
+					});
+					//入荷お知らせ
+					eb$(document).ready(function(){
+						eb$(".nyuka").colorbox({iframe:true,innerWidth:"95%", innerHeight:"95%",opacity:"0.6",className:true});
+					});
+					// colorbox時、背景を固定
+					eb$(document).ready(function(){
+						var current_scrollY;
+						// OPEN MODAL
+						eb$( '.nyuka' ).on( 'click', function(){
+							current_scrollY = eb$( window ).scrollTop(); 
+						
+							eb$( 'body:first' ).css( {
+							position: 'fixed',
+							width: '100%',
+							top: -1 * current_scrollY
+							} );				
+						} );
+						// CLOSE
+						eb$( '#cboxClose,#cboxOverlay' ).on( 'click', function( e ){
+							if ( e.target.tagName.toLowerCase() === 'section' ){
+							eb$( 'body:first' ).attr( { style: '' } );
+							eb$( 'html, body' ).prop( { scrollTop: current_scrollY } );
+							}
+						});
+					});
+				</script>
+				<a m:id='NOPROPERTY_ITEM_NYUKA_NOTICE_BUTTON_TAG' class="nyuka" href="javascript:void(0);">
+					入荷お知らせを受け取る
+				</a> -->
+			</p>
+		</div>
+	</div>
+
+	<div m:id='IF_ITEM_INFO2'><p class="explanation2"><span m:id='ITEM_INFO2_HERE'>商品に関する説明2が入ります。</span></p></div>
+	<div m:id='IF_ITEM_INFO3'><p class="explanation3"><span m:id='ITEM_INFO3_HERE'>商品に関する説明3が入ります。</span></p></div>
+
+	<div class="content free">
+		<p m:id='IF_FREE' m:free_item_no='1' class="information">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='1'>商品自由項目1</span>：<span m:id='FREE_VALUE_HTML_HERE' m:free_item_no='1'>商品自由項目値1</span>
+		</p>
+	</div>
+</section>
+
+<div m:id='IF_ITEM_HTML'><div m:id='ITEM_HTML_HERE'>ユーザー指定HTMLをここに表示します</div></div>
+<!-- / itemDetail -->
+
+<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+<div m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+	<section m:id="IF_CAMPAIGN" id="mainCampaign" class="sales_campaign_banner">
+		<h2>キャンペーン一覧</h2>
+		<ul>
+			<li m:id="LOOP_CAMPAIGN" m:campaign_kikan="CAMPAIGN_PERIOD_DURING" m:targetonly="true">
+				<div m:id="IF_SALES_CAMPAIGN_URL" class="box">
+					<a m:id='SALES_CAMPAIGN_URL_LINK_TAG' href="">
+						<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+							<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+						</div>
+						<h3><span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span></h3>
+						<p>
+							<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+						</p>
+						<div><span m:id="SALES_CAMPAIGN_DETAIL_HERE">キャンペーン内容</span></div>
+						<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+							<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+								<h4><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h4>
+								<p>
+									<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div m:id="IF_SALES_CAMPAIGN_URL" m:NOT="" class="box">
+					<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+						<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+					</div>
+					<h3><span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span></h3>
+					<p>
+						<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+					</p>
+					<div><span m:id="SALES_CAMPAIGN_DETAIL_HERE">キャンペーン内容</span></div>
+					<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+						<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+							<h4><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h4>
+							<p>
+								<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>
+<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+
+
+<!-- review -->
+<section m:id="common.IF_USE_REVIEW" id="review">
+<h2>この商品のレビュー</h2>
+<div class="content">
+<form m:id='REVIEW_FORM_TAG'>
+	<div m:id="IF_REVIEW" m:NOT="">
+		<p>この商品のレビューはまだありません。</p>
+	</div>
+	<div m:id="IF_REVIEW">
+		<p><span m:id='REVIEW_COUNT_HERE'>3</span>件のレビューがあります。</p>
+		<p class="item_name"><span m:id='ITEM_NAME_HERE'>商品名</span></p>
+		<div m:id='IF_STAR'>
+			<h3>おすすめ度</h3>
+			<ul class="star">
+				<li m:id='LOOP_REVIEW_ACTIVE_STAR_AVERAGE_FRAC' m:rounding="round_up" class="good">★</li>
+				<li m:id='DUMMY' class="good">★</li>
+				<li m:id='DUMMY' class="good">★</li>
+				<li m:id='LOOP_REVIEW_INACTIVE_STAR_AVERAGE_FRAC' m:rounding="round_up" class="bad">☆</li>
+				<li m:id='DUMMY' class="bad">☆</li>
+			</ul>
+		</div>
+		<p><span m:id='IF_STAR'>（星<span m:id='REVIEW_STAR_COUNT_AVERAGE_HERE'>4</span>）</span></p>
+		<div m:id='LOOP_REVIEW'>
+			<div class="box">
+				<div m:id='IF_STAR'>
+					<ul class="star">
+						<li m:id='LOOP_ACTIVE_STAR' class="good">★</li>
+						<li m:id='DUMMY' class="good">★</li>
+						<li m:id='DUMMY' class="good">★</li>
+						<li m:id='LOOP_INACTIVE_STAR' class="bad">☆</li>
+						<li m:id='DUMMY' class="bad">☆</li>
+					</ul>
+					<!-- 以下は使わない場合は削除してください。
+					<span m:id='STAR_COUNT_HERE'>3</span>
+					 -->
+				</div>
+				<h3><span m:id='REVIEW_TITLE_HERE'>この商品には大満足です。</span></h3>
+				<p>レビュー対象商品：<span m:id='REVIEW_ITEM_NAME_HERE'>商品名</span></p>
+				<p class="name">
+					投稿者：<a href="javascript:void(0);" m:id='REVIEWER_LINK_TAG'><span m:id='REVIEWER_NICKNAME_HERE'>えびすたろう</span></a>
+					　投稿日時：<span m:id='REVIEW_DATE_HERE'>2011/3/3</span>
+				</p>
+				<p>
+					<span m:id='REVIEW_COMMENT_HERE'>
+					ある程度、コーディングの知識があればとてもわかりやすいです。 <br />
+					コーダー・デザイナー・ディレクターは一度は読むべきだと思いました。 <br /><br />
+					スマートフォンサイトの作り方、対応方法などがわかりやすく書かれており、手始めに読む書籍としては <br />
+					とてもいいと思います。 <br /><br />
+					内容的には、iPhoneがメインで書かれており、Androidに関しては他の書籍と併用すると良いかも！
+					</span>
+				</p>
+			</div>
+			<div m:id='IF_REVIEW_GOOD_BAD'>
+				<div m:id="IF_REVIEW_GOOD_BAD_BUTTON">
+					<p m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED" class="good_button">このレビューは参考になりましたか？</p>
+					<div m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED" class="buttonarea">
+						<a m:id='GOOD_BUTTON_TAG' class="smallPositiveButton">なった</a>
+						<a m:id='BAD_BUTTON_TAG' class="smallNegativeButton">ならなかった</a>
+					</div>
+				</div>
+				<p class="good_number"><span m:id='GOOD_COUNT_HERE'>3</span>人の方が「参考になった」と言っています。</p>
+				<p class="good_number"><span m:id='BAD_COUNT_HERE'>3</span>人の方が「参考にならなかった」と言っています。</p>
+			</div>
+		</div>
+		<div m:id='IF_MORE_REVIEW'><p class="more"><a m:id='MORE_REVIEW_LINK_TAG' href="#">→レビューをもっと見る</a></p></div>
+	</div>
+	<div class="contribution">
+		<h3>レビューを投稿する</h3>
+		<div m:id="common.IF_MEMBER" m:NOT="">
+			<p>レビューを投稿するには<a href="login.html">ログイン</a>してください。</p>				
+		</div>
+		<div m:id="common.IF_MEMBER">
+		<p m:id="IF_REVIEW_ALREADY">既にレビューを投稿しているため、レビューを投稿することはできません。</p>
+		</div>
+		<div m:id="IF_REVIEW_FORM">
+		<iframe m:id='REVIEW_MESSAGES_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+			<h4>ニックネーム</h4>
+			<div class="sentence"><input type="text" m:id='REVIEW_NICKNAME_INPUT_HERE' size="30" /></div>
+			<div m:id='IF_STAR'>
+				<h4>評価 </h4>
+				<div class="sentence"><span m:id="REVIEW_STAR_INPUT_HERE">
+					<input type="radio" /> ★
+					<input type="radio" /> ★★
+					<input type="radio" /> ★★★
+					<input type="radio" /> ★★★★
+					<input type="radio" /> ★★★★★
+				</span></div>
+			</div>
+			<h4>タイトル</h4>
+			<div class="sentence"><input type="text" m:id='REVIEW_TITLE_INPUT_HERE' size="60" /></div>
+			<h4>レビュー</h4>
+			<div class="sentence"><textarea m:id='REVIEW_COMMENT_INPUT_HERE' rows="8" cols="60"></textarea></div>
+			
+			<div class="buttonarea">
+				<a class="small" m:id='REVIEW_SUBMIT_BUTTON_TAG'>送信</a>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+</section>
+<!-- / review -->
+
+
+<!-- recommend -->
+<section m:id='IF_RECOMMEND_OR_CATEGORY_RECOMMEND' id="recommend">
+	<h2>この商品を買った人は、こんな商品も買っています</h2>
+
+	<div class="box" m:id='LOOP_RECOMMEND'>
+		<a m:id='RECOMMEND_LINK_TAG' href="#">
+            <div class="img_box">
+                <img m:id='RECOMMEND_IMAGE_TAG' src="images/sample.jpg" alt="" />
+            </div>
+			<div class="text">
+				<h3><span m:id='RECOMMEND_ITEM_NAME_HERE'>商品名</span></h3>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price">
+							<span m:id='RECOMMEND_TEIKA_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_MAKER_TEIKA'>
+							[希望小売価格：<span m:id='RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_DISCOUNT'>
+							[会員割引価格：<span m:id='RECOMMEND_DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='RECOMMEND_DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_DISCOUNT_TAX_HERE'>475円</span>)-->]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+							[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+						</p>
+					</div>
+				</div>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<p class="price">
+						<span m:id='RECOMMEND_TEIKA_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_MAKER_TEIKA'>
+						[希望小売価格：<span m:id='RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_DISCOUNT'>
+						[会員割引価格：<span m:id='RECOMMEND_DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='RECOMMEND_DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_DISCOUNT_TAX_HERE'>475円</span>)-->]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+						[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_TIMESALE_KAKAKU'>
+						[タイムセール価格：<span m:id='RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+					</p>
+				</div>
+				<p class="explanation1" m:id='IF_RECOMMEND_INFO1'><span m:id='RECOMMEND_INFO1_HERE'>商品に関する説明1が入ります。</span></p>
+			</div>
+		</a>
+	</div>
+	<div class="box" m:id='LOOP_CATEGORY_RECOMMEND' m:max_count='10'>
+		<a m:id='RECOMMEND_LINK_TAG' href="#">
+            <div class="img_box">
+                <img m:id='RECOMMEND_IMAGE_TAG' src="images/sample.jpg" alt="" />
+            </div>
+			<div class="text">
+				<h3><span m:id='RECOMMEND_ITEM_NAME_HERE'>商品名</span></h3>
+
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price">
+							<span m:id='RECOMMEND_TEIKA_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_MAKER_TEIKA'>
+							[希望小売価格：<span m:id='RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_DISCOUNT'>
+							[会員割引価格：<span m:id='RECOMMEND_DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='RECOMMEND_DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_DISCOUNT_TAX_HERE'>475円</span>)-->]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+							[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+						</p>
+						<p class="price_sub" m:id='IF_RECOMMEND_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+						</p>
+					</div>
+				</div>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<p class="price">
+						<span m:id='RECOMMEND_TEIKA_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_MAKER_TEIKA'>
+						[希望小売価格：<span m:id='RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_DISCOUNT'>
+						[会員割引価格：<span m:id='RECOMMEND_DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='RECOMMEND_DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_DISCOUNT_TAX_HERE'>475円</span>)-->]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+						[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+					</p>
+					<p class="price_sub" m:id='IF_RECOMMEND_TIMESALE_KAKAKU'>
+						[タイムセール価格：<span m:id='RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+					</p>
+				</div>
+				<p class="explanation1" m:id='IF_RECOMMEND_INFO1'><span m:id='RECOMMEND_INFO1_HERE'>商品に関する説明1が入ります。</span></p>
+			</div>
+		</a>
+	</div>
+</section>
+<!-- / recommend -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<span m:id='CRITEO_ITEM_DETAIL_TRACKER_HERE'></span>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/teiki_renew.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<form m:id='FORM_TAG'>
+
+<!-- teiki_renew_confirm -->
+<div id="teikiDetail">
+	<h2>定期購入商品 お支払方法の変更</h2>
+	<p>
+		下記の内容をご確認ください。<br />
+		内容に間違いがございましたら「戻る」ボタンを押して前のページに戻り、情報を修正してください。<br />
+		下記の内容で間違いがない場合は、「登録する」ボタンを押してください。
+	</p>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="box">
+		<div class="head">
+			<h3><span m:id='ITEM_NAME_HERE'>定期購入商品名</span></h3>
+		</div>
+		<h4 m:id="IF_TEIKI_MONTHLY"><span m:id='TEIKI_YM_YEAR_HERE'>2010</span>年<span m:id='TEIKI_YM_MONTH_HERE'>8</span>月分</h4>
+		
+		<h5>商品詳細</h5>
+		<table summary="商品詳細">
+			<tr>
+				<th class="title">商品名</th>
+				<td><span m:id='ITEM_NAME_HERE'>定期購入商品名</span></td>
+			</tr>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<tr m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+					<th class="title">ご請求金額</th>
+					<td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+				</tr>
+			</tbody>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<tr>
+					<th class="title">ご請求金額</th>
+					<td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div m:id="IF_CREDIT_KESSAI_MODIFY">
+			<h5>カード情報変更</h5>
+			<p>下記の内容でクレジットカードの変更手続きを行います。</p>
+			<table summary="お支払い情報">
+				<tr>
+					<th class="title">お支払方法</th>
+					<td><span>クレジットカード</span></td>
+				</tr>
+				<tr>
+					<th class="title">カード名義</th>
+					<td><span m:id='CREDIT_NAME_HERE'>TARO YAMADA</span></td>
+				</tr>
+				<tr>
+					<th class="title">カード番号</th>
+					<td><span m:id='MASKED_CREDIT_NUMBER_HERE'>1111222233334444</span></td>
+				</tr>
+				<tr>
+					<th class="title">有効期限</th>
+					<td><span m:id='CREDIT_EXPIRE_MONTH_HERE'>03</span>/<span m:id='CREDIT_EXPIRE_YEAR_HERE'>2011</span></td>
+				</tr>
+				<tr m:id='IF_CREDIT_SECURITY_CD'>
+					<th class="title">セキュリティコード</th>
+					<td>***</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="buttonarea">
+		<a m:id='BACK_BUTTON_TAG' href="#" class="button negative medium">戻る</a>
+		<a m:id='UPDATE_BUTTON_TAG' href="#" class="button positive medium">登録する</a>
+	</div>
+
+</div>
+<!-- / teiki_renew_confirm -->
+
+</form>
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

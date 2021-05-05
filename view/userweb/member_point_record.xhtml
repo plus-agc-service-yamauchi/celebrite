@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_point_record.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- wishlist -->
+<div id="itemListDetail">
+	<h2>ポイント履歴</h2>
+	<p>現在のポイントは「<span m:id="common.POINT_HERE">00</span>」ポイントです。</p>
+	<span m:id="common.IF_USE_POINT_RECORD_UNIT_MEMBER">
+		<span m:id="common.IF_POINT_OVER_ZERO">
+			<span m:id="common.IF_POINT_LIMIT_DATE_FOR_MEMBER">
+				<p>有効期限は<span m:id="common.POINT_LIMIT_DATE_FOR_MEMBER_HERE">YYYY/MM/DD</span>です。</p>				
+			</span>
+			<span m:id="common.IF_POINT_LIMIT_DATE_FOR_MEMBER" m:NOT="">
+				<p>有効期限はありません。</p>
+			</span>
+		</span>
+	</span>
+	<p>登録の新しい順に表示しています。</p>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<form m:id='PAGE_FORM' />
+	<form m:id='FORM_TAG'>
+		<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+		<p class='pagelink' m:id="IF_MAX_PAGE_OVER_ONE">
+			<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+					<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span> 
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+					</span>
+				</span>
+				<span m:id="IF_PAGE_LINK_LAST" m:NOT="" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+					</span>
+					 | 
+				</span>
+			</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</p>
+		<table>
+			<tr>
+				<th class="title">日付</th>
+				<th class="title">ポイント数</th>
+				<th class="title">備考</th>
+			</tr>
+			<tr m:id="LOOP_POINT_RECORD">
+				<td>
+					<span m:id="POINT_RECORD_YEAR_HERE">2014</span>年
+					<span m:id="POINT_RECORD_MONTH_HERE">11</span>月
+					<span m:id="POINT_RECORD_DAY_HERE">11</span>日
+				</td>
+				<td><span m:id="PLUS_MINUS_POINT_HERE">100</span>ポイント</td>
+				<td>
+					<span m:id="POINT_RECORD_KBN_HERE"></span>
+					<span m:id="IF_POINT_LIMIT_DATE">
+						<span m:id="common.IF_USE_POINT_RECORD_UNIT_MEMBER" m:NOT="">
+							有効期限：<span m:id="POINT_LIMIT_YEAR_HERE">2014</span>年
+							<span m:id="POINT_LIMIT_MONTH_HERE">11</span>月
+							<span m:id="POINT_LIMIT_DAY_HERE">11</span>日
+						</span>
+					</span>
+				</td>
+			</tr>
+		</table>
+		<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+		<p class='pagelink' m:id="IF_MAX_PAGE_OVER_ONE">
+			<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+					<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span> 
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+					</span>
+				</span>
+				<span m:id="IF_PAGE_LINK_LAST" m:NOT="" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+					</span>
+					 | 
+				</span>
+			</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</p>
+	</form>
+</div>
+<!-- / wishlist -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END=============================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

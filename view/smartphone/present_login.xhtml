@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- cartLogin -->
+<section id="content">
+	<form m:id='FORM_TAG'>
+		<h2>プレゼント応募</h2>
+		<div class="sentence">
+			<p>会員の方は、下のフォームにログインID・PWを入力して「次へ」ボタンを押してください。</p>
+		</div>
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe> 
+		<h3>ログインID</h3>
+		<div class="sentence">
+			<input m:id='LOGIN_ID_INPUT_HERE' name="id" type="text" size="50" value="" />
+		</div>
+		<h3>パスワード</h3>
+		<div class="sentence">
+			<input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" />
+		</div>
+		<div class="sentence"><p><a href="password_reminder.html">ログインID・パスワードを忘れた方はこちら</a></p></div>
+		<div class="buttonarea">
+			<input m:id='LOGIN_BUTTON_TAG' type="submit" value="次へ（会員の方）" />
+		</div>
+
+		<span m:id="IF_NO_LOGIN_BUTTON">
+		<h2>はじめての方、会員登録されていない方</h2>
+		<div class="sentence">
+			<p>
+				はじめての方、会員登録されていない方はこちらから先へお進みください。<br />
+				あわせて会員登録を行うこともできます。<br />
+				会員の方で、ログインせずにプレゼントの応募へ進みたい方もこちらから先へお進みください。
+			</p>
+		</div>
+		<div class="buttonarea">
+			<input m:id='OUBO_BUTTON_TAG' type="submit" value="次へ（会員でない方）" />
+		</div>
+		</span>
+	</form>
+
+</section>
+<!-- / cartLogin -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

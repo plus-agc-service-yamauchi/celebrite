@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/teiki_renew.html?request=edit&ORDER_NO=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<form m:id='FORM_TAG'>
+
+<!-- teiki_renew -->
+<div id="teikiDetail">
+	<h2>定期購入商品再開</h2>
+	<p>
+		ご注文いただいている定期購入商品の再開ができます。<br />
+		内容を入力し、「入力内容を確認する」ボタンを押してください。<br />
+		<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+	</p>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="box">
+
+		<div m:id="IF_TEIKI_MONTHLY">
+			<h5>お届け日</h5>
+			<table summary="お届け日">
+				<tr>
+					<th class="title">お届け日</th>
+					<td>
+						<select m:id='TEIKI_SEND_HOPE_MONTHLY_DAY_INUPT_HERE'>
+						<option value="" selected="selected">--</option>
+						<option value="">1日</option>
+						<option value="">2日</option>
+						<option value="">3日</option>
+						<option value="">4日</option>
+						<option value="">5日</option>
+						<option value="">6日</option>
+						<option value="">7日</option>
+						<option value="">8日</option>
+						<option value="">9日</option>
+						<option value="">10日</option>
+						<option value="">11日</option>
+						<option value="">12日</option>
+						<option value="">13日</option>
+						<option value="">14日</option>
+						<option value="">15日</option>
+						<option value="">16日</option>
+						<option value="">17日</option>
+						<option value="">18日</option>
+						<option value="">19日</option>
+						<option value="">20日</option>
+						<option value="">21日</option>
+						<option value="">22日</option>
+						<option value="">23日</option>
+						<option value="">24日</option>
+						<option value="">25日</option>
+						<option value="">26日</option>
+						<option value="">27日</option>
+						<option value="">28日</option>
+						<option value="">末日</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th class="title">お届け希望時間</th>
+					<td>
+						<select m:id='DELIVERY_TIME_INPUT_HERE'>
+							<option value="" selected="selected">希望なし</option>
+							<option value="午前中">午前中</option>
+							<option value="12時から14時">12時から14時</option>
+							<option value="14時から16時">14時から16時</option>
+							<option value="16時から18時">16時から18時</option>
+							<option value="18時から20時">18時から20時</option>
+							<option value="20時から21時">20時から21時</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div m:id="IF_TEIKI_DAILY">
+			<h5>次回お届け予定日</h5>
+			<table summary="次回お届け予定日">
+				<tr>
+					<th class="title">次回お届け予定日</th>
+					<td>
+						<select m:id='NEXT_DELIVERY_YEAR_INPUT_HERE'>
+							<option value="" selected="selected">--</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+						</select>年 
+						<select m:id='NEXT_DELIVERY_MONTH_INPUT_HERE'>
+							<option value="" selected="selected">--</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select> 月 
+						<select m:id='NEXT_DELIVERY_DAY_INPUT_HERE'>
+							<option value="" selected="selected">--</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select> 日<br />
+						<span m:id="DELIVERY_MIN_YEAR_HERE">2011</span>年 <span m:id="DELIVERY_MIN_MONTH_HERE">11</span>月 <span m:id="DELIVERY_MIN_DAY_HERE">01</span>日 以降
+						<span m:id="IF_DELIVERY_MAX_DATE">
+							<span m:id="DELIVERY_MAX_YEAR_HERE">2011</span>年 <span m:id="DELIVERY_MAX_MONTH_HERE">11</span>月 <span m:id="DELIVERY_MAX_DAY_HERE">01</span>日 以前
+						</span>
+						を指定してください。
+					</td>
+				</tr>
+				<tr>
+					<th class="title">お届け希望時間</th>
+					<td>
+						<select m:id='DELIVERY_TIME_INPUT_HERE'>
+							<option value="" selected="selected">希望なし</option>
+							<option value="午前中">午前中</option>
+							<option value="12時から14時">12時から14時</option>
+							<option value="14時から16時">14時から16時</option>
+							<option value="16時から18時">16時から18時</option>
+							<option value="18時から20時">18時から20時</option>
+							<option value="20時から21時">20時から21時</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="buttonarea">
+		<a m:id='BACK_LINK_TAG' href="#" class="button negative medium">戻る</a>
+		<a m:id='CONFIRM_BUTTON_TAG' href="javascript:void(0);" class="button positive medium">入力内容を確認する</a>
+	</div>
+</div>
+<!-- / teiki_renew -->
+
+
+</form>
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

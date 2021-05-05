@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_taikai.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- memberTaikai -->
+<section id="content">
+	<h2>会員退会</h2>
+	<div class="sentence">
+		<p>
+			退会をご希望される方は、以下のボタンをクリックしてください。<br />
+			未入金または配送が未完了の注文データが残っている場合は画面からの退会ができません。<br />
+			誠に恐れ入りますが、注文中のデータがある場合で退会をご希望される方は当社までお問合せください。
+		</p>
+	</div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG' method="get">
+		<div class="buttonarea">
+			<a m:id='TAIKAI_BUTTON_TAG' href="#">退会する</a>
+		</div>
+	</form>
+</section>
+<!-- / memberTaikai -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

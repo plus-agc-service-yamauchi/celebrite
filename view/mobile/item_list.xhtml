@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="css/mobile.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="css/iframe.js" m:id='DUMMY'></script>
+<a id="top" name="top"></a>
+
+<!-- header -->
+<div style="background:#333333; font-size:x-small; text-align:center;"><a href="/" style="color:#FFFFFF;"><span m:id='common.SITE_NAME_HERE'>ここにｼｮｯﾌﾟ名が入ります。</span></a></div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+<!-- / header -->
+
+<!-- itemList -->
+<div m:id='IF_CURRENT_CATEGORY' style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;">
+	<span m:id="IF_CATEGORY_IMAGE"><img m:id="CATEGORY_IMAGE_TAG" /></span>
+	<span m:id='EMOJI_63727' /><span m:id='CURRENT_CATEGORY_NAME_HERE'>ﾘﾋﾞﾝｸﾞ</span>
+	<div m:id='IF_CHILD_CATEGORY' style="padding:3px; background:#F1F1F1; font-size:x-small;"><!-- このDIVの中はできれば改行したくない。ブラウザによって改行の空白ができてしまうため -->
+		<span m:id='common.LOOP_ITEM_CATEGORY_NEXT_LEVEL'>
+			<span m:id='common.LOOP_ITEM_CATEGORY'><a m:id='common.ITEM_CATEGORY_LINK_TAG' href=""><span m:id='common.ITEM_CATEGORY_NAME_HERE'>ｻﾌﾞｶﾃｺﾞﾘ</span></a>|</span>
+		</span>
+		<span m:id='DUMMY'>
+			<span m:id='common.LOOP_ITEM_CATEGORY'><a m:id='common.ITEM_CATEGORY_LINK_TAG' href=""><span m:id='common.ITEM_CATEGORY_NAME_HERE'>ｻﾌﾞｶﾃｺﾞﾘ</span></a>|</span>
+		</span>
+		<span m:id='DUMMY'>
+			<span m:id='common.LOOP_ITEM_CATEGORY'><a m:id='common.ITEM_CATEGORY_LINK_TAG' href=""><span m:id='common.ITEM_CATEGORY_NAME_HERE'>ｻﾌﾞｶﾃｺﾞﾘ</span></a>|</span>
+		</span>
+	</div>
+</div>
+<div m:id='IF_NOT_CATEGORY' style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;"><span m:id='EMOJI_63873' />検索結果</div>
+
+<!-- breadcrumbs -->
+<div style="font-size:x-small; margin-bottom:5px;">
+	<a href="/">トップ</a>
+	<span m:id='IF_KEYWORD'> ＞ 検索結果</span>
+	<span m:id='common.IF_BREADCRUMBS'>
+		<span m:id='common.LOOP_BREADCRUMBS'>
+			 ＞ 
+			<span m:id='common.IF_NOT_BREADCRUMBS_LAST'>
+				<a href="#" m:id='common.BREADCRUMBS_LINK_TAG'><span m:id='common.BREADCRUMBS_NAME_HERE'>カテゴリ</span></a>
+			</span>
+			<span m:id='common.IF_BREADCRUMBS_LAST'>
+				<span m:id='common.BREADCRUMBS_NAME_HERE'>カテゴリ</span>
+			</span>
+		</span>
+	</span>
+</div>
+<!-- / breadcrumbs -->
+
+<!-- category_html -->
+<p style="font-size:small;" m:id='IF_CATEGORY_INFO'><span m:id='CATEGORY_INFO_HERE'>ここにカテゴリ説明文を表示します。</span></p>
+<div m:id="IF_ITEM_CATEGORY_HTML"><div m:id='ITEM_CATEGORY_HTML_HERE'>ここにカテゴリHTML表示をします。</div></div>
+<div m:id='IF_CATEGORY_IMAGE'><img src="#" m:id='CATEGORY_IMAGE_TAG' alt="カテゴリ画像" /></div>	
+<!-- / category_html -->
+
+
+<div m:id='IF_NOT_ITEM_EXIST' style="font-size:small;">
+	現在、販売中の商品はありません。
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div m:id='IF_ITEM_EXIST'>
+	<div style="font-size:x-small;"><div m:id='PAGEGUIDE_HERE'>10件中 1～5件</div><div>画像表示：<a m:id='IMAGE_ON_LINK_TAG'>ON</a>/<a m:id='IMAGE_OFF_LINK_TAG'>OFF</a></div></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+	<div m:id='LOOP_ITEM_LIST'>
+		<table bgcolor="#F1F1F1" m:id='IF_ODD_ROW' width="100%">
+			<tr>
+				<td m:id='IF_IMAGE_ON'>
+					<span m:id="IF_DETAIL_DISP_ITEM">
+						<a m:id='ITEM_DETAIL_LINK_TAG' href="#"><img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" width="60" height="60" alt="" /></a>
+					</span>
+					<span m:id="IF_NOT_DETAIL_DISP_ITEM">
+						<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" width="60" height="60" alt="" />
+					</span>
+				</td>
+				<td style="font-size:x-small;">
+					<div m:id='IF_ITEM_APPEAL'><img m:id='ITEM_APPEAL_IMAGE_TAG' src="images/appeal2.jpg" alt="アピール画像" /><span m:id='ITEM_APPEAL_HERE'>ここにｱﾋﾟｰﾙﾎﾟｲﾝﾄを表示します。</span></div>
+					<div>
+						<span m:id="IF_DETAIL_DISP_ITEM"><a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id='ITEM_NAME_HERE'>商品名</span></a></span>
+						<span m:id="IF_NOT_DETAIL_DISP_ITEM"><span m:id='ITEM_NAME_HERE'>商品名</span></span>
+						<img m:id="IF_SHORT" src="images/item_short.gif" alt="品薄" />
+						<img m:id="IF_SOLDOUT" src="images/item_soldout.gif" alt="品切" />
+						<img m:id="IF_NEW" src="images/item_new.gif" alt="NEW" />
+						<img m:id="IF_BEFORE" src="images/item_before.gif" alt="COMING SOON" />
+					</div>
+					<div style="color:#CC0000;">
+						<span m:id='ITEM_TEIKA_ZEIKOMI_HERE'>1,575円</span>
+						<!--(本体価格:<span m:id='ITEM_TEIKA_HONTAI_HERE'>1,500円</span>,消費税:<span m:id='ITEM_TEIKA_TAX_HERE'>75円</span>)-->
+					</div>
+					<div m:id='IF_DISCOUNT' style="color:#CC0000;">
+						[会員割引価格:<span m:id='DISCOUNT_ZEIKOMI_HERE'>9,980円</span>]
+						<!--(本体価格:<span m:id='DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税:<span m:id='DISCOUNT_TAX_HERE'>475円</span>)-->
+					</div>
+					<div m:id='IF_TIMESALE_KAKAKU' style="color:#CC0000;">
+						[ﾀｲﾑｾｰﾙ価格:<span m:id='TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+						<!--(本体価格:<span m:id='TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税:<span m:id='TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->
+					</div>
+					<div m:id="IF_SALE_DATE"><span m:id="SALE_START_YEAR_HERE"></span>年<span m:id="SALE_START_MONTH_HERE"></span>月<span m:id="SALE_START_DAY_HERE"></span>日<span m:id="SALE_START_HOUR_HERE"></span>:<span m:id="SALE_START_MINUTE_HERE"></span></div>
+				<div m:id="IF_NOT_SALE_DATE">発売日不明</div>
+				</td>
+			</tr>
+		</table>
+		<table m:id='IF_EVEN_ROW' width="100%">
+			<tr>
+				<td m:id='IF_IMAGE_ON'>
+					<span m:id="IF_DETAIL_DISP_ITEM">
+						<a m:id='ITEM_DETAIL_LINK_TAG' href="#"><img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" width="60" height="60" alt="" /></a>
+					</span>
+					<span m:id="IF_NOT_DETAIL_DISP_ITEM">
+						<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" width="60" height="60" alt="" />
+					</span>
+				</td>
+				<td style="font-size:x-small;">
+					<div m:id='IF_ITEM_APPEAL'><img m:id='ITEM_APPEAL_IMAGE_TAG' src="images/appeal.jpg" alt="アピール画像" /><span m:id='ITEM_APPEAL_HERE'>ここにｱﾋﾟｰﾙﾎﾟｲﾝﾄを表示します。</span></div>
+					<div>
+						<span m:id="IF_DETAIL_DISP_ITEM"><a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id='ITEM_NAME_HERE'>商品名</span></a></span>
+						<span m:id="IF_NOT_DETAIL_DISP_ITEM"><span m:id='ITEM_NAME_HERE'>商品名</span></span>
+						<img m:id="IF_SHORT" src="images/item_short.gif" alt="品薄" />
+						<img m:id="IF_SOLDOUT" src="images/item_soldout.gif" alt="品切" />
+						<img m:id="IF_NEW" src="images/item_new.gif" alt="NEW" />
+						<img m:id="IF_BEFORE" src="images/item_before.gif" alt="COMING SOON" />
+					</div>
+					<div style="color:#CC0000;">
+						<span m:id='ITEM_TEIKA_ZEIKOMI_HERE'>1,575円</span>
+						<!--(本体価格:<span m:id='ITEM_TEIKA_HONTAI_HERE'>1,500円</span>,消費税:<span m:id='ITEM_TEIKA_TAX_HERE'>75円</span>)-->
+					</div>
+					<div m:id='IF_DISCOUNT' style="color:#CC0000;">
+						[会員割引価格:<span m:id='DISCOUNT_ZEIKOMI_HERE'>9,980円</span>]
+						<!--(本体価格:<span m:id='DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税:<span m:id='DISCOUNT_TAX_HERE'>475円</span>)-->
+					</div>
+					<div m:id='IF_TIMESALE_KAKAKU' style="color:#CC0000;">
+						[ﾀｲﾑｾｰﾙ価格:<span m:id='TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+						<!--(本体価格:<span m:id='TIMESALE_KAKAKU_HONTAI_HERE'>9,505円</span>, 消費税:<span m:id='TIMESALE_KAKAKU_TAX_HERE'>475円</span>)-->
+					</div>
+					<div m:id="IF_SALE_DATE"><span m:id="SALE_START_YEAR_HERE"></span>年<span m:id="SALE_START_MONTH_HERE"></span>月<span m:id="SALE_START_DAY_HERE"></span>日<span m:id="SALE_START_HOUR_HERE"></span>:<span m:id="SALE_START_MINUTE_HERE"></span></div>
+				<div m:id="IF_NOT_SALE_DATE">発売日不明</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+	<div m:id='IF_PAGE_NAVIGATION' style="font-size:x-small; text-align:center;">
+		<div><a href="#" m:id='PREV_LINK_TAG'>＜前へ</a>　<a href="#" m:id='NEXT_LINK_TAG'>次へ＞</a></div>
+		<div m:id='PAGE_NAVIGATION_HERE'><a href="#">1</a>/2/<a href="#">3</a>/<a href="#">4</a>/<a href="#">5</a>/<a href="#">…</a> <a href="#">&gt;&gt;</a></div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+	</div>
+</div>
+<!-- / itemList -->
+
+<!-- search -->
+<span m:id='IF_KEYWORD' style="font-size:small;">
+	<div style="margin-bottom:5px; padding:3px; background:#CCCCCC;"><span m:id='EMOJI_63873' />もういちど検索する</div>
+	<div style="text-align:center;">
+		<form m:id='common.KEYWORD_SEARCH_FORM_TAG'><input m:id="common.KEYWORD_SEARCH_INPUT_TAG" type="text" size="14" /><input type="submit" value="検索" /></form>
+	</div>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</span>
+<!-- / search -->
+
+<!-- footer -->
+<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div><hr />
+<div style="font-size:small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id="IF_BACK_LINK"><span m:id='EMOJI_63882' /><a m:id='BACK_LINK_TAG' href="#" accesskey="4">前ﾍﾟｰｼﾞに戻る</a><br /></span>
+	<span m:id='EMOJI_63888' /><a href="/" accesskey="0">TOP</a>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div style="margin-bottom:5px; padding:3px; font-size:x-small; text-align:center;"><span m:id='common.COPYRIGHT_HERE'>ここにｺﾋﾟｰﾗｲﾄを表示します。</span></div>
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<!-- / footer -->
+
+</body>
+</html>

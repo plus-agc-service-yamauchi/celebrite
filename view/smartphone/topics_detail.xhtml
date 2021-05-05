@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+<section id="itemDetail">
+	<h2>トピックス詳細</h2>
+	<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<a href="/">トップ</a> ＞ <a href="topics_list.html">トピックス一覧</a> ＞ トピックス詳細
+	</div>
+	<!-- / breadcrumbs -->
+	
+	<!-- messages -->
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe> 
+	<!-- / messages -->
+	
+	<div class="topics_box">
+		<h3>
+			<span m:id="INFO_DATE_HERE">2015/01/01</span> | <span m:id="INFO_TITLE_HERE">トピックスタイトル</span>
+		</h3>
+		<div class="img_box">
+			<a href="javascript:void(0);" m:id="INFO_LINK_TAG">
+				<span m:id='IF_INFO_IMAGE'>
+					<img m:id="INFO_IMAGE_TAG" src="images/sample.jpg" />
+				</span>
+				<img m:id="INFO_TITLE_IMAGE_HERE" src="images/sample.jpg" />
+			</a>
+		</div>
+		<p>
+			<a href="javascript:void(0);" m:id="INFO_LINK_TAG">
+				<span m:id='INFO_MESSAGE_HERE'>ここにトピックスの内容が入ります。</span>
+			</a>
+		</p>
+		<!-- ======================PDFを使用する場合====================== / -->
+		<!--
+		<p m:id="IF_INFO_PDF" class="information">
+			PDF:<a href="#" m:id="INFO_PDF_LINK_TAG">リンク</a>
+		</p>
+		-->
+		<p m:id="IF_INFO_FREE" m:free_item_no="1" class="information">
+			<span m:id="IF_INFO_FREE_VALUE" m:free_item_no="1">
+				<span m:id="INFO_FREE_TITLE_HERE" m:free_item_no="1">自由項目タイトル</span>:
+				<span m:id="INFO_FREE_VALUE_HERE" m:free_item_no="1">自由項目内容</span>
+				<span m:id="INFO_FREE_VALUE_HTML_HERE" m:free_item_no="1">HTML自由項目内容</span>
+			</span>
+			<!-- 自由項目をリンクに設定した場合 -->
+			<!--<a href="javascript:void(0);" m:id="INFO_FREE_LINK_TAG" m:free_item_no="1">リンク</a>-->
+		</p>
+		<div class="buttonarea">
+			<a m:id='BACK_LINK_TAG' href="#" class="cancel">戻る</a>
+		</div>
+	</div>
+	<!-- / itemList -->
+</section>
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

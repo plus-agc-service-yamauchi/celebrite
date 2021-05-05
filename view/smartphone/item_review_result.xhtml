@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- item_review_result -->
+<section m:id="common.IF_USE_REVIEW" id="review">
+	<h2>レビューを投稿する</h2>
+	<div class="content">
+		<p>下記の商品へのレビューの投稿が完了しました。</p>
+		<p><a href="javascript:void(0);" m:id='ITEM_LINK_TAG'><span m:id='ITEM_NAME_HERE'>商品名</span></a></p>
+		
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+		
+		<form action="top.html" method="post">
+			<div class="buttonarea"><a m:id='ITEM_LINK_TAG' href="javascript:void(0);">商品詳細ページに戻る</a></div>
+		</form>
+	</div>
+</section>
+<!-- / item_review_result -->
+
+
+<!-- footer -->
+<footer>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+
+</body>
+</html>

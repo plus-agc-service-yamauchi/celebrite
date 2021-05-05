@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_review.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- review -->
+<div id="review">
+<form m:id='REVIEW_FORM_TAG'>
+	<h2><span m:id='NICKNAME_HERE'>えびすたろう</span>さんのレビュー一覧</h2>
+	<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+	<p class="pagelink">
+		<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+		<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+		<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+	</p>
+	<div m:id='LOOP_REVIEW' class="review_box">
+		<div class="box">
+			<div m:id='IF_STAR'>
+				<ul class="star">
+					<li m:id='LOOP_ACTIVE_STAR' class="good">★</li>
+					<li m:id='DUMMY' class="good">★</li>
+					<li m:id='DUMMY' class="good">★</li>
+		 			<li m:id='LOOP_INACTIVE_STAR' class="bad">☆</li>
+					<li m:id='DUMMY' class="bad">☆</li>
+				</ul>
+				<!-- 以下は使わない場合は削除してください。
+				<span m:id='STAR_COUNT_HERE'>3</span>
+				 -->
+			</div>
+			<h3><span m:id='REVIEW_TITLE_HERE'>商品レビューのタイトル</span></h3>
+			<p>レビュー対象商品：<a href="javascript:void(0);" m:id='ITEM_LINK_TAG'><span m:id='ITEM_NAME_HERE'>商品名</span></a></p>
+			<p class="name">投稿日時：<span m:id='REVIEW_DATE_HERE'>2011/3/3</span></p>
+			<p><span m:id='REVIEW_COMMENT_HERE'>商品レビュー。文章が入ります。</span></p>
+			<!-- review-image（レビューイメージオプション） -->
+				<div m:id='common.IF_USE_REVIEW_IMAGE' class="review-image">
+					<div m:id='IF_USERWEB_DISP'>
+						<div m:id='IF_REVIEW_IMAGE_EXIST' class="img_box">
+							<a m:id='' href=""><img m:id='REVIEW_IMAGE_TAG' src="images/sample.jpg" width="140" height="140" alt="レビューイメージ" /></a>
+						</div>
+					</div>
+				</div>
+			<!-- / review-image（レビューイメージオプション） -->
+			<p m:id='IF_MY_POSTS_REVIEW'>
+				<span m:id='IF_USERWEB_DISP'><a href="javascript:void(0);" m:id='REVIEW_EDIT_LINK_TAG'>変更する</a></span>
+				<span m:id='IF_USERWEB_DISP' m:NOT=''>投稿頂いたレビューは、管理者により確認された後に編集可能となります。</span>
+			</p>
+		</div>
+		<div m:id='IF_REVIEW_GOOD_BAD'>
+			<p m:id='IF_REVIEW_GOOD_BAD_BUTTON' class="goodButton">このレビューは参考になりましたか？
+				<span m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED">
+					<input m:id="GOOD_BUTTON_TAG" type="submit" value="参考になった" class="button positive small" />
+					<input m:id="BAD_BUTTON_TAG" type="submit" value="参考にならなかった" class="button positive small" />
+				</span>
+<!--
+				<span m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED" m:NOT="">
+					<span class="button not_click small">参考になった</span>
+					<span class="button not_click small">参考にならなかった</span>
+				</span>
+-->
+			</p>
+			<p class="good_number"><span m:id='GOOD_COUNT_HERE'>3</span>人の方が「参考になった」と言っています。</p>
+			<p class="good_number"><span m:id='BAD_COUNT_HERE'>3</span>人の方が「参考にならなかった」と言っています。</p>
+		</div>
+	</div>
+	<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+	<p class="pagelink">
+		<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+		<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+		<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+	</p>
+</form>
+</div>
+<!-- / review -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

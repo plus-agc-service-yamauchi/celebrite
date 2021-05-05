@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- nyukawindow -->
+<section id="nyukawindow">
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	<div id="content" m:id="IF_NYUKA_NOTICE">
+		<h2>入荷お知らせ登録完了</h2>
+		<div class="sentence">
+			<p>
+				「<span m:id="ITEM_NAME_HERE">入荷お知らせ商品</span>」の入荷お知らせ登録が完了しました。<br />対象の商品が入荷した場合、ご登録されているとメールアドレスに連絡が届きます。
+			</p>
+		</div>
+		<div class="buttonarea">
+			<a href="/">トップページへ</a>
+		</div>
+	</div>
+	<div id="content" m:id="IF_NYUKA_NOTICE_INVALIDATE">
+		<h2>入荷お知らせ解除完了</h2>
+		<div class="sentence">
+			<p>
+				「<span m:id="ITEM_NAME_HERE">入荷お知らせ商品</span>」の入荷お知らせ登録を解除しました。<br />ご利用ありがとうございました。
+			</p>
+		</div>
+		<div class="buttonarea">
+			<a href="/">トップページへ</a>
+		</div>
+	</div>
+</section>
+<!-- / nyukawindow -->
+
+<!-- footer -->
+<footer>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+
+</body>
+</html>

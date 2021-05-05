@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="../css/mobile.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="css/iframe.js" m:id='DUMMY'></script>
+<a id="top" name="top"></a>
+
+<!-- header -->
+<div style="background:#333333; font-size:x-small; text-align:center;"><a href="/" style="color:#FFFFFF;"><span m:id='common.SITE_NAME_HERE'>ここにｼｮｯﾌﾟ名が入ります。</span></a></div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<!-- / header -->
+
+<!-- applyInput -->
+<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;">お問合せ</div>
+<div m:id='IF_DISP_APPLY'>
+	<p>
+    	このお問い合わせページは、お問い合わせページの表示期間を過ぎております。<br />
+	</p>
+</div>
+<div m:id='IF_DISP_APPLY' m:NOT="">
+	<div style="font-size:x-small;" m:id='IF_INPUT'>
+		以下のお問合せ項目を入力し、「入力内容を確認する」ボタンを押してください。<br />
+		<span style="color:#CC0000;">※</span>マークは必須項目です。
+	</div>
+	<div style="font-size:x-small;" m:id='IF_CONFIRM'>
+		入力内容にお間違いがないか確認の上、「送信」ボタンを押してください。<br />
+		再度ご入力される場合は「戻る」ボタンを押してください。
+	</div>
+	<iframe m:id='common.IMPORT_HERE' src="../common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	<form m:id='FORM_TAG'>
+		<div m:id='LOOP_APPLY'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='APPLY_KOUMOKU_HERE'>お問合せ項目</span>
+				<span m:id='IF_INPUT'><span m:id='IF_HISSU'><span style="color:#CC0000;">※</span></span></span>
+			</div> 
+			<div style="font-size:x-small;"> 
+				<input m:id='APPLY_INPUT_HERE' type="text" />
+				<div m:id="IF_FREE_IMAGE">
+						<span m:id="APPLY_LABEL_HTML_HERE">ラベル</span><br />
+				</div>
+				<div m:id="IF_FREE_IMAGE" m:NOT="">
+					<span m:id="APPLY_LABEL_HERE">ラベル</span><br />
+				</div>
+				<span m:id='IF_INPUT'><span m:id='APPLY_COMMENT_HERE'>ここにコメントを表示します。</span></span>
+			</div> 
+		</div>
+		<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+		<div style="text-align:center;" m:id='IF_INPUT'>
+			<!-- ${/* 外部サイトからのアクセスし、戻る際のm:id */} -->
+			<!-- <input m:id='BACK_OUT_SUBMIT_TAG' type="submit" value="戻る" accesskey="4" /><br /> -->
+			<input m:id='CONFIRM_SUBMIT_TAG' type="submit" value="入力内容を確認する" accesskey="6" />
+		</div>
+		<div style="text-align:center;" m:id='IF_CONFIRM'>
+			<input m:id='BACK_SUBMIT_TAG' type="submit" value="戻る" accesskey="4" />
+			<input m:id='SUBMIT_SUBMIT_TAG' type="submit" value="送信" accesskey="6" />
+		</div>
+	</form>
+</div>
+<!-- / applyInput -->
+
+<!-- footer -->
+<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div><hr />
+<div style="font-size:small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id='EMOJI_63882' /><a m:id="BACK_LINK_TAG" href="#" accesskey="4">前ﾍﾟｰｼﾞに戻る<br /></a>
+	<span m:id='EMOJI_63888' /><a href="/" accesskey="0">TOP</a>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div style="margin-bottom:5px; padding:3px; font-size:x-small; text-align:center;"><span m:id='common.COPYRIGHT_HERE'>ここにｺﾋﾟｰﾗｲﾄを表示します。</span></div>
+<!-- / footer -->
+
+</body>
+</html>

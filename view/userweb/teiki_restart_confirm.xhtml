@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/teiki_renew.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<form m:id='FORM_TAG'>
+
+<!-- teiki_renew_confirm -->
+<div id="teikiDetail">
+	<h2>定期購入商品再開</h2>
+	<p>
+		下記の内容をご確認ください。<br />
+		内容に間違いがございましたら「戻る」ボタンを押して前のページに戻り、情報を修正してください。<br />
+		下記の内容で間違いがない場合は、「登録する」ボタンを押してください。
+	</p>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="box">
+		<div m:id="IF_TEIKI_MONTHLY">
+			<h5>お届け日</h5>
+			<table summary="お届け日">
+				<tr>
+					<th class="title">お届け日</th>
+					<td><span m:id='TEIKI_SEND_HOPE_MONTHLY_DAY_INUPT_HERE'>10日</span></td>
+				</tr>
+				<tr>
+					<th class="title">お届け希望時間</th>
+					<td><span m:id='DELIVERY_TIME_INPUT_HERE'>希望なし</span></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div m:id="IF_TEIKI_DAILY">
+			<h5>次回お届け予定日</h5>
+			<table summary="次回お届け予定日">
+				<tr>
+					<th class="title">次回お届け予定日</th>
+					<td><span m:id='NEXT_SEND_HOPE_YEAR_HERE'>2011</span>年
+					<span m:id='NEXT_SEND_HOPE_MONTH_HERE'>11</span>月
+					<span m:id='NEXT_SEND_HOPE_DAY_HERE'>01</span>日
+					</td>
+				</tr>
+				<tr>
+					<th class="title">お届け希望時間</th>
+					<td><span m:id='DELIVERY_TIME_INPUT_HERE'>希望なし</span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="buttonarea">
+		<a m:id='BACK_BUTTON_TAG' href="#" class="button negative medium">戻る</a>
+		<a m:id='UPDATE_BUTTON_TAG' href="#" class="button positive medium">登録する</a>
+	</div>
+
+</div>
+<!-- / teiki_renew_confirm -->
+
+</form>
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

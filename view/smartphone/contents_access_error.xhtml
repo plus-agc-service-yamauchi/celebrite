@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!--
+このコメントは消さないでください。
+これはダミーのデータです。
+IEでは、512バイト未満のファイルをエラー時に出力するとブラウザ標準のエラーページが表示されます。
+上記動作を防ぐため、このコメントは消さないようお願いします。                
+-->
+<!-- このテンプレートのURLは、コンテンツ制限のエラーページ（会員専用等）に応じて変わります -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- contentsAccessError -->
+<section id="content">
+	<h2>会員専用ページ</h2>
+	<div id="error">
+		<table>
+			<tr>
+				<td class="ico"><img src="images/icon_error.gif" alt="エラー" /></td>
+				<td class="content">
+					このページは、会員の方のみ閲覧できます。<br />既に会員登録をしている方はログインしてからご覧下さい。<br />
+					会員登録をしていない方は、下のボタンより会員登録を行ってください。
+				</td>
+			</tr>
+		</table>
+		<pre><span m:id="DEBUG_INFO_HERE"></span></pre>
+	</div>
+    <div class="buttonarea">
+        <a href="#" m:id="MEMBER_LINK_HERE">会員登録する</a>
+        <a href="/" class="cancel">トップページへ</a>
+    </div>
+</section>
+<!-- / contentsAccessError -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

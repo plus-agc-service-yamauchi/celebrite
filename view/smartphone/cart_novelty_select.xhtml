@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+<div id="main">
+
+<!-- cart_novelty -->
+<section id="cartFlow">
+	<h2>ご注文情報入力-ノベルティ選択</h2>
+	<div class="sentence">
+		<p>
+			下記のノベルティを選択して、次のページへお進みください。
+		</p>
+	</div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+	<div class="cart_novelty">
+		<form m:id='FORM_TAG' method="get">
+			<div m:id='LOOP_NOVELTY' class="sentence">
+				<div m:id='IF_EXIST_NOVELTY_PROPERTY'>
+					<div m:id='LOOP_NOVELTY_PROPERTY' class="inner">
+						<div class="img_box">
+							<img m:id='NOVELTY_IMAGE_TAG' src="images/sample.jpg" alt="商品画像" />
+						</div>
+						<div class="text">
+							<p class="item_name">
+								<span m:id='NOVELTY_NAME_HERE_WITH_PROPERTY'>商品名</span>
+							</p>
+							<p class="novelty_message">
+								<span m:id='NOVELTY_AMOUNT_MESSAGE_HERE'>メッセージ</span>
+							</p>
+							<div m:id='IF_NOVELTY_KAKAKU_ZERO' m:NOT="">
+									<span m:id='NOVELTY_TANKA_HERE'>金額</span>
+							</div>
+							<table>
+								<tr>
+									<td>数量</td>
+									<td>
+										<select m:id='NOVELTY_AMOUNT_INPUT_HERE'>
+											<option selected="selected">1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+							<input type="hidden" m:id='NOVELTY_CD_TAG' />
+						</div>
+						<div m:id="LOOP_NOVELTY_PROPERTY_EACH" class="box">
+						&lt;<span m:id='NOVELTY_PROPETY_NAME_HERE'>属性</span>&gt;
+							<div m:id="IF_NOVELTY_PROPERTY_IMAGE">
+								<div m:id="LOOP_NOVELTY_PROPERTY_EACH_IMAGE" class="img_box">
+									<img m:id="NOVELTY_PROPERTY_IMAGE_TAG" src="images/sample.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div m:id='IF_EXIST_NOVELTY_PROPERTY' m:NOT="" class="inner">
+					<div class="img_box">
+						<img m:id='NOVELTY_IMAGE_TAG' src="images/sample.jpg" alt="商品画像" />
+					</div>
+					<div class="text">
+						<p class="item_name">
+							<span m:id='NOVELTY_NAME_HERE_WITHOUT_PROPERTY'>商品名</span>
+						</p>
+						<p class="novelty_message">
+							<span m:id='NOVELTY_AMOUNT_MESSAGE_HERE'>メッセージ</span>
+						</p>
+						<div m:id='IF_NOVELTY_KAKAKU_ZERO' m:NOT="">
+							<span m:id='NOVELTY_TANKA_HERE'>金額</span>
+						</div>
+						<table>
+							<tr>
+								<td>数量</td>
+								<td>
+									<select m:id='NOVELTY_AMOUNT_INPUT_HERE' m:select='0'>
+										<option selected="selected">1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+						<input type="hidden" m:id='NOVELTY_CD_TAG' />
+					</div>
+				</div>
+			</div>
+			<!-- ${/* 要カスタマイズ表示 属性をradioボタンで表示 */} -->
+			<!-- <div m:id='LOOP_NOVELTY' class="sentence">
+				<div m:id='LOOP_NOVELTY_PROPERTY' class="inner">
+					<div class="img_box">
+						<img m:id='NOVELTY_IMAGE_TAG' src="images/sample.jpg" />
+					</div>
+					<div class="text">
+						<p class="item_name">
+							<span m:id='NOVELTY_NAME_HERE_WITHOUT_PROPERTY'>商品名</span>
+						</p>
+						<p class="novelty_message">
+							<span m:id='NOVELTY_AMOUNT_MESSAGE_HERE'>メッセージ</span>
+						</p>
+						<table>
+							<tr>
+								<td>数量</td>
+								<td>
+									<select m:id='NOVELTY_AMOUNT_INPUT_HERE_WITHOUT_PROPERTY'>
+										<option selected="selected">1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+						<input m:id='NOVELTY_PROPERTY_INPUT_RADIO_HERE' type="radio" /><br />
+					</div>
+				</div>
+			</div> -->
+			<div class="buttonarea">
+				<input type="submit" value="入力内容を確認する" />
+				<a m:id='BACK_LINK_TAG' href="#" class="cancel">戻る</a>
+			</div>
+		</form>
+	</div>
+
+</section>
+<!-- / cart_novelty -->
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</div>
+</body>
+</html>

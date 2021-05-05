@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_nyuka_notice.html?item_cd=xxx&request=new -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<!-- subwindow -->
+<div id="subwindow">
+
+<!-- header -->
+	<div id="header">
+		<h1><a href="/">ここにショップ名が入ります。</a></h1>
+	</div>
+<!-- / header -->
+
+<!-- nyuka -->
+	<div id="content">
+		<h2>入荷お知らせ登録</h2>
+		<p>商品が入荷した場合、ご登録されているとメールアドレスに連絡が届きます。</p>
+
+		<table>
+			<tr>
+				<th>商品コード</th>
+				<td><span m:id="ITEM_CODE_HERE">999999</span></td>
+			</tr>
+			<tr>
+				<th>商品名</th>
+				<td><span m:id="ITEM_NAME_HERE">商品名</span></td>
+			</tr>
+		</table>
+
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+		<form m:id='FORM_TAG'>
+		
+		<div class="box" m:id="common.IF_MEMBER_LOGIN">
+			<h3>会員の方</h3>
+			<p>「送信」ボタンを押すと登録が完了します。</p>
+			<div class="buttonarea">
+				<input m:id='MEMBER_REGIST_BUTTON_TAG' type="submit" value="送信する" class="button positive medium" />
+			</div>
+		</div>
+		
+
+		<div m:id="common.IF_MEMBER_LOGIN" m:NOT="">
+			<div class="box">
+				<h3>会員の方</h3>
+				<p>会員の方は、下のフォームにログインID・PWを入力して「送信」ボタンを押してください。</p>
+				<table summary="ログイン">
+					<tr>
+						<th class="title">ログインID</th>
+						<td><input m:id='ID_INPUT_HERE' name="id" type="text" size="50" value="" /></td>
+					</tr>
+					<tr>
+						<th class="title">ログインPW</th>
+						<td><input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" /></td>
+					</tr>
+				</table>
+				<p align="right"><a href="password_reminder.html">→ログインID・ログインPWを忘れた方</a></p>
+				<div class="buttonarea">
+					<input m:id='LOGIN_BUTTON_TAG' type="submit" value="送信する" class="button positive medium" />
+				</div>
+			</div>
+			<div class="box">
+				<h3>非会員の方</h3>
+				<p>会員の方は、下のフォームにメールアドレスを入力して「送信」ボタンを押してください。</p>
+				<table>
+					<th>メールアドレス</th>
+					<td><input m:id='MAIL_INPUT_HERE'  type="text" size="50" value="" /></td>
+				</table>
+				<div class="buttonarea">
+					<input m:id='NOT_MEMBER_REGIST_BUTTON_TAG' type="submit" value="送信する" class="button positive medium" />
+				</div>
+			</div>
+		</div>
+		</form>
+
+	</div>
+<!-- / nyuka -->
+
+</div>
+<!-- / subwindow -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

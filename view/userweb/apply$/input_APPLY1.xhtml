@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/top.html -->
+<script type="text/javascript" charset="utf-8" src="../js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="../common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="../common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- input_apply -->
+<h2>お問合せ</h2>
+<div m:id='IF_AVAILABLE_APPLY' m:NOT=''>
+	<p>このお問い合わせページは、表示期間を過ぎております。</p>
+	<div class="buttonarea">
+		<a href="top.html" class="button positive medium">トップページへ</a>
+	</div>
+</div>
+
+<div m:id='IF_AVAILABLE_APPLY'>
+	<p m:id='IF_INPUT'>
+		以下のお問合せ項目を入力し、「入力内容を確認する」ボタンを押してください。<br />
+		<img src="../images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+	</p>
+	<p m:id='IF_CONFIRM'>
+		入力内容にお間違いがないか確認の上、「送信」ボタンを押してください。<br />
+		再度ご入力される場合は「戻る」ボタンを押してください。
+	</p>
+	<form m:id='FORM_TAG'>
+		<iframe m:id='common.IMPORT_HERE' src="../common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+		<!-- APPLY_INPUT_HEREとapply_item_noを使用して項目ごとに出力する場合にも<span m:id="LOOP_APPLY" />等でテンプレート上に記述が必要です -->
+		<table class="apply_area">
+			<tr m:id='LOOP_APPLY'>
+				<th class="title">
+					<span m:id='APPLY_KOUMOKU_HERE'>お問合せ項目</span>
+					<span m:id='IF_INPUT'><span m:id='IF_HISSU'><img src="../images/icon_hissu.gif" width="25" height="15" alt="必須" /></span></span>
+				</th>
+				<td>
+					<span m:id='IF_DISP_ZIP'>
+						<input m:id='APPLY_INPUT_HERE' type="text" /><br />
+						<div m:id="IF_FREE_IMAGE">
+							<span m:id="APPLY_LABEL_HTML_HERE">ラベル</span><br />
+						</div>
+						<div m:id="IF_FREE_IMAGE" m:NOT="">
+							<span m:id="APPLY_LABEL_HERE">ラベル</span><br />
+						</div>
+						<span m:id='IF_INPUT'> 例：1234567 （半角英数字で入力してください。）
+							<input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒反映" />
+							<span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"></span>
+						</span>
+					</span>
+					<span m:id='IF_DISP_ZIP' m:NOT="">
+						<input m:id='APPLY_INPUT_HERE' type="text" />
+						<div m:id="IF_FREE_IMAGE">
+							<span m:id="APPLY_LABEL_HTML_HERE">ラベル</span><br />
+						</div>
+						<div m:id="IF_FREE_IMAGE" m:NOT="">
+							<span m:id="APPLY_LABEL_HERE">ラベル</span><br />
+						</div>
+						<span m:id='IF_INPUT'><span m:id='APPLY_COMMENT_HERE'>ここにコメントを表示します。</span></span>
+					</span>
+				</td>
+			</tr>
+		</table>
+		
+		<div m:id='IF_INPUT'>
+			<!-- ======================リキャプチャー機能出力部分====================== / -->
+			<div m:id='IF_GOOGLE_RECAPTCHA_ENABLE' id="reCAPTCHA">
+				<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3' m:NOT="">
+					<script m:id='GOOGLE_RECAPTCHA_SCRIPT_TAG'></script>
+					<div m:id='GOOGLE_RECAPTCHA_TAG'></div>
+				</div>
+				<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3'>
+					<script m:id='GOOGLE_RECAPTCHA_V3_SCRIPT_TAG'></script>
+					<script m:id='GOOGLE_RECAPTCHA_V3_JS_HERE'></script>
+					<input type='hidden' m:id='GOOGLE_RECAPTCHA_V3_RESPONSE_HIDDEN_TAG' />
+				</div>		
+			</div>
+			<!-- / ======================リキャプチャー機能出力部分====================== -->
+		</div>
+		
+		<div class="buttonarea" m:id='IF_INPUT'>
+		<!-- ${/* 外部サイトからのアクセスし、戻る際のm:id */} -->
+		<!--<input type="submit" value="戻る" m:id='BACK_OUT_BUTTON_TAG' class="button negative medium" /> -->
+		<input m:id='CONFIRM_BUTTON_TAG' type="submit" value="入力内容を確認する" class="button positive medium"/>
+		</div>
+		<div class="buttonarea" m:id='IF_CONFIRM'>
+			<input m:id='BACK_BUTTON_TAG' type="submit" value="戻る" class="button negative medium" />
+			<input m:id='SUBMIT_BUTTON_TAG' type="submit" value="送信する" class="button positive medium" />
+		</div>
+	<!-- ${/* 下記のようにすると、確認画面を経ずに完了する画面を作ることも出来ます。ただし下記の記述の場合は、画像アップロードには対応していません。
+			<div class="buttonarea">
+				<a m:id='BACK_OUT_BUTTON_TAG' href="javascript:void(0);" class="button negative medium">戻る</a>
+				<input m:id='SKIP_CONFIRM_AND_SUBMIT_BUTTON_TAG' type="submit" value="送信する" class="button positive medium"/>
+			</div>
+	*/} -->
+
+	</form>
+<!-- / input_apply -->
+</div>
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="../common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

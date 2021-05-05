@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_credit_edit.html?xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- content -->
+<div id="content">
+	<!-- main -->
+		<form m:id='FORM_TAG'>
+			
+			<h2>クレジットカード情報の変更</h2>
+			<div class="sentence">
+				<p>クレジットカード情報を記入し、ボタンを押してください。</p>
+			</div>
+			
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+			
+			<h3>カード名義</h3>
+			<div class="sentence">
+				<p m:id="IF_CURRENT_CREDIT_NAME">現在のカード名義は <span m:id="CURRENT_CREDIT_NAME_HERE">TARO YAMADA</span> です。<br /></p>
+				<p><input type="text" m:id='CREDIT_NAME_INPUT_HERE' m:autocomplete="off" /></p>
+			</div>
+			
+			<h3>有効期限</h3>
+			<div class="sentence">
+				<span m:id="IF_CURRENT_CREDIT_LIMIT_YEAR">現在の有効期限は <span m:id="CURRENT_CREDIT_LIMIT_YEAR_HERE">2014</span>年<span m:id="CURRENT_CREDIT_LIMIT_MONTH_HERE">08</span>月です。<br /></span>
+				<table>
+					<tr>
+						<td>
+							<select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE'>
+								<option value="">01</option>
+							</select>
+						</td>
+						<td>月</td>
+						<td>
+							<select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE'>
+								<option value="">15</option>
+							</select>
+						</td>
+						<td>年</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="buttonarea">
+				<input type="submit" alt="変更する" />
+				<a href="#" m:id="BACK_LINK_TAG" class="cancel">戻る</a>
+			</div>
+		</form>
+	<!-- /main -->
+</div>
+<!-- /content -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

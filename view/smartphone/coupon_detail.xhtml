@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/coupon_detail.html?coupon_id=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- coupon_detail -->
+<section id="nyukawindow">
+	<div id="content">
+		<h2>クーポン詳細</h2>
+		<div m:id='IF_COUPON'>
+			<div class="img_box">
+				<img m:id='COUPON_IMAGE_TAG' src="images/sample.jpg" />
+			</div>
+			<h3>クーポン名</h3>
+			<div class="sentence">
+				<p><span m:id='COUPON_NAME_HERE'>クーポン名</span></p>
+			</div>
+			<h3>クーポンコード</h3>
+			<div class="sentence">
+				<p><span m:id='COUPON_CODE_HERE'>クーポンコード</span></p>
+			</div>
+			<div m:id='IF_COUPON_DISCOUNT'>
+				<h3>クーポン割引額</h3>
+				<div class="sentence">
+					<p><span m:id='COUPON_DISCOUNT_HERE'>100</span>円</p>
+				</div>
+			</div>
+			<div m:id='IF_COUPON_DISCOUNT_RATE'>
+				<h3>クーポン割引率</h3>
+				<div class="sentence">
+					<p><span m:id='COUPON_DISCOUNT_RATE_HERE'>80</span>％</p>
+				</div>
+			</div>
+			<div m:id='IF_COUPON_MIN_PRICE'>
+				<h3>クーポン適用開始金額</h3>
+				<div class="sentence">
+					<p><span m:id='COUPON_MIN_PRICE_HERE'>500</span>円以上</p>
+				</div>
+			</div>
+			<div m:id='IF_COUPON_COMMENT'>
+				<h3>クーポンコメント</h3>
+				<div class="sentence">
+					<p><span m:id='COUPON_COMMENT_HERE'>クーポンコメント</span></p>
+				</div>
+			</div>
+			<h3>有効期限</h3>
+			<div class="sentence">
+				<p>
+					<span m:id='IF_COUPON_FROM' >
+						<span m:id='COUPON_FROM_YEAR_HERE'>2016</span>年<span m:id='COUPON_FROM_MONTH_HERE'>05</span>月<span m:id='COUPON_FROM_DAY_HERE'>05</span>日から
+					</span>
+					<!--<span m:id='IF_COUPON_FROM' m:NOT="">
+						期限なし
+					</span>-->
+					<span m:id='IF_COUPON_TO' >
+						<span m:id='COUPON_TO_YEAR_HERE'>2016</span>年<span m:id='COUPON_TO_MONTH_HERE'>05</span>月<span m:id='COUPON_TO_DAY_HERE'>05</span>日まで
+					</span>
+					<span m:id='IF_COUPON_TO' m:NOT="">
+						期限なし
+					</span>
+				</p>
+			</div>
+			<div m:id='IF_FREE' m:free_item_no='1'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>受注自由項目1</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>受注自由項目1</span></p>
+				</div>
+			</div>
+		</div>
+		<div m:id='IF_COUPON' m:NOT="" class="sentence">
+			<p>該当のクーポンは存在しません。</p>
+		</div>
+		<div class="buttonarea">
+			<a href="javascript:window.close()" class="cancel">×このウィンドウを閉じる</a>
+		</div>
+	</div>
+</section>
+<!-- / coupon_detail -->
+
+<!-- footer -->
+<footer>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+</body>
+</html>

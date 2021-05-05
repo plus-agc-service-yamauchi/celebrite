@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja" xmlns:social_plus="eb:SOCIAL_PLUS/view_member_input.json" xmlns:social_plus2="eb:SOCIAL_PLUS/view_member_auth_provider.json">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- memberConfirm -->
+<section id="content">
+	<h2>
+		<span m:id='common.IF_MEMBER' m:NOT="">子会員登録</span>
+	</h2>
+	<div class="sentence">
+		<p>入力内容を確認してください。<br />正しければ「送信」ボタンを押してください。</p>
+	</div>
+
+    <iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+
+		<h3>会員登録用認証キー</h3>
+		<div class="sentence">
+			<p><span m:id='MEMBER_REGIST_AUTH_KEY_HERE'>XXXX</span></p>
+		</div>
+
+		<h3>所属法人</h3>
+		<div class="sentence">
+			<p><span m:id='CORPORATION_NAME_HERE'>所属法人名</span></p>
+		</div>
+
+		<h3>所属事業所</h3>
+		<div class="sentence">
+			<p><span m:id='OFFICE_NAME_HERE'>所属事業所名</span></p>
+		</div>
+
+		<h3>氏名（漢字）</h3>
+		<div class="sentence">
+			<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+		</div>
+
+		<h3>氏名（カナ）</h3>
+		<div class="sentence">
+			<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></p>
+		</div>
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS' m:NOT="">
+			<div m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+				<h3>ログインID</h3>
+				<div class="sentence">
+					<p><span m:id='LOGIN_ID_HERE'>sample</span></p>
+				</div>
+			</div>
+
+			<h3>パスワード</h3>
+			<div class="sentence">
+				<p>********</p>
+			</div>
+		</div>
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+			<div social_plus2:if="IS_RAKUTEN_SOCIAL_PLUS_AUTH_PROVIDER" m:NOT="">
+				<div m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+					<h3>ログインID</h3>
+					<div class="sentence">
+						<p><span m:id='LOGIN_ID_HERE'>sample</span></p>
+					</div>
+				</div>
+
+				<h3>パスワード</h3>
+				<div class="sentence">
+					<p>********</p>
+				</div>
+			</div>
+		</div>
+		<h3>性別</h3>
+		<div class="sentence">
+			<p><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span><span m:id='IF_SEX_OTHER'>その他</span></p>
+		</div>
+
+		<h3>生年月日</h3>
+		<div class="sentence">
+			<p>西暦 <span m:id='BIRTH_YEAR_HERE'>1986</span>年 <span m:id='BIRTH_MONTH_HERE'>03</span>月<span m:id='BIRTH_DAY_HERE'>03</span>日</p>
+		</div>
+
+		<h3>メールアドレス</h3>
+		<div class="sentence">
+			<p><span m:id='PC_MAIL_HERE'>sample@example.jp</span></p>
+		</div>
+
+		<h3>メール形式</h3>
+		<div class="sentence">
+			<p><span m:id='IF_PC_MAIL_TYPE_TEXT'>テキストメール</span><span m:id='IF_PC_MAIL_TYPE_HTML'>HTMLメール</span></p>
+		</div>
+
+		<!--<h3>携帯メールアドレス</h3>
+		<div class="sentence">
+			<p><span m:id='MOBILE_MAIL_HERE'>sample@example.jp</span></p>
+		</div>-->
+
+		<!--<div m:id='IF_MOBILE_MAIL_TYPE_TEXT'>
+			<h3>携帯メール形式</h3>
+			<div class="sentence">
+				<p><span m:id="IF_MOBILE_MAIL_TYPE_TEXT">テキストメール</span><span m:id="IF_MOBILE_MAIL_TYPE_HTML">HTMLメール</span></p>
+			</div>
+		</div>-->
+
+		<h3>住所</h3>
+		<div class="sentence">
+			<p>
+				<span m:id='ZIP_HERE'>1234567</span> <span m:id='ADDRESS1_HERE'>東京都</span>
+				<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+			</p>
+		</div>
+
+		<h3>電話番号</h3>
+		<div class="sentence">
+			<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+		</div>
+
+		<h3>メールマガジン</h3>
+		<div class="sentence">
+			<p>
+				<!--<span m:id="IF_MAILMAG_REGIST">PC/携帯の両方で希望する</span>-->
+				<span m:id="IF_MAILMAG_REGIST_PC">希望する</span>
+				<!--<span m:id="IF_MAILMAG_REGIST_MOBILE">携帯で希望しない</span>-->
+				<span m:id="IF_NOT_MAILMAG_REGIST">希望しない</span>
+			</p>
+		</div>
+		<div m:id="IF_KESSAI">
+			<h3>標準利用支払い</h3>
+			<div class="sentence">
+				<p>
+					<span m:id='KESSAI_NAME_HERE'>クレジットカード</span>
+				</p>
+				<div m:id='IF_KESSAI_CREDIT'>
+					<p m:id='IF_CREDIT_KAISU'>
+						お支払い回数 <span m:id='CREDIT_KAISU_HERE'>一括</span>
+					</p>
+					<p m:id='IF_SAVED_CARD'>
+						<span m:id='SAVED_CARD_CREDIT_NUMBER_HERE'>************4003</span><br />
+						カード名義 : <span m:id='SAVED_CARD_CREDIT_NAME_HERE'>TEST TARO</span><br />
+						有効期限 : <span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>04</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2016</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE1'>
+			<h3><span m:id='FREE1_TITLE_HERE'>会員自由項目1</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE1_VALUE_HERE'>会員自由項目1</span>
+				</p>
+			</div>
+		</div>
+		<div m:id='IF_FREE2'>
+			<h3><span m:id='FREE2_TITLE_HERE'>会員自由項目2</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE2_VALUE_HERE'>会員自由項目2</span>
+				</p>
+			</div>
+		</div>
+		<div m:id='IF_FREE3'>
+			<h3><span m:id='FREE3_TITLE_HERE'>会員自由項目3</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE3_VALUE_HERE'>会員自由項目3</span>
+				</p>
+			</div>
+		</div>
+		<div m:id='IF_FREE4'>
+			<h3><span m:id='FREE4_TITLE_HERE'>会員自由項目4</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE4_VALUE_HERE'>会員自由項目4</span>
+				</p>
+			</div>
+		</div>
+		<div m:id='IF_FREE5'>
+			<h3><span m:id='FREE5_TITLE_HERE'>会員自由項目5</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE5_VALUE_HERE'>会員自由項目5</span>
+				</p>
+			</div>
+		</div>
+		<div m:id='IF_FREE6'>
+			<h3><span m:id='FREE6_TITLE_HERE'>会員自由項目6</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE6_VALUE_HERE'>会員自由項目6</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE7'>
+			<h3><span m:id='FREE7_TITLE_HERE'>会員自由項目7</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE7_VALUE_HERE'>会員自由項目7</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE8'>
+			<h3><span m:id='FREE8_TITLE_HERE'>会員自由項目8</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE8_VALUE_HERE'>会員自由項目8</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE9'>
+			<h3><span m:id='FREE9_TITLE_HERE'>会員自由項目9</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE9_VALUE_HERE'>会員自由項目9</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE10'>
+			<h3><span m:id="FREE10_TITLE_HERE">会員自由項目10</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE10_VALUE_HERE'>会員自由項目10</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE11'>
+			<h3><span m:id='FREE11_TITLE_HERE'>会員自由項目11</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE11_VALUE_HERE'>会員自由項目11</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE12'>
+			<h3><span m:id='FREE12_TITLE_HERE'>会員自由項目12</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE12_VALUE_HERE'>会員自由項目12</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE13'>
+			<h3><span m:id='FREE13_TITLE_HERE'>会員自由項目13</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE13_VALUE_HERE'>会員自由項目13</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE14'>
+			<h3><span m:id='FREE14_TITLE_HERE'>会員自由項目14</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE14_VALUE_HERE'>会員自由項目14</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE15'>
+			<h3><span m:id='FREE15_TITLE_HERE'>会員自由項目15</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE15_VALUE_HERE'>会員自由項目15</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE16'>
+			<h3><span m:id='FREE16_TITLE_HERE'>会員自由項目16</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE16_VALUE_HERE'>会員自由項目16</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE17'>
+			<h3><span m:id='FREE17_TITLE_HERE'>会員自由項目17</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE17_VALUE_HERE'>会員自由項目17</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE18'>
+			<h3><span m:id='FREE18_TITLE_HERE'>会員自由項目18</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE18_VALUE_HERE'>会員自由項目18</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE19'>
+			<h3><span m:id='FREE19_TITLE_HERE'>会員自由項目19</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE19_VALUE_HERE'>会員自由項目19</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE20'>
+			<h3><span m:id='FREE20_TITLE_HERE'>会員自由項目20</span></h3>
+			<div class="sentence">
+				<p><span m:id='FREE20_VALUE_HERE'>会員自由項目20</span></p>
+			</div>
+		</div>
+		<!-- ======================リキャプチャー機能出力部分====================== / -->
+		<div m:id='IF_GOOGLE_RECAPTCHA_ENABLE' id="reCAPTCHA">
+			<script m:id='GOOGLE_RECAPTCHA_SCRIPT_TAG'></script>
+			<span m:id='GOOGLE_RECAPTCHA_TAG'></span>
+		</div>
+		<!-- / ======================リキャプチャー機能出力部分====================== -->
+		<div class="buttonarea">
+			<input type="submit" value="送信" />
+			<a m:id='BACK_BUTTON_TAG' href="#" class="cancel">戻る</a>
+		</div>
+	</form>
+
+</section>
+<!-- / memberConfirm -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

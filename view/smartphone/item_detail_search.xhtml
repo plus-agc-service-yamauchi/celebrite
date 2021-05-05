@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- itemDetailSearch -->
+<section id="content">
+	<h2>詳細検索</h2>
+	<div class="sentence">
+		<p>下記の条件で詳細検索ができます。ご希望の検索条件を入力してください。</p>
+	</div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+		<h3>カテゴリ</h3>
+		<div class="sentence">
+			<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL'>
+				<!-- 大カテゴリ一覧 -->
+				<select m:id='CATEGORY_SELECT_TAG'>
+					<option m:id='ITEM_CATEGORY_NOT_SELECTED_OPTION_TAG'>選択しない</option>
+					<option m:id='LOOP_ITEM_CATEGORY'>
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><!--<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>-->
+					</option>
+				</select>
+			</div>
+			<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL'>
+				<!-- 中カテゴリ一覧 -->
+				<select m:id='CATEGORY_SELECT_TAG'>
+					<option m:id='ITEM_CATEGORY_NOT_SELECTED_OPTION_TAG'>選択しない</option>
+					<option m:id='LOOP_ITEM_CATEGORY'>
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><!--<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>-->
+					</option>
+				</select>
+			</div>
+			<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL'>
+				<!-- 小カテゴリ一覧 -->
+				<select m:id='CATEGORY_SELECT_TAG'>
+					<option m:id='ITEM_CATEGORY_NOT_SELECTED_OPTION_TAG'>選択しない</option>
+					<option m:id='LOOP_ITEM_CATEGORY'>
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><!--<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>-->
+					</option>
+				</select>
+			</div>
+			<div m:id='common.LOOP_ITEM_CATEGORY_NEXT_LEVEL'>
+				<!-- さらに小カテゴリがある限り繰り返す一覧 -->
+				<select m:id='CATEGORY_SELECT_TAG'>
+					<option m:id='ITEM_CATEGORY_NOT_SELECTED_OPTION_TAG'>選択しない</option>
+					<option m:id='LOOP_ITEM_CATEGORY'>
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><!--<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>-->
+					</option>
+				</select>
+			</div>
+		</div>	
+
+		<h3>金額</h3>
+		<div class="sentence">
+			<table>
+				<tr>
+					<td><input m:id='MIN_PRICE_INPUT_HERE' type="number" /></td><td>円から</td>
+					<td><input m:id='MAX_PRICE_INPUT_HERE' type="number" /></td><td>円まで</td>
+				</tr>
+			</table>
+		</div>
+
+		<h3>商品コード</h3>
+		<div class="sentence">
+			<input m:id='ITEM_CODE_INPUT_HERE' type="text" />
+			<input type="radio" m:id='SEARCH_TYPE_PARTIAL_ITEM_CD_INPUT_TAG' id="PARTIAL_ITEM_CD_INPUT_TAG" />
+			<label for="PARTIAL_ITEM_CD_INPUT_TAG">部分一致</label>
+			<input type="radio" m:id='SEARCH_TYPE_EXACT_ITEM_CD_INPUT_TAG' id="EXACT_ITEM_CD_INPUT_TAG" />
+			<label for="EXACT_ITEM_CD_INPUT_TAG">完全一致 </label>　
+		</div>
+		
+		<h3>商品名</h3>
+		<div class="sentence">
+			<input m:id='ITEM_NAME_INPUT_HERE' type="text" />
+			<input type="radio" m:id='SEARCH_TYPE_PARTIAL_ITEM_NAME_INPUT_TAG' id="PARTIAL_ITEM_NAME_INPUT_TAG" />
+			<label for="PARTIAL_ITEM_NAME_INPUT_TAG">部分一致</label>
+			<input type="radio" m:id='SEARCH_TYPE_EXACT_ITEM_NAME_INPUT_TAG' id="EXACT_ITEM_NAME_INPUT_TAG" />
+			<label for="EXACT_ITEM_NAME_INPUT_TAG">完全一致 </label>　
+		</div>
+
+		<h3>キーワード</h3>
+		<div class="sentence">
+			<input m:id='KEYWORD_INPUT_HERE' type="text" />
+			<p class="form_attention">上記のほかにキーワードが指定できます。<br />スペースで区切って複数のキーワードを指定できます。</p>
+		</div>
+	
+		<div class="buttonarea">
+			<input type="submit" value="詳細検索" />
+			<a href="javascript:void(0);" m:id='CLEAR_BUTTON_TAG' class="cancel">クリア</a>
+		</div>
+	</form>
+</section>
+<!-- / itemDetailSearch -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

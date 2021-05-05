@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_download.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+ <!-- =============================================================================== -->
+<div id="main">
+
+<!-- item_download -->
+<h2>製品ダウンロード</h2>
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+<div m:id="IF_EXIST_ERROR" m:NOT="">
+	<p>購入済の商品をダウンロードすることができます。<br />詳細を確認の上、ダウンロード開始ボタンを押してください。</p>
+	<table>
+		<tr>
+			<th class="title">製品名</th>
+			<td><span m:id="ITEM_NAME_HERE">ダウンロード商品名</span></td>
+		</tr>
+		<tr>
+			<th class="title">ファイル名</th>
+			<td><span m:id="ITEM_DOWNLOAD_FILE_NAME_HERE">filename.exe</span></td>
+		</tr>
+		<tr m:id="IF_ITEM_SERIAL_NO_LIST">
+			<th class="title">シリアルNo</th>
+			<td><span m:id="ITEM_SERIAL_NO_LIST_HERE">2381-8813-5938-0361</span></td>
+		</tr>
+		<tr m:id="IF_ITEM_DOWNLOAD_FILE_SIZE">
+			<th class="title">サイズ</th>
+			<td><span m:id="ITEM_DOWNLOAD_FILE_SIZE_HERE">25.3KB</span></td>
+		</tr>
+		<tr m:id="IF_ITEM_DOWNLOAD_LIMIT">
+			<th class="title">ダウンロード有効期限</th>
+			<td><span m:id="ITEM_DOWNLOAD_LIMIT_HERE">2010年10月31日</span></td>
+		</tr>
+		<tr m:id="IF_ITEM_DOWNLOAD_COUNT">
+			<th class="title">ダウンロード有効回数</th>
+			<td><span m:id="ITEM_DOWNLOAD_COUNT_HERE">あと 3回</span></td>
+		</tr>
+	</table>
+
+	<div class="buttonarea">
+		<p m:id="ITEM_DOWNLOAD_MESSAGE_TAG" class="attention">メッセージ</p>
+		<a m:id="ITEM_DOWNLOAD_REAL_LINK" class="button positive medium">ダウンロード開始</a>
+	</div>
+</div>
+<!-- / item_download -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

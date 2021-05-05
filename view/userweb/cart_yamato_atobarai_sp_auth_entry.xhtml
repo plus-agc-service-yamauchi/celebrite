@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/yamato_atobarai.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/cart_veritrans3g_ginren_entry.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+	<div id="cartFlow">
+		<h2>SMS認証番号入力</h2>
+			<!--<img src="images/cart_step04.gif" width="560" height="40" alt="STEP4 ご注文情報確認" class="step" />-->
+			<div class="cart_step">
+				<ul>
+					<li><strong>1</strong>カート</li>
+					<li><strong>2</strong>ログイン</li>
+					<li><strong>3</strong>ご注文情報入力</li>
+					<li class="active"><strong>4</strong>ご注文情報確認</li>
+					<li><strong>5</strong>ご注文完了</li>
+				</ul>
+			</div>
+			<p>
+				まだご注文は完了していません。SMSで届いた認証コードを入力してください。<br />
+				<span class="attention">SMSが届かない場合、画面を戻り再操作いただくか、他の決済方法を選択してください。</span>
+			</p>
+			<!--cartProgress start-->
+			<form m:id='FORM_TAG'>
+				<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+				<br/>
+				<div class="yamato_atobarai_auth_code">
+					<input m:id='ATOBARAI_AUTH_CODE1_INPUT_HERE' value='' type='text' name='' />
+					<input m:id='ATOBARAI_AUTH_CODE2_INPUT_HERE' value='' type='text' name='' />
+					<input m:id='ATOBARAI_AUTH_CODE3_INPUT_HERE' value='' type='text' name='' />
+					<input m:id='ATOBARAI_AUTH_CODE4_INPUT_HERE' value='' type='text' name='' />
+				</div>
+				<div class="buttonarea">
+					<input type="submit" m:id='BACK_BUTTON_TAG' onclick='sample' class="button negative medium" value="戻る" />
+					<input type="submit" value="送信" class="button positive medium" />
+				</div>
+			</form>
+			<!--cartProgress end-->
+
+		</div>
+	</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+</body>
+</html>

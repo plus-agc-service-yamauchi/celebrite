@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_regist_new.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- password_reminder -->
+<h2>
+	<span m:id="IF_SHORI_MODE_MEMBER">会員登録 - メールアドレス確認</span>
+	<span m:id="IF_SHORI_MODE_ORDER">注文処理 - メールアドレス確認</span>
+	<span m:id="IF_SHORI_MODE_MAIL_CHANGE">会員情報変更 - メールアドレス確認</span>
+</h2>
+
+<div m:id="IF_INPUT">
+	<p>
+	    メールアドレスを入力して「送信する」を押してください。
+	</p>
+	<div m:id="IF_USE_MEMBER_ORDER_MAIL_VALIDATION_CODE" m:NOT="">
+		<p m:id="IF_SHORI_MODE_MEMBER">送信されたメールにURLが記載されていますので、URLをクリックし会員登録処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_ORDER">送信されたメールにURLが記載されていますので、URLをクリックし注文処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_MAIL_CHANGE">送信されたメールにURLが記載されていますので、URLをクリックしメールアドレス変更処理を継続してください。</p>
+	</div>
+	<div m:id="IF_USE_MEMBER_ORDER_MAIL_VALIDATION_CODE">
+		<p m:id="IF_SHORI_MODE_MEMBER">送信されたメールに認証コードが記載されていますので、認証コードを入力し会員登録処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_ORDER">送信されたメールに認証コードが記載されていますので、認証コードを入力し注文処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_MAIL_CHANGE">送信されたメールに認証コードが記載されていますので、認証コードを入力しメールアドレス変更処理を継続してください。</p>
+	</div>
+</div>
+
+<div m:id="IF_CONFIRM">
+	<p>
+	   入力されたメールアドレス宛に確認のメールを配信しました。
+	</p>
+	<div m:id="IF_USE_MEMBER_ORDER_MAIL_VALIDATION_CODE" m:NOT="">
+		<p m:id="IF_SHORI_MODE_MEMBER">送信されたメールにURLが記載されていますので、URLをクリックし会員登録処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_ORDER">送信されたメールにURLが記載されていますので、URLをクリックし注文処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_MAIL_CHANGE">送信されたメールにURLが記載されていますので、URLをクリックしメールアドレス変更処理を継続してください。</p>
+	</div>
+	<div m:id="IF_USE_MEMBER_ORDER_MAIL_VALIDATION_CODE">
+		<p m:id="IF_SHORI_MODE_MEMBER">送信されたメールに認証コードが記載されていますので、認証コードを入力し会員登録処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_ORDER">送信されたメールに認証コードが記載されていますので、認証コードを入力し注文処理を継続してください。</p>
+		<p m:id="IF_SHORI_MODE_MAIL_CHANGE">送信されたメールに認証コードが記載されていますので、認証コードを入力しメールアドレス変更処理を継続してください。</p>
+	</div>
+</div>
+
+<div m:id="IF_RESULT">
+	<p>
+		アクセスされたURLから情報を正しく取得することができませんでした。
+	</p>
+</div>
+
+<div m:id="IF_CHANGED">
+	<p>
+	   メールアドレスが変更されました。
+	</p>
+</div>
+
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<div m:id="IF_INPUT">
+	<form m:id='FORM_TAG'>
+		<table summary="メールアドレス確認">
+			<tr>
+				<th class="title">メールアドレス</th>
+				<td>
+					<input m:id='MAIL_INPUT_HERE' type="text" /> 例：sample@example.jp （半角英数字で入力してください。）
+					<span m:id='IF_REQUIRED_CONFIRM_MAIL_ADDRESS'>
+						<br />
+						※確認のためメールアドレスを再入力してください。<br />
+						<input m:id='MAIL_CONFIRM1_INPUT_HERE' name="MAIL_CONFIRM1" type="text" size="23" value="" /> @
+						<input m:id='MAIL_CONFIRM2_INPUT_HERE' name="MAIL_CONFIRM2" type="text" size="25" value="" />
+					</span>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonarea">
+			<input type="submit" value="送信する" class="button positive medium" />
+		</div>
+	</form>
+</div>
+
+<div m:id="IF_CONFIRM">
+	<div m:id="IF_USE_MEMBER_ORDER_MAIL_VALIDATION_CODE">
+		<form m:id='FORM_TAG'>
+			<table summary="認証コード入力欄">
+				<tr>
+					<th class="title">認証コード</th>
+					<td>
+						<input m:id='MAIL_VALIDATION_CODE_INPUT_HERE' type="text" size="20" value="" />
+					</td>
+				</tr>
+			</table>
+			<div class="buttonarea">
+				<a m:id='BACK_BUTTON_TAG' class="button negative medium">戻る</a>
+				<input type="submit" value="認証する" class="button positive medium" />
+			</div>
+		</form>
+	</div>	
+</div>
+<!-- / password_reminder -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

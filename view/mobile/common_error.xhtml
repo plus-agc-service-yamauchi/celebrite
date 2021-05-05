@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="css/mobile.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="css/iframe.js" m:id='DUMMY'></script>
+<a id="top" name="top"></a>
+
+<!-- commonError -->
+<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;">ｴﾗｰが発生しました。</div>
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<div style="text-align:center;">
+	<form m:id='ERROR_TOKEN_BACK_FORM_TAG'>
+		<input type="submit" value="前の画面へ戻る" />
+	</form>
+	<form m:id='ERROR_CART_BACK_FORM_TAG'>
+		<input type="submit" value="注文画面へ戻る" />
+	</form>
+	<form m:id='ERROR_TOP_FORM_TAG'>
+		<input type="submit" value="ﾄｯﾌﾟﾍﾟｰｼﾞへ" />
+	</form>
+</div>
+<!-- / commonError -->
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="../js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="../common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- tokushou -->
+<section id="content">
+	<h2>サイトマップ</h2>
+	<h3>カテゴリ</h3>
+	<div m:id='common.IF_TOP_CATEGORY' class="sentence">
+		<p m:id='common.LOOP_TOP_CATEGORY'>
+			<a m:id='common.TOP_CATEGORY_LINK_TAG' href="#">
+				<span m:id='common.TOP_CATEGORY_NAME_HERE'>カテゴリ名</span>
+			</a>
+		</p>
+	</div>
+	<h3>会員メニュー</h3>
+	<div class="sentence">
+		<p m:id='common.IF_MEMBER' m:NOT="">
+			<a href="member_regist_new.html">
+				新規会員登録
+			</a>
+		</p>
+		<p m:id='common.IF_MEMBER' m:NOT="">
+			<a href="login.html">
+				ログイン
+			</a>
+		</p>
+		<p m:id='common.IF_MEMBER' m:NOT="">
+			<a href="password_reminder.html">
+				パスワードを忘れた方
+			</a>
+		</p>
+		<p m:id='common.IF_MEMBER'>
+			<a href="member_mypage.html">
+				マイページ
+			</a>
+		</p>
+		<p m:id='common.IF_MEMBER'>
+			<a href="member_regist.html?request=edit">
+				会員情報変更
+			</a>
+		</p>
+		<p>
+			<a href="cart_index.html">
+				カートを見る
+			</a>
+		</p>
+		<p>
+			<a href="mailmag.html">
+				メールマガジンに申し込む
+			</a>
+		</p>
+	</div>
+	<h3>会員サポート</h3>
+	<div class="sentence">
+		<p>
+			<a href="ext/guide.html">
+				ご利用ガイド
+			</a>
+		</p>
+		<p>
+			<a href="ext/faq.html">
+				よくあるご質問
+			</a>
+		</p>
+		<p>
+			<a href="ext/privacy.html">
+				プライバシーポリシー
+			</a>
+		</p>
+		<p>
+			<a href="ext/tokushou.html">
+				特定商取引法に基づく表記
+			</a>
+		</p>
+		<p>
+			<a href="ext/company.html">
+				会社概要
+			</a>
+		</p>
+		<p>
+			<a href="ext/sitemap.html">
+				サイトマップ
+			</a>
+		</p>
+		<p m:id="common.IF_APPLY_AVAILABLE" apply_no='APPLY1'>
+			<a href="apply.html?id=APPLY1">
+				お問い合わせ
+			</a>
+		</p>
+	</div>
+</section>
+<!-- / tokushou -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="../common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

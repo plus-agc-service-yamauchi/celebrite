@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- member_review -->
+<section m:id="common.IF_USE_REVIEW" id="review">
+<form m:id='REVIEW_FORM_TAG'>
+	<h2><span m:id='NICKNAME_HERE'>えびすたろう</span>さんのレビュー一覧</h2>
+	<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+	<div m:id='LOOP_REVIEW'>
+		<div class="box">
+			<div m:id='IF_STAR'>
+				<ul class="star">
+					<li m:id='LOOP_ACTIVE_STAR' class="good">★</li>
+					<li m:id='DUMMY' class="good">★</li>
+					<li m:id='DUMMY' class="good">★</li>
+		 			<li m:id='LOOP_INACTIVE_STAR' class="bad">☆</li>
+					<li m:id='DUMMY' class="bad">☆</li>
+				</ul>
+				<!-- 以下は使わない場合は削除してください。
+				<span m:id='STAR_COUNT_HERE'>3</span>
+				 -->
+			</div>
+			<h3><span m:id='REVIEW_TITLE_HERE'>商品レビューのタイトル</span></h3>
+			<p>レビュー対象商品：<a href="javascript:void(0);" m:id='ITEM_LINK_TAG'><span m:id='ITEM_NAME_HERE'>商品名</span></a></p>
+			<p class="name">
+				投稿日時：<span m:id='REVIEW_DATE_HERE'>2011/3/3</span>
+			</p>
+			<p>
+				<span m:id='REVIEW_COMMENT_HERE'>
+				商品レビュー。文章が入ります。
+				</span>
+			</p>
+			<p m:id='IF_MY_POSTS_REVIEW'>
+				<span m:id='IF_USERWEB_DISP'><a href="javascript:void(0);" m:id='REVIEW_EDIT_LINK_TAG'>変更する</a></span>
+				<span m:id='IF_USERWEB_DISP' m:NOT=''>投稿頂いたレビューは、管理者により確認された後に編集可能となります。</span>
+			</p>
+		</div>
+		<div m:id='IF_REVIEW_GOOD_BAD' class="sentence">
+			<div m:id='IF_REVIEW_GOOD_BAD_BUTTON'>
+				<p m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED" class="good_button">このレビューは参考になりましたか？</p>
+				<div m:id="IF_REVIEW_GOOD_BAD_BUTTON_ENABLED" class="buttonarea">
+					<ul class="good_bad_button_area">
+						<li><a m:id='GOOD_BUTTON_TAG' class="smallPositiveButton">参考になった</a></li>
+						<li><a m:id='BAD_BUTTON_TAG' class="smallNegativeButton">参考にならなかった</a></li>
+					</ul>
+				</div>
+			</div>
+			<p class="good_number"><span m:id='GOOD_COUNT_HERE'>3</span>人の方が「参考になった」と言っています。</p>
+			<p class="good_number"><span m:id='BAD_COUNT_HERE'>3</span>人の方が「参考にならなかった」と言っています。</p>
+		</div>
+	</div>
+	<p class="pagelink">
+		<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">＜ 前へ</a></span>
+		<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+		<span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次へ ＞</a></span>
+	</p>
+</form>
+</section>
+<!-- / member_review -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

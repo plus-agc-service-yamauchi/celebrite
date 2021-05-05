@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- cartConfirm -->
+<section id="cartFlow">
+	<h2>ご注文情報の確認</h2>
+	<div class="sentence">
+		<!-- <p m:id='IF_CAN_INPUT_CREDIT'>クレジットカード情報を入力してください。<br /></p> -->
+		<p>
+			下記の内容をご確認ください。<br />
+			内容に間違いがございましたら「戻る」ボタンを押して前のページに戻り、情報を修正してください。<br />
+			「支払方法を変更する」ボタンを押すと注文が確定します。
+		</p>
+	</div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="sentence" m:id='LOOP_ITEM'>
+		<p class="item_name"><span m:id='ITEM_NAME_HERE'>ここに商品の名前が入ります</span></p>
+		<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+		<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+			<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+				<p class="information"><span m:id='ITEM_PRICE_HERE'>4,000円</span></p>
+			</span>
+		</span>
+		<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+		<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+			<p class="information"><span m:id='ITEM_PRICE_HERE'>4,000円</span></p>
+		</span>
+		<p class="information">数量：<span m:id='ITEM_AMOUNT_HERE'>2</span>個</p>
+		<p class="information" m:id='IF_EXISTS_LOT'>個数：<span m:id='ITEM_LOT_HERE'>4</span>個</p>
+	</div>
+	<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+		<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE" class="sentence price">
+			<p m:id='IF_MEMBER_DISCOUNT'>会員値引き：<strong><span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></strong></p>
+			<p>小計：<strong><span m:id='SYOKEI_HERE'>1,000円</span></strong></p>
+			<p m:id='common.IF_SOTOZEI'>消費税：<strong><span m:id='TOTALTAX_HERE_TAX_HERE'>50円</span></strong></p>
+			<p m:id='common.IF_UCHIZEI'>消費税：<strong>内税</strong></p>
+			<p>送料：<strong><span m:id='SORYO_HERE'>500円</span></strong></p>
+			<p m:id='IF_DAIBIKI'>代引き手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+			<p m:id='IF_KESSAI_TESURYO'>決済手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+			<p class="total">合計：<strong><span m:id='GOKEI_HERE'>1,000円</span></strong></p>
+		</div>
+	</div>
+	<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+	<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="" class="sentence price">
+		<p m:id='IF_MEMBER_DISCOUNT'>会員値引き：<strong><span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></strong></p>
+		<p>小計：<strong><span m:id='SYOKEI_HERE'>1,000円</span></strong></p>
+		<p m:id='common.IF_SOTOZEI'>消費税：<strong><span m:id='TOTALTAX_HERE_TAX_HERE'>50円</span></strong></p>
+		<p m:id='common.IF_UCHIZEI'>消費税：<strong>内税</strong></p>
+		<p>送料：<strong><span m:id='SORYO_HERE'>500円</span></strong></p>
+		<p m:id='IF_DAIBIKI'>代引き手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+		<p m:id='IF_KESSAI_TESURYO'>決済手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+		<p class="total">合計：<strong><span m:id='GOKEI_HERE'>1,000円</span></strong></p>
+	</div>
+
+	<form m:id='FORM_TAG'>
+
+
+<!-- ======================ご依頼主（ご請求先）情報====================== / -->
+	<h3>ご依頼主（ご請求先）情報</h3>
+	<h4>氏名（漢字）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+	</div>
+	<h4>氏名（カナ）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span	m:id='FIRST_KANA_HERE'>タロウ</span></p>
+	</div>
+	<h4>メールアドレス</h4>
+	<div class="sentence">
+		<p><span m:id='PC_MAIL_HERE'>sample@example.jp</span></p>
+	</div>
+	<h4>住所</h4>
+	<div class="sentence">
+		<p>
+			〒<span m:id='ZIP_HERE'>1234567</span>
+			<span m:id='ADDRESS1_HERE'>東京都</span> 
+			<span m:id='ADDRESS2_HERE'>○○市 ○○町1-2-3</span> 
+			<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+		</p>
+	</div>
+	<h4>電話番号</h4>
+	<div class="sentence">
+		<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+	</div>
+<!-- / ======================ご依頼主（ご請求先）情報====================== -->
+
+
+<!-- ======================お届け先情報====================== / -->
+	<h3>お届け先情報</h3>
+	<h4>氏名（漢字）</h4>
+	<div class="sentence">
+		<p><span m:id='SEND_LAST_NAME_HERE'>山田</span> <span m:id='SEND_FIRST_NAME_HERE'>太郎</span></p>
+	</div>
+	<h4>氏名（カナ）</h4>
+	<div class="sentence">
+		<p><span m:id='SEND_LAST_KANA_HERE'>ヤマダ</span> <span m:id='SEND_FIRST_KANA_HERE'>タロウ</span></p>
+	</div>
+	<h4>住所</h4>
+	<div class="sentence">
+		<p>
+			〒<span m:id='SEND_ZIP_HERE'>1234567</span>
+			<span m:id='SEND_ADDRESS1_HERE'>東京都</span> 
+			<span m:id='SEND_ADDRESS2_HERE'>○○市 ○○町 1-2-3</span> 
+			<span m:id='SEND_ADDRESS3_HERE'>○○ビル101</span>
+		</p>
+	</div>
+	<h4>電話番号</h4>
+	<div class="sentence">
+		<p><span m:id='SEND_TEL_HERE'>03-1234-5678</span></p>
+	</div>
+<!-- / ======================お届け先情報====================== -->
+
+
+
+<!-- ======================お支払い情報====================== / -->
+	<h3>お支払い情報</h3>
+	<h4>お支払方法</h4>
+	<div class="sentence">
+		<p><span m:id='KESSAI_NAME_HERE'>クレジットカード</span></p>
+	</div>
+	<div m:id='IF_KESSAI_CREDIT'>
+		<h4>お支払い回数</h4>
+		<div class="sentence">
+			<p><span m:id='CREDIT_KAISU_HERE'>一括</span></p>
+		</div>
+	</div>
+	<div m:id='IF_KESSAI_CREDIT'>
+		<h4>カード名義</h4>
+		<div m:id='IF_USE_SAVED_CARD' m:NOT='' class="sentence">
+			<p><span m:id='CREDIT_NAME_HERE'>TARO YAMADA</span></p>
+		</div>
+		<div m:id='IF_USE_SAVED_CARD' class="sentence">
+			<p><span m:id='SAVED_CREDIT_NAME_HERE'>TARO YAMADA</span></p>
+		</div>
+	</div>
+	<div m:id='IF_KESSAI_CREDIT'>
+		<h4>カード番号</h4>
+		<div m:id='IF_USE_SAVED_CARD' m:NOT='' class="sentence">
+			<p>
+				<span m:id='CREDIT_NUMBER_HERE'>************1111</span>
+			</p>
+		</div>
+		<div m:id='IF_USE_SAVED_CARD' class="sentence">
+			<p>
+				<span m:id='SAVED_CREDIT_NUMBER_HERE'>************1111</span>
+			</p>
+		</div>
+	</div>
+	<div m:id='IF_KESSAI_CREDIT'>
+		<h4>有効期限</h4>
+		<div m:id='IF_USE_SAVED_CARD' m:NOT='' class="sentence">
+			<p><span m:id='CREDIT_EXPIRE_MONTH_HERE'>03</span>/<span m:id='CREDIT_EXPIRE_YEAR_HERE'>2011</span></p>
+		</div>
+		<div m:id='IF_USE_SAVED_CARD' class="sentence">
+			<p><span m:id='SAVED_CREDIT_EXPIRE_MONTH_HERE'>03</span>/<span m:id='SAVED_CREDIT_EXPIRE_YEAR_HERE'>2011</span></p>
+		</div>
+	</div>
+	<div m:id='IF_KESSAI_CREDIT_SECURITY_CD'>
+		<h4>セキュリティコード</h4>
+		<div class="sentence">
+			<p>***</p>
+		</div>
+	</div>
+	<div m:id='IF_SAVE_CARD_FLG'>
+		<h4>カードの登録</h4>
+		<div class="sentence">このカードを保存します</div>
+	</div>
+<!-- / ======================お支払い情報====================== -->
+	<div class="buttonarea">
+		<input type="submit" value="支払方法を変更する" />
+		<a m:id='BACK_BUTTON_TAG' class="cancel">戻る</a>
+	</div>
+
+	</form>
+</section>
+<!-- / cartConfirm -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

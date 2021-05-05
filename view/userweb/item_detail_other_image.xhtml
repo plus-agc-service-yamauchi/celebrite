@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_detail_other_image_sub.html?item_cd=xxx -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+
+<!-- subwindow -->
+<div id="subwindow">
+
+<!-- otherImage -->
+	<div id="content">
+		<h2>他の写真を見る</h2>
+
+		<!-- 商品画像部分 -->
+		<script type="text/javascript" charset="utf-8" src="js/slides.min.jquery.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			eb$(function(){
+				eb$('#products').slides({
+					preload: true,
+					effect: 'fade',
+					crossfade: true,
+					fadeSpeed: 200,
+					generateNextPrev: true,
+					generatePagination: false
+				});
+				eb$('.pagination').find('li').first().addClass('current');
+				// サムネールのリストタグが5の倍数の時、クラス名「last」を追加
+				eb$('.pagination li:nth-child(5n)').addClass('last');
+			});
+		//]]>
+		</script>
+		<div id="products">
+			<div class="slides_container">
+				<div class="ima_box">
+					<img m:id='ITEM_IMAGE1_TAG' src="images/sample.jpg" alt="" title="" />
+				</div>
+				<div class="ima_box" m:id='IF_ITEM_IMAGE2'>
+					<img m:id='ITEM_IMAGE2_TAG' src="images/sample.jpg" alt="" title="" />
+				</div>
+				<div class="ima_box" m:id='IF_ITEM_IMAGE3'>
+					<img m:id='ITEM_IMAGE3_TAG' src="images/sample.jpg" alt="" title="" />
+				</div>
+				<div class="ima_box" m:id='IF_ITEM_IMAGE4'>
+					<img m:id='ITEM_IMAGE4_TAG' src="images/sample.jpg" alt="" title="" />
+				</div>
+				<!-- ${/* 自由項目で登録した画像を表示させる事が出来ます。 */} -->
+				<!-- ${/* 例：
+				<div class="ima_box" m:id='IF_FREE_VALUE' m:free_item_no="1">
+					<img m:id='FREE_IMAGE_TAG' m:free_item_no="1" src="images/detail_dummy.jpg" alt="" title="" />
+				</div>
+				*/} -->
+			</div>
+			<div class="thumbox">
+				<ul class="pagination">
+					<li m:id='IF_ITEM_IMAGE1'>
+						<a href="javascript:void(0);" class="img_box">
+							<img m:id='ITEM_IMAGE1_TAG' src="images/sample.jpg" alt="" title="" />
+						</a>
+					</li>
+					<li m:id='IF_ITEM_IMAGE2'>
+						<a href="javascript:void(0);" class="img_box">
+							<img m:id='ITEM_IMAGE2_TAG' src="images/sample.jpg" alt="" title="" />
+						</a>
+					</li>
+					<li m:id='IF_ITEM_IMAGE3'>
+						<a href="javascript:void(0);" class="img_box">
+							<img m:id='ITEM_IMAGE3_TAG' src="images/sample.jpg" alt="" title="" />
+						</a>
+					</li>
+					<li m:id='IF_ITEM_IMAGE4'>
+						<a href="javascript:void(0);" class="img_box">
+							<img m:id='ITEM_IMAGE4_TAG' src="images/sample.jpg" alt="" title="" />
+						</a>
+					</li>
+					<!-- ${/* 自由項目で登録した画像を表示させる事が出来ます。 */} -->
+					<!-- ${/* 例：
+					<li m:id='IF_FREE_VALUE' m:free_item_no="1">
+						<a href="javascript:void(0);">
+							<div class="img_box">
+								<img m:id='FREE_IMAGE_TAG' m:free_item_no="1" src="images/detail_dummy.jpg" alt="" title="" />
+							</div>
+						</a>
+					</li>
+					*/} -->
+				</ul>
+			</div>
+		</div>
+		<!-- / 商品画像部分 -->
+		
+		<div m:id="IF_ITEM_PROPERTY_IMAGE">
+			<h2>商品属性画像</h2>
+			<div m:id="LOOP_ITEM_PROPERTY_IMAGE_GROUP">
+				<h3><span m:id="ITEM_PROPERTY_IMAGE_GROUP_NAME_HERE">赤</span></h3> 
+				<div class="images" m:id="LOOP_ITEM_PROPERTY_IMAGE"><img m:id="ITEM_PROPERTY_IMAGE_TAG" src="images/sample.jpg" /></div>
+			</div>
+			<div m:id="DUMMY">
+				<h3>青</h3>
+				<div class="images"><img src="images/sample.jpg" /></div>
+			</div>
+		</div>
+
+		<p class="close"><a href="javascript:window.close()">×このウィンドウを閉じる</a></p>
+	</div>
+<!-- / otherImage -->
+
+</div>
+<!-- / subwindow -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+
+
+</body>
+</html>

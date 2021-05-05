@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- teikiIndex -->
+<section id="cartFlow">
+	<h2>定期購入商品の確認・変更</h2>
+    <div class="sentence">
+		<p>ご注文いただいている定期購入商品の詳細を確認・変更することができます。</p>
+        <p m:id='common.IF_USE_MEMBER_HISTORY'><a href="member_history.html">→通常購入商品の確認・変更はこちら</a></p>
+        <div m:id="IF_USE_TEIKI_INDEX_PAGING">
+            <span m:id="IF_ORDER_EXIST">
+                <span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span>
+            </span>
+        </div>
+    </div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div m:id='LOOP_ORDER'>
+        <h3><span m:id="LOOP_ORDER_MEISAI"><a m:id='MEISAI_ITEM_LINK_TAG' href="#"><span m:id='MEISAI_ITEM_NAME_HERE'>定期購入商品名</span></a><br /></span></h3>
+        <div class="sentence">
+            <p><span m:id="IF_TEIKI_KBN_TEIKI">定期購入中</span><span m:id="IF_TEIKI_KBN_STOP">定期購入停止</span></p>
+            <p>初回注文時受注番号：<span m:id="FIRST_ORDER_DISP_NO_HERE">IF-SHOP-001</span></p>
+            <p>初回お申し込み日：<span m:id='FIRST_ORDER_DATE_YEAR_HERE'>2010</span>年<span m:id='FIRST_ORDER_DATE_MONTH_HERE'>03</span>月<span m:id='FIRST_ORDER_DATE_DAY_HERE'>03</span>日</p>
+            <p>
+				<span m:id="IF_SEND_HOPE_MONTHLY_DAY">毎月<span m:id="SEND_HOPE_MONTHLY_DAY_HERE">15</span>日お届け予定</span>
+				<span m:id="IF_SEND_HOPE_MONTHLY_DAY" m:NOT="">毎月のお届け予定日の指定なし</span>
+			</p>
+            <p>現在のお届け先：〒<span m:id="SEND_ZIP_HERE">123-4567</span> <span m:id="SEND_ADDR1_HERE">東京都</span> <span m:id="SEND_ADDR2_HERE">○○市 ○○町1-2-3</span> <span m:id="SEND_ADDR3_HERE">○○ビル101</span>　<span m:id="SEND_L_NAME_HERE">山田</span> <span m:id="SEND_F_NAME_HERE">太郎</span> 様</p>
+        </div>
+        <div class="buttonarea">
+            <span m:id='IF_RENEW_ORDER'>
+            	<a href="#" m:id="RENEW_LINK_TAG" class="cancel">お届け先・配送日の変更</a>
+            </span>
+			<span m:id='IF_USE_PAYMENT_PAGE'>
+				<a href="#" m:id="PAYMENT_LINK_TAG" class="cancel">クレジットカード情報の変更</a>
+			</span>
+            <span m:id='IF_RENEW_ORDER' m:NOT="">
+            </span>
+
+            <!-- //月次定期の場合 -->
+            <span m:id='IF_TEIKI_MONTHLY'>
+                <span m:id='IF_STOPPED' m:NOT="">
+                    <span m:id='IF_STOP'>
+                        <a href="#" m:id="STOP_LINK_TAG" class="cancel">定期購入を停止する</a>
+                    </span>
+                    <span m:id='IF_STOP' m:NOT="">
+                    </span>
+                </span>
+                <span m:id='IF_STOPPED'>
+                    <span m:id='IF_RESTART'>
+                        <a href="#" m:id="RESTART_LINK_TAG">定期購入を再開する</a>
+                    </span>
+                    <span m:id='IF_RESTART' m:NOT="">
+                    </span>
+                </span>
+            </span>
+            <!-- 月次定期の場合// -->
+
+            <!-- //配送間隔指定定期(日次定期)の場合 -->
+            <span m:id='IF_TEIKI_DAILY'>
+                <span m:id='IF_STOPPED' m:NOT="">
+                    <span m:id='IF_STOP'>
+                        <a href="#" m:id="STOP_LINK_TAG" class="cancel">定期購入を停止する</a>
+                    </span>
+                    <span m:id='IF_STOP' m:NOT="">
+                    </span>
+                </span>
+                <span m:id='IF_STOPPED'>
+                    <span m:id='IF_RESTART'>
+                        <a href="#" m:id="RESTART_LINK_TAG">定期購入を再開する</a>
+                    </span>
+                    <span m:id='IF_RESTART' m:NOT="">
+                    </span>
+                </span>
+            </span>
+            <!-- 配送間隔指定定期(日次定期)の場合// -->
+            
+            <span m:id="common.IF_USE_TEIKI_SKIP">
+				<span m:id='IF_SKIPPED' m:NOT="">
+					<span m:id='IF_SKIP_LINK'>
+						<a href="#" m:id="SKIP_LINK_TAG" class="cancel">定期購入を一回お休みする</a>
+					</span>
+					<span m:id='IF_SKIP_LINK' m:NOT="">
+					</span>
+				</span>
+				<span m:id='IF_SKIPPED'>
+					<span m:id='IF_CANCEL_SKIP_LINK'>
+						<a href="#" m:id="CANCEL_SKIP_LINK_TAG">定期購入一回お休みを解除する</a>
+					</span>
+					<span m:id='IF_CANCEL_SKIP_LINK' m:NOT="">
+					</span>
+				</span>
+            </span>
+        </div>
+        <div class="sentence">
+            <p m:id='IF_ORDER_CANCELED'>
+                ※すでに取消済のため、現在はお届け先・配送日を変更することはできません。
+            </p>
+			<p m:id='IF_EXIST_TEIKI_TOGETHER'>
+				※この定期をまとめ先に指定した注文があるため、停止および一回お休みにすることはできません。
+			</p>
+        </div>
+
+		<div class="teiki">
+        	<h4>最新の配送</h4>
+            <div class="buttonarea_detail"><a m:id='DETAIL_LINK_TAG' href="#">詳細</a></div>
+        </div>
+        <div class="sentence">
+	        <p>最新の配送分の詳細です。<br />出荷状況が未配送の場合は、お届け先情報や配送日を変更することができます。</p>
+			
+        </div>
+        <table>
+            <tr>
+                <th>配送月</th>
+                <td>
+                    <span m:id="IF_TEIKI_MONTHLY">
+                    <span m:id='TEIKI_YM_YEAR_HERE'>2010</span>年<span m:id='TEIKI_YM_MONTH_HERE'>9</span>月分
+                    </span>
+                    <span m:id="IF_TEIKI_DAILY">
+                        <span m:id='HAISO_DATE_YEAR_HERE'>2010</span>年<span m:id='HAISO_DATE_MONTH_HERE'>9</span>月<span m:id='HAISO_DATE_DAY_HERE'>15</span>日分
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>注文確定日</th>
+                <td><span m:id='TEIKI_ORDER_DATE_YEAR_HERE'>2010</span>年<span m:id='TEIKI_ORDER_DATE_MONTH_HERE'>8</span>月<span m:id='TEIKI_ORDER_DATE_DAY_HERE'>25</span>日</td>
+            </tr>
+            <!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+            <tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+                <tr m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+                    <th class="title">価格</th>
+                    <td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+                </tr>
+            </tbody>
+            <!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+            <tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+                <tr>
+                    <th class="title">価格</th>
+                    <td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+                </tr>
+            </tbody>
+            <tr>
+                <th>配送日</th>
+                <td><span m:id='HAISO_DATE_YEAR_HERE'>2010</span>年<span m:id='HAISO_DATE_MONTH_HERE'>9</span>月<span m:id='HAISO_DATE_DAY_HERE'>15</span>日</td>
+            </tr>
+            <tr>
+            	<th>宅配伝票番号</th>
+                <td><span m:id='SHIP_SLIP_NO_HERE'>00000000</span></td>
+            </tr>
+            <tr>
+                <th>出荷状況</th>
+                <td><span m:id='IF_STATUS_PREPARING'>手配中</span><span m:id='IF_STATUS_DELIVERING'>配送中</span><span m:id='IF_STATUS_DELIVERED'>配送済</span><span m:id='IF_STATUS_CANCELED'>取消済</span></td>
+            </tr>
+        </table>
+		<div class="buttonarea">
+			<span m:id='IF_CANCEL_ORDER'>
+                <form m:id='CANCEL_ORDER_FORM_TAG'>
+                    <input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="定期購入をキャンセルする" class="cancel" />
+                </form>
+            </span>
+        </div>
+        <div m:id="IF_DETAIL">
+            <div class="teiki">
+                <h4>過去の配送</h4>
+                <div class="buttonarea_detail"><a m:id='DETAIL_LINK_TAG' href="#">詳細</a></div>
+            </div>
+            <div class="sentence">
+                <p>過去の配送分のお届け先情報や配送日を確認することができます。</p>
+            </div>
+            <table m:id="LOOP_DETAIL">
+                <tr>
+                    <th>配送月</th>
+                    <td>
+                        <span m:id='TEIKI_YM_YEAR_HERE'>2010</span>年<span m:id='TEIKI_YM_MONTH_HERE'>8</span>月分
+                    </td>
+                </tr>
+                <tr>
+                    <th>注文確定日</th>
+                    <td><span m:id='TEIKI_ORDER_DATE_YEAR_HERE'>2010</span>年<span m:id='TEIKI_ORDER_DATE_MONTH_HERE'>7</span>月<span m:id='TEIKI_ORDER_DATE_DAY_HERE'>25</span>日</td>
+                </tr>
+                <!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+                <tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+                    <tr m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+                        <th class="title">価格</th>
+                        <td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+                    </tr>
+                </tbody>
+                <!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+                <tbody m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+                    <tr>
+                        <th class="title">価格</th>
+                        <td class="price"><span m:id='SEIKYU_HERE'>8,900円</span></td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <th>配送日</th>
+                    <td><span m:id='HAISO_DATE_YEAR_HERE'>2010</span>年<span m:id='HAISO_DATE_MONTH_HERE'>8</span>月<span m:id='HAISO_DATE_DAY_HERE'>15</span>日</td>
+                </tr>
+            	<tr>
+            		<th>宅配伝票番号</th>
+                	<td><span m:id='SHIP_SLIP_NO_HERE'>00000000</span></td>
+				</tr>
+                <tr>
+                    <th>出荷状況</th>
+                    <td><span m:id='IF_STATUS_PREPARING'>手配中</span><span m:id='IF_STATUS_DELIVERING'>配送中</span><span m:id='IF_STATUS_DELIVERED'>配送済</span><span m:id='IF_STATUS_CANCELED'>取消済</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div m:id='IF_USE_TEIKI_INDEX_PAGING' class="teiki">
+        <!-- <p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p> -->
+        <!--<div><span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span></div>-->
+        <table class="pagelink" m:id='IF_ORDER_EXIST'>
+            <tr>
+                <td class="button"><span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);" class="button negative small">＜</a></span></td>
+                <td class="link"><span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span></td>
+                <td class="button"><span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);" class="button negative small">＞</a></span></td>
+            </tr>
+        </table>
+    </div>
+</section>
+<!-- / teikiIndex -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

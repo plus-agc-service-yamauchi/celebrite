@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- addressInput -->
+<section id="content">
+	<h2>
+		<span m:id='IF_ADDRESS_NEW'>新規アドレス帳登録</span>
+		<span m:id='IF_ADDRESS_NEW' m:NOT="">アドレス帳情報変更</span>
+	</h2>
+	<div class="sentence">
+		<p>
+        	下記の情報を入力してお届け先を追加してください。<br />
+			<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+		</p>
+	</div>
+
+    <iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	 width="100%"	onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+
+		<h3>氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			姓<input m:id='LAST_NAME_INPUT_HERE' type="text" />
+			名<input m:id='FIRST_NAME_INPUT_HERE' type="text" />
+			<p class="form_attention">例：山田 太郎</p>
+		</div>
+
+		<h3>氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			セイ<input m:id='LAST_KANA_INPUT_HERE' type="text" />
+			メイ<input m:id='FIRST_KANA_INPUT_HERE' type="text" />
+			<p class="form_attention">例：ヤマダ タロウ （全角カナで入力してください。）</p>
+		</div>
+
+		<h3>郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			<table>
+				<tr>
+					<td><input m:id='ZIP_INPUT_HERE' type="text" /></td>
+					<td><input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒反映" /></td>
+				</tr>
+			</table>
+			<p class="form_attention">例：1234567 （半角数字で入力してください。）</p>
+			<p><span m:id='ZIP_ADDRESS_MESSAGE_TAG'><!--ここに郵便番号反映メッセージが表示されます。--></span></p>
+		</div>
+
+		<h3>都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS1_HISSU' /></h3>
+		<div class="sentence">
+			<select m:id='ADDRESS1_INPUT_HERE'>
+				<option selected="selected">-- 選択してください --</option>
+			</select>
+		</div>
+
+		<h3>市区町村・番地 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS2_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='ADDRESS2_INPUT_HERE' type="text" />
+			<p class="form_attention">例：○○市○○町1-2-3</p>
+		</div>
+
+		<h3>ビル・マンション名 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS3_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='ADDRESS3_INPUT_HERE' type="text" />
+			<p class="form_attention">例：○○ビル101</p>
+		</div>
+
+		<h3>電話番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_TEL_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='TEL_INPUT_HERE' type="tel" />
+			<p class="form_attention">例：03-1234-5678 （半角英数字で入力してください。）</p>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='1'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='1' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='1'>自由項目１</span>
+				<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='1'>自由項目コメント１</span></p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='2'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目１</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='2' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='2'>自由項目１</span>
+				<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='2'>自由項目コメント１</span></p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='3'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目１</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='3' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='3'>自由項目１</span>
+				<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='3'>自由項目コメント１</span></p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='4'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目１</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='4' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='4'>自由項目１</span>
+				<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='4'>自由項目コメント１</span></p>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='5'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目１</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='5' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='5'>自由項目１</span>
+				<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='5'>自由項目コメント１</span></p>
+			</div>
+		</div>
+
+
+        <div class="buttonarea">
+            <input type="submit" value="入力内容を確認" />
+            <a m:id='BACK_LINK_TAG' href="" class="cancel">戻る</a>
+        </div>
+
+	</form>
+</section>
+<!-- / addressInput -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+
+</html>

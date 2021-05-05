@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:np_atone="eb:NP_ATONE/view_common.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート-見積確認画面（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" src="/html/common/ebisu/ebisu_ajax_base_script.js" m:id='common.IF_APP_INSTALLED' m:app_cd='NP_ATONE'></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION" type="text/javascript" charset="utf-8" src="js/sales_campaign_banner.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/cart_confirm$estimate.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- cartConfirm -->
+<section id="cartFlow">
+	<h2>見積情報確認</h2>
+	<div class="sentence">
+		<p>
+			見積内容をご確認いただき、間違いがございましたら「戻る」ボタンを押して修正してください。<br />
+			<span class="attention_message">「見積作成」ボタンを押すと見積が確定します。</span>
+		</p>
+	</div>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="sentence" m:id='LOOP_ITEM'>
+		<p>商品コード：<span m:id="IF_CART_ITEM_OPTION_ITEM">+</span><span m:id='ITEM_CODE_HERE'>00001234</span></p>
+		<p class="item_name"><span m:id='ITEM_NAME_HERE'>ここに商品の名前が入ります</span></p>
+		<p class="comment"><span m:id='ITEM_COMMENT_HERE'>ここに商品のカート用商品コメントが入ります</span></p>
+		<!--<p class="information">
+			単価：<span m:id='TANKA_HERE'>1,250円</span> /
+			<span m:id='IF_MEMBER_DISCOUNT'>会員割引額：<span m:id='ITEM_MEMBER_DISCOUNT_HERE'>200円</span> /</span>
+			小計：<span m:id='SYOKEI_PRICE_HERE'>1,050円</span>
+		</p>-->
+		<p class="information">数量：<span m:id='ITEM_AMOUNT_HERE'>2</span>個</p>
+		<p class="information" m:id='common.IF_CART_EXISTS_LOT_ITEM'>個数：<span m:id='ITEM_QUANTITY_HERE'>4</span>個</p>
+		<p class="information" m:id='IF_MAKER_TEIKA'>単価：<span m:id='TANKA_HERE'>2,000円</span></p>
+		<!-- <p class="information">希望小売価格(単価)：<span m:id='MAKER_TEIKA_HERE'>100円</span></p> -->
+		<p class="information" m:id='IF_MEMBER_DISCOUNT'>会員割引額：<span m:id='ITEM_MEMBER_DISCOUNT_HERE'>1,000円</span></p>
+		<p class="information">小計：<span m:id='SYOKEI_PRICE_HERE'>4,000円</span></p>
+		<span m:id='common.IF_START_REDUCED_TAX'><p class="information">消費税率：<span m:id='ITEM_TAX_RATE_HERE'>0</span>％</p></span>
+		<!-- <p class="information" m:id='IF_MAKER_TEIKA'>希望小売価格(小計)：<span m:id='MAKER_SYOKEI_HERE'>4,000円</span></p> -->
+	</div>
+
+	<div class="sentence price">
+		<p m:id='common.IF_FIRST_TIME_TEIKI_DISCOUNT'>
+			初回値引額：<strong>-<span m:id='TEIKI_DISCOUNT_TOTAL_SYOKEI_HERE'>0,000円</span></strong>
+		</p>
+		<p m:id='IF_MEMBER_DISCOUNT'>会員値引き：<strong>-<span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></strong></p>
+		<p>小計：<strong><span m:id='TOTAL_SYOKEI_HERE'>1,000円</span></strong></p>
+		<!-- <p m:id='IF_MAKER_TEIKA'>希望小売価格小計：<strong><span m:id='TOTAL_MAKER_SYOKEI_HERE'>4,000円</span></strong></p> -->
+		<p m:id='common.IF_SOTOZEI'>消費税：<strong><span m:id='TOTAL_TAX_HERE'>50円</span></strong></p>
+		<p m:id='common.IF_UCHIZEI'>消費税：<strong>内税</strong></p>
+		<p>送料：<strong><span m:id='SORYO_HERE'>500円</span></strong></p>
+		<p m:id='IF_DAIBIKI'>代引き手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+		<p m:id='IF_KESSAI_TESURYO'>決済手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+        <p m:id='IF_COUPON_WARIBIKI'>クーポン割引：<strong>-<span m:id='COUPON_WARIBIKI_HERE'>500円</span></strong></p>
+		<p m:id='IF_POINT_USE'>ポイント値引き：<strong>-<span m:id='POINT_DISCOUNT_HERE'>500円</span></strong></p>
+		<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+		<div m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+			<p m:id="IF_SALES_CAMPAIGN_WARIBIKI">キャンペーン割引額：<strong>-<span m:id='CAMPAIGN_WARIBIKI_HERE'>500円</span></strong></p>
+		</div>
+		<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+		<p m:id='IF_BUNDLE_SALE_WARIBIKI'>まとめ買い割引：<strong>-<span m:id='BUNDLE_SALE_WARIBIKI_HERE'>500円</span></strong></p>
+		<span m:id='common.IF_FIRST_TIME_TEIKI_DISCOUNT'>
+			<p class="teiki_text">※初回割引価格適用済み</p>
+		</span>
+		<p class="total">合計：<strong><span m:id='TOTAL_GOKEI_HERE'>1,000円</span></strong></p>
+	</div>
+
+	<form m:id='FORM_TAG'>
+<!-- ======================ご依頼主（ご請求先）情報====================== / -->
+	<h3>ご依頼主（ご請求先）情報</h3>
+	<h4>氏名（漢字）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+	</div>
+	<h4>氏名（カナ）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span	m:id='FIRST_KANA_HERE'>タロウ</span></p>
+	</div>
+	<h4>メールアドレス</h4>
+	<div class="sentence">
+		<p><span m:id='PC_MAIL_HERE'>sample@example.jp</span></p>
+	</div>
+	<!--<h4>携帯メールアドレス</h4>
+	<div class="sentence">
+		<p><span m:id='MOBILE_MAIL_HERE'>sample@example.jp</span></p>
+	</div>-->
+	<!--<h4>確認メール送信先</h4>
+	<div class="sentence">
+		<p>
+			<span m:id='IF_CONFIRM_MAIL_KBN_PC'>PCメールアドレス</span>
+			<span m:id='IF_CONFIRM_MAIL_KBN_BOTH'>PCメールアドレスと携帯メールアドレス</span>
+			<span m:id='IF_CONFIRM_MAIL_KBN_MOBILE'>携帯メールアドレス</span>
+		</p>
+	</div>-->
+	<h4>住所</h4>
+	<div class="sentence">
+		<p>
+			〒<span m:id='ZIP_HERE'>1234567</span>
+			<span m:id='ADDRESS1_HERE'>東京都</span> 
+			<span m:id='ADDRESS2_HERE'>○○市 ○○町1-2-3</span> 
+			<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+		</p>
+	</div>
+	<h4>電話番号</h4>
+	<div class="sentence">
+		<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+	</div>
+
+	<div m:id='common.IF_MEMBER_LOGIN'>
+		<h3>変更登録</h3>
+		<div class="sentence">
+			<p>
+				<span m:id='IF_UPDATE_MEMBER'>登録する</span>
+				<span m:id='IF_UPDATE_MEMBER' m:NOT="">登録しない</span>
+			</p>
+		</div>
+	</div>
+<!-- / ======================ご依頼主（ご請求先）情報====================== -->
+
+
+	<div m:id='IF_ITEM_DOWNLOAD' m:NOT="">
+<!-- ======================お届け先情報====================== / -->
+		<h3>お届け先情報</h3>
+		<div m:id="common.IF_USE_ADDRESS">
+			<h4>アドレス帳に追加しますか？</h4>
+			<div class="sentence">
+				<p>
+					<span m:id='IF_REGIST_SEND_ADDRESS_TO_MEMBER'>追加する</span>
+					<span m:id='IF_REGIST_SEND_ADDRESS_TO_MEMBER' m:NOT="">追加しない</span>
+				</p>
+			</div>
+		</div>
+		<h4>氏名（漢字）</h4>
+		<div class="sentence">
+			<p><span m:id='SEND_LAST_NAME_HERE'>山田</span> <span m:id='SEND_FIRST_NAME_HERE'>太郎</span></p>
+		</div>
+		<h4>氏名（カナ）</h4>
+		<div class="sentence">
+			<p><span m:id='SEND_LAST_KANA_HERE'>ヤマダ</span> <span m:id='SEND_FIRST_KANA_HERE'>タロウ</span></p>
+		</div>
+		<h4>住所</h4>
+		<div class="sentence">
+			<p>
+				<span m:id='IF_SEND_SAME' m:NOT="">〒<span m:id='SEND_ZIP_HERE'>1234567</span></span>
+				<span m:id='SEND_ADDRESS1_HERE'>東京都</span> 
+				<span m:id='SEND_ADDRESS2_HERE'>○○市 ○○町 1-2-3</span> 
+				<span m:id='SEND_ADDRESS3_HERE'>○○ビル101</span>
+			</p>
+		</div>
+		<h4>電話番号</h4>
+		<div class="sentence">
+			<p><span m:id='SEND_TEL_HERE'>03-1234-5678</span></p>
+		</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="1">
+				<h4>
+					<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="1">送付先自由項目1</span>
+				</h4>
+				<div class="sentence">
+					<p><span m:id="SEND_FREE_VALUE_HERE" m:free_item_no="1">送付先自由項目</span></p>
+				</div>
+			</div>
+			<div m:id="IF_SEND_FREE" m:free_item_no="2">
+				<h4>
+					<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="2">送付先自由項目2</span>
+				</h4>
+				<div class="sentence">
+					<p><span m:id="SEND_FREE_VALUE_HERE" m:free_item_no="2">送付先自由項目</span></p>
+				</div>
+			</div>
+			<div m:id="IF_SEND_FREE" m:free_item_no="3">
+				<h4>
+					<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="3">送付先自由項目3</span>
+				</h4>
+				<div class="sentence">
+					<p><span m:id="SEND_FREE_VALUE_HERE" m:free_item_no="3">送付先自由項目</span></p>
+				</div>
+			</div>
+			<div m:id="IF_SEND_FREE" m:free_item_no="4">
+				<h4>
+					<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="4">送付先自由項目4</span>
+				</h4>
+				<div class="sentence">
+					<p><span m:id="SEND_FREE_VALUE_HERE" m:free_item_no="4">送付先自由項目</span></p>
+				</div>
+			</div>
+			<div m:id="IF_SEND_FREE" m:free_item_no="5">
+				<h4>
+					<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="5">送付先自由項目5</span>
+				</h4>
+				<div class="sentence">
+					<p><span m:id="SEND_FREE_VALUE_HERE" m:free_item_no="5">送付先自由項目</span></p>
+				</div>
+			</div>
+<!-- / ======================お届け先情報====================== -->
+	</div>
+
+
+<!-- ======================会員登録情報====================== / -->
+	<div m:id='IF_REGIST_MEMBER'>
+		<h3>会員登録情報</h3>
+		<div m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+			<h4>ログインID</h4>
+			<div class="sentence">
+				<p><span m:id='LOGIN_ID_HERE'>yamada</span></p>
+			</div>
+		</div>
+		<h4>性別</h4>
+		<div class="sentence">
+			<p><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span><span m:id='IF_SEX_OTHER'>その他</span></p>
+		</div>
+		<div m:id='IF_BIRTH'>
+			<h4>生年月日</h4>
+			<div class="sentence">
+				<p><span m:id='BIRTH_YEAR_HERE'>1900</span>年<span m:id='BIRTH_MONTH_HERE'>01</span>月<span m:id='BIRTH_DAY_HERE'>01</span>日</p>
+			</div>
+		</div>
+		<h4>PCメール形式</h4>
+		<div class="sentence">
+			<p><span m:id='IF_PC_MAIL_TYPE_TEXT'>テキスト</span><span m:id='IF_PC_MAIL_TYPE_HTML'>HTML</span></p>
+		</div>
+		<!--<h4>携帯メール形式</h4>
+		<div class="sentence">
+			<p><span m:id='IF_MOBILE_MAIL_TYPE_TEXT'>テキスト</span><span m:id='IF_MOBILE_MAIL_TYPE_HTML'>HTML</span></p>
+		</div>-->
+		<h4>メールマガジン</h4>
+		<div class="sentence">
+			<p>
+				<!--<span m:id='IF_MAILMAG_REGIST'>PC/携帯の両方で希望する</span>-->
+				<span m:id='IF_MAILMAG_REGIST_PC'>希望する</span>
+				<!--<span m:id='IF_MAILMAG_REGIST_MOBILE'>携帯で希望する</span>-->
+				<span m:id='IF_NOT_MAILMAG_REGIST'>希望しない</span>
+			</p>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='1'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='1'>会員自由項目1</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='1'>会員自由項目1</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='2'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='2'>会員自由項目2</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='2'>会員自由項目2</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='3'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='3'>会員自由項目3</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='3'>会員自由項目3</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='4'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='4'>会員自由項目4</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='4'>会員自由項目4</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='5'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='5'>会員自由項目5</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='5'>会員自由項目5</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='6'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='6'>会員自由項目6</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='6'>会員自由項目6</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='7'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='7'>会員自由項目7</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='7'>会員自由項目7</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='8'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='8'>会員自由項目8</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='8'>会員自由項目8</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='9'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='9'>会員自由項目9</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='9'>会員自由項目9</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='10'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='10'>会員自由項目10</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='10'>会員自由項目10</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='11'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='11'>会員自由項目11</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='11'>会員自由項目11</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='12'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='12'>会員自由項目12</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='12'>会員自由項目12</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='13'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='13'>会員自由項目13</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='13'>会員自由項目13</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='14'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='14'>会員自由項目14</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='14'>会員自由項目14</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='15'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='15'>会員自由項目15</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='15'>会員自由項目15</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='16'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='16'>会員自由項目16</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='16'>会員自由項目16</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='17'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='17'>会員自由項目17</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='17'>会員自由項目17</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='18'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='18'>会員自由項目18</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='18'>会員自由項目18</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='19'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='19'>会員自由項目19</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='19'>会員自由項目19</span></p>
+			</div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='20'>
+			<h4><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='20'>会員自由項目20</span></h4>
+			<div class="sentence">
+				<p><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='20'>会員自由項目20</span></p>
+			</div>
+		</div>
+	</div>
+<!-- / ======================会員登録情報====================== -->
+
+
+<!-- ======================お支払い情報====================== / -->
+	<h3>お支払い情報</h3>
+	<h4>お支払方法</h4>
+	<div class="sentence">
+		<p><span m:id='KESSAI_NAME_HERE'>クレジットカード</span></p>
+	</div>
+<!-- / ======================お支払い情報====================== -->
+
+
+<!-- ======================配送方法====================== / -->
+	<div m:id='IF_HAISO'>
+		<h3>配送方法</h3>
+		<h4>配送方法</h4>
+		<div class="sentence">
+			<p><span m:id='HAISO_DISP_NAME_HERE'>ここに選択された配送方法名称が入ります。</span></p>
+		</div>
+	</div>
+<!-- / ======================配送方法====================== -->
+
+<!-- ======================ポイント情報====================== / -->
+	<div m:id='IF_SHOW_POINT_FORM'>
+		<div m:id='IF_POINT_USE'>
+			<h3>ポイント情報</h3>
+			<h4>ポイント使用</h4>
+			<div class="sentence">
+				<p>使用する</p>
+			</div>
+			<h4>使用ポイント数</h4>
+			<div class="sentence">
+				<p><span m:id='POINT_USE_HERE'>100</span>ポイント</p>
+			</div>
+		</div>
+	</div>
+<!-- / ======================ポイント情報====================== -->
+
+
+<!-- ======================クーポン情報====================== / -->
+	<div m:id='IF_COUPON'>
+		<h3>クーポン情報</h3>
+		<h4>使用クーポン</h4>
+		<div class="sentence">
+			<span m:id='COUPON_CODE_HERE'>XXXXXXXX</span>
+			<div m:id="IF_COUPON_DISCOUNT">
+				<span m:id="IF_COUPON_MIN_PRICE">
+					<span m:id="COUPON_MIN_PRICE_HERE">1,000円</span>以上お買い上げの場合、
+				</span>
+				商品金額から<span m:id="COUPON_DISCOUNT_HERE">100円</span>引き
+			</div>
+			<div m:id="IF_COUPON_DISCOUNT_RATE">
+				<span m:id="IF_COUPON_MIN_PRICE">
+					<span m:id="COUPON_MIN_PRICE_HERE">1,000円</span>以上お買い上げの場合、
+				</span>
+				商品金額から<span m:id="COUPON_DISCOUNT_RATE_HERE">10</span>%引き
+			</div>
+		</div>
+	</div>
+<!-- / ======================クーポン情報====================== -->
+
+
+<!-- ======================その他====================== / -->
+		<h3>その他</h3>
+		<h4>備考</h4>
+		<div class="sentence">
+			<p><span m:id='BIKOU_HERE'>ここに備考が入ります。ここに備考が入ります。ここに備考が入ります。</span></p>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='1'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>受注自由項目1</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>受注自由項目1</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='2'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>受注自由項目2</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>受注自由項目2</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='3'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>受注自由項目3</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>受注自由項目3</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='4'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>受注自由項目4</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>受注自由項目4</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='5'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>受注自由項目5</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>受注自由項目5</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='6'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='6'>受注自由項目6</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='6'>受注自由項目6</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='7'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='7'>受注自由項目7</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='7'>受注自由項目7</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='8'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='8'>受注自由項目8</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='8'>受注自由項目8</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='9'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='9'>受注自由項目9</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='9'>受注自由項目9</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='10'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='10'>受注自由項目10</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='10'>受注自由項目10</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='11'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='11'>受注自由項目11</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='11'>受注自由項目11</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='12'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='12'>受注自由項目12</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='12'>受注自由項目12</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='13'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='13'>受注自由項目13</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='13'>受注自由項目13</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='14'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='14'>受注自由項目14</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='14'>受注自由項目14</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='15'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='15'>受注自由項目15</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='15'>受注自由項目15</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='16'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='16'>受注自由項目16</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='16'>受注自由項目16</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='17'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='17'>受注自由項目17</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='17'>受注自由項目17</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='18'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='18'>受注自由項目18</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='18'>受注自由項目18</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='19'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='19'>受注自由項目19</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='19'>受注自由項目19</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='20'>
+			<h4><span m:id='FREE_TITLE_HERE' m:free_item_no='20'>受注自由項目20</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='20'>受注自由項目20</span></p>
+			</div>
+		</div>
+<!-- / ======================その他====================== -->
+		<h3>見積情報</h3>
+		<h4>見積コメント</h4>
+		<div class="sentence">
+			<p><span m:id='ESTIMATE_COMMENT_HERE'>ここに見積コメントが入ります。</span></p>
+		</div>
+		<div class="buttonarea">
+			<input type="submit" value="見積作成" class="estimate"/>
+			<a m:id='BACK_BUTTON_TAG' class="cancel">戻る</a>
+		</div>
+	</form>
+</section>
+<!-- / cartConfirm -->
+
+<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+<div m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+	<section m:id="IF_CAMPAIGN" id="cartCampaign" class="sales_campaign_banner">
+		<h3>現在適用されているキャンペーン</h3>
+		<ul>
+			<li m:id="LOOP_CAMPAIGN" m:campaign_kikan="CAMPAIGN_PERIOD_DURING" m:targetonly="true">
+				<div m:id="IF_SALES_CAMPAIGN_URL" class="box">
+					<a m:id='SALES_CAMPAIGN_URL_LINK_TAG' href="">
+						<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+							<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+						</div>
+						<h4>
+							<span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span>
+						</h4>
+						<p>
+							<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+						</p>
+						<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+							<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+								<h5><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h5>
+								<p>
+									<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div m:id="IF_SALES_CAMPAIGN_URL" m:NOT="" class="box">
+					<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+						<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+					</div>
+					<h4>
+						<span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span>
+					</h4>
+					<p>
+						<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+					</p>
+					<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+						<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+							<h5><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h5>
+							<p>
+								<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>
+<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

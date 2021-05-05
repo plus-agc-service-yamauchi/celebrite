@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="css/mobile.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="css/iframe.js" m:id='DUMMY'></script>
+<a id="top" name="top"></a>
+
+<!-- header -->
+<div style="background:#333333; font-size:x-small; text-align:center;"><a href="/" style="color:#FFFFFF;"><span m:id='common.SITE_NAME_HERE'>ここにｼｮｯﾌﾟ名が入ります。</span></a></div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+<!-- / header -->
+
+<!-- cartMember2 -->
+<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;">お客様情報入力(2/2)</div>
+<div style="font-size:x-small;">お客様情報を入力してください。<br /><span style="color:#CC0000;">※</span>マークは必須項目です。</div>
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<form m:id='FORM_TAG'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">郵便番号<span style="color:#CC0000;">※</span></div>
+	<div style="font-size:x-small;">
+		<input m:id='ZIP_INPUT_TAG' type="text" size="10" maxlength="15" />
+		<input m:id='GET_ZIP_ADDRESS_SUBMIT_TAG' type="submit" value="〒反映" />
+	</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">都道府県<span style="color:#CC0000;">※</span></div>
+	<div style="font-size:x-small;">
+		<select m:id='ADDRESS1_INPUT_HERE'>
+			<option value="">選択して下さい</option>
+		</select>
+	</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">市区町村/番地<span style="color:#CC0000;">※</span></div>
+	<div style="font-size:x-small;"><input m:id='ADDRESS2_INPUT_TAG' type="text" size="20" maxlength="100" /></div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">ﾏﾝｼｮﾝ名等</div>
+	<div style="font-size:x-small;"><input m:id='ADDRESS3_INPUT_TAG' type="text" size="20" maxlength="100" /></div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">電話番号<span style="color:#CC0000;">※</span></div>
+	<div style="font-size:x-small;"><input m:id='TEL_INPUT_TAG' type="text" size="20" maxlength="13" /></div>
+	<div m:id='common.IF_NOT_MEMBER'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">ﾒｰﾙﾏｶﾞｼﾞﾝ<span style="color:#CC0000;">※</span></div>
+		<div style="font-size:x-small;">
+			<input type="radio" m:id='MAILMAG_REGIST_INPUT_TAG' />PC/携帯の両方で受け付ける
+			<input type="radio" m:id='MAILMAG_REGIST_PC_INPUT_TAG' />PCで受け付ける
+			<input type="radio" m:id='MAILMAG_REGIST_MOBILE_INPUT_TAG' />携帯で受け付ける
+			<input type="radio" m:id='MAILMAG_NO_REGIST_INPUT_TAG' />受け付けない
+		</div>
+	</div>
+	<div m:id='common.IF_MEMBER_LOGIN'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">会員情報の変更<span style="color:#CC0000;">※</span></div>
+		<div style="font-size:x-small;">
+			<input type="radio" m:id='NOT_MEMBER_UPDATE_RADIO_TAG' />登録しない
+			<input type="radio" m:id='MEMBER_UPDATE_RADIO_TAG' />登録する
+		</div>
+	</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">備考</div>
+	<div style="font-size:x-small;"><textarea m:id="BIKOU_INPUT_HERE" cols="25" rows="3"></textarea></div>
+	<div m:id='IF_REGIST_MEMBER'>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='1'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='1'>会員自由項目1</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='1'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='1' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='1'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='2'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='2'>会員自由項目2</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='2'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='2' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='2'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='3'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='3'>会員自由項目3</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='3'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='3' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='3'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='4'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='4'>会員自由項目4</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='4'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='4' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='4'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='5'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='5'>会員自由項目5</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='5'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='5' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='5'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='6'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='6'>会員自由項目6</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='6'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='6' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='6'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='7'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='7'>会員自由項目7</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='7'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='7' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='7'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='8'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='8'>会員自由項目8</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='8'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='8' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='8'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='9'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='9'>会員自由項目9</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='9'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='9' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='9'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='10'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='10'>会員自由項目10</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='10'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='10' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='10'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='11'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='11'>会員自由項目11</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='11'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='11' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='11'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='12'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='12'>会員自由項目12</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='12'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='12' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='12'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='13'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='13'>会員自由項目13</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='13'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='13' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='13'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='14'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='14'>会員自由項目14</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='14'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='14' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='14'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='15'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='15'>会員自由項目15</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='15'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='15' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='15'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='16'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='16'>会員自由項目16</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='16'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='16' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='16'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='17'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='17'>会員自由項目17</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='17'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='17' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='17'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='18'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='18'>会員自由項目18</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='18'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='18' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='18'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='19'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='19'>会員自由項目19</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='19'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='19' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='19'>ここにコメントを表示します</span></div>
+		</div>
+		<div m:id='IF_MEMBER_FREE' m:free_item_no='20'>
+			<div style="margin-top:5px; color:#996600; font-size:small;">
+				<span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='20'>会員自由項目20</span>
+				<span m:id='IF_MEMBER_FREE_HISSU' m:free_item_no='20'><span style="color:#CC0000;">※</span></span>
+			</div>
+			<div style="font-size:x-small;"><input m:id='MEMBER_FREE_VALUE_INPUT_HERE' m:free_item_no='20' type="text" /></div>
+			<div style="font-size:x-small;"><span m:id='MEMBER_FREE_COMMENT_HERE' m:free_item_no='20'>ここにコメントを表示します</span></div>
+		</div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='1'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='1'>受注自由項目1</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='1'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='1' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='1'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='2'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='2'>受注自由項目2</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='2'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='2' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='2'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='3'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='3'>受注自由項目3</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='3'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='3' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='3'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='4'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='4'>受注自由項目4</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='4'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='4' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='4'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='5'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='5'>受注自由項目5</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='5'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='5' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='5'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='6'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='6'>受注自由項目6</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='6'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='6' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='6'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='7'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='7'>受注自由項目7</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='7'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='7' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='7'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='8'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='8'>受注自由項目8</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='8'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='8' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='8'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='9'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='9'>受注自由項目9</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='9'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='9' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='9'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='10'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='10'>受注自由項目10</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='10'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='10' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='10'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='11'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='11'>受注自由項目11</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='11'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='11' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='11'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='12'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='12'>受注自由項目12</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='12'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='12' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='12'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='13'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='13'>受注自由項目13</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='13'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='13' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='13'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='14'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='14'>受注自由項目14</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='14'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='14' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='14'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='15'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='15'>受注自由項目15</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='15'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='15' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='15'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='16'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='16'>受注自由項目16</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='16'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='16' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='16'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='17'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='17'>受注自由項目17</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='17'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='17' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='17'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='18'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='18'>受注自由項目18</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='18'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='18' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='18'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='19'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='19'>受注自由項目19</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='19'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='19' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='19'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_FREE' m:free_item_no='20'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='FREE_TITLE_HERE' m:free_item_no='20'>受注自由項目20</span>
+			<span m:id='IF_FREE_HISSU' m:free_item_no='20'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='FREE_VALUE_INPUT_HERE' type="text" m:free_item_no='20' /></div>
+		<div style="font-size:x-small;"><span m:id='FREE_COMMENT_HERE' m:free_item_no='20'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_SEND_FREE' m:free_item_no='1'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='1'>送付先自由項目1</span>
+			<span m:id='IF_SEND_FREE_HISSU' m:free_item_no='1'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='SEND_FREE_INPUT_HERE' type="text" m:free_item_no='1' /></div>
+		<div style="font-size:x-small;"><span m:id='SEND_FREE_COMMENT_HERE' m:free_item_no='1'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_SEND_FREE' m:free_item_no='2'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='2'>送付先自由項目2</span>
+			<span m:id='IF_SEND_FREE_HISSU' m:free_item_no='2'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='SEND_FREE_INPUT_HERE' type="text" m:free_item_no='2' /></div>
+		<div style="font-size:x-small;"><span m:id='SEND_FREE_COMMENT_HERE' m:free_item_no='2'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_SEND_FREE' m:free_item_no='3'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='3'>送付先自由項目3</span>
+			<span m:id='IF_SEND_FREE_HISSU' m:free_item_no='3'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='SEND_FREE_INPUT_HERE' type="text" m:free_item_no='3' /></div>
+		<div style="font-size:x-small;"><span m:id='SEND_FREE_COMMENT_HERE' m:free_item_no='3'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_SEND_FREE' m:free_item_no='4'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='4'>送付先自由項目4</span>
+			<span m:id='IF_SEND_FREE_HISSU' m:free_item_no='4'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='SEND_FREE_INPUT_HERE' type="text" m:free_item_no='4' /></div>
+		<div style="font-size:x-small;"><span m:id='SEND_FREE_COMMENT_HERE' m:free_item_no='4'>ここにコメントを表示します</span></div>
+	</div>
+	<div m:id='IF_SEND_FREE' m:free_item_no='5'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">
+			<span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='5'>送付先自由項目5</span>
+			<span m:id='IF_SEND_FREE_HISSU' m:free_item_no='5'><span style="color:#CC0000;">※</span></span>
+		</div>
+		<div style="font-size:x-small;"><input m:id='SEND_FREE_INPUT_HERE' type="text" m:free_item_no='5' /></div>
+		<div style="font-size:x-small;"><span m:id='SEND_FREE_COMMENT_HERE' m:free_item_no='5'>ここにコメントを表示します</span></div>
+	</div>
+	<div style="text-align:center;"><input m:id='CONFIRM_SUBMIT_TAG' type="submit" value="次へ" accesskey="6" /></div>
+	<div style="text-align:center;"><input m:id='NEXT1_SUBMIT_TAG' type="submit" value="戻る" accesskey="4" /></div>
+</form>
+<!-- / cartMember2 -->
+
+<!-- footer -->
+<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div><hr />
+<div style="font-size:small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id='EMOJI_63888' /><a href="/" accesskey="0">TOP</a>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div style="margin-bottom:5px; padding:3px; font-size:x-small; text-align:center;"><span m:id='common.COPYRIGHT_HERE'>ここにｺﾋﾟｰﾗｲﾄを表示します。</span></div>
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<!-- / footer -->
+
+</body>
+</html>

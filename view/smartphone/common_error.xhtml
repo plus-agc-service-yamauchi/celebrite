@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<!-- error -->
+<section id="content">
+	<h2>エラーが発生しました。</h2>
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+	<pre><span m:id='DEBUG_INFO_HERE'></span></pre>
+
+	<div class="buttonarea">
+		<form m:id='FORM_TAG'>
+			<span m:id='IF_TOKEN_BACK_BUTTON'>
+				<input m:id='TOKEN_BACK_BUTTON_TAG' type="submit" value="前の画面へ戻る " />
+			</span>
+			<span m:id='IF_CART_BACK_BUTTON'>
+				<input m:id='CART_BACK_BUTTON_TAG' type="submit" value="入力画面へ戻る" />
+			</span>
+			<span m:id='IF_TOP_BUTTON'>
+				<input m:id='TOP_BUTTON_TAG' type="submit" value="トップページへ" />
+			</span>
+		</form>
+	</div>
+</section>
+<!-- / error -->
+
+
+</body>
+</html>

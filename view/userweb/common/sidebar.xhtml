@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:aps="eb:AMAZON_PAYMENTS/view_amazon_payments.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+</head>
+
+<body m:id='CONTENT'>
+
+<!-- login -->
+<div m:id='common.IF_MEMBER' m:NOT="" id="login">
+	<h2>ログイン</h2>
+	<p><a href="login.html">ログインはこちら</a></p>
+	<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+	<div m:id='common.IF_USE_CUSTOMER_MANAGEMENT'>
+		<p m:id="common.IF_ENABLE_REGIST_MEMBER"><a href="member_regist_new.html">新規会員登録はこちら</a></p>
+		<p m:id="common.IF_ENABLE_REGIST_CHILD_MEMBER"><a m:id='common.CHILD_MEMBER_REGIST_LINK_TAG' href="javascript:void(0)">子会員登録はこちら</a></p>
+	</div>
+	<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+	<div m:id='common.IF_USE_CUSTOMER_MANAGEMENT' m:NOT="">
+		<p><a href="member_regist_new.html">新規会員登録はこちら</a></p>
+	</div>
+</div>
+<!-- / login -->
+
+
+<!-- login -->
+<div m:id='common.IF_MEMBER' id="login" class="account">
+	<h2>アカウント</h2>
+	<p class="name">こんにちは<br />
+		<strong><span m:id='common.MEMBER_NAME_HERE'>山田 太郎</span> </strong>さん
+	</p>
+	<!-- 性と名を分けて表示する場合 / -->
+	<!-- <p><span m:id='common.MEMBER_L_NAME_HERE'>姓</span><span m:id='common.MEMBER_F_NAME_HERE'>名</span>さん</p>  -->
+	<!-- / 性と名を分けて表示する場合 -->
+	<p m:id='common.IF_USE_POINT'>現在のポイントは <span class="point"><span m:id='common.POINT_HERE'>100000000</span></span>ポイントです</p>
+	<div m:id='common.IF_USE_MEMBER_RANK'>
+		<p m:id='common.IF_MEMBER_RANK'>ただいまのランクは<span m:id='common.MEMBER_RANK_NAME_HERE'>ランクB</span>です。</p>
+		<p m:id='common.IF_NEXT_MEMBER_RANK'>次は<span m:id="common.NEXT_MEMBER_RANK_NAME_HERE">ランクA</span>を目指してください。</p>
+	</div>
+	
+	<p><a href="member_mypage.html">マイページ</a></p>
+	<p><a href="member_regist.html?request=edit">会員情報変更</a></p>
+	<p m:id='common.IF_USE_MEMBER_CREDIT_SAVE'><a href="member_credit_entry.html">クレジットカードの登録</a></p>
+	<p m:id='common.IF_USE_ADDRESS'><a href="address_input.html">アドレス帳新規追加</a></p>
+	<p m:id='common.IF_USE_ADDRESS'><a href="address_list.html">登録済みアドレス帳</a></p>
+	<p m:id='common.IF_USE_MEMBER_HISTORY'><a href="member_history.html">購入履歴を見る</a></p>
+	<p m:id='common.IF_USE_MEMBER_HISTORY'><a m:id='common.IF_CUSTOMER_MANAGEMENT_DISP_OFFICE_MENU_USER' href="member_history.html?request=order_from_btob">事業所購入履歴を見る</a></p>
+	<p m:id='common.IF_USE_ESTIMATE_RECORD'><a href="member_estimate_record.html">見積履歴を見る</a></p>
+	<p m:id='common.IF_CUSTOMER_MANAGEMENT_DISP_OFFICE_MENU_USER'><a m:id='common.CHILD_MEMBER_LIST_LINK_TAG'>子会員一覧を見る</a></p>
+	<p m:id='common.IF_USE_WISHLIST'><a href="wishlist.html">お気に入りリストを見る</a></p>
+	<p m:id='common.IF_USE_MEMBER_TAIKAI'><a href="member_taikai.html">退会する</a></p>
+	<p m:id='common.IF_USE_POINT_RECORD'><a href="member_point_record.html">ポイント履歴</a></p>
+	<!--<p><a href="password_reset.html">パスワード変更</a></p>-->
+	
+	<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS' class="buttonarea">
+		<!-- amazon payments -->
+		<script type="text/javascript" charset="utf-8" src="../js/EbisuAmazonPayments.js"></script>
+		<script type="text/javascript" src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/sandbox/lpa/js/Widgets.js" aps:if="apsIsTestMode"></script>
+		<script type="text/javascript" src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/lpa/js/Widgets.js" aps:if="apsIsLiveMode"></script>
+		<form m:id='common.LOGOUT_FORM_TAG' onsubmit="return window.EbisuAmazonPayments.amazonLogOut();">
+			<input type="submit" value="ログアウト" class="button negative small" />
+		</form>
+		<!-- amazon payments -->
+	</div>
+	
+	<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS' m:NOT="" class="buttonarea">
+		<form m:id='common.LOGOUT_FORM_TAG'>
+			<input type="submit" value="ログアウト" class="button negative small" />
+		</form>
+	</div>
+</div>
+<!-- / login -->
+
+
+<!-- cart -->
+<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+<div id="cart" m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+	<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART" >
+		<h2>カートの中身</h2>
+		<div class="box">
+			<h3>選択商品種類数</h3>
+			<p><span m:id='common.CART_ITEM_COUNT_HERE'>0</span>点</p>
+		</div>
+		<div class="box">
+			<h3>小計金額</h3>
+			<p><span m:id='common.CART_SYOKEI_ZEIKOMI_HERE'>0円</span></p>
+		</div>
+		
+		<a href="cart_index.html" class="button positive">カートを見る</a>
+	<!-- ${/* 
+		別精算ページ機能を使用する場合、下記のようにして別の精算ページへのリンクを作ることもできます
+		<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+			<a href="#" m:id="common.OTHER_SEISAN_PAGE_LINK_TAG" m:seisan_page_id="SAMPLE">サンプル精算を開く</a>
+		</span>
+	*/} -->
+	
+	<!-- ${/* 
+		送料オプション「高額購入割引を使用する」がオンの場合下記m:idが使用できます
+		高額送料割引店舗
+		<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+			<p>送料<span m:id='common.SORYO_DISCOUNT_HERE'>0,000円</span>まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+		</div>
+		
+		高額送料無料店舗
+		<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+			<p>送料無料まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+		</div>
+	*/} -->
+	</div>
+</div>
+<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+<div id="cart" m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+	<h2>カートの中身</h2>
+	<div class="box">
+		<h3>選択商品種類数</h3>
+		<p><span m:id='common.CART_ITEM_COUNT_HERE'>0</span>点</p>
+	</div>
+	<div class="box">
+		<h3>小計金額</h3>
+		<p><span m:id='common.CART_SYOKEI_ZEIKOMI_HERE'>0円</span></p>
+	</div>
+	
+	<a href="cart_index.html" class="button positive">カートを見る</a>
+<!-- ${/* 
+	別精算ページ機能を使用する場合、下記のようにして別の精算ページへのリンクを作ることもできます
+	<a href="#" m:id="common.OTHER_SEISAN_PAGE_LINK_TAG" m:seisan_page_id="SAMPLE">サンプル精算を開く</a>
+*/} -->
+
+<!-- ${/* 
+	送料オプション「高額購入割引を使用する」がオンの場合下記m:idが使用できます
+	高額送料割引店舗
+	<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+		<p>送料<span m:id='common.SORYO_DISCOUNT_HERE'>0,000円</span>まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+	</div>
+	
+	高額送料無料店舗
+	<div m:NOT="" m:id='common.IF_SORYO_DISCOUNT'>
+		<p>送料無料まであと<span m:id='common.SORYO_DISCOUNT_REST_HERE'>0,000円</span>です。</p>
+	</div>
+*/} -->
+</div>
+<!-- / cart -->
+
+
+<!-- category -->
+<div m:id='common.IF_TOP_CATEGORY' id="category">
+	<h2>カテゴリ一覧</h2>
+	<ul>
+		<li m:id='common.LOOP_TOP_CATEGORY'>
+			<span m:id='common.IF_TOP_CATEGORY_SELECTED' m:NOT="">
+				<a m:id='common.TOP_CATEGORY_LINK_TAG' href="">
+					<span m:id='common.TOP_CATEGORY_NAME_HERE'>カテゴリ名</span><span m:id='common.TOP_CATEGORY_COUNT_HERE'>(10)</span>
+				</a>
+			</span>
+			<span m:id='common.IF_TOP_CATEGORY_SELECTED'>
+				<a m:id='common.TOP_CATEGORY_LINK_TAG' href="" class="select">
+					<span m:id='common.TOP_CATEGORY_NAME_HERE'>カテゴリ名</span><span m:id='common.TOP_CATEGORY_COUNT_HERE'>(10)</span>
+				</a>
+			</span>
+		</li>
+	</ul>
+</div>
+
+<!-- 絞り込みオプションがONの時に使用可能
+<div m:id='common.IF_TOP_CATEGORY' id="category">
+	<h2>カテゴリ一覧</h2>
+	<ul>
+		<li m:id='common.LOOP_NARROW_DOWN_CATEGORY'>
+				 <span m:id="common.NARROW_DOWN_CATEGORY_NAME_HERE">カテゴリ名</span>で商品を絞り込む：<br />
+		<span m:id="common.IF_NARROW_DOWN_CATEGORY_ASSIGNED">
+			<a href="javascript:void(0);" m:id="common.CLEAR_NARROW_DOWN_CATEGORY_LINK_TAG">全て</a>
+		</span>
+		<span m:id="common.IF_NARROW_DOWN_CATEGORY_ASSIGNED" m:NOT="">
+			<span class="select">全て</span>
+		</span>
+		<span m:id="common.LOOP_SUB_CATEGORY">
+			<span m:id="common.IF_SUB_CATEGORY_SELECTED_NARROW_DOWN"><span class="select"><span m:id="common.SUB_CATEGORY_NAME_HERE">カテゴリ名</span></span></span>
+			<span m:id="common.IF_SUB_CATEGORY_SELECTED_NARROW_DOWN" m:NOT=""><a href="javascript:void(0);" m:id="common.NARROW_DOWN_SUB_CATEGORY_LINK_TAG"><span m:id="common.SUB_CATEGORY_NAME_HERE">カテゴリ名</span></a></span>
+		</span>
+		</li>
+		絞り込みカテゴリー
+		
+		<div m:id='common.IF_MULTIPLE_NARROWDOWN_CATEGORY_EXIST' id="narrowListCategory">
+			<li m:id='common.LOOP_MULTIPLE_NARROWDOWN_CATEGORY' id="narrowDownCategoryMultiple">
+				<h3 class="toggle">
+					<span m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_GROUP_NAME_HERE'>絞り込み大カテゴリ</span>
+				</h3>
+				<span m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_GROUP_LIST_TAG'>
+					<li m:id='common.LOOP_MULTIPLE_NARROWDOWN_CATEGORY_GROUP'>	
+						<span>
+							<h3 class="toggle">
+								<input type="checkbox" m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_CHECKBOX_TAG'/>
+								<label m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_CHECK_LABEL_TAG'>
+									<span m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_NAME_HERE'>絞り込み中カテゴリ</span>
+								</label>
+							</h3>
+						</span>
+					</li>
+				</span>
+			</li>
+			<ul class="filterArea" m:id="common.IF_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_EXIST">
+				<li m:id="common.LOOP_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY">
+					<span m:id='common.SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_NAME_HERE'>絞り込み中カテゴリ名</span>
+					<a href="#" m:id="common.TAG_CLEAR_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_SINGLE_TAG">×</a>
+				</li>
+				<li class="filter_clear">
+					<a href="#" m:id='common.CLEAR_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_ALL_TAG'>全てを解除</a>
+				</li>
+			</ul>
+		</div>
+	</ul>
+</div> -->
+<!-- / category -->
+
+
+<!-- present -->
+<div m:id='common.IF_PRESENT' id="present">
+	<h2>プレゼント</h2>
+	<div m:id='common.LOOP_PRESENT'>
+		<h3><a href="#" m:id='common.PRESENT_LINK_TAG'><span m:id='common.PRESENT_NAME_HERE'>プレゼント名</span></a></h3>
+		<p class="period">応募期間：<span m:id='common.PRESENT_KIKAN_FROM'>2009年12月12日</span>～<span  m:id='common.PRESENT_KIKAN_TO'>2009年12月12日</span></p>
+	</div>
+	<p class="all"><a href="present_list.html">プレゼント一覧はこちら</a></p>
+</div>
+<!-- / present -->
+
+
+<!-- magazine -->
+<div id="magazine">
+	<h2>メールマガジン</h2>
+	<form m:id='common.MAILMAG_FORM_TAG' name="magazine_form" method="get" action="">
+		<h3>メールアドレス</h3>
+		<input m:id='common.MAILMAG_MAIL_INPUT_TAG' id="magazine_form" class="text" type="text" name="MAIL" />
+		<div class="free">
+			<p m:id='common.IF_MAILMAG_FREE_USE' m:free_item_no='1'>
+				<span m:id='common.MAILMAG_FREE_TITLE_HERE' m:free_item_no='1'>自由項目1</span>
+				<input type="text" m:id="common.MAILMAG_FREE_INPUT_HERE" m:free_item_no='1' />
+			</p>
+			<p m:id='common.IF_MAILMAG_FREE_USE' m:free_item_no='2'>
+				<span m:id='common.MAILMAG_FREE_TITLE_HERE' m:free_item_no='2'>自由項目2</span>
+				<input type="text" m:id="common.MAILMAG_FREE_INPUT_HERE" m:free_item_no='2' />
+			</p>
+			<p m:id='common.IF_MAILMAG_FREE_USE' m:free_item_no='3'>
+				<span m:id='common.MAILMAG_FREE_TITLE_HERE' m:free_item_no='3'>自由項目3</span>
+				<input type="text" m:id="common.MAILMAG_FREE_INPUT_HERE" m:free_item_no='3' />
+			</p>
+			<p m:id='common.IF_MAILMAG_FREE_USE' m:free_item_no='4'>
+				<span m:id='common.MAILMAG_FREE_TITLE_HERE' m:free_item_no='4'>自由項目4</span>
+				<input type="text" m:id="common.MAILMAG_FREE_INPUT_HERE" m:free_item_no='4' />
+			</p>
+			<p m:id='common.IF_MAILMAG_FREE_USE' m:free_item_no='5'>
+				<span m:id='common.MAILMAG_FREE_TITLE_HERE' m:free_item_no='5'>自由項目5</span>
+				<input type="text" m:id="common.MAILMAG_FREE_INPUT_HERE" m:free_item_no='5' />
+			</p>
+		</div>
+		
+		<div class="select_area">
+			<input type="radio" m:id='common.MAILMAG_MAILTYPE_TEXT_RADIO_TAG' id="MAILMAG_TYPE_TEXT" class="radio" />
+			<label for="MAILMAG_TYPE_TEXT">テキスト</label><br />
+			<input type="radio" m:id='common.MAILMAG_MAILTYPE_HTML_RADIO_TAG' id="MAILMAG_TYPE_HTML" class="radio" />
+			<label for="MAILMAG_TYPE_HTML">HTML</label>
+		</div>
+		
+		<p m:id='common.IF_MAILMAG_ERROR' class="error"><span m:id='common.MAILMAG_ERROR_HERE'>メールマガジンエラー</span></p>
+		<p m:id='common.IF_MAILMAG_INFO' class="error"><span m:id='common.MAILMAG_INFO_HERE'>メールマガジンインフォー</span></p>
+		
+		<ul class="buttonarea">
+			<li><input m:id='common.MAILMAG_REGIST_BUTTON_TAG' type="submit" value="購読" class="button positive small" /></li>
+			<li><input m:id='common.MAILMAG_TAIKAI_BUTTON_TAG' type="submit" value="解除" class="button negative small" /></li>
+		</ul>
+		
+	</form>
+</div>
+<!-- / magazine -->
+
+
+<!-- coupon -->
+<div m:id="common.IF_COUPON" id="coupon">
+	<h2>クーポン</h2>
+	<div m:id='common.LOOP_COUPON'>
+		<p><span m:id='common.COUPON_NAME_HERE'>クーポン名</span></p>
+		<div m:id='common.IF_COUPON_IMAGE'><img m:id='common.COUPON_IMAGE_TAG' src="../images/sample_coupon.png" width="168" height="58" /></div>
+	</div>
+</div>
+<!-- / coupon -->
+
+
+<!-- calendar -->
+<div id="calendar">
+	<h2>営業日のご案内</h2>
+	<div id="SIDE_CALENDAR"></div>
+	<p><span class="day_color1">■</span>は定休日です。</p>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	eb$(function(){
+		eb$('#SIDE_CALENDAR').ebisu_calendar({
+			numberOfMonths: [2,1],// カレンダーの表示個数[縦,横]
+			goneMonthCount: 0, // 過去何ヶ月分まで表示するか
+			comingMonthCount: 1, // 未来何ヶ月まで表示するか
+			goneDateCount: 180 , // 現在から何日前までのデータを取得しておくか
+			comingDateCount: 180 // 現在から何日後までのデータを取得しておくか
+		});
+	});
+//]]>
+</script>
+<!-- / calendar -->
+
+
+</body>
+</html>

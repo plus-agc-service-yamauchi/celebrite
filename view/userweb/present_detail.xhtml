@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/present_detail.html?present_id=xxx -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- present_detail -->
+<div id="itemDetail" class="present">
+	<h2>プレゼント詳細</h2>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+	<form m:id='FORM_TAG'>
+		<div class="box">
+			<div class="item_image_area">
+				<div id="targetarea">
+				<div id="main_box">
+					<div class="img_box">
+						<!--この画像サイズを変更する場合はstyle.cssの740,741行目を編集してください-->
+						<img m:id='PRESENT_IMAGE_TAG' src="images/sample.jpg" alt="" />
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="text">
+				<h3><span m:id='PRESENT_NAME_HERE'>プレゼント名</span></h3>
+				<p class="price">
+					<span class="teika">
+						応募期間：<span m:id='OUBO_KIKAN_FROM_HERE'>2009/1/1</span>～<span m:id='OUBO_KIKAN_TO_HERE'>2009/12/12</span>
+					</span>
+					<span m:id='IF_OUBO_KIKAN_NAI' class="other">（応募終了まであと<span m:id='RESTDAYS_HERE'>1</span>日）</span>
+				</p>
+				<p class="information">当選人数：<span m:id='TOSEN_NINZU_HERE'>100</span>名</p>
+				<p class="information" m:id='IF_CHUSEN_MAE'>抽選中です</p>
+				<p class="information" m:id='IF_CHUSEN_GO'>当選発表しました</p>
+				<p class="explanation2"><span m:id='PRESENT_MESSAGE_HERE'>プレセント当選に関して内容が入ります。</span></p>
+				<div m:id='IF_OUBO_KIKAN_NAI'>
+					<p class="appeal" m:id='IF_ENTRYED'>プレゼントにご応募ありがとうございました！</p>
+					<div class="button" m:id='IF_ENTRYED' m:NOT="">
+						<input m:id='LOGIN_BUTTON_TAG' type="submit" value="プレゼントに応募する" class="button positive medium" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- / present_detail -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

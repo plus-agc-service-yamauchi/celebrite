@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu_datepicker_uw.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_estimate_record.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="content">
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+	<div id="history" class="estimate_recode">
+		<div id="estimateListDetail">
+			<h2>見積履歴</h2>
+			<div class="sentence">
+				<p>見積番号をクリックすると見積詳細を確認することができます。</p>
+				<p>見積作成日の新しい順に表示しています。</p>
+				<p><a href="member_history.html">→購入履歴はこちら</a></p>
+				<p m:id="common.IF_USE_CUSTOMER_MANAGEMENT"><a m:id='common.IF_CUSTOMER_MANAGEMENT_DISP_OFFICE_MENU_USER' href="member_history.html?request=order_from_btob">→事業所購入履歴はこちら</a></p>
+				
+				<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+				<p m:id='IF_ESTIMATE_RECORD_EXIST' m:NOT="">見積履歴は登録されていません</p>
+			</div>
+
+			<div m:id='IF_ESTIMATE_RECORD_EXIST'>	
+				<h3>見積履歴一覧</h3>		
+				<div m:id="LOOP_ESTIMATE_RECORD" class="box">
+					<div class="infoarea">
+						<span class="status_icon estimate"><span m:id="ESTIMATE_STATUS_HERE">注文済</span></span>
+					</div>
+					<h4><a m:id='ESTIMATE_ORDER_LINK_TAG' href="#"><span m:id="ESTIMATE_NO_HERE">00000</span></a></h4>
+					<div class="sentence">
+						<ul>
+							<li>
+								<span class="title">見積作成日：</span>
+								<span m:id="ESTIMATE_DATE_YEAR_HERE">2014</span>年
+								<span m:id="ESTIMATE_DATE_MONTH_HERE">11</span>月
+								<span m:id="ESTIMATE_DATE_DAY_HERE">11</span>日
+							</li>
+							<li m:id="IF_ESTIMATE_LIMIT_DATE">
+								<span class="title">見積有効期限：</span>
+								<span m:id="ESTIMATE_LIMIT_DATE_YEAR_HERE">2014</span>年
+								<span m:id="ESTIMATE_LIMIT_DATE_MONTH_HERE">11</span>月
+								<span m:id="ESTIMATE_LIMIT_DATE_DAY_HERE">11</span>日
+							</li>
+							<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+							<li m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+								<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+									<span class="title">合計金額：</span>
+									<span m:id="SEIKYU_PRICE_HERE">1,000円</span>
+								</div>
+							</li>
+							<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+							<li m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+								<span class="title">合計金額：</span>
+								<span m:id="SEIKYU_PRICE_HERE">1,000円</span>
+							</li>
+							<li>
+								<span class="title">決済方法：</span>
+								<span m:id="KESSAI_NAME_HERE">支払方法</span>
+							</li>
+							<li m:id="IF_ESTIMATE_ORDER">
+								<span class="title">受注番号：</span>
+								<span><a m:id='ESTIMATE_ORDER_NO_LINK_TAG' href="#"><span m:id="ESTIMATE_ORDER_NO_HERE">000000</span></a></span>
+							</li>
+							<li m:id="IF_ESTIMATE_REPLY_COMMENT" class="estimate_reply">
+								<span class="title">見積回答コメント：</span>
+								<div class="text">
+									<span m:id="ESTIMATE_REPLY_COMMENT_HERE">見積コメントが表示されます。</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="sentence buttonarea">
+						<a m:id='ESTIMATE_DOWNLOAD_LINK_TAG' href="#" class="estimateButton">見積書ダウンロード</a>
+						<span m:id="IF_AVAILABLE_ESTIMATE_ORDER"><a m:id='ESTIMATE_ORDER_LINK_TAG' href="#">注文</a></span>
+					</div>
+				</div>
+	
+				<table class="pagelink">
+					<tr>
+						<td class="button"><span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">＜ 前へ</a></span></td>
+						<td class="link"><span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span></td>
+						<td class="button"><span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次へ ＞</a></span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END=============================================== -->
+<!-- =============================================================================== -->
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

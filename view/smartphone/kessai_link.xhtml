@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:gmo="eb:GMOPG_RAKUTENID/view_gmopg_rakuten_id.json" xmlns:merpay="eb:MERPAY/view_merpay.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' defer="defer" src="https://netpayment.merpay.com/sdk/widget.js"></script>
+<script m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' type="text/javascript">
+//<![CDATA[
+eb$(function(){
+	eb$('.merpay-button').on('click', function(){
+		var form = eb$(this).parents('form');
+		form.submit();
+	});
+})
+//]]>
+</script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/kessai_link.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- kessaiLink -->
+<section id="cartFlow">
+  <h2>決済情報入力</h2>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	 width="100%"	onload="resize_iframe(this)"></iframe>
+
+	<h3>ご注文内容 [受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>]</h3>
+
+	<div m:id="IF_LINK_OR_POPUP_KESSAI">
+		<div class="sentence">
+			<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID'>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' m:NOT="">
+					<div gmo:if="gmoIsRakutenId" m:NOT="">
+						<p>
+							このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+							下記のボタンを押して、お客様のカード番号等を入力し、ご注文を完了させてください。
+						</p>
+					</div>
+				</div>
+				<div gmo:if="gmoIsRakutenId">
+					<p>
+						このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+						下記のボタンを押して、お客様の情報を入力し、ご注文を完了させてください。
+					</p>
+				</div>
+			</div>
+			<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY'>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID' m:NOT="">
+					<div merpay:if="isMerpay" m:NOT="">
+						<div m:id='IF_KESSAI_ID' m:kessai_id='269'>
+							<p>
+								このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+								下記のボタンを押して、お客様の情報を入力し、ご注文を完了させてください。
+							</p>
+						</div>
+						<div m:id='IF_KESSAI_ID' m:kessai_id='269' m:NOT="">
+							<p>
+								このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+								下記のボタンを押して、お客様のカード番号等を入力し、ご注文を完了させてください。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div merpay:if="isMerpay">
+					<p>
+						下記ボタンをクリックしてメルペイ画面に遷移し、支払いのお手続きをしてください。
+					</p>
+				</div>
+			</div>
+			<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID' m:NOT="">
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' m:NOT="">
+					<div m:id='IF_KESSAI_ID' m:kessai_id='269'>
+						<p>
+							このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+							下記のボタンを押して、お客様の情報を入力し、ご注文を完了させてください。
+						</p>
+					</div>
+					<div m:id='IF_KESSAI_ID' m:kessai_id='269' m:NOT="">
+						<p>
+							このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+							下記のボタンを押して、お客様のカード番号等を入力し、ご注文を完了させてください。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID'>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY'>
+					<div gmo:if="gmoIsRakutenId" m:NOT="">
+						<div merpay:if="isMerpay" m:NOT="">
+							<p>
+								このご注文は、まだお支払い情報の入力が完了しておりません。<br />
+								下記のボタンを押して、お客様のカード番号等を入力し、ご注文を完了させてください。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+
+	    <div class="buttonarea" m:id="IF_POPUP_KESSAI">
+			<a href="#" m:id="POPUP_ORDER_BUTTON_TAG" class="add">Paidyで支払う</a>
+	    </div>
+	    <div class="buttonarea" m:id="IF_POPUP_KESSAI" m:NOT="">
+	        <form m:id="KESSAI_LINK_FORM_TAG">
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID'>
+					<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' m:NOT="">
+						<div gmo:if="gmoIsRakutenId" m:NOT="">
+							<input type="submit" value="カード情報入力へ進む" />
+						</div>
+					</div>
+					<div gmo:if="gmoIsRakutenId">
+						<input type="image" id="gmoRakutenId" src="https://checkout.rakuten.co.jp/p/common/img/btn_check_00.gif" alt="情報入力へ進む"/>
+					</div>
+				</div>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY'>
+					<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID' m:NOT="">
+						<div merpay:if="isMerpay" m:NOT="">
+							<div m:id='IF_KESSAI_ID' m:kessai_id='269'>
+								<input type="submit" value="決済手続きへ進む" />
+							</div>
+							<div m:id='IF_KESSAI_ID' m:kessai_id='269' m:NOT="">
+								<input type="submit" value="カード情報入力へ進む" />
+							</div>
+						</div>
+					</div>
+					<div merpay:if="isMerpay">
+						<merpay-button class="merpay-button"></merpay-button>
+					</div>
+				</div>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID' m:NOT="">
+					<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY' m:NOT="">
+						<div m:id='IF_KESSAI_ID' m:kessai_id='269'>
+							<input type="submit" value="決済手続きへ進む" />
+						</div>
+						<div m:id='IF_KESSAI_ID' m:kessai_id='269' m:NOT="">
+							<input type="submit" value="カード情報入力へ進む" />
+						</div>
+					</div>
+				</div>
+				<div m:id='common.IF_APP_INSTALLED' m:app_cd='GMOPG_RAKUTENID'>
+					<div m:id='common.IF_APP_INSTALLED' m:app_cd='MERPAY'>
+						<div gmo:if="gmoIsRakutenId" m:NOT="">
+							<div merpay:if="isMerpay" m:NOT="">
+								<input type="submit" value="カード情報入力へ進む" />
+							</div>
+						</div>
+					</div>
+				</div>
+	        </form>
+	    </div>
+	</div>
+
+	<div class="sentence" m:id="IF_LINK_OR_POPUP_KESSAI" m:NOT="">
+		<p>決済情報入力画面へ遷移できません。管理者へお問い合わせください。</p>
+	</div>
+
+</section>
+<!-- / kessaiLink -->
+
+
+<!-- footer -->
+<footer>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+
+</body>
+</html>

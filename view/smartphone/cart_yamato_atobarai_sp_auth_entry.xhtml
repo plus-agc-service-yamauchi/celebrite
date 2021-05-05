@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/yamato_atobarai.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/cart_veritrans3g_ginren_entry.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+<section id="cartFlow">
+	<h2>SMS認証番号入力</h2>
+	<div class="sentence">
+		<p>
+			まだご注文は完了していません。SMSで届いた認証コードを入力してください。<br />
+			<span class="attention_message">SMSが届かない場合、画面を戻り再操作いただくか、他の決済方法を選択してください。</span>
+		</p>
+	</div>
+
+	<!--cartProgress start-->
+	<form m:id='FORM_TAG'>
+		<div class="sentence">
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+			<div class="yamato_atobarai_auth_code">
+				<input m:id='ATOBARAI_AUTH_CODE1_INPUT_HERE' value='' type='text' name='' />
+				<input m:id='ATOBARAI_AUTH_CODE2_INPUT_HERE' value='' type='text' name='' />
+				<input m:id='ATOBARAI_AUTH_CODE3_INPUT_HERE' value='' type='text' name='' />
+				<input m:id='ATOBARAI_AUTH_CODE4_INPUT_HERE' value='' type='text' name='' />
+			</div>
+		</div>
+		<div class="buttonarea">
+			<input type="submit" value="送信" />
+			<a m:id='BACK_BUTTON_TAG' href="#" class="cancel">戻る</a>
+		</div>
+
+	</form>
+	<!--cartProgress end-->
+</section>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+</body>
+</html>

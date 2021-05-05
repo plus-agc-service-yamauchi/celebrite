@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/wishlist.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- wishlist -->
+<div id="wishList">
+	<h2>お気に入りリスト</h2>
+	<p>登録の新しい順に表示しています。</p>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<p m:id="IF_GO_BACK_TO_ITEM"><a m:id="GO_BACK_TO_ITEM_LINK_TAG" href="#">商品詳細に戻る</a></p>
+	
+	<div m:id='IF_ITEM_EXIST'>
+		<div m:id='IF_USE_MEMBER_WISH_LIST_PAGING'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			<div class="pagelink">					
+				<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+				<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+			</div>
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+			
+			<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+			<!-- <div class='pagelink'>
+				<span m:id='IF_PREV_PAGE'><a href="#" m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+				<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+				<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+						<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span> 
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+						</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+						<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+							<span m:id="PAGE_LINK_NO_HERE">1</span>
+						</span>
+						<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+							<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+						</span>
+						 | 
+					</span>
+				</span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id='IF_NEXT_PAGE'> | <a href="#" m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+				<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+			</div> -->
+		<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+		</div>
+	</div>
+	
+	<form m:id='FORM_TAG'>
+		<div class="box" m:id='LOOP_WISHLIST'>
+			<div class="img_box">
+				<a m:id='ITEM_DETAIL_LINK_TAG' href="#"><img src="images/sample.jpg" m:id='ITEM_IMAGE_TAG' /></a>
+			</div>
+			<div class="text">
+				<h3>
+					<a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id='ITEM_NAME_HERE'>商品名</span></a>
+				</h3>
+				<p m:id='IF_TEMPOORARY_REGIST' class="provisional">[仮登録]</p>
+				<p class="appeal">
+					登録日時：<span m:id='REGIST_YEAR_HERE'>2009</span>年<span m:id='REGIST_MONTH_HERE'>08</span>月<span m:id='REGIST_DAY_HERE'>01</span>日 <span m:id='REGIST_HOUR_HERE'>0</span>時<span m:id='REGIST_MINUTE_HERE'>00</span>分
+				</p>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<p m:id="common.IF_USE_CUSTOMER_MANAGEMENT" class="price">
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>99,800円</span>（税込）
+						<!-- (本体価格：<span m:id='TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>,消費税：<span m:id='TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>) -->
+						<span m:id='IF_MEMBER_TEIKA'>
+							[お客様限定価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='zeikomi'>9,980円</span>
+							<!--(本体価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='hontai'>9,505円</span>, 消費税：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='tax'>475円</span>)-->]
+						</span>
+						<span m:id='IF_DISCOUNT'>
+							[会員割引価格：<span m:id='DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+							<!--(本体価格：<span m:id='DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='DISCOUNT_TAX_HERE'>475円</span>)-->]
+						</span>
+						<span m:id='IF_TIMESALE_KAKAKU'>
+							[タイムセール価格：<span m:id='TIMESALE_PRICE_HERE' m:tax='zeikomi'>9,980円</span>]
+						</span>
+					</span>
+				</p>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<p m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="" class="price">
+					<span m:id='TEIKA_PRICE_HERE' m:tax='zeikomi' m:quantity='lot'>99,800円</span>（税込）
+					<!-- (本体価格：<span m:id='TEIKA_PRICE_HERE' m:tax='hontai' m:quantity='lot'>9,505円</span>,消費税：<span m:id='TEIKA_PRICE_HERE' m:tax='tax' m:quantity='lot'>475円</span>) -->
+					<span m:id='IF_MEMBER_TEIKA'>
+						[お客様限定価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='zeikomi'>9,980円</span>
+						<!--(本体価格：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='hontai'>9,505円</span>, 消費税：<span m:id='MEMBER_TEIKA_PRICE_HERE' m:tax='tax'>475円</span>)-->]
+					</span>
+					<span m:id='IF_DISCOUNT'>
+						[会員割引価格：<span m:id='DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+						<!--(本体価格：<span m:id='DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='DISCOUNT_TAX_HERE'>475円</span>)-->]
+					</span>
+					<span m:id='IF_TIMESALE_KAKAKU'>
+						[タイムセール価格：<span m:id='TIMESALE_PRICE_HERE' m:tax='zeikomi'>9,980円</span>]
+					</span>
+				</p>
+				<div class="explanation1">
+					<h4>あなたのコメント <a href="#" m:id="COMMENT_EDIT_LINK_TAG" class="button normal small">コメントの入力・編集</a></h4>
+					<p>
+						<span m:id='COMMENT_HERE'>ここにコメントが入ります。</span>
+						
+	<!--			このページ内でフォームにコメントを残す場合は下記を使用
+						<textarea m:id='COMMENT_INPUT_HERE' rows="2" cols="60"></textarea>
+						<input m:id='COMMENT_SAVE_BUTTON_TAG' type="button" value="保存" />
+						<br /><span m:id='COMMENT_SAVE_MESSAGE_HERE'>ここにメッセージが表示されます。</span>
+	-->
+					</p>
+				</div>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" class="button_area">
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+						<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+							<span m:id='IF_CART_PUTTABLE_ITEM'><a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);" class="button positive small">カートに入れる</a></span>
+							<span m:id='IF_CART_PUTTABLE_ITEM' m:NOT="" class="button not_click small">カートに入れる</span>
+						</span>
+						<p m:id='IF_ITEM_PROPERTY' class="property">
+							商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+						</p>
+						<!-- カート画面に遷移せずポップアップを使用する場合
+						<span m:id='IF_PUT_TO_CART'>
+							<span class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+								</div>
+							</span>
+						</span>
+						<p m:id='IF_ITEM_PROPERTY' class="property">
+							商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+						</p>
+						-->
+					</span>
+					<a href="javascript:void(0);" m:id="DELETE_WISHLIST_BUTTON_TAG" class="button negative small">削除</a>
+				</div>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="" class="button_area">
+					<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+						<span m:id='IF_CART_PUTTABLE_ITEM'><a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);" class="button positive small">カートに入れる</a></span>
+						<span m:id='IF_CART_PUTTABLE_ITEM' m:NOT="" class="button not_click small">カートに入れる</span>
+					</span>
+					<p m:id='IF_ITEM_PROPERTY' class="property">
+						商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+					</p>
+					<!-- カート画面に遷移せずポップアップを使用する場合
+					<span m:id='IF_PUT_TO_CART'>
+						<span class="cartSubmitButton">
+							<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+							<div class="cartMessage">
+								<p class="title">カートに追加されました。</p>
+								<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+								<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+								<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+							</div>
+						</span>
+					</span>
+					<p m:id='IF_ITEM_PROPERTY' class="property">
+						商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+					</p>
+					-->
+					<a href="javascript:void(0);" m:id="DELETE_WISHLIST_BUTTON_TAG" class="button negative small">削除</a>
+				</div>			
+			</div>
+		</div>
+	</form>
+	<div m:id='IF_ITEM_EXIST'>
+		<div m:id='IF_USE_MEMBER_WISH_LIST_PAGING'>
+			<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<div class="pagelink">
+				<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+				<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+			</div>
+			<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+		</div>
+	</div>
+</div>
+<!-- / wishlist -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END=============================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

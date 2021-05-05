@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu_datepicker_uw.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_history.html -->
+<script>
+	eb$(function() {
+		eb$.datepicker.setDefaults(eb$.datepicker.regional["ja"]);
+		eb$("#ORDER_DATE_FROM").datepicker();
+		eb$("#ORDER_DATE_TO").datepicker();
+	});
+</script>
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- history -->
+<div id="history">
+	<h2>購入履歴</h2>
+	<div m:id='IF_ESTIMATE_ORDER_DISP' m:NOT="">
+		<p>
+			過去に購入したことのある商品を確認することができます。<br />
+			注文の新しい順に表示しています。
+		</p>
+		<p m:id='IF_TEIKI_HISTORY'><a m:id='TEIKI_HISTORY_LINK_TAG' href="#">→定期購入商品の確認・変更はこちら</a></p>
+		<p m:id='common.IF_USE_REVIEW'><a m:id="MEMBER_REVIEW_LINK_TAG" href="javascript:void(0);">→レビュー一覧はこちら</a></p>
+		<p m:id='common.IF_USE_YOYAKU'>
+			<span m:id="IF_YOYAKU_HISTORY" m:NOT="">
+				<a m:id='YOYAKU_HISTORY_LINK_TAG' href="javascript:void(0);">→予約中の注文履歴はこちら</a>
+			</span>
+			<span m:id="IF_YOYAKU_HISTORY">
+				<a href="member_history.html">→確定済の注文履歴はこちら</a>
+			</span>
+		</p>
+		<p m:id='common.IF_USE_ESTIMATE_RECORD'><a href="member_estimate_record.html">→見積履歴はこちら</a></p>
+		<p m:id="IF_USE_WEBMONEY_QUICK_KESSAI"><a m:id="WEBMONEY_HISTORY_LINK_TAG" href="javascript:void(0);" class="webmoney-usage-detail">→WebMoney利用明細</a></p>
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+		<div m:id="IF_MEMBER_HISTORY_SEARCH">
+			<form m:id="SEARCH_FORM_TAG">
+				<h3>購入履歴の検索</h3>
+				<div class="search">
+					<table class="form">
+						<tr>
+							<th>購入日</th>
+							<td>
+								<input m:id='SEARCH_CONDITION_ORDER_DATE_FROM_INPUT_HERE' type="text" /> ～ <input m:id='SEARCH_CONDITION_ORDER_DATE_TO_INPUT_HERE' type="text" />
+							</td>
+						</tr>
+						<tr>
+							<th>商品名</th>
+							<td><input type="text" m:id='SEARCH_CONDITION_ITEM_NAME_INPUT_HERE'/>（部分一致検索）</td>
+						</tr>
+						<tr>
+							<th>注文ステータス</th>
+							<td><input type="text" m:id='SEARCH_CONDITION_ORDER_STATUS_INPUT_HERE'/></td>
+						</tr>
+					</table>
+					<div class="buttonarea">
+						<a m:id="CLEAR_BUTTON_TAG" href="javascript:void(0);" class="button negative medium">クリア</a>
+						<input type="submit" value="検索" class="button positive medium" />
+					</div>
+				</div>
+			</form>
+		</div>
+		<div m:id='IF_ORDER_EXIST'>
+			<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+			<div class="pagelink" m:id="IF_MEMBER_HISTORY_SEARCH">
+				<span m:id="IF_PREV_PAGE"><a m:id="SEARCH_PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+				<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id="IF_NEXT_PAGE"> | <a m:id="SEARCH_NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+			</div>
+			<div class="pagelink" m:id="IF_MEMBER_HISTORY_SEARCH" m:NOT="">
+				<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+				<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+				&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+				<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+		<!-- 
+		<div class='pagelink' m:id="IF_MEMBER_HISTORY_SEARCH">
+			<span m:id='IF_PREV_PAGE'><a m:id='SEARCH_PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">	
+				<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+					<span m:id="PAGE_LINK_NO_HERE">1</span> 
+				</span>
+				<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+					<a href="#" m:id="SEARCH_PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+				</span>
+				|
+				</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a m:id='SEARCH_NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</div>  
+		<div class='pagelink' m:id="IF_MEMBER_HISTORY_SEARCH" m:NOT="">
+			<span m:id='IF_PREV_PAGE'><a m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">	
+				<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+					<span m:id="PAGE_LINK_NO_HERE">1</span> 
+				</span>
+				<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+					<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+				</span>
+				|
+				</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</div>  
+		-->
+	<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+	
+	<h3>購入履歴の一覧</h3>
+	<div m:id='LOOP_ORDER'>
+		<!-- ======================手配中====================== / -->
+		<div class="infoarea preparing" m:id='IF_STATUS_PREPARING_BEFORE_DELIVER'>
+			<div class="status_icon">手配中</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				<span m:id="IF_SHIP_SLIP_NO">宅配伝票番号：<span m:id='SHIP_SLIP_NO_HERE'>00000000</span></span>
+				<span m:id="IF_YOYAKU_DATE">予約日時：<span m:id='YOYAKU_YEAR_HERE'>2009</span>年<span m:id='YOYAKU_MONTH_HERE'>08</span>月<span m:id='YOYAKU_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='YOYAKU_MINUTE_HERE'>00</span>分</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================手配中====================== -->
+		
+		<!-- ======================配送中====================== / -->
+		<div class="infoarea delivering" m:id='IF_STATUS_DELIVERING'>
+			<div class="status_icon">配送中</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				<span m:id="IF_SHIP_SLIP_NO">宅配伝票番号：<span m:id='SHIP_SLIP_NO_HERE'>00000000</span></span>
+				<span m:id="IF_YOYAKU_DATE">予約日時：<span m:id='YOYAKU_YEAR_HERE'>2009</span>年<span m:id='YOYAKU_MONTH_HERE'>08</span>月<span m:id='YOYAKU_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='YOYAKU_MINUTE_HERE'>00</span>分</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================配送中====================== -->
+		
+		<!-- ======================配送済====================== / -->
+		<div class="infoarea delivered" m:id='IF_STATUS_DELIVERED'>
+			<div class="status_icon">配送済</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				<span m:id="IF_SHIP_SLIP_NO">宅配伝票番号：<span m:id='SHIP_SLIP_NO_HERE'>00000000</span></span>
+				<span m:id="IF_YOYAKU_DATE">予約日時：<span m:id='YOYAKU_YEAR_HERE'>2009</span>年<span m:id='YOYAKU_MONTH_HERE'>08</span>月<span m:id='YOYAKU_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='YOYAKU_MINUTE_HERE'>00</span>分</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================配送済====================== -->
+		
+		<!-- ======================取消済====================== / -->
+		<div class="infoarea canceled" m:id='IF_STATUS_CANCELED'>
+			<div class="status_icon">取消済</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				<span m:id="IF_SHIP_SLIP_NO">宅配伝票番号：<span m:id='SHIP_SLIP_NO_HERE'>00000000</span></span>
+				<span m:id="IF_YOYAKU_DATE">予約日時：<span m:id='YOYAKU_YEAR_HERE'>2009</span>年<span m:id='YOYAKU_MONTH_HERE'>08</span>月<span m:id='YOYAKU_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='YOYAKU_MINUTE_HERE'>00</span>分</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================取消済====================== -->
+		
+		<!-- ======================予約済====================== / -->
+		<div class="infoarea yoyaku" m:id='IF_STATUS_YOYAKU'>
+			<div class="status_icon">予約済</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>			
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				<span m:id="IF_SHIP_SLIP_NO">宅配伝票番号：<span m:id='SHIP_SLIP_NO_HERE'>00000000</span></span>
+				<span m:id="IF_YOYAKU_DATE">予約日時：<span m:id='YOYAKU_YEAR_HERE'>2009</span>年<span m:id='YOYAKU_MONTH_HERE'>08</span>月<span m:id='YOYAKU_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='YOYAKU_MINUTE_HERE'>00</span>分</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================予約済====================== -->
+		
+		<!-- ======================定期にまとめて====================== / -->
+		<div class="infoarea teiki_together" m:id='IF_STATUS_TEIKI_TOGETHER'>
+			<div class="status_icon">定期にまとめて</div>
+			<div m:id='IF_CANCEL_ORDER' class="cancel">
+				<form m:id='CANCEL_ORDER_FORM_TAG'>
+					<input m:id='CANCEL_ORDER_BUTTON_TAG' type="submit" value="取消する" class="button negative small" />
+				</form>
+			</div>
+			<div m:id="IF_CAN_CHANGE_KESSAI" class="payment_change">
+				<a m:id="CHANGE_KESSAI_BUTTON_TAG" href="#" class="button positive small">支払方法を変更する</a>
+			</div>
+
+			<div class="date">
+				受注番号：<span m:id='ORDER_DISP_NO_HERE'>00000000</span>
+				購入日時：<span m:id='ORDER_YEAR_HERE'>2009</span>年<span m:id='ORDER_MONTH_HERE'>08</span>月<span m:id='ORDER_DAY_HERE'>01</span>日 <span m:id='ORDER_HOUR_HERE'>0</span>時<span m:id='ORDER_MINUTE_HERE'>00</span>分
+				まとめ先定期受注番号：<span m:id='TEIKI_TOGETHER_ORDER_NO_HERE'>0000001</span>
+				<span m:id="IF_SEND_HOPE_DATE">配送希望日：<span m:id='SEND_HOPE_YEAR_HERE'>2009</span>年<span m:id='SEND_HOPE_MONTH_HERE'>08</span>月<span m:id='SEND_HOPE_DAY_HERE'>01</span>日（<span m:id='SEND_HOPE_TIME_HERE'>配送希望時間</span>）</span>
+			</div>
+		</div>
+		<!-- / ======================定期にまとめて====================== -->
+		<!-- ======================見積====================== / -->
+		<div class="infoarea estimate">
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<span class="seikyu_price" m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+					請求金額：<span m:id="SEIKYU_PRICE_HERE">10,000円</span>
+				</span>
+			</span>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<span class="seikyu_price" m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				請求金額：<span m:id="SEIKYU_PRICE_HERE">10,000円</span>
+			</span>
+			<span m:id='IF_ESTIMATE_RECORD' class="estimate_number">
+				(見積番号：<a m:id="ESTIMATE_ORDER_LINK_TAG" href=""><span m:id='ESTIMATE_DISP_NO_HERE'>00000000</span></a>)
+			</span>		
+		</div>
+		<!-- / ======================見積====================== -->
+		<table summary="購入履歴">
+			<tr>
+				<th class="code">商品コード</th>
+				<th>商品名</th>
+				<th>数量</th>
+				<th>単価</th>
+				<th>小計</th>
+				<th class="cart">
+					<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+						<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+							<div m:id='IF_PUT_TO_CART_ALL'>
+								<a m:id='PUT_TO_CART_ALL_LINK_TAG' href="#" class="button positive small">すべての商品をカートに入れる</a>
+							</div>
+						</span>
+					</span>
+					<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+						<div m:id='IF_PUT_TO_CART_ALL'>
+							<a m:id='PUT_TO_CART_ALL_LINK_TAG' href="#" class="button positive small">すべての商品をカートに入れる</a>
+						</div>
+					</span>
+					<a m:id="NOUHINSHO_LINK_TAG" href="#" class="button positive small delivery_slip">納品書ダウンロード</a>
+				</th>
+			</tr>
+			<tbody m:id='LOOP_ITEM'>
+				<tr>
+					<td><span m:id='ITEM_CODE_HERE'>A001002-01</span></td>
+					<td>
+						<div class="img_box" m:id="IF_ITEM_IMAGE">
+							<!--この画像サイズを変更する場合はstyle.cssの814,815行目を編集してください-->
+							<img m:id='ITEM_IMAGE_TAG' src="images/sample2.jpg" alt="" />
+						</div>
+						<span m:id='ITEM_NAME_HERE'>商品名</span>
+						<span m:id="IF_ITEM_DOWNLOAD"><a m:id="ITEM_DOWNLOAD_LINK" href="#">→ダウンロードページへ</a></span>
+					</td>
+					<td class="amount">
+						<span m:id="IF_LOT"><span m:id='ITEM_AMOUNT_HERE'>1</span>ケース（<span m:id="ITEM_QUANTITY_HERE">2</span>個）</span>
+						<span m:id="IF_LOT" m:NOT=""><span m:id='ITEM_AMOUNT_HERE'>1</span>個</span>
+					</td>
+					<td class="price">
+						<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+							<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+								<span m:id='ITEM_PRICE_HERE'>10,000円</span>
+								<span class='reducedTax'><span m:id='IF_START_REDUCED_TAX'><span m:id='IF_ITEM_TAX_RATE'>(消費税率：<span m:id='ITEM_TAX_RATE_HERE'>0</span>％)</span></span></span>
+							</span>
+						</span>
+						<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+							<span m:id='ITEM_PRICE_HERE'>10,000円</span>
+							<span class='reducedTax'><span m:id='IF_START_REDUCED_TAX'><span m:id='IF_ITEM_TAX_RATE'>(消費税率：<span m:id='ITEM_TAX_RATE_HERE'>0</span>％)</span></span></span>							
+						</span>
+					</td>
+					<td class="price">
+						<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+							<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE"><span m:id='ITEM_SYOKEI_PRICE_HERE'>10,000円</span></span>
+						</span>
+						<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+							<span m:id='ITEM_SYOKEI_PRICE_HERE'>10,000円</span>
+						</span>
+					</td>
+					<td class="cart">
+						<span m:id='IF_LINK_OK'>
+							<a m:id='ITEM_LINK_TAG' href="#" class="button positive small">商品詳細へ</a>
+						</span>
+						<span m:id='IF_LINK_OK' m:NOT="">
+							<span class="button not_click small">商品詳細へ</span>
+						</span>
+						<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+							<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+								<span m:id='IF_CART_AVAILABLE'>
+									<a m:id='PUT_TO_CART_LINK_TAG' href="#" class="button positive small">カートに入れる</a>
+								</span>
+								<span m:id='IF_CART_AVAILABLE' m:NOT="">
+									<span class="button not_click small">カートに入れる</span>
+									<span m:id='IF_ITEM_PROPERTY' class="property">商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。</span>
+								</span>
+								<!-- カート画面に遷移せずポップアップを使用する場合
+								<span class="cartSubmitButton">
+									<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+									<div class="cartMessage">
+										<p class="title">カートに追加されました。</p>
+										<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+										<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+										<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+									</div>
+								</span>
+								<p m:id='IF_ITEM_PROPERTY' class="property">
+									商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+								</p>
+								-->
+							</span>
+						</span>
+						<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+						<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+							<span m:id='IF_CART_AVAILABLE'>
+								<a m:id='PUT_TO_CART_LINK_TAG' href="#" class="button positive small">カートに入れる</a>
+							</span>
+							<span m:id='IF_CART_AVAILABLE' m:NOT="">
+								<span class="button not_click small">カートに入れる</span>
+								<span m:id='IF_ITEM_PROPERTY' class="property">商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。</span>
+							</span>
+							<!-- カート画面に遷移せずポップアップを使用する場合
+							<span class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+								</div>
+							</span>
+							<p m:id='IF_ITEM_PROPERTY' class="property">
+								商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+							</p>
+							-->
+						</span>
+					</td>
+				</tr>
+				<tr m:id="common.IF_USE_SEND_TO_MULTI_ADDRESS">
+					<td colspan="6" m:id="IF_NOT_BEFORE_ORDER_SEND">
+						送付先：<span m:id="SEND_L_NAME_HERE">田中</span> <span m:id="SEND_F_NAME_HERE">太郎</span> 様 
+						〒<span m:id="SEND_ZIP_HERE">111-2222</span> 
+						<span m:id="SEND_ADDR1_HERE">東京都</span> 
+						<span m:id="SEND_ADDR2_HERE">千代田区１－２－３</span> 
+						<span m:id="SEND_ADDR3_HERE">○○ビル10F</span>
+					</td>
+				</tr>
+				<tr m:id="IF_SEND_FREE" m:free_item_no="1">
+					<td colspan="6">
+						<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="1">送付先自由項目１タイトル</span>：<span m:id="SEND_FREE_VALUE_HERE" free_item_no="1">送付先自由項目１</span><br />
+						<span m:id="SEND_FREE_COMMENT_HERE" m:free_item_no="1">送付先自由項目１コメント</span>
+					</td>
+				</tr>
+			</tbody>
+			<tr>
+				<td colspan="6">
+					決済方法：<span m:id="KESSAI_NAME_HERE">銀行振込</span>
+				</td>
+			</tr>
+			<tr m:id="IF_HARAIKOMI_KESSAI_AND_NOT_PAYED">
+				<td colspan="6">
+					<span m:id="IF_HARAIKOMI_URL" m:NOT="">
+						お支払い方法：<br />
+						<span m:id="HARAIKOMI_KESSAI_MESSAGE_HERE">支払い番号は...です。<br />紙に控えてコンビニに。。。。</span>
+					</span>
+					<span m:id="IF_HARAIKOMI_URL">
+						払込URL:<a href="javascript:void(0);" m:id="HARAIKOMI_URL_LINK_TAG"><span m:id="HARAIKOMI_URL_HERE">http://example.com/sample</span></a>
+					</span>
+				</td>
+			</tr>
+			<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+			<tr m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+				<td colspan="6">
+					適用されたキャンペーン：
+					<span m:id="IF_CAMPAIGN">
+						<span m:id="LOOP_CAMPAIGN" m:campaign_kikan="CAMPAIGN_ALL" m:targetonly="true" class="campaign">
+							<span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span> 							
+						</span>
+					</span>
+					<span m:id="IF_CAMPAIGN" m:NOT=''>なし</span>
+				</td>
+			</tr>
+			<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+			<tr m:id="IF_COUPON_WARIBIKI">
+				<td colspan="6">
+					適用されたクーポン：<span m:id="COUPON_NAME_HERE">クーポン名</span> 							
+				</td>
+			</tr>
+		</table>
+		<div m:id='common.IF_USE_ESTIMATE' >
+			<div m:id='IF_ESTIMATE_ORDER_DISP' class="buttonarea">
+				<a  href="member_estimate_record.html" class="button negative medium">戻る</a>
+			</div>
+		</div>
+	</div>
+	<div m:id='IF_ORDER_EXIST'>
+		<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+		<div class="pagelink" m:id="IF_MEMBER_HISTORY_SEARCH">
+			<span m:id="IF_PREV_PAGE"><a m:id="SEARCH_PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+			<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id="IF_NEXT_PAGE"> | <a m:id="SEARCH_NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+		</div>
+		<div class="pagelink" m:id="IF_MEMBER_HISTORY_SEARCH" m:NOT="">
+			<span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">&laquo; 前ページを表示</a> | </span>
+			<span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id="IF_NEXT_PAGE"> | <a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次ページを表示 &raquo;</a></span>
+		</div>
+	</div>
+</div>
+<!-- / history -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

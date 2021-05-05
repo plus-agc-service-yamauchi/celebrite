@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+		$('.box').tile(2);
+});
+//]]>
+</script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/present_login.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- present_login -->
+<div id="presentFlow">
+<div id="cartLogin">
+	<h2>プレゼント応募</h2>
+	<form m:id='FORM_TAG'>
+		<!--<img src="images/present_step01.gif" width="560" height="40" alt="STEP1 ログイン" class="step" />-->
+		<div class="cart_step">
+			<ul>
+				<li class="active"><strong>1</strong>ログイン</li>
+				<li><strong>2</strong>お客様情報入力</li>
+				<li><strong>3</strong>応募内容確認</li>
+				<li><strong>4</strong>応募完了</li>
+			</ul>
+		</div>
+				
+		<div class="box">
+			<h3>会員の方</h3>
+			<p>会員の方は、下のフォームにログインID・PWを入力して「次へ」ボタンを押してください。</p>
+			
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe> 
+			
+			<table summary="ログイン">
+				<tr>
+					<th class="title">ログインID</th>
+					<td><input m:id='LOGIN_ID_INPUT_HERE' name="id" type="text" size="50" value="" /></td>
+				</tr>
+				<tr>
+					<th class="title">ログインPW</th>
+					<td><input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" /></td>
+				</tr>
+			</table>
+			<p align="right"><a href="password_reminder.html">→ログインID・ログインPWを忘れた方</a></p>
+			<div class="buttonarea">
+				<input m:id='LOGIN_BUTTON_TAG' type="submit" value="次へ" class="button positive medium" />
+			</div>
+		</div>
+		<div class="box">
+			<h3>はじめての方、会員登録されていない方</h3>
+			<p>
+				はじめての方、会員登録されていない方はこちらから先へお進みください。<br />
+				あわせて会員登録を行うこともできます。<br />
+				会員の方で、ログインせずにプレゼントの応募へ進みたい方もこちらから先へお進みください。
+			</p>
+			<div class="buttonarea">
+				<input m:id='OUBO_BUTTON_TAG' type="submit" value="次へ" class="button positive medium" />
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+<!-- / present_login -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

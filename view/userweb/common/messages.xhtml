@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+</head>
+<body m:id='CONTENT'>
+
+<!-- error -->
+<div m:id='IF_MESSAGE' id="error">
+	<table m:id='IF_MESSAGES_ERROR' summary="エラー">
+		<tr>
+			<td class="ico"><img src="../images/icon_error.png" alt="エラー" /></td>
+			<td class="content"><span m:id='MESSAGES_ERROR_HERE'>ここにエラーが入ります。</span></td>
+		</tr>
+	</table>
+	<table m:id='IF_MESSAGES_WARN' summary="警告">
+		<tr>
+			<td class="ico"><img src="../images/icon_warn.png" alt="警告" /></td>
+			<td class="content"><span m:id='MESSAGES_WARN_HERE'>ここに警告が入ります。</span></td>
+		</tr>
+	</table>
+	<table m:id='IF_MESSAGES_INFO' summary="情報">
+		<tr>
+			<td class="ico"><img src="../images/icon_info.png" alt="情報" /></td>
+			<td class="content"><span m:id='MESSAGES_INFO_HERE'>ここに情報が入ります。</span></td>
+		</tr>
+	</table>
+	<table m:id='IF_MESSAGES_DEFAULT' summary="メッセージ">
+		<tr>
+			<td class="ico"><img src="../images/icon_message.png" alt="メッセージ" /></td>
+			<td class="content"><span m:id='MESSAGES_DEFAULT_HERE'>ここにメッセージが入ります。</span></td>
+		</tr>
+	</table>
+</div>
+<!-- / error -->
+
+</body>
+</html>

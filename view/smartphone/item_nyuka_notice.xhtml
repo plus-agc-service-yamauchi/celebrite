@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_nyuka_notice.html?item_cd=xxx&request=new -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- nyukawindow -->
+<section id="nyukawindow">
+	<div id="content">
+		<h2>入荷お知らせ登録</h2>
+		<div class="sentence">
+			<p>商品が入荷した場合、ご登録されているとメールアドレスに連絡が届きます。</p>
+		</div>
+
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+		<h3>商品コード</h3>
+		<div class="sentence">
+			<span m:id="ITEM_CODE_HERE">999999</span>
+		</div>
+		<h3>商品名</h3>
+		<div class="sentence">
+			<span m:id="ITEM_NAME_HERE">商品名</span>
+		</div>
+
+		<form m:id='FORM_TAG'>
+
+			<div m:id="common.IF_MEMBER_LOGIN">
+				<h3>会員の方</h3>
+				<div class="sentence">
+					<p>「送信」ボタンを押すと登録が完了します。</p>
+				</div>
+				<div class="buttonarea">
+					<input m:id='MEMBER_REGIST_BUTTON_TAG' type="input" value="送信" />
+				</div>
+			</div>
+
+			<div m:id="common.IF_MEMBER_LOGIN" m:NOT="">
+				<h3>会員の方</h3>
+				<div class="sentence">
+					<p>会員の方は、下のフォームにログインID・PWを入力して「送信」ボタンを押してください。</p>
+				</div>
+				<h4>ログインID</h4>
+				<div class="sentence">
+					<input m:id='ID_INPUT_HERE' name="id" type="text" size="50" value="" />
+				</div>
+				<h4>ログインPW</h4>
+				<div class="sentence">
+					<input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" />
+				</div>
+				<div class="sentence">
+					<p><a href="password_reminder.html">ログインID・ログインPWを忘れた方</a></p>
+				</div>
+				<div class="buttonarea">
+					<input m:id='LOGIN_BUTTON_TAG' type="input" value="送信" />
+				</div>
+				<h3>非会員の方</h3>
+				<div class="sentence">
+					<p>会員の方は、下のフォームにメールアドレスを入力して「送信」ボタンを押してください。</p>
+				</div>
+				<h4>メールアドレス</h4>
+				<div class="sentence">
+					<input m:id='MAIL_INPUT_HERE'  type="text" size="50" value="" />
+				</div>
+				<div class="buttonarea">
+					<input m:id='NOT_MEMBER_REGIST_BUTTON_TAG' type="input" value="送信" />
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
+</section>
+<!-- / nyukawindow -->
+
+<!-- footer -->
+<footer>
+	<p class="copy"><span m:id='common.COPYRIGHT_HERE'>ここにコピーライトを表示します。</span></p>
+</footer>
+<!-- / footer -->
+
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	// n番目のboxから右余白削除
+	$('#itemListImage .box').tile(3);
+});
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	// n番目のboxから右余白削除
+	$(' #itemListImage .box:nth-child(3n)').css("margin-right","0px");
+});
+//]]>
+</script>
+<script type="text/javascript">
+//非遷移型のウィッシュリスト投入処理を使用する際は必須のJSとなります。
+eb$(function() {
+	eb$('#itemListImage .box').each(function(){
+		var self = eb$(this);
+		if(self.find(".wishStatus").hasClass("wished")) {
+			self.find(".wishlistinserttag").hide();
+			self.find(".wishlistdeletetag").show();							
+		} else {
+			self.find(".wishlistinserttag").show();
+			self.find(".wishlistdeletetag").hide();																					
+		}
+	});
+});	
+</script>
+
+
+
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_list.html -->
+	
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+	<iframe m:id='common.IMPORT_HERE' src="common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main"> 
+
+<!-- breadcrumbs -->
+<div id="breadcrumbs">
+	<a href="/">トップ</a>
+	<span m:id='IF_CATEGORY' m:NOT=""> ＞ 検索結果</span>
+	<span m:id='common.IF_BREADCRUMBS'>
+		<span m:id='common.LOOP_BREADCRUMBS'>
+			 ＞ 
+			<span m:id='common.IF_BREADCRUMBS_LAST' m:NOT="">
+				<a href="#" m:id='common.BREADCRUMBS_LINK_TAG'><span m:id='common.BREADCRUMBS_NAME_HERE'>カテゴリ</span></a>
+			</span>
+			<span m:id='common.IF_BREADCRUMBS_LAST'>
+				<span m:id='common.BREADCRUMBS_NAME_HERE'>カテゴリ</span>
+			</span>
+		</span>
+	</span>
+</div>
+<!-- / breadcrumbs -->
+
+
+<!-- itemListCategory -->
+<div id="itemListCategory">
+	<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL'>
+		<h2>カテゴリ一覧</h2>
+		<!-- 大カテゴリ一覧 -->
+		<ul>
+			<li m:id='common.LOOP_ITEM_CATEGORY'>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED'>
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="" class="select">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED' m:NOT="">
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+		<!-- ======================以下はSELECT方式の場合====================== / -->
+		<!--
+		<select m:id='common.CATEGORY_SELECT_TAG' size="1" style="width:80%;">
+			<option m:id='common.LOOP_ITEM_CATEGORY_SELECT_OPTION'>
+				<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span>
+				<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+			</option>
+		</select>
+		 -->
+	</div>
+	<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL' id="sub">
+		<!-- 中カテゴリ一覧 -->
+		<ul>
+			<li m:id='common.LOOP_ITEM_CATEGORY'>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED'>
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="" class="select">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED' m:NOT="">
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+		<!-- ======================以下はSELECT方式の場合====================== / -->
+		<!--
+		<select m:id='common.CATEGORY_SELECT_TAG' size="1" style="width:80%;">
+			<option m:id='common.LOOP_ITEM_CATEGORY_SELECT_OPTION'>
+				<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span>
+				<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+			</option>
+		</select>
+		 -->
+	</div>
+	<div m:id='common.IF_ITEM_CATEGORY_NEXT_LEVEL' id="sub">
+		<!-- 小カテゴリ一覧 -->
+		<ul>
+			<li m:id='common.LOOP_ITEM_CATEGORY'>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED'>
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="" class="select">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED' m:NOT="">
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+		<!-- ======================以下はSELECT方式の場合====================== / -->
+		<!--
+		<select m:id='common.CATEGORY_SELECT_TAG' size="1" style="width:80%;">
+			<option m:id='common.LOOP_ITEM_CATEGORY_SELECT_OPTION'>
+				<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span>
+				<span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+			</option>
+		</select>
+		 -->
+	</div>
+	<div m:id='common.LOOP_ITEM_CATEGORY_NEXT_LEVEL' id="sub">
+		<!-- さらに小カテゴリがある限り繰り返す一覧 -->
+		<ul>
+			<li m:id='common.LOOP_ITEM_CATEGORY'>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED'>
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="" class="select">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+				<span m:id='common.IF_ITEM_CATEGORY_SELECTED' m:NOT="">
+					<a m:id='common.ITEM_CATEGORY_LINK_TAG' href="">
+						<span m:id='common.ITEM_CATEGORY_NAME_HERE'>大カテゴリ</span><span m:id='common.ITEM_CATEGORY_ITEM_COUNT_HERE'>(15)</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- / itemListCategory -->
+
+<!-- 絞り込みカテゴリー / -->	 
+<div m:id='IF_MULTIPLE_NARROWDOWN_CATEGORY_EXIST' id="narrowListCategory">
+	<script type="text/javascript">
+		//<![CDATA[
+		eb$(document).ajaxStop(function() {
+			// n番目のboxから右余白削除、複数絞りこみオプション使用時に読み込み後発動
+			eb$(' #itemListImage .box:nth-child(3n)').css("margin-right","0px");
+		});
+		//]]>
+	</script>
+	<h2>絞り込みカテゴリ一覧</h2>
+	<div class="inner">
+		<div m:id='LOOP_MULTIPLE_NARROWDOWN_CATEGORY' id="narrowDownCategoryMultiple">
+			<h3 class="toggle"><span m:id='MULTIPLE_NARROWDOWN_CATEGORY_GROUP_NAME_HERE'>絞り込み大カテゴリ</span></h3>
+			<ul m:id='MULTIPLE_NARROWDOWN_CATEGORY_GROUP_LIST_TAG' class="box clearfix">
+				<li m:id='LOOP_MULTIPLE_NARROWDOWN_CATEGORY_GROUP'>		
+					<input type="checkbox" m:id='MULTIPLE_NARROWDOWN_CATEGORY_CHECKBOX_HERE'/>
+					<label m:id='MULTIPLE_NARROWDOWN_CATEGORY_CHECK_LABEL_TAG'>
+						<span m:id='common.MULTIPLE_NARROWDOWN_CATEGORY_NAME_HERE'>絞り込み中カテゴリ</span>
+					</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="filterArea" m:id="IF_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_EXIST">
+		<li m:id="LOOP_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY">
+			<span m:id='SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_NAME_HERE'>絞り込み中カテゴリ名</span>
+			<a href="#" m:id="TAG_CLEAR_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_SINGLE">×</a>
+		</li>
+		<li class="filter_clear"><a href="#" m:id='CLEAR_SELECTED_MULTIPLE_NARROWDOWN_CATEGORY_ALL_HERE'>全てを解除</a></li>
+	</ul>
+	<img id="AJAX_MULTIPLE_NARROWDOWN_CATEGORY_LOADING" src="images/loader_icon_pc.gif" style="display: none; margin: 0 auto;" />
+</div>
+<!-- / 絞り込みカテゴリー -->
+
+<!-- category_html -->
+<div id="category_html">
+	<div m:id='IF_CATEGORY_IMAGE'>
+		<img src="#" m:id='CATEGORY_IMAGE_TAG' alt="カテゴリ画像" />
+	</div>
+	<p m:id='IF_CATEGORY_INFO'><span m:id='CATEGORY_INFO_HERE'>ここにカテゴリ説明文を表示します。</span></p>
+	<div m:id="IF_ITEM_CATEGORY_HTML">
+		<div m:id='ITEM_CATEGORY_HTML_HERE'>ここにカテゴリHTML表示をします。</div>
+	</div>
+	<!--
+	<div m:id='IF_CATEGORY_FREE_VALUE' free_item_no='1'>
+		<p><span m:id='CATEGORY_FREE_VALUE_HERE' free_item_no='1'>カテゴリ自由項目</span></p>
+		<img src="../images/header/header_noimg.jpg" m:id="CATEGORY_FREE_IMAGE_TAG" free_item_no="1" alt="自由項目画像" />
+		<div m:id='CATEGORY_FREE_VALUE_HTML_HERE' free_item_no='1'>カテゴリ自由項目html</div>
+	</div>
+	-->
+</div>
+<!-- / category_html -->
+
+
+<!-- list -->
+<div id="list"> 
+	<h2>画像一覧</h2>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"></iframe>
+	
+	<div m:id='IF_ITEM_EXIST'>
+		<ul>
+			<li><a href="JavaScript:change_detail_mode()" title="写真・説明付きの詳細一覧を表示します" class="detail">詳細一覧を表示</a></li>
+			<li><a title="写真データの一覧を表示します" class="image select">画像一覧を表示</a></li>
+			<li><a href="JavaScript:change_simple_mode()" title="写真なしの簡易一覧を表示します" class="simple">簡易一覧を表示</a></li>
+		</ul>
+		<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+		<div class="rearrange">
+			並べ替え<select m:id='SORT_INPUT_HERE' name="rearrange">
+			<option selected="selected">新着順</option>
+			<option>金額の低い順</option>
+			<option>金額の高い順</option>
+			<option>名前順</option>
+			</select>
+		</div> 
+		<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+		<div class="pagelink">
+			<span m:id='PAGE_NAVIGATION_HERE'>
+				<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+			</span>
+		</div> 
+		<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+		
+		<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+		<!-- <div class='pagelink'>
+			<span m:id='IF_PREV_PAGE'><a m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+					<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span> 
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+					</span>
+				</span>
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+					<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+					</span>
+					 | 
+				</span>
+			</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</div> -->
+		<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+	</div>
+
+<!-- itemListImage -->
+	<div id="itemListImage">
+		<div class="box" m:id='LOOP_ITEM_LIST'>
+			<div class="img_box">
+				<span m:id="IF_DETAIL_DISP_ITEM">
+					<a m:id='ITEM_DETAIL_LINK_TAG' href="#">
+						<!--この画像サイズを変更する場合はstyle.cssを編集してください-->
+						<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" alt="商品画像"/>
+					</a>
+				</span>
+				<span m:id="IF_DETAIL_DISP_ITEM" m:NOT="">
+					<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" alt="商品画像" />
+				</span>
+			</div>
+			<div class="text">
+				<div class="icon">
+					<span m:id="IF_SHORT" class="item_short item_icon">品薄</span>
+					<span m:id="IF_SOLDOUT" class="item_soldout item_icon">品切</span>
+					<span m:id="IF_NEW" class="item_new item_icon">NEW</span>
+					<span m:id="IF_BEFORE" class="item_before item_icon">COMING SOON</span>
+					<span m:id="IF_DOWNLOAD" class="item_download item_icon">ダウンロード商品</span>
+					<span m:id="IF_YOYAKU" class="item_yoyaku item_icon">予約商品</span>
+					<span m:id="IF_DISCOUNT" class="item_discount item_icon">会員割引あり</span>
+					<span m:id="IF_TIMESALE_KAKAKU" class="item_timesale item_icon">タイムセール中</span>
+					<span m:id="IF_TEIKI_TOGETHER_OK" class="item_teiki_together item_icon">定期にまとめて<br />注文可能</span>
+					<span m:id="IF_ITEM_VOLUME_DISCOUNT" class="item_volume_discount item_icon">ボリュームディスカウントあり</span>
+					<span m:id="IF_BUNDLE_SALE_ITEM" class ="item_bundle_sale item_icon"><span m:id="BUNDLE_SALE_NAME_HERE">まとめ買い名</span></span>
+				</div>
+				<h3>
+					<span m:id="IF_DETAIL_DISP_ITEM"><a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id="ITEM_NAME_HERE" m:max_size="60">商品名</span></a></span>
+					<span m:id="IF_DETAIL_DISP_ITEM" m:NOT=""><span m:id='ITEM_NAME_HERE' m:max_size="60">商品名</span></span>
+				</h3>
+			</div>
+			<div class="button_area">
+				<span m:id="common.IF_USE_ITEM_COMPARE">
+					<a m:id='ITEM_COMPARE_BUTTON_TAG' href="javascript:void(0);" class="button normal small">この商品を比較する</a>
+				</span>
+				<p m:id='IF_ITEM_PROPERTY' class="property">
+					商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+				</p>
+				<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+					<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+						<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_CART">
+							<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+								<span m:id='IF_PUT_TO_CART'><a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);" class="button positive small">カートに入れる</a></span>
+								<span m:id='IF_PUT_TO_CART' m:NOT="" class="button not_click small">カートに入れる</span>
+							</span>
+							<!-- カート画面に遷移せずポップアップを使用する場合
+							<span m:id='IF_PUT_TO_CART'>
+								<span class="cartSubmitButton">
+									<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+									<div class="cartMessage">
+										<p class="title">カートに追加されました。</p>
+										<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+										<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+										<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+									</div>
+								</span>
+							</span>
+							<p m:id='IF_ITEM_PROPERTY' class="property">
+								商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+							</p>
+							-->
+						</span>
+					</span>
+					<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+						<span m:id='IF_ITEM_PROPERTY' m:NOT="">
+							<span m:id='IF_PUT_TO_CART'><a m:id='PUT_TO_CART_LINK_TAG' href="javascript:void(0);" class="button positive small">カートに入れる</a></span>
+							<span m:id='IF_PUT_TO_CART' m:NOT="" class="button not_click small">カートに入れる</span>
+						</span>
+						<!-- カート画面に遷移せずポップアップを使用する場合
+						<span m:id='IF_PUT_TO_CART'>
+							<span class="cartSubmitButton">
+								<input m:id='PUT_TO_CART_AFTER_AJAX_CHECK_BUTTON_TAG' type="submit" value="カートに入れる" class="button positive small" />
+								<div class="cartMessage">
+									<p class="title">カートに追加されました。</p>
+									<p class="link"><a href="cart_index.html" class="button positive small">カートを見る</a></p>
+									<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+									<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+								</div>
+							</span>
+						</span>
+						<p m:id='IF_ITEM_PROPERTY' class="property">
+							商品詳細画面で<span m:id='ITEM_PROPERTY_NAME_HERE'>サイズ</span>を選択してください。
+						</p>
+						-->
+					</span>
+				</span>
+				<!-- お気に入りリスト画面に遷移せずポップアップを使用する場合（無属性）
+				<div m:id='IF_ITEM_PROPERTY' m:NOT="">
+					<div class="wishlistSubmitButton">
+						<span m:id="IF_ALREADY_REGISTERED_WISHLIST" m:NOT=""><span class="wishStatus"></span></span>
+						<span m:id="IF_ALREADY_REGISTERED_WISHLIST"><span class="wishStatus wished"></span></span>
+						<div class="wishlistinserttag"><a m:id='PUT_TO_WISHLIST_AFTER_AJAX_CHECK_BUTTON_TAG' href="javascript:void(0);"  class="button normal small">お気に入りに追加</a></div>
+						<div class="wishlistdeletetag"><a m:id='DELETE_WISHLIST_AFTER_AJAX_CHECK_BUTTON_TAG' href="javascript:void(0);"  class="button normal small">お気に入りから削除</a></div>
+						<div class="wishlistMessage">
+							<p class="title">お気に入りに登録しました。</p>
+							<p class="link">
+							<a href="wishlist.html">お気に入りリストをみる</a>
+							</p>
+							<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+							<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+						</div>
+						<div class="wishlistDelMessage">
+							<p class="title">お気に入りから削除しました。</p>
+							<p class="mainclose" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();">閉じる</p>
+							<p class="close" onclick="eb$(this).parent().stop();eb$(this).parent().fadeOut();"><img src="images/button_close_mark.png" width="16" height="16" alt="閉じる" /></p>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+<!-- / itemListImage -->
+
+	<div m:id='IF_ITEM_EXIST'>
+		<div class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+		<div class="rearrange">
+			並べ替え<select m:id='SORT_INPUT_HERE' name="rearrange">
+			<option selected="selected">新着順</option>
+			<option>金額の低い順</option>
+			<option>金額の高い順</option>
+			<option>名前順</option>
+			</select>
+		</div> 
+		
+		<!-- ======================ページナビゲーションを自動出力する場合====================== / -->
+		<div class="pagelink">
+			<span m:id='PAGE_NAVIGATION_HERE'>
+				<a href="">&laquo; 前ページを表示</a> | <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> | <a href="">次ページを表示 &raquo;</a>
+			</span>
+		</div> 
+		<!-- / ======================ページナビゲーションを自動出力する場合====================== -->
+		
+		<!-- ======================ページナビゲーションを個別に記述する場合====================== / -->
+		<!-- <div class='pagelink'>
+			<span m:id='IF_PREV_PAGE'><a m:id='PREV_PAGE_LINK_TAG'>前ページを表示</a> | </span>
+			<span m:id='IF_PREV_PAGE' m:NOT=""></span>
+			<span m:id="LOOP_PAGE_LINK" m:max_link_count="5">
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5">
+					<span  m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span> 
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1 </span></a> 
+					</span>
+				</span>
+				<span m:id="IF_PAGE_LINK_LAST" m:max_link_count="5" m:NOT="">
+					<span m:id="IF_PAGE_LINK_CURRENT" class="current">
+						<span m:id="PAGE_LINK_NO_HERE">1</span>
+					</span>
+					<span m:id="IF_PAGE_LINK_CURRENT" m:NOT="">
+						<a href="#" m:id="PAGE_LINK_TAG"><span m:id="PAGE_LINK_NO_HERE">1</span></a>
+					</span>
+					 | 
+				</span>
+			</span>
+			&nbsp;<span m:id='PAGE_NAVIGATION_MAX_ROW_SELECT_HERE'></span>
+			<span m:id='IF_NEXT_PAGE'> | <a m:id='NEXT_PAGE_LINK_TAG'>次ページを表示</a></span>
+			<span m:id='IF_NEXT_PAGE' m:NOT=""></span>
+		</div> -->
+		<!-- / ======================ページナビゲーションを個別に記述する場合====================== -->
+	</div>
+
+</div>
+<!-- / list -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+
+<span m:id="CRITEO_ITEM_LIST_TRACKER_HERE"></span>
+
+</body>
+</html>

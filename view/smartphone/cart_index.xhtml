@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:aps="eb:AMAZON_PAYMENTS/view_amazon_payments.json" xmlns:apv2="eb:AMAZON_PAYMENTS_V2/view_amazon_payments_v2_login.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../userweb/js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../userweb/js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/EbisuAmazonPayments.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'></script>
+<script type="text/javascript" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+eb$(function(){
+	window.EbisuAmazonPayments.initAmazonPayButton(false, eb$('#apsColorSp').val(), eb$('#apsSizeSp').val());
+});
+</script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://static-fe.payments-amazon.com/checkout.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'></script>
+<script type="text/javascript" charset="utf-8" src="../userweb/js/EbisuAmazonPaymentsV2.js" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION" type="text/javascript" charset="utf-8" src="js/sales_campaign_banner.js"></script>
+</head>
+<body>
+<div m:id='common.IF_APP_INSTALLED' m:app_cd='CACCO'>
+	<!-- O-PLUX連携 -->
+	<input type="hidden" id="fraudbuster" name="fraudbuster" />
+	<script type="text/javascript" src="https://fraud-buster.appspot.com/js/fraudbuster.js" ></script>
+
+	<script type="text/javascript">
+		var beforeExecuteSubmitForm = function() {
+		var vals=  $(':hidden[name="fraudbuster"]').val()
+		var hiddenInput = $('<input/>',{type:'hidden',id:'fraudbuster',name:'fraudbuster',value:vals});
+		hiddenInput.appendTo(document.forms[0]);
+		};
+	</script>
+	<!-- / O-PLUX連携 -->
+</div>
+<!-- このテンプレートのURLは右記になります。 ドメイン/cart_index.html -->
+	
+<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+	<!-- amazon payments -->
+	<input type="hidden" id="apsClientId" name="apsClientId" aps:attr="apsClientId" />
+	<input type="hidden" id="apsSellerId" name="apsSellerId" aps:attr="apsSellerId" />
+	<input type="hidden" id="apsRedirectURL" name="apsRedirectURL" aps:attr="apsRedirectURL" />
+	<input type="hidden" id="apsType" name="apsType" aps:attr="apsType" />
+	<input type="hidden" id="apsColorSp" name="apsColorSp" aps:attr="apsColorSp" />
+	<input type="hidden" id="apsSizeSp" name="apsSizeSp" aps:attr="apsSizeSp" />
+	<input type="hidden" id="apsScope" name="apsScope" aps:attr="apsScope" />
+	<input type="hidden" id="apsEnv" name="apsEnv" aps:attr="apsEnv" />
+	<input type="hidden" id="apsWidgetsJsUrl" name="apsWidgetsJsUrl" aps:attr="apsWidgetsJsUrl" />
+	<!-- /amazon payments -->
+</div>
+
+<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'>
+	<div m:id='common.IF_MEMBER_LOGIN'>
+		<div apv2:if="apv2IsUse">
+			<!-- amazon payments v2 -->
+			<input type="hidden" id="apv2SellerId" name="apv2SellerId" apv2:attr="apv2SellerId" />
+			<input type="hidden" id="apv2LedgerCurrency" name="apv2LedgerCurrency" apv2:attr="apv2LedgerCurrency" />
+			<input type="hidden" id="apv2IsSandBox" name="apv2IsSandBox" apv2:attr="apv2IsSandBox" />
+			<input type="hidden" id="apv2CheckoutLanguage" name="apv2CheckoutLanguage" apv2:attr="apv2CheckoutLanguage" />
+			<input type="hidden" id="apv2ProductType" name="apv2ProductType" apv2:attr="apv2ProductType" />
+			<input type="hidden" id="apv2Placement" name="apv2Placement" apv2:attr="apv2Placement" />
+			<input type="hidden" id="apv2ButtonColor" name="apv2ButtonColor" apv2:attr="apv2ButtonColorSp" />
+			<input type="hidden" id="apv2Payload" name="apv2Payload" apv2:attr="apv2Payload" />
+			<input type="hidden" id="apv2Signature" name="apv2Signature" apv2:attr="apv2Signature" />
+			<input type="hidden" id="apv2PublicKeyId" name="apv2PublicKeyId" apv2:attr="apv2PublicKeyId" />
+			<input type="hidden" id="apv2AuthToken" name="apv2AuthToken" apv2:attr="apv2AuthToken" />
+			<!-- /amazon payments v2 -->
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- cartIndex -->
+<section id="cartFlow" class="cartIndex">
+	<h2>カート</h2>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+	
+	<div m:id="IF_NOT_OTHER_SEISAN_PAGE">
+		<div m:id='IF_EMPTY'>
+			<div class="sentence">
+				<p>カートの中には何も入っていません。</p>
+			</div>
+			<div class="buttonarea">
+				<!-- 前回見ていたページへ戻る（購入履歴・お気に入りリスト等のhttpsのページから遷移してきた場合は戻れない場合があります） -->
+				 <a m:id='CONTINUE_REFERER_LINK_TAG' href="javascript:void(0);" class="cancel">戻る</a> 
+				<!--<a href="javascript:history.back();">戻る</a>-->
+			</div>
+		</div>
+	</div>
+	
+	<div m:id="IF_NOT_OTHER_SEISAN_PAGE">
+		<div m:id='IF_EMPTY' m:NOT="">
+			<form m:id='FORM_TAG' method="get" action="">
+				<div class="sentence box" m:id='LOOP_ITEM'>
+					<div class="img_box">
+						<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" alt="" />
+					</div>					
+					<div class="text">
+						<p class="item_name"><a m:id='ITEM_DETAIL_LINK_TAG' href="#"><span m:id='ITEM_NAME_HERE'>ここに商品の名前が入ります</span></a></p>
+						<p class="comment"><span m:id='ITEM_COMMENT_HERE'>ここに商品のカート用商品コメントが入ります</span></p>
+						<p class="information">
+							<!-- 初回定期割引時に表示 -->
+							<span m:id='common.IF_FIRST_TIME_TEIKI_DISCOUNT'>
+								<span m:id='common.IF_CART_ITEM_FIRST_TIME_TEIKI_DISCOUNT'>
+									<span m:id='BEFORE_TEIKI_DISCOUNT_SYOKEI_PRICE_HERE'>1,050円</span><span class="tax">（税込）</span>→
+									初回割引後価格 <span m:id='SYOKEI_PRICE_HERE' m:tax="zeikomi">900円</span><span class="tax">（税込）</span>
+									<!--
+									<span m:id="common.IF_EXISTS_MEMBER_DISCOUNT">
+										/ 会員割引額 <span m:id='BEFORE_TEIKI_DISCOUNT_SYOKEI_MEMBER_DISCOUNT_HERE'>200円</span>
+									</span>
+									-->
+								</span>
+
+								<span m:id='common.IF_CART_ITEM_FIRST_TIME_TEIKI_DISCOUNT' m:NOT="">
+									<span m:id='SYOKEI_PRICE_HERE' m:tax="zeikomi">1,050円</span>
+									<span m:id="common.IF_EXISTS_MEMBER_DISCOUNT">
+										(会員割引額 <span m:id='MEMBER_DISCOUNT_HERE'>200円</span>）
+									</span>
+									<span class="tax">（税込）</span>
+								</span>
+							</span>
+							<!-- / 初回定期割引時に表示 -->	
+
+							<!-- ２回目以降に表示 -->
+							<span m:id='common.IF_FIRST_TIME_TEIKI_DISCOUNT' m:NOT="">
+								<span m:id='SYOKEI_PRICE_HERE' m:tax="zeikomi">1,050円</span>
+								<span class="tax">（税込）</span>
+								<span m:id="common.IF_EXISTS_MEMBER_DISCOUNT">
+									/ 会員割引額 <span m:id='MEMBER_DISCOUNT_HERE'>200円</span>
+								</span>
+							</span>
+							<!-- / ２回目以降に表示 -->
+							<span m:id='common.IF_START_REDUCED_TAX'>（消費税率：<span m:id='ITEM_TAX_RATE_HERE'>0</span>％）</span>
+							<!-- <span m:id='IF_MAKER_TEIKA'>(希望小売価格<span m:id='MAKER_SYOKEI_HERE'>300円</span>)</span> -->
+							<!-- 単価<span m:id='TANKA_HERE'>1,250円</span>-->
+							<!-- 単価<span m:id='IF_MAKER_TEIKA'>(希望小売価格<span m:id='MAKER_TEIKA_HERE'>300円</span>)</span> -->
+						</p>
+					</div>
+					<table>
+						<tr>
+							<td>数量</td>
+							<td m:id='IF_SET_ITEM' m:NOT="">
+								<select m:id='AMOUNT_INPUT_HERE'>
+									<option selected="selected">1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</td>
+							<td m:id='IF_SET_ITEM'>
+								<span m:id='ITEM_AMOUNT_HERE'>2</span>
+								<span m:id='common.IF_CART_EXISTS_LOT_ITEM'>
+									（<span m:id='ITEM_QUANTITY_HERE'>6</span>）
+								</span>
+							</td>
+							<td m:id='IF_SET_ITEM' m:NOT="">
+								<input m:id='DELETE_BUTTON_TAG' type="button" value="削除" class="button negative small" />
+							</td>
+						</tr>
+					</table>
+					<!-- ${/* ======================自由項目（増やす場合はコピペしてfree_item_no=''を変更）======================
+					<div m:id='IF_CART_FREE_ITEM_VALUE' m:free_item_no='1'>
+						<span m:id='CART_FREE_ITEM_VALUE_HTML_HERE' m:free_item_no='1'>自由項目値1</span>
+					</div>
+					======================自由項目====================== */}-->
+				</div>
+				<div class="sentence price">
+					<!-- <p m:id="IF_MEMBER_DISCOUNT">
+						会員割引額：<span m:id='MEMBER_DISCOUNT_HERE'>1,575円</span>
+					</p> -->
+					<p class="total">
+						小計（<span m:id='common.CART_AMOUNT_SUM_HERE'>0</span>点）:<strong>
+						<span m:id="common.CART_SYOKEI_ZEIKOMI_HERE">2,100円</span></strong>
+						<br/>
+						<!--(本体価格<span m:id="common.CART_SYOKEI_HONTAI_HERE">2,000円</span>,消費税<span m:id="common.CART_SYOKEI_TAX_HERE">100円</span>)-->
+						<span m:id='IF_BUNDLE_SALE_APPLY'>まとめ買い割引額：<strong>-<span m:id='BUNDLE_SALE_WARIBIKI_HERE'>500円</span></strong></span>
+					</p>
+				</div>
+
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<div class="buttonarea">
+						<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+							<a m:id='SEISAN_BUTTON_TAG' href="javascript:void(0);">ご注文手続きへ進む</a>
+							<!--<a m:id='QUICK_BUTTON_TAG' href="javascript:void(0);">クイック購入する</a>-->
+							<span m:id="IF_TEIKI_TOGETHER_OK">
+								<a m:id='TEIKI_TOGETHER_SEISAN_BUTTON_TAG' href="javascript:void(0);">定期とまとめご注文手続きへ</a>
+							</span>
+						</div>
+						<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ESTIMATE">
+							<span m:id="common.IF_USE_ESTIMATE">
+								<a m:id='ESTIMATE_SEISAN_BUTTON_TAG' class="estimate">見積作成</a>
+							</span>
+						</div>
+					</div>
+
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+						<div class="amazon_area" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+							<!-- amazon payments -->
+							<div aps:if="apsIsUse">
+								<div aps:if="apsIsAvailable">
+									<div m:id='common.IF_MEMBER_LOGIN'>
+										<h3>Amazon.co.jpにご登録の住所・クレジットカードでご注文・お支払いの方</h3>
+										<div class="sentence">
+											<p>
+												Amazonアカウントでのお支払いや、Amazonギフト券を利用する場合はこちらから先へお進みください。
+											</p>
+										</div>
+										<div class="buttonarea" id="AmazonPayButton"></div>
+									</div>
+									<div m:id='common.IF_MEMBER_LOGIN' m:NOT=''>
+										<h3>当サイトの会員登録がお済みで、Amazonアカウントでお支払いを希望される方</h3>
+										<div class="sentence">
+											<p>
+												Amazonアカウントをお持ちの方は、Amazon.co.jpにご登録の住所・クレジットカードでご注文が可能です。
+											</p>
+										</div>
+										<div class="buttonarea">
+											<a href="login.html?redirectTo=cart_index.html&amp;AMAZON_PAYMENTS:isamazon=1" class="amazon_btn">サイトにログインして<br />Amazonアカウントでお支払い</a>
+										</div>
+									</div>
+								</div>
+								<div aps:if="apsIsNotAvailable">
+									<h3 m:id='common.IF_MEMBER_LOGIN'>Amazon.co.jpにご登録の住所・クレジットカードでご注文・お支払いの方</h3>
+									<h3 m:id='common.IF_MEMBER_LOGIN' m:NOT=''>当サイトの会員登録がお済みで、Amazonアカウントでお支払いを希望される方</h3>
+									<div class="sentence">
+										<p>Amazon Pay利用対象外の商品が含まれています。</p>
+									</div>
+								</div>
+							</div>
+							<!-- /amazon payments -->
+						</div>
+						<div class="amazon_area" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'>
+							<div m:id='common.IF_MEMBER_LOGIN'>
+								<!-- amazon payments v2 -->
+								<div apv2:if="apv2IsUse">
+									<div apv2:if="apv2IsAvailable">
+										<h3>Amazonアカウントでお支払いをご希望の方</h3>
+										<div class="sentence">
+											<p>
+												Amazonアカウントでのお支払いや、Amazonギフト券を利用する場合はこちらから先へお進みください。
+											</p>
+										</div>
+										<div class="buttonarea">
+											<div id="AmazonPayV2Button"></div>
+										</div>
+									</div>
+									<div apv2:if="apv2IsAvailable" m:NOT="">
+										<h3>Amazonアカウントでお支払いをご希望の方</h3>
+										<div class="sentence">
+											<p>
+												Amazon Pay利用対象外の商品が含まれています。
+											</p>
+										</div>
+									</div>
+								</div>
+								<!-- /amazon payments v2 -->
+							</div>
+						</div>
+					</div>
+					<!-- クイック購入する -->
+					<!--
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER"> 
+						<a m:id='QUICK_BUTTON_TAG' href="javascript:void(0);"><img src="images/button_quick.gif" alt="クイック購入する" /></a>
+					</span>
+					-->
+				</div>
+
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<div class="buttonarea">
+						<a m:id='SEISAN_BUTTON_TAG' href="javascript:void(0);">ご注文手続きへ進む</a>
+						<!--<a m:id='QUICK_BUTTON_TAG' href="javascript:void(0);">クイック購入する</a>-->
+						<div m:id="IF_TEIKI_TOGETHER_OK">
+							<a m:id='TEIKI_TOGETHER_SEISAN_BUTTON_TAG' href="javascript:void(0);">定期とまとめご注文手続きへ</a>
+						</div>
+						<div m:id="common.IF_USE_ESTIMATE">
+							<a m:id='ESTIMATE_SEISAN_BUTTON_TAG' class="estimate">見積作成</a>
+						</div>
+						<!-- クイック購入する -->
+						<!-- <a m:id='QUICK_BUTTON_TAG' href="javascript:void(0);"><img src="images/button_quick.gif" alt="クイック購入する" /></a>-->
+					</div>
+
+					<div class="amazon_area" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+						<!-- amazon payments -->
+						<div aps:if="apsIsUse">
+							<div aps:if="apsIsAvailable">
+								<div m:id='common.IF_MEMBER_LOGIN'>
+									<h3>Amazon.co.jpにご登録の住所・クレジットカードでご注文・お支払いの方</h3>
+									<div class="sentence">
+										<p>
+											Amazonアカウントでのお支払いや、Amazonギフト券を利用する場合はこちらから先へお進みください。
+										</p>
+									</div>
+									<div class="buttonarea" id="AmazonPayButton"></div>
+								</div>
+								<div m:id='common.IF_MEMBER_LOGIN' m:NOT=''>
+									<h3>当サイトの会員登録がお済みで、Amazonアカウントでお支払いを希望される方</h3>
+									<div class="sentence">
+										<p>
+											Amazonアカウントをお持ちの方は、Amazon.co.jpにご登録の住所・クレジットカードでご注文が可能です。
+										</p>
+									</div>
+									<div class="buttonarea">
+										<a href="login.html?redirectTo=cart_index.html&amp;AMAZON_PAYMENTS:isamazon=1" class="amazon_btn">サイトにログインして<br />Amazonアカウントでお支払い</a>
+									</div>
+								</div>
+							</div>
+							<div aps:if="apsIsNotAvailable">
+								<h3 m:id='common.IF_MEMBER_LOGIN'>Amazon.co.jpにご登録の住所・クレジットカードでご注文・お支払いの方</h3>
+								<h3 m:id='common.IF_MEMBER_LOGIN' m:NOT=''>当サイトの会員登録がお済みで、Amazonアカウントでお支払いを希望される方</h3>
+								<div class="sentence">
+									<p>Amazon Pay利用対象外の商品が含まれています。</p>
+								</div>
+							</div>
+						</div>
+						<!-- /amazon payments -->
+					</div>
+					<div class="amazon_area" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS_V2'>
+						<div m:id='common.IF_MEMBER_LOGIN'>
+							<!-- amazon payments v2 -->
+							<div apv2:if="apv2IsUse">
+								<div apv2:if="apv2IsAvailable">
+									<h3>Amazonアカウントでお支払いをご希望の方</h3>
+									<div class="sentence">
+										<p>
+											Amazonアカウントでのお支払いや、Amazonギフト券を利用する場合はこちらから先へお進みください。
+										</p>
+									</div>
+									<div class="buttonarea">
+										<div id="AmazonPayV2Button"></div>
+									</div>
+								</div>
+								<div apv2:if="apv2IsAvailable" m:NOT="">
+									<h3>Amazonアカウントでお支払いをご希望の方</h3>
+									<div class="sentence">
+										<p>
+											Amazon Pay利用対象外の商品が含まれています。
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- /amazon payments v2 -->
+						</div>
+					</div>
+				</div>
+
+				<div class="buttonarea">
+					<!-- トップページへ戻る -->
+					<!-- <a m:id='CONTINUE_BUTTON_TAG' href="javascript:void(0);" class="cancel">買い物を続ける</a> -->
+					<!-- 前回見ていた商品ページへ戻る -->
+					<a m:id='CONTINUE_LAST_ITEM_LINK_TAG' href="javascript:void(0);" class="cancel">買い物を続ける</a>
+	
+					<!-- 前回見ていたページへ戻る（購入履歴・お気に入りリスト等のhttpsのページから遷移してきた場合は戻れない場合があります） -->
+					<!-- <a m:id='CONTINUE_REFERER_LINK_TAG' href="javascript:void(0);" class="cancel">買い物を続ける</a> -->
+	
+					<!--<a m:id='CONTINUE_BUTTON_TAG' href="javascript:void(0);" class="cancel">買い物を続ける</a>-->
+					<a m:id='CLEAR_BUTTON_TAG' href="javascript:void(0);" class="cancel">カートを空にする</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div m:id="IF_OTHER_SEISAN_PAGE">
+		<form m:id='FORM_TAG' method="get" action="">
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+					<h3>カートの中身の注文手続きを行う方</h3>
+					<div class="sentence">
+						<p>カートを空にせず、先にお買い物を済ませてしまう方はこちら</p>
+					</div>
+					<div class="buttonarea">
+						<a m:id='SEISAN_BUTTON_TAG' href="javascript:void(0);">カートのご注文手続きへ進む</a>
+					</div>
+				</div>
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ESTIMATE">
+					<div m:id="IF_NOT_TEIKI_TOGETHER_OK">
+						<div m:id="common.IF_USE_ESTIMATE">
+							<h3>見積する方</h3>
+							<div class="sentence">
+								<p>カートを空にせず、先に見積をする方はこちら</p>
+							</div>
+							<div class="buttonarea">
+								<a m:id='ESTIMATE_SEISAN_BUTTON_TAG' href="javascript:void(0);" class="estimate">見積作成へ進む</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_ORDER">
+					<h3>カートを空にする方</h3>
+					<div class="sentence">
+						<p>一度カートの中身を削除し、次の画面へ進む方はこちら</p>
+					</div>
+					<div class="buttonarea">
+							<a m:id='CLEAR_AND_OTHER_SEISAN_BUTTON_TAG' href="javascript:void(0);">カートを空にして次へ進む</a>
+					</div>
+				</div>
+			</div>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<h3>カートの中身の注文手続きを行う方</h3>
+				<div class="sentence">
+					<p>カートを空にせず、先にお買い物を済ませてしまう方はこちら</p>
+				</div>
+				<div class="buttonarea">
+					<a m:id='SEISAN_BUTTON_TAG' href="javascript:void(0);">カートのご注文手続きへ進む</a>
+				</div>
+				<div m:id="IF_NOT_TEIKI_TOGETHER_OK">
+					<div m:id="common.IF_USE_ESTIMATE">
+						<h3>見積する方</h3>
+						<div class="sentence">
+							<p>カートを空にせず、先に見積をする方はこちら</p>
+						</div>
+						<div class="buttonarea">
+							<a m:id='ESTIMATE_SEISAN_BUTTON_TAG' href="javascript:void(0);" class="estimate">見積作成へ進む</a>
+						</div>
+					</div>
+				</div>
+				<h3>カートを空にする方</h3>
+				<div class="sentence">
+					<p>一度カートの中身を削除し、次の画面へ進む方はこちら</p>
+				</div>
+				<div class="buttonarea">
+						<a m:id='CLEAR_AND_OTHER_SEISAN_BUTTON_TAG' href="javascript:void(0);">カートを空にして次へ進む</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+<!-- / cartIndex -->
+
+<!-- ======================拡張版セールスキャンペーンオプションを使用する場合====================== / -->
+<div m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+	<section m:id="IF_CAMPAIGN" id="cartCampaign" class="sales_campaign_banner">
+		<h3>現在適用されているキャンペーン</h3>
+		<p class="heed">条件によって適用されるキャンペーンが変わる可能性があります。</p>
+		<ul>
+			<li m:id="LOOP_CAMPAIGN" m:campaign_kikan="CAMPAIGN_PERIOD_DURING" m:targetonly="true">
+				<div m:id="IF_SALES_CAMPAIGN_URL" class="box">
+					<a m:id='SALES_CAMPAIGN_URL_LINK_TAG' href="">
+						<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+							<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+						</div>
+						<h4>
+							<span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span>
+						</h4>
+						<p>
+							<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+						</p>
+						<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+							<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+								<h5><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h5>
+								<p>
+									<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div m:id="IF_SALES_CAMPAIGN_URL" m:NOT="" class="box">
+					<div m:id="IF_SALES_CAMPAIGN_IMAGE">
+						<img m:id="SALES_CAMPAIGN_IMAGE_TAG" src="images/sample.jpg" alt="キャンペーン画像" />
+					</div>
+					<h4>
+						<span m:id="SALES_CAMPAIGN_NAME_HERE">キャンペーン名</span>
+					</h4>
+					<p>
+						<span m:id="SALES_CAMPAIGN_KIKAN_FROM_HERE"></span> 〜 <span m:id="SALES_CAMPAIGN_KIKAN_TO_HERE"></span>まで
+					</p>
+					<div m:id="IF_SALES_CAMPAIGN_FREE" m:free_item_no='1'>
+						<div m:id="IF_SALES_CAMPAIGN_FREE_VALUE" m:free_item_no='1'>
+							<h5><span m:id="SALES_CAMPAIGN_FREE_TITLE_HERE" m:free_item_no='1'>キャンペーン自由項目タイトル1</span></h5>
+							<p>
+								<span m:id="SALES_CAMPAIGN_FREE_VALUE_HERE" m:free_item_no='1'>キャンペーン自由項目内容1</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</div>
+<!-- / ======================拡張版セールスキャンペーンオプションを使用する場合====================== -->
+
+
+<!-- recommend -->
+<section m:id='IF_RECOMMEND' id="recommend">
+	<h2>この商品を買った人は、こんな商品も買っています</h2>
+	<div class="box" m:id='LOOP_RECOMMEND' m:max_count="20">
+		<a m:id='RECOMMEND_LINK_TAG' href="#">
+			<div class="img_box">
+				<img m:id='RECOMMEND_IMAGE_TAG' src="images/sample.jpg" alt="" />
+			</div>
+			<div class="text">
+				<h3><span m:id='RECOMMEND_ITEM_NAME_HERE'>商品名</span></h3>
+				<p class="price">
+					<span m:id='RECOMMEND_TEIKA_ZEIKOMI_HERE'>9,980円</span>
+					<!--(本体価格：<span m:id='RECOMMEND_TEIKA_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_TEIKA_TAX_HERE'>475円</span>)-->
+				</p>
+				<p class="price_sub" m:id='IF_RECOMMEND_MAKER_TEIKA'>[希望小売価格：<span m:id='RECOMMEND_MAKER_TEIKA_HERE'>9,980円</span>]</p>
+				<p class="price_sub" m:id='IF_RECOMMEND_DISCOUNT'>
+					[会員割引価格：<span m:id='RECOMMEND_DISCOUNT_ZEIKOMI_HERE'>9,980円</span>
+					<!--(本体価格：<span m:id='RECOMMEND_DISCOUNT_HONTAI_HERE'>9,505円</span>, 消費税：<span m:id='RECOMMEND_DISCOUNT_TAX_HERE'>475円</span>)-->]
+				</p>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+							[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+						</p>
+					</span>
+				</span>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<p class="price_sub" m:id='IF_RECOMMEND_MEMBER_TEIKA'>
+						[お客様限定価格：<span m:id='RECOMMEND_MEMBER_TEIKA_PRICE_HERE' m:tax="zeikomi" m:quantity="1">9,000円</span>]
+					</p>
+				</span>
+				<p class="price_sub" m:id='IF_RECOMMEND_TIMESALE_KAKAKU'>
+					[タイムセール価格：<span m:id='RECOMMEND_TIMESALE_KAKAKU_ZEIKOMI_HERE'>9,980円</span>]
+				</p>
+				<p class="explanation1" m:id='IF_RECOMMEND_INFO1'><span m:id='RECOMMEND_INFO1_HERE'>商品に関する説明1が入ります。</span></p>
+			</div>
+		</a>
+	</div>
+</section>
+<!-- / recommend -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<span m:id='common.CRITEO_CART_TRACKER_HERE'></span>
+
+</body>
+</html>

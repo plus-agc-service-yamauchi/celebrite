@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- present_confirm -->
+<div id="cartFlow">
+	<h2>プレゼント応募内容確認</h2>
+	<div class="sentence">
+		<p>
+			下記の内容をご確認ください。<br />内容に間違いがございましたら「戻る」ボタンを押して前のページに戻り、情報を修正してください。<br />
+			<span class="attention">「送信」ボタンを押すとプレゼントへの応募が完了します。</span>
+		</p>
+	</div>
+	<form m:id='FORM_TAG'>
+	
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<h3>プレゼント情報</h3>
+	<h4>プレゼント商品名</h4>
+	<div class="sentence">
+		<p><span m:id="PRESENT_NAME_HERE">プレゼント商品名</span></p>
+	</div>
+	<h4>応募期間</h4>
+	<div class="sentence">
+		<p><span m:id="OUBO_KIKAN_FROM_HERE">2009/1/1</span>　～　<span m:id="OUBO_KIKAN_TO_HERE">2009/12/12</span></p>
+	</div>
+	<h4>当選人数</h4>
+	<div class="sentence">
+		<p><span m:id="TOSEN_NINZU_HERE">100</span>名</p>
+	</div>	
+
+	<h3>応募者情報</h3>
+	<h4>氏名（漢字）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+	</div>
+	<h4>氏名（カナ）</h4>
+	<div class="sentence">
+		<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></p>
+	</div>
+	<h4>PCメールアドレス</h4>
+	<div class="sentence">
+		<p><span m:id='PC_MAIL_HERE'>sample@example.jp</span></p>
+	</div>
+	<h4>PCメール形式</h4>
+	<div class="sentence">
+		<p><span m:id='IF_PC_MAIL_TYPE_TEXT'>テキストメール</span><span m:id='IF_PC_MAIL_TYPE_HTML'>HTMLメール</span></p>
+	</div>
+	<h4>住所</h4>
+	<div class="sentence">
+		<p>
+			〒<span m:id='ZIP_HERE'>1234567</span> 
+			<span m:id='ADDRESS1_HERE'>東京都</span> 
+			<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> 
+			<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+		</p>
+	</div>
+	<h4>電話番号</h4>
+	<div class="sentence">
+		<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+	</div>
+	<h4>メールマガジン</h4>
+	<div class="sentence">
+		<p><span m:id='IF_MAILMAG_REGIST'>受け付ける</span><span m:id='IF_MAILMAG_NO_REGIST'>受け付けない</span></p>
+	</div>
+	<h4>備考</h4>
+	<div class="sentence">
+		<p><span m:id='BIKOU_HERE'>ここに備考が入ります。ここに備考が入ります。ここに備考が入ります。</span></p>
+	</div>
+	
+	<div m:id='IF_REGEST_MEMBER'>
+		<h3>会員登録情報</h3>
+		<h4>ログインID</h4>
+		<div class="sentence">
+			<p><span m:id='LOGIN_ID_HERE'>sample</span></p>
+		</div>
+		<h4>パスワード</h4>
+		<div class="sentence">
+			<p><span m:id='PASSWORD_HERE'>********</span></p>
+		</div>
+		<h4>性別</h4>
+		<div class="sentence">
+			<p><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span><span m:id='IF_SEX_OTHER'>その他</span></p>
+		</div>
+		<h4>生年月日</h4>
+		<div class="sentence">
+			<p>
+				西暦 <span m:id='BIRTH_YEAR_HERE'>1986</span>年 
+				<span m:id='BIRTH_MONTH_HERE'>03</span>月 
+				<span m:id='BIRTH_DAY_HERE'>03</span>日
+			</p>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='1'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目１</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='2'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='2'>自由項目２</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目２</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='3'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='3'>自由項目３</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目３</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='4'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='4'>自由項目４</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目４</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='5'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='5'>自由項目５</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目５</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='6'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='6'>自由項目６</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='6'>自由項目６</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='7'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='7'>自由項目７</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='7'>自由項目７</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='8'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='8'>自由項目８</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='8'>自由項目８</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='9'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='9'>自由項目９</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='9'>自由項目９</span></p>
+			</div>
+		</div>
+		<div m:id='common.IF_MEMBER_FREE_USE' m:free_item_no='10'>
+			<h4><span m:id='common.MEMBER_FREE_TITLE_HERE' m:free_item_no='10'>自由項目１０</span></h4>
+			<div class="sentence">
+				<p><span m:id='FREE_VALUE_HERE' m:free_item_no='10'>自由項目１０</span></p>
+			</div>
+		</div>
+	</div>
+	<div class="buttonarea">
+		<input type="submit" alt="登録する" />
+		<a m:id='BACK_BUTTON_TAG' class="cancel">戻る</a>
+	</div>
+	</form>
+</div>
+<!-- / present_confirm -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

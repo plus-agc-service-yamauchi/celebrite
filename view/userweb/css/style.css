@@ -1,0 +1,1565 @@
+@charset "UTF-8";
+@import url("smoothness/jquery-ui-1.8.4.custom.css"); 
+
+/* =======================================================================
+CSSの名前：style.css 
+最終更新日時：2012/2/15
+--------------------------------------------------------------------------
+1.reset
+2.base
+3.コンテナ・サイドバー・メインコンテンツ
+4.ヘッダ
+5.サイドバー
+6.extファイル用
+7.トップページ
+8.カートの中身～注文完了まで、プレゼント応募～完了まで
+9.定期購入商品履歴照会・変更
+10.フッタ
+11.商品詳細・一覧、プレゼント詳細・一覧
+12.レビュー
+13.購入履歴
+14.サブウインドウで表示するページ用
+15.エラーページ
+16.クレジットカード登録画面
+17.お気に入り
+18.アドレス帳
+19.マイページ
+20.ログイン
+21.商品比較
+22.キャンペーン
+23.会員登録
+24.子会員リスト
+======================================================================= */
+
+
+/* =================================================================
+1.reset
+=================================================================*/
+*{box-sizing: border-box;}
+body{background: #FFF; color: #333; line-height: 1.5; font-family: '游ゴシック体', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, 'MS PGothic', 'ＭＳ Ｐゴシック', sans-serif; word-wrap: break-word; position: relative;}
+
+/*  すべてのタグのマージン・パディングの設定をリセット
+-------------------------------------------------------------*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,hr{margin: 0; padding: 0;}
+li{list-style-type: none;}
+table{border-collapse: collapse; border-spacing: 0;}
+img{border: 0;}
+
+
+/* =================================================================
+2.base
+=================================================================*/
+/*  clear
+-------------------------------------------------------------*/
+.clear{clear: both;}
+.clearfloat{clear: both; height: 0; font-size: 1px; line-height: 0;}
+.clearfix{zoom: 1;}
+.clearfix:after{content: ""; display: block; clear: both;}
+*:first-child+html .clearfix {zoom: 1; } /* IE7 */
+
+/*  基本のlink color
+-------------------------------------------------------------*/
+a:link{color: #60ac31;}
+a:visited{color: #60ac31;}
+a:hover,a:active{color: #60ac31; text-decoration: none;}
+
+/*  ボタンデザイン
+-------------------------------------------------------------*/
+/*基本デザイン-下記クラスに加えpositive　negative等のクラスを合わせて付与する*/
+a.button{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 13px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; width: 100%;}
+input.button{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 13px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; width: 100%;}
+
+/*マウスホバー時*/
+a.button:hover{opacity: 0.7; cursor: pointer; transition: all .3s;}
+input.button:hover{opacity: 0.7; cursor: pointer; transition: all .3s;}
+
+/*次へ・入力内容を確認する・注文する・ログイン・登録する・送信・検索・ご注文手続きへ進む等*/
+a.positive{background: #D21E21; color: #FFFFFF;}
+input.positive{background: #D21E21; color: #FFFFFF;}
+
+/*戻る・クリア・削除・ログアウト等*/
+a.negative{background: #4c4c4c; color: #FFFFFF;}/*戻る・クリア・削除・ログアウト等*/
+input.negative{background: #4c4c4c; color: #FFFFFF;}
+
+/*上記以外のボタン*/
+a.normal{background: #f7f7f7; color: #333333; border: 1px solid #adadad;}
+input.normal{background: #f7f7f7; color: #333333; border: 1px solid #adadad;}
+.medium.normal{ padding:9px !important;}
+.small.normal{ padding:5px 9px !important;}
+
+/*押せないボタン*/
+.not_click{border: none; display: block; line-height: 1; text-align: center; padding: 10px; text-decoration: none; font-size: 12px; -webkit-border-radius: 3px;/* for Safari and Chrome */ -moz-border-radius: 3px; /* for Firefox */ -o-border-radius: 3px; /* for opera */ border-radius: 3px; background: #d2d2d2; color: #a5a5a5;}
+.not_click.medium{max-width: 230px; min-width: 200px;}
+
+/*見積ボタン*/
+a.estimate{background: #ED9E00; color: #FFFFFF;}
+input.estimate{background: #ED9E00; color: #FFFFFF;}
+
+/*普通サイズの時にはクラスに下記を追加*/
+.medium{ min-width: 200px; font-size: 16px;}
+a.medium{max-width: 230px; min-width: 200px; font-size: 16px;}
+input.medium{max-width: 230px; min-width: 200px; font-size: 16px;}
+
+/*小さいサイズの時にはクラスに下記を追加*/
+.small{padding: 6px 10px; font-size: 12px;}
+a.small{padding: 6px 10px; font-size: 12px;}
+input.small{padding: 6px 10px; font-size: 12px;}
+
+/*  画像の縦横比調整
+-------------------------------------------------------------*/
+.img_box{text-align: center; position: relative;}
+.img_box img{width: auto; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/*  カートフローチャート
+-------------------------------------------------------------*/
+.cart_step{position: relative; overflow: hidden;}
+.cart_step:after {content: ""; clear: both; display: block;}/* clearfix */
+.cart_step ul{position: relative; left: 50%; float: left; margin-bottom: 45px;}
+.cart_step ul li{position: relative; left: -50%; float: left; text-align: center; width: 140px; line-height: 1.2; color: #CDCDCD;}
+.cart_step ul li.active{color: #000000; font-weight: bold;}
+.cart_step ul li strong{font-size: 35px; display: block;}
+
+/*画像の場合*/
+.step{display: block; margin: 25px auto 45px auto;}
+
+/*  Amazonペイメントのスタイル
+-------------------------------------------------------------*/
+#AmazonPayButton{min-height: 80px;}
+
+/*  ローディング表示のスタイル
+-------------------------------------------------------------*/
+#loading{position: fixed; top: 50%; left: 50%; padding-top: 100px; width: 100px; background-image: url("../images/loader_icon_pc.gif"); background-position: center center; background-repeat: no-repeat;}
+
+/*  商品一覧、商品詳細ページアイコン類
+-------------------------------------------------------------*/
+.item_icon{color: #FFFFFF; display: inline-block; font-size: 10px; font-weight: normal; line-height: 1; padding: 3px 5px; vertical-align: text-bottom;}/*アイコン共通設定*/
+.item_short {background: #D21E21;}/*品切*/
+.item_soldout {background: #666666;}/*品薄*/
+.item_new {background: #ffcc00;}/*NEW*/
+.item_before {background: #ff9900;}/*COMING SOON*/
+.item_download {background: #00cccc;}/*ダウンロード商品*/
+.item_yoyaku {background: #000000;}/*予約商品*/
+.item_discount {background: #cc0000;}/*会員割引あり*/
+.item_timesale {background: #cc0000;}/*タイムセール中*/
+.item_teiki_together {background: #a52ead;}/*定期にまとめて注文可能*/
+.item_volume_discount {background: #ff6699;}/*ボリュームディスカウントあり*/
+.item_bundle_sale {background: #0000ff} /* まとめ買い対象*/
+
+/* =================================================================
+3.コンテナ・サイドバー・メインコンテンツ
+使用ファイル：すべてのファイル
+=================================================================*/
+/* container - サイドバー・メインコンテンツを格納するコンテナ
+-------------------------------------------------------------*/
+#container{width: 980px; margin: auto; padding-top: 20px;}
+#container:after {content: ""; clear: both; display: block;}/* clearfix */
+
+/* sidebar - コンテナ内サイドバー
+-------------------------------------------------------------*/
+#sidebar{float: left; width: 190px;}
+
+/* main - コンテナ内メインコンテンツ
+-------------------------------------------------------------*/
+#main{float: right; width: 770px; padding-bottom: 20px;}
+#main h2{margin-bottom: 20px; font-weight: normal; border-bottom: solid 3px #cccccc; position: relative;}
+#main h2:after{position: absolute; content: " "; display: block; border-bottom: solid 3px #373737; bottom: -3px; width: 20%;}
+#main p{margin: 5px 10px; font-size: 90%; line-height: 150%;}
+#main table{width: 750px; margin: 10px; font-size: 90%; border: 1px solid #CCC; line-height: 200%;}
+#main th{padding: 10px; border: 1px solid #CCC; background: #F6F6F6; vertical-align: top; font-weight: normal; text-align: left;}
+#main th.title{width: 160px; text-align: left;}
+#main th.address{width: 55px;}
+#main td{padding: 10px; border: 1px solid #CCC; vertical-align: top;}
+#main .buttonarea{margin: 10px; padding-top: 40px; text-align: center;}
+#main .buttonarea .button{display: inline-block; margin: 0 10px;}
+#main .buttonarea .attention{color: #C00; font-size: 90%;}
+#main .buttonareaFR{margin: 0 0 0px; float: right;}
+#main .buttonareaFR:after{content: "."; display: block; visibility: hidden; height: 0.1px; font-size: 0.1em; line-height: 0; clear: both;}/* clearfix */
+#main .member_buttonarea .button{display: inline-block; margin: 0 10px;}
+#main .hissu{color: #C00; font-weight: bold;}
+#main #breadcrumbs{margin-bottom: 20px; font-size: 80%;}
+#main .amazon_comment{color: #C00; font-weight: bold;}
+#main .expiration_date{padding-left: 10px;}
+
+ /* リキャプチャー機能用
+-------------------------------------------------------------*/
+#main #reCAPTCHA{width: 304px; margin: 20px auto 0;}
+
+/* お問い合わせページ画像項目用
+-------------------------------------------------------------*/
+#main .apply_area img{max-width: 100%;}
+
+/* フォーム類部品
+-------------------------------------------------------------*/
+input[type="text"]{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); padding: 4px;}
+input[type="email"]{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); padding: 4px;}
+input[type="password"]{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); padding: 4px;}
+input[type="tel"]{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); padding: 4px;}
+input[type="number"]{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); padding: 4px;}
+select{height: 30px; vertical-align: middle;}
+textarea{border: solid 1px #ccc; -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25); -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.25); box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.25);}
+input, textarea, select, button{font-family: '游ゴシック体', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, 'MS PGothic', 'ＭＳ Ｐゴシック', sans-serif !important; font-size: 13px;}
+
+/* #main.no-sidebar - サイドバーの無いメインコンテンツ
+-------------------------------------------------------------*/
+#main.no-sidebar{float: none !important; width: 980px !important; min-height: 500px; margin: auto !important;}
+#main.no-sidebar table{width: 960px !important;}
+#main.no-sidebar th{padding: 10px !important;}
+#main.no-sidebar td{padding: 10px !important;}
+
+/* #main.cart - カートフロー中のメインコンテンツ
+-------------------------------------------------------------*/
+#main.cart{float: none; width: 980px; min-height: 500px;}
+
+/* =================================================================
+4.ヘッダ
+使用ファイル：common/header.xhtml
+=================================================================*/
+/* smartphone - スマートフォン専用サイトへのリンク
+-------------------------------------------------------------*/
+#smartphone a{display: block; width: 980px; height: 150px; margin: auto; background: url("../images/button_smartphone.png") no-repeat; text-indent: -9999px;}
+
+/* preview - プレビュー時に表示するエリア
+-------------------------------------------------------------*/
+#preview{padding: 5px; border-bottom: 1px solid #CCC; background: #1C8600; color: #FFF; font-size: 80%; text-align: center;}
+#preview table{width: 800px; margin: auto;}
+#preview .ico{width: 20%; padding-right: 10px; text-align: right;}
+#preview .content{text-align: left;}
+
+/* header - ヘッダ
+-------------------------------------------------------------*/
+#header .inner{ width: 980px;  margin: auto;}
+#header .inner:after {content: ""; clear: both; display: block;}/* clearfix */
+#header h1 a{display: block; float: left; width: 300px; height: 60px; background: url("../images/header_title.gif") no-repeat; text-indent: -9999px; margin: 10px 10px 10px 0;}
+#header h2 a{display: block; float: left; width: 15px; height: 15px; overflow: hidden; margin-top: 10px; background: url("../images/header_rss.gif") no-repeat; text-indent: -9999px;}
+#header h2 a:hover{background-position: 0 -15px;}
+
+/* fontChanger - 文字サイズ変更
+-------------------------------------------------------------*/
+#fontChanger{float: right; margin: 10px 20px 0 0;}
+#fontChanger h2{display: block; float: left; margin-right: 5px; font-size: 13px;}
+#fontChanger .icon{float: left; line-height: 1;}
+#fontChanger .icon a{color: #FFFFFF; display: inline-block; margin-right: 2px; text-decoration: none; font-size: 12px !important; padding: 3px; line-height: 1; vertical-align: text-bottom;}
+#fontChanger .__FONT_CHANGER_BUTTON_S_OFF{background: #CCCCCC;}/* 小 OFF */
+#fontChanger .__FONT_CHANGER_BUTTON_S_ON{background: #D21E21;}/* 小 ON */
+#fontChanger .__FONT_CHANGER_BUTTON_M_OFF{background: #CCCCCC;}/* 中 OFF */
+#fontChanger .__FONT_CHANGER_BUTTON_M_ON{background: #D21E21;}/* 中 ON */
+#fontChanger .__FONT_CHANGER_BUTTON_L_OFF{background: #CCCCCC;}/* 中 OFF */
+#fontChanger .__FONT_CHANGER_BUTTON_L_ON{background: #D21E21;}/* 大 ON */
+
+/* language - 言語選択
+-------------------------------------------------------------*/
+#language{float: right; margin: 10px 20px 0 0;}
+#language h2{display: block; float: left; margin-right: 5px; font-size: 13px;}
+#language p{float: left; margin-right: 5px; font-size: 75%;}
+
+/* search - 商品検索窓
+-------------------------------------------------------------*/
+#search{float: right; width: 209px;}
+#search h2{float: left; width: 105px; height: 20px; overflow: hidden; margin: 10px 10px 0 0; background: url("../images/search_title.gif") no-repeat; text-indent: -9999px;}
+#search p{clear: both; padding: 5px 0px; font-size: 75%; text-align: right;}
+#search .form{display: block; float: left; width: 163px; height: 25px; margin: 10px 0px 0 0; border: 1px solid #CCCCCC; border-right: 0px; padding: 4px;}
+#search .button{float: left; margin: 10px 0 0; font-size: 13px; -webkit-border-radius: 0px;/* for Safari and Chrome */ -moz-border-radius: 0px; /* for Firefox */ -o-border-radius: 0px; /* for opera */ border-radius: 0px; width: 46px;}
+
+/* menu - メニュー
+-------------------------------------------------------------*/
+#menu{height: 40px; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;}
+#menu .inner{display: block; width: 980px; margin: auto;}
+#menu ul{margin: 0 auto; width: 980px;}
+#menu ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#menu li{float: left;}
+#menu li a{display: block; height: 38px; width: 196px; text-decoration: none; border-left: 1px solid #CCCCCC; color: #252525; text-align: center; padding-top: 10px; font-size: 15px; font-weight: bold;}
+#menu li a:hover{background: #F1F1F1;}
+#menu li:last-child a{border-right: 1px solid #CCCCCC;}
+
+#menu .top_select,a.top:hover{background: #F1F1F1;}
+#menu .guide_select,a.guide:hover{background: #F1F1F1;}
+#menu .tokushou_select,a.tokushou:hover{background: #F1F1F1;}
+#menu .company_select,a.company:hover{background: #F1F1F1;}
+#menu .apply_select,a.apply:hover{background: #F1F1F1;}
+
+/* shiborikomi - 絞り込み検索
+-------------------------------------------------------------*/
+#shiborikomi{width: 980px; margin: 0 auto 10px; padding: 5px 10px; background: #F1F1F1; font-size: 80%;}
+#shiborikomi .select{padding: 4px 3px; background: #C00; color: #FFF; font-weight: bold;}
+#shiborikomi a{padding: 4px 3px; color: #666; font-weight: bold; text-decoration: none;}
+#shiborikomi a:hover{background: #CCC;}
+
+
+/* =================================================================
+5.サイドバー
+使用ファイル：common/sidebar.xhtml
+=================================================================*/
+/* login - ログイン枠
+-------------------------------------------------------------*/
+#login{width: 190px; margin-bottom: 60px;}
+#login h2{background-image: url("../images/icon/black/icon_login.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#login.account h2{background-image: url("../images/icon/black/icon_account.png"); margin-bottom: 0px;}
+#login .buttonarea{margin-bottom: 10px;}
+#login .buttonarea:after {content: ""; clear: both; display: block;}/* clearfix */
+#login .button{width: 100px; margin: 10px auto;}
+#login p{margin: 0 5px 5px; font-size: 90%;}
+#login .name{ margin:0 0 10px;}
+#login .name strong{font-size: 20px;}
+#login .error{clear: both; margin: 5px 10px; color: #C00; font-weight: bold; text-align: center;}
+#login .point{color: #C00;}
+#login span{font-weight: bold;}
+
+/* cart - 買い物かごの中身確認・買い物かごへ
+-------------------------------------------------------------*/
+#cart{width: 190px; margin-bottom: 60px;}
+#cart h2{background-image: url("../images/icon/black/icon_cart.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#cart h3{float: left; margin: 0 0 5px 5px; font-size: 90%; font-weight: normal;}
+#cart .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#cart .box p{float: right; margin:0 5px 5px 0; color: #C00; font-size: 90%; font-weight: bold; text-align: right;}
+#cart a{width: 140px; margin: 10px auto 0;}
+
+/* category - 商品カテゴリ
+-------------------------------------------------------------*/
+#category{width: 190px; margin-bottom: 60px;}
+#category h2{background-image: url("../images/icon/black/icon_category.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#category li{display: inline;}
+#category .select{background: url("../images/marker_on.gif") 10px 10px no-repeat #C00; color: #FFF; text-decoration: none;}
+#category li a{display: block; padding: 5px 5px 5px 25px; background: url("../images/marker.gif") 10px 10px no-repeat; color: #333; font-size: 90%; text-decoration: none;}
+#category li a:link{display: block; overflow: hidden;}
+#category li a:hover{background: url("../images/marker.gif") 10px 10px no-repeat #CCC; color: #FFF; text-decoration: underline;}
+
+/* present - プレゼント枠
+-------------------------------------------------------------*/
+#present{width: 190px; margin-bottom: 60px;}
+#present h2{background-image: url("../images/icon/black/icon_present.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#present h3{display: block; padding: 0 10px 0 18px; background: url("../images/marker.gif") 6px 6px no-repeat; font-size: 90%; font-weight: normal;}
+#present .period{margin: 0 5px 10px 15px; font-size: 90%;}
+#present .all{margin: 10px 0px 0px 0px; text-align: right; font-size: 80%;}
+
+/* magazine - メールマガジン枠
+-------------------------------------------------------------*/
+#magazine{width: 190px; margin-bottom: 60px;}
+#magazine h2{background-image: url("../images/icon/black/icon_mail.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#magazine h3{font-size: 13px;}
+#magazine .text{display: block; width: 180px; height: 25px; margin: 0 auto;}
+#magazine .select_area{margin-bottom: 10px;}
+#magazine label{font-size: 13px;}
+#magazine .radio{margin: 5px 2px 5px 5px;}
+#magazine p{margin: 0 5px 2px; font-size: 80%;}
+#magazine .error{margin: 5px; color: #C00; font-weight: bold;}
+#magazine .free{margin: 10px auto;}
+#magazine .buttonarea:after {content: ""; clear: both; display: block;}/* clearfix */
+#magazine .buttonarea li{float: left; width: 50%; text-align: center;}
+#magazine .buttonarea li input{display: inline-block; width: 50px;}
+
+/* coupon - クーポン
+-------------------------------------------------------------*/
+#coupon{width: 190px; margin-bottom: 60px;}
+#coupon h2{background-image: url("../images/icon/black/icon_coupon.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#coupon p{margin: 0 10px; font-size: 80%;}
+#coupon img{display: block; margin: 0 auto;}
+
+/* calendar - カレンダー
+-------------------------------------------------------------*/
+#calendar{width: 190px; margin-bottom: 10px;}
+#calendar h2{background-image: url("../images/icon/black/icon_calendar.png"); background-size:17px 17px; background-repeat: no-repeat; background-position: left 1px; padding-left: 19px; margin-bottom: 10px; font-size: 15px;}
+#calendar p{margin: 0 5px 10px; font-size: 80%;}
+#calendar span.day_color1{color: #FF7F7E;}
+#SIDE_CALENDAR{width: 190px; overflow: hidden; margin: 0 auto; font-size: 10px;}
+#ui-datepicker-div {width: 13em !important;	border: 1px solid #AAA !important; display: none;}
+#ui-datepicker-div .ui-datepicker-header {background: #CCC repeat-x scroll 50% 50% !important; width: 100% !important;}
+#ui-datepicker-div table.ui-datepicker-calendar {width: 100% !important;}
+#ui-datepicker-div select.ui-datepicker-year, #ui-datepicker-div select.ui-datepicker-month{width: 40% !important; border: 1px solid #e0e0e0; height: 23px;}
+.ui-widget-content{border: 1px solid #FFF;}
+.ui-datepicker{padding: 1px}
+.ui-datepicker-title{font-size: 12px;}
+.ui-widget-header{width: 178px; border-top: none; border-left: none; border-right: none; border-bottom: solid 1px #CCC; border-radius: 0; background: none;}
+.ui-datepicker table{width: 178px;}
+.ui-datepicker th,.ui-datepicker td{width: 10px !important; margin: 0; padding: 1px; border: none;}
+.ui-datepicker th a,.ui-datepicker td a{padding: 1px; border: none !important;}
+.ui-datepicker th div,.ui-datepicker td div{padding: 1px; border: none !important;}
+.ui-datepicker-week-end{color: #C00;}
+
+.ui-datepicker .day_color1 .ui-state-default{background-image: none; background-color: #FF7F7E; color: #C00;}
+.ui-datepicker .day_color2 .ui-state-default{background-image: none; background-color: #D7FFED;}
+.ui-datepicker .day_color3 .ui-state-default{background-image: none; background-color: #DDF;}
+.ui-datepicker .day_color4 .ui-state-default{background-image: none; background-color: #FFD;}
+.ui-datepicker .day_color5 .ui-state-default{background-image: none; background-color: #E7FFFF;}
+.ui-datepicker .day_color6 .ui-state-default{background-image: none; background-color: #F0D6FF;}
+img.ui-datepicker-trigger {vertical-align: top !important; padding-left: 5px !important;}
+
+/* jquery-ui-1.8.4.custom.css　上書き用（カレンダー）
+-------------------------------------------------------------*/
+.ui-datepicker .ui-datepicker-header{padding: .3em 0;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{margin: 2px; padding: 2px; border: none; background: #e6e6e6;}/* 日付背景 */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{background: #ffffff;}/* 選択した日付背景 */
+
+/* ホバー時 */
+.ui-datepicker-next.ui-corner-all.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker-prev.ui-corner-all.ui-state-hover.ui-datepicker-prev-hover,
+.ui-datepicker-next.ui-corner-all.ui-state-disabled.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker-prev.ui-corner-all.ui-state-disabled.ui-state-hover.ui-datepicker-prev-hover{box-sizing: border-box; background: none;}
+
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {top: 2px; }
+.ui-datepicker .ui-datepicker-prev-hover {left: 2px;}
+.ui-datepicker .ui-datepicker-next-hover {right: 2px;}
+.ui-datepicker .ui-datepicker-prev-hover span.ui-icon-circle-triangle-w,
+.ui-datepicker .ui-datepicker-next-hover span.ui-icon-circle-triangle-e,
+.ui-state-disabled span.ui-icon-circle-triangle-w,
+.ui-state-disabled span.ui-icon-circle-triangle-e{background-image: url("./smoothness/images/ui-icons_454545_256x240.png"); opacity: .75; filter: alpha(opacity=75); -ms-filter: "alpha(opacity=75)"; -khtml-opacity: 0.75; -moz-opacity: 0.75;}
+
+/* =================================================================
+6.extファイル用
+使用ファイル：ext/company.html
+　　　　　　　ext/tokushou.html
+　　　　　　　ext/guide.html
+			　ext/social_provider.xhtml
+=================================================================*/
+#ext h3{display: block; font-size: 110%; margin: 30px 10px 10px; border-bottom: 1px dashed #cccccc; padding-bottom: 5px;}
+#ext th{text-align: left;}
+#ext ul{padding-bottom: 10px;}
+#ext li{list-style: disc; margin: 5px 40px; font-size: 80%;}
+#ext #sitemap ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#ext #sitemap li{width: 216px; float: left; list-style-type: none; margin: 5px 20px;}
+
+/* social_provider.xhtml
+-------------------------------------------------------------*/
+#ext.social_provider tr th{background: #FFF;}
+#ext.social_provider tr th a{text-decoration: none;}
+#ext.social_provider tr.title th{background: #F6F6F6;}
+#ext.social_provider th.service{width: 220px;}
+#ext.social_provider th div{width: 220px; height: 44px; font-size: 14px; display: block;}
+#ext.social_provider th div p{padding: 14px 0 14px 25px; border: 1px solid #cdcdcd; border-left: 0px; margin: 0 0 0 53px; display: block; background: #FFF; line-height: 1; font-size: 14px;
+-webkit-border-top-right-radius: 3px;
+-webkit-border-bottom-right-radius: 3px;  
+-moz-border-radius-topright: 3px;  
+-moz-border-radius-bottomright: 3px;
+}
+
+#ext.social_provider th.yahoo div{background: url("../images/social_yahoo.png") no-repeat; color: #e71017;}
+#ext.social_provider th.facebook div{background: url("../images/social_facebook.png") no-repeat; color: #3b5998;}
+#ext.social_provider th.twitter div{background: url("../images/social_twitter.png") no-repeat; color: #55acee;}
+#ext.social_provider th.google div{background: url("../images/social_google.png") no-repeat; color: #dc4e41;}
+#ext.social_provider th.mixi div{background: url("../images/social_mixi.png") no-repeat; color: #d1ad59;}
+#ext.social_provider th.line div{background: url("../images/social_line.png") no-repeat; color: #00b300;}
+#ext.social_provider th.paypal div{background: url("../images/social_paypal.png") no-repeat; color: #293e7f;}
+
+#ext.social_provider th.yahoo div.off{background: url("../images/social_yahoo_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.facebook div.off{background: url("../images/social_facebook_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.twitter div.off{background: url("../images/social_twitter_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.google div.off{background: url("../images/social_google_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.mixi div.off{background: url("../images/social_mixi_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.line div.off{background: url("../images/social_line_off.png") no-repeat; color: #cdcdcd;}
+#ext.social_provider th.paypal div.off{background: url("../images/social_paypal_off.png") no-repeat; color: #cdcdcd;}
+
+#ext.social_provider td{vertical-align: middle;}
+
+/* =================================================================
+7.トップページ
+使用ファイル：top.xhtml
+=================================================================*/
+/* mainvisual - メインビジュアル
+-------------------------------------------------------------*/
+#mainvisual img{display: block;}
+
+/* topics - トピックス
+-------------------------------------------------------------*/
+#topics{margin-bottom: 20px; width: 100%;}
+#topics .box{border-bottom: #d4d4d4 solid 1px; margin-bottom: 20px;}
+#topics .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#topics h3{display: block; float: left; width: 140px; padding: 3px 10px 5px; font-size: 90%; font-weight: normal; line-height: 100%;}
+#topics h3 img{vertical-align: bottom;}
+#topics .inner{display: block; float: right; width: 630px; padding: 0px 10px 5px; font-weight: normal;}
+#topics .inner p{margin: 0px 0 5px; font-size: 90%;}
+#topics .rss{display: block; float: right; width: 15px; height: 15px; margin: 5px 5px 0 0; background: url("../images/header_rss.gif") 0 0 no-repeat; text-indent: -9999px; z-index: 10;}
+#topics .rss:hover{background: url("../images/header_rss.gif") 0 -15px no-repeat;}
+#topics .img_box{width: 120px; height: 120px; margin: 5px 0 10px 10px; float: right;}
+#topics .img_box img{max-width: 120px; max-height: 120px;}
+#topics .link{text-align: right;}
+
+/* new - 新着商品
+-------------------------------------------------------------*/
+#new{margin-bottom: 20px; width: 100%;}
+#new ul{margin-top: 10px;}
+#new ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#new .box{float: left; width: 185px; margin: 0 10px 10px 0; border: #d4d4d4 1px solid; padding: 20px 0 0px;}
+#new .img_box{width: 140px; height: 140px; margin: 0px auto 10px;}
+#new .img_box img{max-width: 140px; max-height: 140px;}
+#new .text{width: 140px; margin: 0 auto;}
+#new .cart_button{margin-bottom: 10px;}
+#new .appeal{color: #F60; font-size: 70%;}
+#new h3{margin: 0px 0px 20px; font-size: 90%; font-weight: normal; line-height: 140%; min-height: 60px;}
+#new .price{margin: 0px 0px 20px; font-size: 80%; color: #C00; text-align: right;}
+
+
+/* recommend - おすすめ商品
+-------------------------------------------------------------*/
+#recommend{margin-bottom: 20px; width: 100%;}
+#recommend ul{margin-top: 10px;}
+#recommend ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#recommend .box{float: left; width: 185px; margin: 0 10px 10px 0; border: #d4d4d4 1px solid; padding: 20px 0 0px;}
+#recommend .img_box{width: 140px; height: 140px; margin: 0px auto 10px;}
+#recommend .img_box img{max-width: 140px; max-height: 140px;}
+#recommend .text{width: 140px; margin: 0 auto;}
+#recommend .cart_button{margin-bottom: 10px;}
+#recommend .appeal{color: #F60; font-size: 70%;}
+#recommend h3{margin: 0px 0px 10px; font-size: 90%; font-weight: normal; line-height: 140%; min-height: 60px;}
+#recommend .price{margin: 0px 0px 20px; font-size: 80%; color: #C00; text-align: right;}
+
+
+/* ranking - 人気商品ランキング
+-------------------------------------------------------------*/
+#ranking{margin-bottom: 20px; width: 100%;}
+#ranking ul{margin-top: 10px;}
+#ranking ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#ranking .box{float: left; width: 185px; margin: 0 10px 10px 0; border: #d4d4d4 1px solid; padding: 20px 0 0px;}
+
+#ranking h3{width: 45px; height: 20px; text-indent: -9999px; margin: 0 0 5px;}
+#ranking #ranking_no1 h3{background: url("../images/ranking_no01.gif") 0px 5px no-repeat;}
+#ranking #ranking_no2 h3{background: url("../images/ranking_no02.gif") 0px 5px no-repeat;}
+#ranking #ranking_no3 h3{background: url("../images/ranking_no03.gif") 0px 5px no-repeat;}
+#ranking #ranking_no4 h3{background: url("../images/ranking_no04.gif") 0px 5px no-repeat;}
+#ranking #ranking_no5 h3{background: url("../images/ranking_no05.gif") 0px 5px no-repeat;}
+#ranking #ranking_no6 h3{background: url("../images/ranking_no06.gif") 0px 5px no-repeat;}
+#ranking #ranking_no7 h3{background: url("../images/ranking_no07.gif") 0px 5px no-repeat;}
+#ranking #ranking_no8 h3{background: url("../images/ranking_no08.gif") 0px 5px no-repeat;}
+#ranking #ranking_no9 h3{background: url("../images/ranking_no09.gif") 0px 5px no-repeat;}
+#ranking #ranking_no10 h3{background: url("../images/ranking_no10.gif") 0px 5px no-repeat;}
+
+#ranking h4{margin: 0px 0px 10px; font-size: 90%; font-weight: normal; line-height: 140%; min-height: 60px;}
+#ranking .price{margin: 0px 0px 20px; font-size: 80%; color: #C00; text-align: right;}
+#ranking .text{width: 140px; margin: 0 auto;}
+#ranking .cart_button{margin-bottom: 10px;}
+#ranking .appeal{color: #F60; font-size: 70%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+#ranking .img_box{width: 140px; height: 140px; margin: 0px auto 10px; text-align: center; position: relative;}
+#ranking .img_box img{width: auto; max-width: 140px; max-height: 140px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+
+/* itemAccessLog - 閲覧履歴
+-------------------------------------------------------------*/
+#itemAccessLog{margin-bottom: 20px; clear: both;}
+#itemAccessLog .box{margin-top: 10px; border: #CCC 1px solid;}
+#itemAccessLog .box:hover{border: #8CC329 1px solid;}
+#itemAccessLog .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemAccessLog .text{margin-left: 140px;}
+#itemAccessLog h3{display: block; margin: 10px 10px 0 0; font-size: 95%;}
+#itemAccessLog .link{float: right; font-size: 13px; padding-top: 10px;}
+#itemAccessLog .appeal{display: block; margin: 0; color: #F60; font-size: 70%;}
+#itemAccessLog .price{display: block; margin: 0; color: #C00;}
+#itemAccessLog .price .teika{font-weight: bold; font-size: 110%;}
+#itemAccessLog .price .other{font-size: 90%;}
+#itemAccessLog .explanation1{display: block; margin: 5px 10px 0 0; padding: 5px 0; border-top: #CCC 1px solid; font-size: 80%; line-height: 120%;}
+#itemAccessLog .button_area{margin: 0px 10px 20px 0px; padding-top: 20px; border-top: #CCC 1px solid; text-align: right;}
+#itemAccessLog .button_area:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemAccessLog .button_area .button{width: auto; display: inline-block;}
+#itemAccessLog .property{display: inline; margin: 0; color: #AAA; font-size: 75%;}
+#itemAccessLog .img_box{width: 120px; height: 120px; margin: 10px; float: left;}
+#itemAccessLog .img_box img{max-width: 120px; max-height: 120px;}
+
+
+/* =================================================================
+8.カートの中身～注文完了まで、プレゼント応募～完了まで
+使用ファイル：cart_index.xhtml, cart_login.xhtml
+　　　　　　　cart_seisan.xhtml, cart_confirm.xhtml
+　　　　　　　cart_pre.xhtml, cart_result.xhtml
+　　　　　　　present_login.xhtml, present_input.xhtml
+　　　　　　　present_confirm.xhtml, present_result.xhtml,
+　　　　　　　member_estimate_order_input.xhtml, member_estimate_order_result.xhtml,
+=================================================================*/
+/* cartSidebar - カートフロー内サイドバー
+-------------------------------------------------------------*/
+#cartSidebar{width: 210px; float: right;}
+#cartSidebar #sideInner{width: 210px;}
+#cartSidebar .total_box{border: #CCC 1px solid; padding: 10px; background: #F6F6F6;}
+#cartSidebar .total_box .box{border: none; margin-bottom: 10px;}
+#cartSidebar .total_box .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartSidebar .total_box h3{margin: 0; background: none; padding: 0px; border: 0px; font-size: 14px; float: left;}
+#cartSidebar .total_box p.price{font-size: 14px; float: right; margin: 0px; font-weight: bold;}
+#cartSidebar .total_box img{margin: 0px auto 10px; display: block;}
+#cartSidebar .total_box .totalpricebox{border: none; margin-bottom: 10px; padding-top: 10px; border-top: 1px #CCCCCC solid;}
+#cartSidebar .total_box .totalpricebox:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartSidebar .total_box .teiki_text{margin: 0; font-size: 12px;}
+#cartSidebar .cartButtonArea a{display: block; margin: 0 auto 10px; min-width: 180px;; max-width: 180px;}
+#cartSidebar .cartButtonArea img{display: block;}
+#cartSidebar .cartButtonArea input{display: block; margin: 0 auto 10px; min-width: 180px;; max-width: 180px;}
+#cartSidebar .tax{font-size: 9px; color: #666;}
+
+/* cartIndex - 買い物かごの中身
+-------------------------------------------------------------*/
+#cartIndex{width: 980px; padding-bottom: 20px; margin: 0 auto;}
+#cartIndex .content{width: 750px; float: left; margin-right: 20px;}
+#cartIndex:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartIndex table{width: 750px; margin: 0px 0 10px;}
+#cartIndex table th.itemname{width: 500px;}
+#cartIndex .img_box{width: 80px; height: 80px; text-align: center; position: relative; float: left;}
+#cartIndex .img_box img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#cartIndex .text_box{padding-left: 90px;}
+#cartIndex .text_box p{margin: 0 0 10px; font-size: 100%;}
+#cartIndex .text_box p.code{font-size: 80%;}
+#cartIndex .text_box p.last{margin-bottom: 0px;}
+
+#cartIndex .empty{margin: 20px 0;}
+#cartIndex .price{color: #C00; text-align: right;}
+#cartIndex .tax{font-size: 9px; color: #666;}
+#cartIndex .amount{text-align: center;}
+#cartIndex .delete .button{width: 50px;}
+
+#cartIndex .total{margin: 0px 0 30px; padding: 0px 0 5px; font-weight: bold; text-align: right; border-bottom: #CCC 1px solid; width: 750px;}
+#cartIndex .total p{margin: 0px; font-size: 90%;}
+#cartIndex h3{margin-bottom: 15px; padding: 1px 20px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 7px 7px no-repeat #EEE; font-size: 85%;}
+#cartIndex .box{border: 1px solid #CCC; margin-bottom: 30px; clear: both;}
+#cartIndex .box .buttonarea.amazon_btn{margin: 10px; padding: 10px 0 0; text-align: center;}
+#cartIndex .box .buttonarea.amazon_btn .button.medium{max-width: 270px; width: 270px;}
+#cartIndex .box #AmazonPayV2Button{max-width: 230px; min-width: 200px; margin: 0 auto;}
+
+/* cartLogin - 買い物かご・プレゼントログイン
+-------------------------------------------------------------*/
+#cartLogin:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartLogin table{margin: 0 auto 20px auto; width: 428px;}
+#cartLogin h3{margin-bottom: 15px; padding: 1px 20px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 7px 7px no-repeat #EEE; font-size: 85%;}
+#cartLogin .box{border: 1px solid #CCC; width: 468px; float: left; margin: 0 10px 30px; position: relative;}
+#cartLogin .box .buttonarea{width: 100%; margin: 20px 0; padding: 0;}
+#cartLogin .box table{margin: 10px; width: 446px;}
+#cartLogin .box .link_text{text-align: right; padding: 15px 0 10px;}
+#cartLogin .box .regist_non_area{width: 442px; margin: 0 auto;}
+#cartLogin .box .regist_non_area p{margin: 0 0 10px;}
+#cartLogin .box .amazon_area{width: 442px; margin: 0 auto; border-top: 1px solid #ccc;}
+#cartLogin .box .amazon_area p{margin: 10px 0;}
+#cartLogin .box #AmazonPayV2Button{max-width: 230px; min-width: 200px; margin: 0 auto;}
+#cartLogin .widebox{border: 1px solid #CCC; width: 960px; margin: 0 10px 30px; clear: both;}
+#cartLogin .widebox .link{text-align: right;}
+#cartLogin .widebox table{width: 920px;}
+#cartLogin input[type='text'],#cartLogin input[type='password']{width: 200px;}
+
+#cartLogin .social_provider ul{margin: 10px 19px 20px;}
+#cartLogin .social_provider ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartLogin .social_provider ul li{width:280px; height:44px; font-size:14px; display:block; float:left; margin:10px 5px;}
+#cartLogin .social_provider ul li a{display: block; text-decoration: none;}
+#cartLogin .social_provider ul li a span{padding: 14px 0 14px 25px; border: 1px solid #cdcdcd; border-left: 0px; margin: 0 0 0 53px; display: block; background: #FFF; line-height: 1; font-size: 14px;
+-webkit-border-top-right-radius: 3px;
+-webkit-border-bottom-right-radius: 3px;  
+-moz-border-radius-topright: 3px;  
+-moz-border-radius-bottomright: 3px;
+}
+
+#cartLogin .social_provider li.yahoo a{background: url("../images/social_yahoo.png") no-repeat; color: #e71017;}
+#cartLogin .social_provider li.facebook a{background: url("../images/social_facebook.png") no-repeat; color: #3b5998;}
+#cartLogin .social_provider li.twitter a{background: url("../images/social_twitter.png") no-repeat; color: #55acee;}
+#cartLogin .social_provider li.google a{background: url("../images/social_google.png") no-repeat; color: #dc4e41;}
+#cartLogin .social_provider li.mixi a{background: url("../images/social_mixi.png") no-repeat; color: #d1ad59;}
+#cartLogin .social_provider li.line a{background: url("../images/social_line.png") no-repeat; color: #00b300;}
+#cartLogin .social_provider li.paypal a{background: url("../images/social_paypal.png") no-repeat; color: #293e7f;}
+
+
+/* cartFlow - 買い物かご・プレゼント注文情報入力～注文完了まで
+-------------------------------------------------------------*/
+#cartFlow{width: 980px; padding-bottom: 20px; margin: 0 auto;}
+#cartFlow:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartFlow .content{width: 750px; float: left; margin-right: 20px;}
+#cartFlow td input{vertical-align: baseline;}
+#cartFlow table.newCreditCard{width: 547px; font-size: 100%; margin: 10px auto;}
+
+#cartFlow .point_info{margin-bottom: 20px;}
+
+#cartFlow .teiki ul{margin: 5px 10px;}
+#cartFlow .teiki ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartFlow .teiki ul li{float: left; font-size: 13px; margin-right: 1em;}
+
+#cartFlow table{width: 750px; margin: 0px 0 20px;}
+#cartFlow table.change_data{margin-top: -21px;}
+#cartFlow table.member_regist{margin-top: -21px;}
+#cartFlow table td.short input{width: 120px;}
+
+#cartFlow .text_box{padding-left: 90px;}
+#cartFlow .text_box p{margin: 0 0 10px; font-size: 100%;}
+#cartFlow .text_box p.code{font-size: 80%;}
+#cartFlow .text_box p.last{margin-bottom: 0px;}
+
+#cartFlow h3{display: block; font-size: 110%; margin: 30px 0px 10px; padding-bottom: 5px;}
+#cartFlow h3 img{vertical-align: middle;}
+#cartFlow h3 .lock{position:relative; top:-3px;}
+#cartFlow .price{color: #C00; text-align: right;}
+#cartFlow .total{margin: 0px 0 30px; padding: 0px 0 5px; font-weight: bold; text-align: right; border-bottom: #CCC 1px solid; width: 700px;}
+#cartFlow .total p{margin: 0px; font-size: 90%;}
+#cartFlow .point{color: #F60; font-weight: bold;}
+#cartFlow .attention{color: #C00; font-weight: bold; font-size: 110%;}
+#cartFlow .attention_message{color: #C00; font-weight: bold;}
+
+#cartFlow .sendCopyButton{margin-bottom: 10px;}
+#cartFlow .sendCopyButton:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartFlow .sendCopyButton .button{width: auto; display: inline-block;}
+
+#cartFlow .multi_send .buttonarea{background: #EEE; margin: 0px 0 20px; padding: 30px 0;}
+#cartFlow .multi_send table.delivery{margin-top: -21px;}
+#cartFlow .multi_send .sendAddressButton a{width: auto; display: inline-block; margin-bottom: 10px;}
+
+#cartFlow #reCAPTCHA{margin: 20px auto 40px auto;}
+#cartFlow #reCAPTCHA iframe{width: 158px; height: 138px;}
+#cartFlow #reCAPTCHA .g-recaptcha{display: block; -webkit-transform: scale(1.19); -ms-transform: scale(1.19); transform: scale(1.19); -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transform-origin: 0 0;}
+
+#cartFlow .cartitem{margin-top: 20px; width: 210px; padding: 10px; border: #CCC 1px solid;}
+#cartFlow .cartitem h3{margin: 0 0 10px; padding: 0px; border: none; background: none;}
+#cartFlow .cartitem li{margin-bottom: 10px; padding-bottom: 0px; border-bottom: 1px solid #CCC;}
+#cartFlow .cartitem .img_box{ width: 25px; height: 25px; float: left; margin-right: 5px; text-align: center; position: relative;}
+#cartFlow .cartitem .img_box img{width: auto; max-width: 25px; max-height: 25px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#cartFlow .cartitem .text_box{padding-left: 0px; margin-bottom: 5px;}
+#cartFlow .cartitem .text_box:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartFlow .cartitem .text_box p{margin: 0px; font-size: 70%; line-height: 130%;}
+#cartFlow .cartitem p.price{font-size: 70%; margin: 0px; float: left;}
+#cartFlow .cartitem p.amount{font-size: 70%; margin: 0px; float: right;}
+
+#cartFlow .cartresult table{width: 920px; margin: 0 auto 20px;}
+#cartFlow .cartresult .total{width: 920px; margin: 0 10px 30px;}
+
+#cartFlow .cartconfirm table{width: 920px; margin: 0 auto 20px;}
+#cartFlow .cartconfirm .total{width: 920px; margin: 0 10px 30px;}
+#cartFlow .error{clear: both; margin: 5px 10px; color: #C00; font-weight: bold; text-align: center; font-size: 80%;}
+
+#cartFlow .card-supplement{font-size:12px; color:#368bc6; font-weight:bold;}
+
+/* estiamteOrderInput -　見積詳細・注文情報入力
+-------------------------------------------------------------*/
+#cartFlow #estiamteOrderInput .content h3:first-child{margin-top:0;}
+#cartFlow #estiamteOrderInput .estimate.button{margin:10px 0}
+#cartFlow #estiamteOrderInput .content .img_box{width: 80px; height: 80px; float: left;}
+#cartFlow #estiamteOrderInput .content .img_box img{max-width: 80px; max-height: 80px;}
+
+/* クーポンラジオボタン制御に仕様 */
+.couponHide{display: none;}
+
+/* cartResult - カート完了画面
+-------------------------------------------------------------*/
+#cartResult .number{margin: 30px 0px; text-align: center; line-height: 200%;}
+#cartResult .number strong{ font-size: 20px;}
+
+/* cartRecommend - カートおすすめ
+-------------------------------------------------------------*/
+#cartRecommend{margin-top: 20px; width: 210px; padding: 10px; border: #CCC 1px solid; }
+#cartRecommend .box{margin: 0px 0 40px; border: 0px;}
+#cartRecommend .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartRecommend .text{margin-left: 70px; min-height: 60px;}
+#cartRecommend h3{margin-bottom: 10px; height: auto; background: none; padding: 0px; border-bottom: none;}
+#cartRecommend h3 a{float: right;}
+#cartRecommend h4{display: block; margin: 0px 0px 10px; background: none; padding: 0px; font-size: 70%; border-bottom: none;}
+#cartRecommend .appeal{display: block; margin: 0; color: #F60; font-size: 70%;}
+#cartRecommend .price{display: block; margin: 0; color: #C00;}
+#cartRecommend .price .teika{font-weight: bold; font-size: 100%;}
+#cartRecommend .price .other{font-size: 90%;}
+#cartRecommend .explanation1{display: block; margin: 5px 0px 0 0; padding: 10px 0; border-top: #CCC 1px solid; font-size: 80%; line-height: 120%;}
+#cartRecommend .buttonarea{display: block; margin: 0px; padding-top: 10px; text-align: left;}
+#cartRecommend .buttonarea .button{display: block; margin: 0 0 10px;}
+#cartRecommend .property{ margin: 0 0 10px; color: #AAA; font-size: 75%;}
+
+#cartRecommend .img_box{width: 60px; height: 60px; text-align: center; position: relative; float: left;}
+#cartRecommend .img_box img{width: auto; max-width: 60px; max-height: 60px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+
+/* クロネコ代金後払いスマホタイプ
+-------------------------------------------------------------*/
+#cartFlow .yamato_atobarai_auth_code{text-align: center;}
+#cartFlow .yamato_atobarai_auth_code input[type="text"]{width: 50px; height: 50px; font-size: 18px; text-align: center;}
+#cartFlow .yamato_atobarai_auth_code input[type="text"] + input[type="text"]{margin-left: 10px;}
+
+
+/* presentFlow - 買い物かご・プレゼント注文情報入力～注文完了まで
+-------------------------------------------------------------*/
+#presentFlow #cartLogin table{width: 446px !important;}
+
+
+/* =================================================================
+9.定期購入商品履歴照会・変更
+使用ファイル：teiki_index.xhtml, teiki_detail.xhtml
+　　　　　　　teiki_renew.xhtml, teiki_renew_confirm.xhtml
+=================================================================*/
+/* teikiIndex - 定期購入商品一覧
+-------------------------------------------------------------*/
+#teikiIndex h3{margin: 5px; padding-left: 8px; border-left: 6px solid #373737; font-size: 110%;}
+#teikiIndex h4{display: block; margin: 30px 0px 20px; padding-left: 15px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 2px 8px no-repeat; font-size: 100%;}
+#teikiIndex .box{margin: 10px; padding: 10px; border: 1px solid #CCC; background: #FFF;}
+#teikiIndex .head{padding: 5px; background: #F1F1F1;}
+#teikiIndex .headDetail{padding-left: 15px; background: url("../images/marker_on.gif") 0 5px no-repeat;}
+#teikiIndex .head_renew .button{display: inline-block; width: auto; margin-bottom: 10px;}
+#teikiIndex .price{color: #C00; text-align: right;}
+#teikiIndex table{width: 728px; margin: 10px 0px 30px;}
+#teikiIndex table:last-child{margin-bottom: 0px;}
+#teikiIndex th{padding: 5px 10px;}
+#teikiIndex td{text-align: center;}
+#teikiIndex td.month{background: #F9F9F9; font-weight: bold; color: #960;}
+#teikiIndex .status {float: right; margin-right: 20px;}
+#teikiIndex .cancel_oder{text-align: right;}
+#teikiIndex .cancel_oder .button{display: inline-block; width: auto;}
+#teikiIndex .cancel_oder form{height: 20px;}
+
+#teikiIndex .pageguide{float: left; width: 500px; font-size: 85%;}
+#teikiIndex .pagelink{clear: both; font-size: 85%; margin-bottom:40px;}
+
+/* teikiDetail - 定期購入商品照会・変更・確認画面
+-------------------------------------------------------------*/
+#teikiDetail h3{margin: 5px; padding-left: 8px; border-left: 6px solid #373737; font-size: 110%;}
+#teikiDetail h4{display: block; margin: 30px 0px 20px; padding-left: 15px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 2px 8px no-repeat; font-size: 100%;}
+#teikiDetail h5{margin: 20px 0px 0; font-size: 16px;}
+#teikiDetail .box{margin: 10px; padding: 10px; border: 1px solid #CCC; background: #FFF;}
+#teikiDetail .head{padding: 5px; background: #F1F1F1;}
+#teikiDetail .headDetail{margin-right: 20px; padding-left: 5px; border-left: 12px groove #333;}
+#teikiDetail .price{color: #C00;}
+#teikiDetail table{width: 728px; margin: 10px 0px 30px;}
+#teikiDetail table:last-child{margin-bottom: 0px;}
+#teikiDetail td.month{background: #F9F9F9; font-weight: bold; color: #960;}
+
+/* =================================================================
+10.フッタ
+使用ファイル：common/footer.xhtml
+=================================================================*/
+#footer{clear: both; width: 100%; margin-top: 120px;}
+#footer .copyright{padding: 10px 0 10px; font-size: 75%; color: #333; text-align: center; border-top: 1px solid #CCC;}
+
+/* backtotop */
+#topBtn{position:fixed; bottom:20px; right:20px; display:block;}
+#topBtn a{width:54px; height:54px; display:block;}
+
+/* =================================================================
+11.商品詳細・一覧、プレゼント詳細・一覧、トピックス詳細・一覧
+使用ファイル：item_list$detail.xhtml, item_list$image.xhtml
+　　　　　　　item_list$simple.xhtml, item_detail.xhtml
+　　　　　　　present_list.xhtml, present_detail.xhtml
+		　　topics_list.xhtml,topics_detail.xhtml
+=================================================================*/
+/* category_html - カテゴリHTML
+-------------------------------------------------------------*/
+#category_html{margin-bottom: 20px;}
+#category_html img{display: block; margin-bottom: 10px;}
+
+/* itemListCategory - カテゴリ
+-------------------------------------------------------------*/
+#itemListCategory{margin-bottom: 20px;}
+#itemListCategory ul{display: block; width: 768px; border: #CCC 1px solid; background: #F5F5F5;}
+#itemListCategory ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListCategory li{display: inline; float: left;}
+#itemListCategory .select{background: url("../images/marker_on.gif") 7px 10px no-repeat #C00; color: #FFF; text-decoration: none;}
+#itemListCategory li a{display: block; padding: 5px; background: url("../images/marker.gif") 7px 10px no-repeat; color: #333; font-size: 80%;text-decoration: none; text-indent: 15px; white-space: nowrap;}
+#itemListCategory li a:link{display: block;}
+#itemListCategory li a:hover{background: url("../images/marker.gif") 7px 10px no-repeat #CCC; color: #FFF; text-decoration: underline;}
+#itemListCategory #sub ul{display: block; width: 768px; border: #CCC 1px solid; border-top: none; background: #FFF;}
+#itemListCategory #sub ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListCategory #sub li{display: inline; float: left;}
+#itemListCategory #sub .select{background: url("../images/marker_on.gif") 7px 10px no-repeat #CCC; color: #FFF; text-decoration: none;}
+#itemListCategory #sub li a{display: block; padding: 5px; background: url("../images/marker.gif") 7px 10px no-repeat; color: #333; font-size: 80%; text-decoration: none; text-indent: 15px;}
+#itemListCategory #sub li a:link{display: block;}
+#itemListCategory #sub li a:hover{background: url("../images/marker.gif") 7px 10px no-repeat #CCC; color: #FFF; text-decoration: underline;}
+
+/* narrowListCategory - 絞り込みカテゴリ
+-------------------------------------------------------------*/
+#narrowListCategory:after {content: ""; clear: both; display: block;}/* clearfix */
+#narrowListCategory h3{display: block; padding: 3px 10px; font-size: 80%; border: 1px solid #ccc; z-index: 99; position: relative; cursor: default;}
+#narrowListCategory .inner{padding-bottom: 20px;}
+#narrowListCategory .inner:after {content: ""; clear: both; display: block;}/* clearfix */
+#narrowListCategory #narrowDownCategoryMultiple{float: left; width: 180px; height: 27px; margin-right: 5px;}
+#narrowListCategory #narrowDownCategoryMultiple:after {content: ""; clear: both; display: block;}/* clearfix */
+#narrowListCategory h3:hover + ul{display: block; z-index: 100; position: relative; border: 1px solid #ccc; border-top: none; margin-top: -1px;}
+
+#narrowListCategory .box {display: none; background: #FFF; padding: 5px;}
+#narrowListCategory .box:hover{display: block; z-index: 100; position: relative; border: 1px solid #ccc; border-top: none; margin-top: -1px;}
+#narrowListCategory .box.hover{display: block; z-index: 100; position: relative; border: 1px solid #ccc; border-top: none; margin-top: -1px;}
+#narrowListCategory .box li{font-size: 80%; display: block; margin-bottom: 5px;}
+#narrowListCategory .box li:after {content: ""; clear: both; display: block;}/* clearfix */
+#narrowListCategory .box input{float: left; width: 15px; display: block; margin: 3px 5px 0 3px;}
+#narrowListCategory .box label{float: left; width: 145px; display: block;}
+*+html #narrowListCategory .box label{margin: 5px 0 0 0px;}
+
+#narrowListCategory .filterArea{clear: both; margin-bottom: 20px;}
+#narrowListCategory .filterArea:after {content: ""; clear: both; display: block;}/* clearfix */
+#narrowListCategory .filterArea li{display: block; font-size: 80%; background: #C00; float: left; color: #FFF; text-decoration: none; padding: 5px; white-space: nowrap; margin-right: 10px; line-height: 130%;}
+#narrowListCategory .filterArea li a{margin-left: 10px; color: #FFFFFF; text-decoration: none; font-size: 130%;}
+#narrowListCategory .filterArea li a:hover{text-decoration: underline;}
+#narrowListCategory .filterArea li.filter_clear {background: none; margin: 0px; text-indent: 0px;}
+#narrowListCategory .filterArea li.filter_clear a{ color: #333333; margin: 0px; font-size: 100%;}
+
+/* list - 一覧画面共通のメニュー
+-------------------------------------------------------------*/
+#list{padding-bottom: 20px;}
+#list ul{margin-bottom: 20px; background: url("../images/list_bg.gif") bottom repeat-x;}
+#list ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#list li{float: left;}
+#list li a{display: block; margin-right: 5px; padding: 5px 10px 5px 25px; border-top: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD; border-bottom: 1px solid #CCC; font-size: 80%; color: #333;}
+#list .detail{background: url("../images/icon_list_detail.png") 7px 7px no-repeat #DDD;}
+#list .image{background: url("../images/icon_list_image.png") 7px 7px no-repeat #DDD;}
+#list .simple{background: url("../images/icon_list_simple.png") 7px 7px no-repeat #DDD;}
+#list .detail.select{border: 1px solid #CCC; border-bottom: 1px solid #FFF; background-color: #FFFFFF; color: #333; text-decoration: none;}
+#list .image.select{border: 1px solid #CCC; border-bottom: 1px solid #FFF; background-color: #FFFFFF; color: #333; text-decoration: none;}
+#list .simple.select{border: 1px solid #CCC; border-bottom: 1px solid #FFF; background-color: #FFFFFF; color: #333; text-decoration: none;}
+#list .pageguide{float: left; width: 570px; font-size: 85%; padding-top: 4px;}
+#list .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#list .rearrange select{margin-left: 10px;}
+#list .pagelink{clear: both; font-size: 85%; padding: 10px 0;}
+#list .nolink{color: #999;}
+
+/* itemListDetail - 商品詳細一覧・プレゼント一覧
+-------------------------------------------------------------*/
+#itemListDetail{margin-bottom: 20px; clear: both;}
+#itemListDetail .box{margin-top: 10px; border: #CCC 1px solid; padding-top: 10px;}
+#itemListDetail .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListDetail .text{margin-left: 140px;}
+#itemListDetail .sale_date{margin: 0px 10px 10px 0px;}
+#itemListDetail h3{display: block; margin: 0px 10px 10px 0; font-size: 95%;}
+#itemListDetail .appeal{display: block; margin: 0; color: #F60; font-size: 70%;}
+#itemListDetail .price{display: block; margin: 0 10px 10px 0; color: #C00;}
+#itemListDetail .price .teika{font-weight: bold; font-size: 110%;}
+#itemListDetail .price .other{font-size: 90%;}
+#itemListDetail .explanation1{display: block; margin: 10px 10px 0px 0px; padding: 10px 0; border-top: #CCC 1px solid; font-size: 80%; line-height: 120%;}
+#itemListDetail .button_area{margin: 0px 10px 20px 0px; padding-top: 20px; border-top: #CCC 1px solid; text-align: right;}
+#itemListDetail .button_area:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListDetail .button_area .button{width: auto; display: inline-block;}
+#itemListDetail .property{float: right; margin: 0; color: #AAA; font-size: 75%; padding: 3px;}
+#itemListDetail .img_box{width: 120px; height: 120px; margin: 10px; float: left; text-align: center; position: relative;}
+#itemListDetail .img_box img{width: auto; max-width: 120px; max-height: 120px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/* itemListDetail - 商品一覧お気に入りリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListDetail .wishlistSubmitButton{position: relative;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage .link{background-color: #fff; text-align: center;}
+#itemListDetail .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage .link{background-color: #fff; text-align: center;}
+#itemListDetail .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* itemListDetail - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListDetail .cartSubmitButton{position: relative;}
+#itemListDetail .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListDetail .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListDetail .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListDetail .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListDetail .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#itemL#itemListDetailistImage .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#itemListDetail .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* itemListSimple - 商品簡易一覧
+-------------------------------------------------------------*/
+#itemListSimple{margin-bottom: 20px;}
+#itemListSimple .box{margin-top: 10px; border: #CCC 1px solid;}
+#itemListSimple .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListSimple h3{display: block; margin: 10px; font-size: 95%;}
+#itemListSimple .appeal{display: block; margin: 0 0 0 10px; color: #F60; font-size: 70%;}
+#itemListSimple .price{display: block; margin: 0 0 0 10px; color: #C00;}
+#itemListSimple .price .teika{font-weight: bold; font-size: 110%;}
+#itemListSimple .price .other{font-size: 90%;}
+#itemListSimple .explanation1{display: block; margin: 5px 10px 0; padding: 10px 0; border-top: #CCC 1px solid; font-size: 80%; line-height: 120%;}
+#itemListSimple .button_area{margin: 0px 10px 20px; padding-top: 20px; border-top: #CCC 1px solid; text-align: right;}
+#itemListSimple .button_area:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListSimple .button_area .button{float: right; width: auto; margin-left: 10px;}
+#itemListSimple .button_area .not_click{float: right; width: auto; margin-left: 10px;}
+#itemListSimple .property{float: right; margin: 0; color: #AAA; font-size: 75%; padding: 3px;}
+
+/* itemListSimple - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListSimple .cartSubmitButton{position: relative;}
+#itemListSimple .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListSimple .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListSimple .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListSimple .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListSimple .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#itemListSimple .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#itemListSimple .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+/* itemListSimple - 商品一覧お気に入りリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListSimple .wishlistSubmitButton{position: relative;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage .link{background-color: #fff; text-align: center;}
+#itemListSimple .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage .link{background-color: #fff; text-align: center;}
+#itemListSimple .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* itemListImage - 商品画像一覧
+-------------------------------------------------------------*/
+#itemListImage{margin-bottom: 20px;}
+#itemListImage:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemListImage .box{float: left; margin: 0px 10px 10px 0; width: 250px; border: #d4d4d4 1px solid;}
+#itemListImage .text{float: left; width: 98px; margin-right: 10px;}
+#itemListImage h3{display: block; margin: 5px 10px 0 0; font-size: 14px; line-height: 150%;}
+#itemListImage .icon{display: block; margin: 10px 7px 0 0; line-height: 120%;}
+#itemListImage .button_area{display: block; clear: both; margin: 5px 10px; line-height: 100%;}
+#itemListImage .button{margin-bottom: 10px;}
+#itemListImage .property{margin: 0; color: #AAA; font-size: 70%; margin-bottom: 10px;}
+#itemListImage .img_box{width: 120px; height: 120px; margin: 10px; float: left; text-align: center; position: relative;}
+#itemListImage .img_box img{width: auto; max-width: 120px; max-height: 120px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/* itemListImage - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListImage .cartSubmitButton{position: relative;}
+#itemListImage .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListImage .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListImage .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListImage .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListImage .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#itemListImage .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#itemListImage .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+/* itemListImage - 商品一覧お気に入りリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemListImage .wishlistSubmitButton{position: relative;}
+#itemListImage .wishlistSubmitButton .wishlistMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListImage .wishlistSubmitButton .wishlistMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListImage .wishlistSubmitButton .wishlistMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListImage .wishlistSubmitButton .wishlistMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListImage .wishlistSubmitButton .wishlistMessage .link{background-color: #fff; text-align: center;}
+#itemListImage .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage .link{background-color: #fff; text-align: center;}
+#itemListImage .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* topicsList - トピックス一覧
+-------------------------------------------------------------*/
+#topicsList {margin-bottom: 20px;}
+#topicsList .box {margin-top: 10px; padding: 10px; border: #CCC 1px solid;}
+#topicsList .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#topicsList .box h3{font-size: 95%; display: block; margin: 10px 10px 0 0px;}
+#topicsList .box p{display: block; width: 728px; margin: 0; padding: 5px 0px; font-size: 90%; font-weight: normal;}
+#topicsList .img_box{width: 120px; height: 120px; float: right; margin: 0 0 10px 10px; text-align: center; position: relative;}
+#topicsList .img_box img{width: auto; max-width: 120px; max-height: 120px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/* itemDetail - 商品詳細・プレゼント詳細
+-------------------------------------------------------------*/
+#itemDetail{margin-bottom: 20px;}
+#itemDetail .box{margin-top: 10px;}
+#itemDetail .box:after {content: ""; clear: both; display: block;}/* clearfix */
+
+/* 商品画像の切り替え */
+#itemDetail .item_image_area{float: left; width: 270px;}
+#itemDetail .item_image_area #targetarea{visibility: hidden;}
+#itemDetail .item_image_area #main_box{position: relative; border: 1px solid #ccc;}
+#itemDetail .item_image_area #main_box:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemDetail .item_image_area .img_box{display: none; width: 268px; height: 268px;}
+
+#itemDetail .item_image_area .img_box img{max-width: 268px; max-height: 268px;}
+#itemDetail .item_image_area .thumb{margin: 10px 0 20px;}
+#itemDetail .item_image_area .thumb:after {content: ""; clear: both; display: block;}/* clearfix */
+#itemDetail .item_image_area .thumb li{margin: 0 5px 5px 0; float: left;}
+#itemDetail .item_image_area .thumb li.last{margin-right: 0;}
+#itemDetail .item_image_area .thumb a{border: 1px solid #ccc; width: 50px; height: 50px; display: block; text-align: center; position: relative;}
+#itemDetail .item_image_area .thumb a img{max-width: 48px; max-height: 48px; width: auto; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#itemDetail .item_image_area .thumb a img:hover{filter: alpha(opacity=60); -moz-opacity: .6; -khtml-opacity: .6; opacity: .6;}
+#itemDetail .item_image_area .thumb li.active a{border: 1px solid #cc3333; display: block; filter: alpha(opacity=100) !important; -moz-opacity: 1 !important; -khtml-opacity: 1 !important; opacity: 1 !important;}
+#itemDetail .item_image_area .thumb li.active a img:hover{cursor: default; filter: alpha(opacity=100) !important; -moz-opacity: 1 !important; -khtml-opacity: 1 !important; opacity: 1 !important;}
+
+#itemDetail .otherImage{clear: both; padding: 10px 10px 0 15px; font-size: 75%;}
+#itemDetail .recommend{clear: both; padding: 0 10px 10px 15px; font-size: 75%;}
+#itemDetail .property_image_area{ clear: both;}
+#itemDetail .propertyImg{width: 80px; float: left; margin-right: 15px;}
+#itemDetail .propertyImg .propertyimg_box{width: 80px; height: 80px; text-align: center; position: relative; margin: 0 10px 0px 0;}
+#itemDetail .propertyImg .propertyimg_box img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#itemDetail .propertyImg p{margin: 0; text-align: center;}
+#itemDetail p{margin: 0 0 10px;}
+#itemDetail .text{float: right; width: 480px;}
+#itemDetail .appeal{display: block; margin: 10px 0px 0 0; color: #F60; font-size: 75%;}
+#itemDetail h3{display: block; margin: 10px 0px 5px 0; font-size: 105%;}
+#itemDetail .price{display: block; margin: 0 0px 5px 0; font-size: 90%; color: #C00;}
+#itemDetail .price .teika{display: block; margin-bottom: 5px; font-weight: bold; font-size: 110%;}
+#itemDetail .price .other{display: block; font-size: 90%;}
+#itemDetail .information{display: block; margin: 0 0px 0 0; font-size: 80%;}
+#itemDetail .explanation2{display: block; margin: 10px 0px 20px 0; padding-top: 10px; border-top: #CCC 1px solid; font-size: 100%; line-height: 150%;}
+#itemDetail .explanation3{display: block; margin: 0 0px 20px 0; padding: 10px; background: #EEE; color: #666; font-size: 90%; line-height: 150%%;}
+#itemDetail table{width: 480px; margin: 0 0 10px;}
+#itemDetail th{width: 100px; padding: 5px 10px; text-align: left;}
+#itemDetail td{padding: 5px 10px;}
+#itemDetail .button{margin-bottom: 10px;}
+#itemDetail .button.small{max-width: 160px;}
+
+/* itemDetail - 商品詳細カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemDetail .cartSubmitButton{position: relative;}
+#itemDetail .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemDetail .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemDetail .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemDetail .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemDetail .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#itemDetail .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#itemDetail .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* itemDetail - 商品詳細お気に入りリストに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemDetail .wishlistSubmitButton{position: relative;}
+#itemDetail .wishlistSubmitButton .wishlistMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemDetail .wishlistSubmitButton .wishlistMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .link{background-color: #fff; text-align: center;}
+#itemDetail .wishlistSubmitButton .wishlistMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .link{background-color: #fff; text-align: center;}
+#itemDetail .wishlistSubmitButton .wishlistDelMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* itemDetail - トピックス詳細
+-------------------------------------------------------------*/
+#itemDetail .topics_img h3,#itemDetail .topics_noimg h3{margin: 10px 10px 5px 0px; display: block; font-size: 105%;}
+#itemDetail .topics_img p,#itemDetail .topics_noimg p{font-size: 90%; margin: 5px 0px;}
+#itemDetail .topics_img img{display: block;}
+#itemDetail .topics_img .img_box{width: 140px; height: 140px; margin: 10px 10px 10px 0; text-align: center; position: relative; float: left;}
+#itemDetail .topics_img .img_box img{width: auto; max-width: 140px; max-height: 140px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#itemDetail .topics_img .topics_text{overflow: auto;}
+#itemDetail .topics_img,#itemDetail .topics_noimg{padding: 10px;}
+#itemDetail .topics_noimg p img{float: right; margin: 0 0 10px 10px;}
+
+/* present_detail.xhtml - プレゼント詳細
+-------------------------------------------------------------*/
+#itemDetail.present .item_image_area #targetarea{visibility: visible;}
+#itemDetail.present .item_image_area .img_box{display:block; width: 268px; height: 268px;}
+
+
+/* =================================================================
+12.レビュー
+使用ファイル：item_detail.xhtml, member_review.xhtml
+=================================================================*/
+#review{margin-bottom: 40px;}
+#review p{margin: 0 0px;}
+#review p.item_name{font-size: 95%; font-weight: bold;}
+#review h3{float: left; margin: 0 10px 0 0; font-size: 80%;}
+#review .review_box{margin-bottom: 20px;}
+#review .box{margin: 10px 0 5px; padding: 10px; border: #CCC 1px solid;}
+#review .box h3{float: none; font-size: 90%;}
+#review .box p{margin: 0;}
+#review .box p.name{padding: 5px 0; margin-bottom: 10px; border-bottom: 1px dashed #CCC; color: #666; font-size: 75%;}
+#review p.goodButton{margin-bottom: 5px; color: #666; font-size: 75%;}
+#review p.goodButton .button{margin-left: 5px; vertical-align: middle; display: inline-block; width: auto;}
+#review p.goodNumber{margin-bottom: 20px; color: #666; font-size: 75%;}
+#review p.more{margin-bottom: 20px; font-size: 75%; text-align: right;}
+#review .pageguide{ float: left; width: 570px; font-size: 85%; padding-top: 4px;}
+#review .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#review .pagelink{ clear: both; font-size: 85%; padding: 10px 0;}
+#review ul.star{float: left;}
+#review ul.star li{display: block; float: left; width: 15px; height: 15px; text-indent: -9999px;}
+#review ul.star li.good{background: url("../images/review_good.gif") no-repeat;}
+#review ul.star li.bad{background: url("../images/review_bad.gif") no-repeat;}
+#review .contribution{margin-top: 10px; padding: 10px 10px 10px 10px; background: #F1F1F1;}
+#review .contribution #error{background: #F1F1F1;}
+
+#review .contribution table{margin: 0; border: none;}
+#review .contribution th{width: 140px; padding: 5px 10px; border: none; background: none; font-weight: normal; text-align: left;}
+#review .contribution td{padding: 5px 10px; border: none;}
+#review .contribution h3{float: none; margin:0 0 10px 0; padding:0px; font-size: 120%;}
+
+#review .review-image{padding-top: 20px;}
+#review .review-image:after {content: ""; clear: both; display: block;}/* clearfix */
+#review .review-image .img_box{width: 80px; height: 80px; margin-right: 10px; margin-bottom: 10px; text-align: center; position: relative; float: left;}
+#review .review-image img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+
+/* =================================================================
+13.購入履歴・見積履歴
+使用ファイル：member_history.xhtml,member_estimate_recode.xhtml
+=================================================================*/
+#history h3{display: block; font-size: 110%; margin: 30px 10px 10px; padding-bottom: 5px;}
+#history .infoarea{display: block; margin: 40px 10px 0; font-size: 80%; font-weight: bold;}
+#history .infoarea:after {content: ""; clear: both; display: block;}/* clearfix */
+#history .infoarea .status_icon{color: #FFFFFF; float: left; font-weight: normal; margin-right: 10px;}
+#history .cancel{float: right; margin-left: 10px;}
+#history .payment_change{float: right; margin-left: 10px;}
+#history .infoarea .date{clear: both; padding-top: 3px;}
+#history .infoarea.estimate{position: relative;}
+#history .infoarea.estimate .seikyu_price{ color:#C00; font-size: 16px;}
+#history .infoarea.estimate .estimate_number{color:#222; padding:0 0 0 10px;}
+#history .infoarea.estimate .button.estimate{width: 137px; display: inline-block; position: absolute; right:10px;}
+
+#history .preparing .status_icon{background: #336600; padding: 3px 5px;}/* 手配中 */
+#history .delivered .status_icon{background: #ff9900; padding: 3px 5px;}/* 配送中 */
+#history .delivering .status_icon{background: #000066; padding: 3px 5px;}/* 配送済 */
+#history .canceled .status_icon{background: #cc0000; padding: 3px 5px;}/* 取消済 */
+#history .yoyaku .status_icon{background: #000000; padding: 3px 5px;}/* 予約済 */
+#history .teiki_together .status_icon{background: #996633; padding: 3px 5px;}/* 定期にまとめて */
+
+#history .price{color: #C00; text-align: right;}
+#history .cart{width: 230px; text-align: center;}
+#history .cart .button{margin-bottom: 10px; width: auto; display: inline-block;}
+#history .cart .delivery_slip{margin-bottom: 0px;}
+#history .code{width: 80px;}
+#history .amount{width: 30px; text-align: center;}
+
+#history .estimate_reply{line-height: 22px;}
+#history .estimate_reply .title{font-weight: bold;}
+
+#history .property{display: block; color: #AAA; font-size: 90%;}
+
+#history .img_box{width: 80px; height: 80px; margin-right: 10px; margin-bottom: 10px; text-align: center; position: relative; float: left;}
+#history .img_box img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+#history .pageguide{ float: left; width: 570px; font-size: 85%; padding-top: 4px;}
+#history .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#history .pagelink{ clear: both; font-size: 85%; padding: 10px 0;}
+#history .nolink{color: #999;}
+#history .reducedTax{ display: block; font-size: 11px; }
+#history .search .buttonarea{padding: 20px 0 40px;}
+#history h4.total_price{font-size: 105%; padding-left: 10px; font-weight: bold; color: #c00; margin-bottom: 20px;}
+
+#history .webmoney-usage-detail:after{content: ""; display: inline-block; background: url("../images/otherpage.png") no-repeat; width: 18px; height: 12px;}
+ 
+/*estimateListDetail - 見積履歴
+-------------------------------------------------------------*/
+#history #estimateListDetail .box{margin-bottom: 30px;}
+#history #estimateListDetail .box:first-child{margin-top: 15px;}
+#history #estimateListDetail .status_icon{color: #333; float:none; font-weight: bold; background: #CCC; padding: 5px 5px;}
+#history #estimateListDetail th.total_price{width: 120px;}
+
+/* member_history - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#history .cartSubmitButton{position: relative;}
+#history .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#history .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#history .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#history .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#history .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#history .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#history .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* ===================================================================
+14：サブウインドウで表示するページ用
+使用ファイル：item_detail_other_image.xhtml
+　　　　　　　item_friend_mail.xhtml,item_friend_mail_result.xhtml
+　　　　　　　item_itemproperty_zaiko.xhtml
+　　　　　　　present_friend_mail.xhtml,present_friend_mail_result.xhtml
+=================================================================== */
+#subwindow{width: 500px; margin: auto;}
+#subwindow #header{background: none;}
+#subwindow #header h1 a{float: none;}
+#subwindow #content h2{margin-bottom: 20px; font-weight: normal;border-bottom: solid 3px #cccccc; position: relative;}
+#subwindow #content h2:after{position: absolute; content: " "; display: block; border-bottom: solid 3px #373737; bottom: -3px; width: 20%;}
+#subwindow #content table{font-size: 80%;line-height: 160%;margin: 10px 0px;width: 100%;border: 1px solid #CCCCCC;}
+#subwindow #content th{padding: 10px; border: 1px solid #CCC; background: #F6F6F6; vertical-align: top; font-weight: normal; text-align: left;}
+#subwindow #content th.zaiko{width: auto;text-align: center;}
+#subwindow #content td{padding: 10px; border: 1px solid #CCC; vertical-align: top;}
+#subwindow #content td.number{text-align: right;}
+#subwindow #content .hissu{color: #CC0000;font-weight: bold;}
+#subwindow #content .close{margin: 10px 0; font-size: 80%; line-height: 150%; text-align: right;}
+#subwindow .buttonarea{text-align: center; margin: 10px; padding-top: 40px;}
+#subwindow .buttonarea .button{display: inline-block; margin: 0 10px;}
+
+#subwindow #content #products{width: 500px; position: relative;}
+#subwindow #content #products .slides_container{overflow: hidden; position: relative; border: 1px solid #ccc; margin: 10px 0 0 0;}
+#subwindow #content #products .slides_container .ima_box{width: 498px; height: 498px; position: relative; text-align: center;}
+#subwindow #content #products .slides_container img{width: auto; margin: auto; max-width: 498px; max-height: 498px; display: block; position: absolute; bottom: 0; left: 0; right: 0; top: 0;}
+#subwindow #content #products .slides_container a{width: 400px; height: 400px; display: block;}
+#subwindow #content #products .thumbox{clear: both; margin: 15px 0 0; padding: 0;}
+#subwindow #content #products .thumbox:after {content: ""; clear: both; display: block;}/* clearfix */
+#subwindow #content #products .thumbox .pagination li{margin: 0 10px 10px 0; float: left;}
+#subwindow #content #products .thumbox .pagination li.last{margin-right: 0;}
+#subwindow #content #products .thumbox .img_box{border: 1px solid #ccc; width: 92px; height: 92px; display: block;}
+#subwindow #content #products .thumbox .img_box img{max-width: 90px; max-height: 90px;}
+#subwindow #content #products .thumbox .img_box img:hover{filter: alpha(opacity=60); -moz-opacity: .6; -khtml-opacity: .6; opacity: .6;}
+#subwindow #content #products .thumbox .current .img_box{border: 1px solid #cc3333; display: block; filter: alpha(opacity=100) !important; -moz-opacity: 1 !important; -khtml-opacity: 1 !important; opacity: 1 !important;}
+#subwindow #content #products .thumbox .current .img_box img:hover{cursor: default; filter: alpha(opacity=100) !important; -moz-opacity: 1 !important; -khtml-opacity: 1 !important; opacity: 1 !important;}
+#subwindow #content #products .prev{display: block; background: url(../images/detail_prev_button.png) no-repeat; text-indent: -9999px; width: 60px; height: 60px; top: 35%; left: -26px; position: absolute; z-index: 1000;}
+#subwindow #content #products .next{display: block; background: url(../images/detail_next_button.png) no-repeat; text-indent: -9999px; width: 60px; height: 60px; top: 35%; right: -26px; position: absolute; z-index: 1000;}
+#subwindow #content #products .arrowOn:hover .prev, #subwindow #content #products .arrowOn:hover .next{display: block;}
+#subwindow #content #products .arrowOn:hover .prev:hover, #subwindow #content #products .arrowOn:hover .next:hover{filter: alpha(opacity=80); -moz-opacity: .8; -khtml-opacity: .8; opacity: .8;}
+
+
+/* =================================================================
+15.エラーページ
+使用ファイル：common/messages.xhtml
+　　　　　　　ext/social_provider.xhtml
+=================================================================*/
+#error{width: 100%; padding: 10px 0px;}
+#error table{margin: 0px 0 10px; border: none !important; font-size: 85%;}
+#error td{padding: 10px; border: none !important;}
+#error .ico{width: 40px; vertical-align: top; text-align: center;}
+#error .content{padding: 5px; color: #C00; font-weight: bold; vertical-align: middle; line-height: 150%; float: none;}
+#error .buttonarea{margin: 10px; padding-top: 40px; text-align: center;}
+#error ul{background: none;}
+#error li{float: none; font-size: 100%; border: 0px; padding: 0px; margin-right: 0px; margin-bottom: 0px; width: auto; line-height: 150%;}
+
+/*  social_provider.xhtmlのエラー部分
+-------------------------------------------------------------*/
+#social_plus_error{width: 100%; padding: 10px 0px;}
+#social_plus_error table{margin: 0px 0 10px; border: none !important; font-size: 85%;}
+#social_plus_error td{padding: 10px; border: none !important;}
+#social_plus_error .ico{width: 40px; vertical-align: top; text-align: center;}
+#social_plus_error .content{padding: 5px; color: #C00; font-weight: bold; vertical-align: middle; line-height: 150%; float: none;}
+#social_plus_error .buttonarea{margin: 10px; padding-top: 10px; border-top: #CCC 1px dashed; text-align: center;}
+#social_plus_error ul{background: none;}
+#social_plus_error li{float: none; font-size: 100%; border: 0px; padding: 0px; margin-right: 0px; margin-bottom: 0px; width: auto; line-height: 150%;}
+
+
+/* =================================================================
+16.クレジットカード登録画面
+使用ファイル：member_credit_entry_input.xhtml
+=================================================================*/
+#credit td.button_area{text-align: center;}
+#credit td.button_area .button{display: inline-block; width: auto;}
+#credit .can_regist{padding-top: 30px;}
+#credit .error{clear: both; margin: 5px 10px; color: #C00; font-weight: bold; text-align: center; font-size: 80%;}
+
+
+/* =================================================================
+17.お気に入り
+使用ファイル：wishlist.xhtml
+　　　　　　　wishlist_edit.xhtml
+=================================================================*/
+#wishList{margin-bottom: 20px;}
+#wishList .box{margin-top: 10px; border: #CCC 1px solid;}
+#wishList .box:hover{border: #8CC329 1px solid;}
+#wishList .box:after {content: ""; clear: both; display: block;}/* clearfix */
+#wishList .provisional{margin: 0px;}
+#wishList .text{margin-left: 140px;}
+#wishList h3{display: block; margin: 10px 10px 0 0; font-size: 95%;}
+#wishList .appeal{display: block; margin: 0; color: #F60; font-size: 70%;}
+#wishList .price{display: block; margin: 0; color: #C00;}
+#wishList .price .teika{font-weight: bold; font-size: 110%;}
+#wishList .price .other{font-size: 90%;}
+#wishList .explanation1{display: block; margin: 5px 10px 0 0; padding: 10px 0px; border-top: #CCC 1px solid; font-size: 80%; line-height: 120%;}
+#wishList .explanation1 h4{margin-bottom: 10px;}
+#wishList .explanation1 h4 a{display: inline-block; width: auto; font-weight: normal;}
+#wishList .explanation1 p{margin: 0px;}
+#wishList .button_area{margin: 0px 10px 20px 0px; padding-top: 20px; border-top: #CCC 1px solid; text-align: right;}
+#wishList .button_area:after {content: ""; clear: both; display: block;}/* clearfix */
+#wishList .button_area .button{width: auto; display: inline-block;}
+#wishList .property{display: inline; margin: 0; color: #AAA; font-size: 75%;}
+#wishList .pageguide{float: left; width: 570px; font-size: 85%; padding-top: 4px;}
+#wishList .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#wishList .rearrange select{margin-left: 10px;}
+#wishList .pagelink{clear: both; font-size: 85%; padding: 10px 0;}
+#wishList .nolink{color: #999;}
+
+#wishList .img_box{width: 120px; height: 120px; margin: 10px; float: left; text-align: center; position: relative;}
+#wishList .img_box img{width: auto; max-width: 120px; max-height: 120px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+/* wishList - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#wishList .cartSubmitButton{position: relative;}
+#wishList .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#wishList .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#wishList .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#wishList .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#wishList .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#wishList .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#wishList .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* =================================================================
+18.アドレス帳
+使用ファイル：address_add.xhtml
+　　　　　　　address_input.xhtml
+=================================================================*/
+#addressList{padding-bottom: 20px;}
+#addressList h3{margin-bottom: 15px; padding: 1px 0px 0px 20px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 7px 7px no-repeat; font-size: 85%; margin-top: 30px;}
+#addressList ul{padding: 20px 0 10px;}
+#addressList ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#addressList li{float: left; font-size: 80%; border: 1px solid #CCC; padding: 10px 10px 40px 10px; margin-right: 10px; margin-bottom: 10px; width: 348px; line-height: 180%; position: relative;}
+#addressList li strong{font-size: 18px;}
+#addressList li .button_area{margin: 0px 0px 0; position: absolute; bottom: 10px;}
+#addressList li .button_area .button{width: auto; display: inline-block;}
+#addressList .widebox li{width: 453px;}
+#addressList .pageguide{float: left; width: 500px; font-size: 85%;}
+#addressList .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#addressList .pagelink{clear: both; font-size: 85%;}
+#addressList .nolink{color: #999;}
+
+
+/* =================================================================
+19.マイページ
+使用ファイル：member_mypage.xhtml
+=================================================================*/
+#member.mypage h3{margin: 10px 0 10px 10px;}
+#member.mypage h3 a{ float: right; width: auto;}
+#member.mypage ul{margin: 0 0 50px 10px;}
+#member.mypage ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#member.mypage ul li{float: left; width: 253px; padding: 0 0 10px;}
+#member.mypage ul li h4{font-size: 16px; background: #F6F6F6; font-weight: normal; padding: 6px 10px; margin: 0 0px 15px 0;}
+#member.mypage ul li .box{border: 1px solid #CCCCCC; margin-right: 10px; padding: 0px 0px 10px;}
+#member.mypage ul li p{font-size: 12px;}
+#member.mypage ul li a{font-size: 12px;}
+
+#member.mypage #social_plus tr th{background: #FFF;}
+#member.mypage #social_plus tr th a{text-decoration: none;}
+#member.mypage #social_plus tr.title th{background: #F6F6F6;}
+#member.mypage #social_plus th.service{width: 220px;}
+#member.mypage #social_plus th div{width: 220px; height: 44px; font-size: 14px; display: block;}
+#member.mypage #social_plus th div p{padding: 14px 0 14px 25px; border: 1px solid #cdcdcd; border-left: 0px; margin: 0 0 0 53px; display: block; background: #FFF; line-height: 1; font-size: 14px;
+-webkit-border-top-right-radius: 3px;
+-webkit-border-bottom-right-radius: 3px;  
+-moz-border-radius-topright: 3px;  
+-moz-border-radius-bottomright: 3px;
+}
+
+#member.mypage #social_plus th.yahoo div{background: url("../images/social_yahoo.png") no-repeat; color: #e71017;}
+#member.mypage #social_plus th.facebook div{background: url("../images/social_facebook.png") no-repeat; color: #3b5998;}
+#member.mypage #social_plus th.twitter div{background: url("../images/social_twitter.png") no-repeat; color: #55acee;}
+#member.mypage #social_plus th.google div{background: url("../images/social_google.png") no-repeat; color: #dc4e41;}
+#member.mypage #social_plus th.mixi div{background: url("../images/social_mixi.png") no-repeat; color: #d1ad59;}
+#member.mypage #social_plus th.line div{background: url("../images/social_line.png") no-repeat; color: #00b300;}
+#member.mypage #social_plus th.paypal div{background: url("../images/social_paypal.png") no-repeat; color: #293e7f;}
+
+#member.mypage #social_plus th.yahoo div.off{background: url("../images/social_yahoo_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.facebook div.off{background: url("../images/social_facebook_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.twitter div.off{background: url("../images/social_twitter_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.google div.off{background: url("../images/social_google_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.mixi div.off{background: url("../images/social_mixi_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.line div.off{background: url("../images/social_line_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus th.paypal div.off{background: url("../images/social_paypal_off.png") no-repeat; color: #cdcdcd;}
+#member.mypage #social_plus td{vertical-align: middle;}
+
+/* =================================================================
+20.ログイン
+使用ファイル：login.xhtml
+=================================================================*/
+#loginNew:after {content: ""; clear: both; display: block;}/* clearfix */
+#loginNew table{margin: 0 auto 20px auto; width: 428px;}
+#loginNew h3{margin-bottom: 15px; padding: 1px 20px; border-bottom: 1px solid #CCC; background: url("../images/marker.gif") 7px 7px no-repeat #EEE; font-size: 85%;}
+#loginNew .box{border: 1px solid #CCC; width: 468px; float: left; margin: 0 10px 30px; position: relative;}
+#loginNew .box .buttonarea{width: 100%; margin: 20px 0; padding: 0;}
+#loginNew .box table{margin: 10px; width: 446px !important;}
+#loginNew .box .link_text{text-align: right; padding: 15px 0 10px;}
+#loginNew .box .regist_non_area{width: 442px; margin: 0 auto;}
+#loginNew .box .regist_non_area p{margin: 0 0 10px;}
+#loginNew .box .amazon_area{width: 442px; margin: 0 auto; border-top: 1px solid #ccc;}
+#loginNew .box .amazon_area p{margin: 10px 0;}
+#loginNew .widebox{border: 1px solid #CCC; width: 960px; margin: 0 10px 30px; clear: both;}
+#loginNew .widebox .link{text-align: right;}
+#loginNew .widebox table{width: 920px;}
+#loginNew input[type='text'],#loginNew input[type='password']{width: 200px;}
+
+#loginNew .social_provider ul{margin: 0px 20px 0px;}
+#loginNew .social_provider ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#loginNew .social_provider ul li{width: 194px; height: 44px; font-size: 14px; display: block; float: left; margin: 0px 28px 20px 0;}
+#loginNew .social_provider ul li:nth-child(2n){margin-right: 0px;}
+#loginNew .social_provider ul li a{display: block; text-decoration: none;}
+#loginNew .social_provider ul li a span{padding: 14px 0 14px 25px; border: 1px solid #cdcdcd; border-left: 0px; margin: 0 0 0 53px; display: block; background: #FFF; line-height: 1; font-size: 14px;
+-webkit-border-top-right-radius: 3px;
+-webkit-border-bottom-right-radius: 3px;  
+-moz-border-radius-topright: 3px;  
+-moz-border-radius-bottomright: 3px;
+}
+
+#loginNew .social_provider li.yahoo a{background: url("../images/social_yahoo.png") no-repeat; color: #e71017;}
+#loginNew .social_provider li.facebook a{background: url("../images/social_facebook.png") no-repeat; color: #3b5998;}
+#loginNew .social_provider li.twitter a{background: url("../images/social_twitter.png") no-repeat; color: #55acee;}
+#loginNew .social_provider li.google a{background: url("../images/social_google.png") no-repeat; color: #dc4e41;}
+#loginNew .social_provider li.mixi a{background: url("../images/social_mixi.png") no-repeat; color: #d1ad59;}
+#loginNew .social_provider li.line a{background: url("../images/social_line.png") no-repeat; color: #00b300;}
+#loginNew .social_provider li.paypal a{background: url("../images/social_paypal.png") no-repeat; color: #293e7f;}
+/* =================================================================
+21.商品比較
+使用ファイル：item_compare.xhtml
+=================================================================*/
+#itemCompare .img_box{width: 80px; height: 80px; margin: 0; text-align: center; position: relative;}
+#itemCompare .img_box img{width: auto; max-width: 80px; max-height: 80px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#itemCompare .propertyimg_box{width: 60px; height: 60px; margin: 0; text-align: center; position: relative;}
+#itemCompare .propertyimg_box img{width: auto; max-width: 60px; max-height: 60px; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+#itemCompare th{width: 150px;}
+#itemCompare .button_area .button{width: auto; display: inline-block; width: 130px;}
+
+/* itemCompare - 商品カートに入った報告ポップアップ
+-------------------------------------------------------------*/
+#itemCompare .cartSubmitButton{position: relative;}
+#itemCompare .cartSubmitButton .cartMessage{position: absolute; top: -85px; left: 50%; margin-left: -122px; padding: 10px; background-color: #fff; border: #ccc 2px solid; width: 270px; z-index: 10; display: none;}
+#itemCompare .cartSubmitButton .cartMessage:after{content: ""; display: block; position: absolute; top: 100%; left: 50%; margin-left: -3px; width: 6px; height: 5px;}
+#itemCompare .cartSubmitButton .cartMessage .title{text-align: center; font-size: 100.0%; font-weight: bold; color: #000;}
+#itemCompare .cartSubmitButton .cartMessage .mainclose{background-color: #fff; cursor: pointer; text-align: center; margin-bottom: 0;}
+#itemCompare .cartSubmitButton .cartMessage .link{background-color: #fff; text-align: center;}
+#itemCompare .cartSubmitButton .cartMessage .link a{display: inline-block;}
+#itemCompare .cartSubmitButton .cartMessage .close{position: absolute; top: 3px; right: 3px; cursor: pointer;}
+
+/* =================================================================
+22.キャンペーン
+使用ファイル：top.xhtml,item_detail.xhtml,cart_index.xhtml,cart_seisan.xhtml,cart_confirm.xhtml,cart_confirm$amazon_payments.xhtml,cart_result.xhtml,member_history.xhtml
+=================================================================*/
+/* member_history */
+#history .campaign {line-height:1.5; display: inline-block; margin:0 5px 0 0;}
+
+/* top,item_detail */
+#mainCampaign ul{width:100%;}
+#mainCampaign ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#mainCampaign li{width:375px; margin:0 20px 20px 0; float: left;}
+#mainCampaign li a{display: block;}
+#mainCampaign li img{width:100%; display: block;}
+#mainCampaign li h3{padding:5px 0 0 0;}
+#mainCampaign li h4{font-size:90%;}
+#mainCampaign li p{margin:5px 0 0 0; font-size:90%;}
+
+/* cart_index */
+#cartCampaign ul{width:100%;}
+#cartCampaign ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#cartCampaign p.heed{margin:0 0 10px 0; font-size:75%;}
+#cartCampaign li{width:365px; margin:0 20px 20px 0; float: left;}
+#cartCampaign li a{display: block;}
+#cartCampaign li img{width:100%; display: block;}
+#cartCampaign li h4{padding:5px 0 0 0;}
+#cartCampaign li p{margin:5px 0 0 0;}
+
+/* cart_confirm */
+#cartFlow .confirmCampaign{width:100%; margin-top: 20px; padding:10px; border:#CCC 1px solid;}
+#cartFlow .confirmCampaign h3{margin: 0 0 10px; padding: 0px; border: none; background: none;}
+#cartFlow .confirmCampaign li{padding:0 0 10px 0; border:none;}
+#cartFlow .confirmCampaign li h4{font-size: 90%;}
+#cartFlow .confirmCampaign li img{width:100%;}
+#cartFlow .confirmCampaign li p{margin:0;}
+
+/* cart_result */
+#resultCampaign ul{width:100%;}
+#resultCampaign ul:after {content: ""; clear: both; display: block;}/* clearfix */
+#resultCampaign h3 {margin-bottom: 15px; padding:1px 20px; border-bottom: 1px solid #CCC; background:url("../images/marker.gif") 7px 7px no-repeat #EEE; font-size: 85%;}
+#resultCampaign {width:980px;}
+#resultCampaign:after {content: ""; clear: both; display: block;}/* clearfix */
+#resultCampaign li{width:480px; margin:0 20px 20px 0; float: left;}
+#resultCampaign li a{display: block;}
+#resultCampaign li img{width:100%; display: block;}
+#resultCampaign li p{margin:5px 0 0 0;}
+
+/* =================================================================
+23.会員登録
+使用ファイル：member_input.xhtml
+=================================================================*/
+#memberInput{padding:30px 0 0 0;}
+#memberInput h3{margin:10px 0 10px 10px;}
+#memberInput .social_provider ul{width:100%; padding:0 10px;}
+#memberInput .social_provider li{width:225px; margin:0 20px 20px 0; float: left;}
+#memberInput .social_provider ul li a{display: block; text-decoration: none;}
+#memberInput .social_provider li.yahoo a{background: url("../images/social_yahoo.png") no-repeat; color: #e71017;}
+#memberInput .social_provider li.facebook a{background: url("../images/social_facebook.png") no-repeat; color: #3b5998;}
+#memberInput .social_provider li.twitter a{background: url("../images/social_twitter.png") no-repeat; color: #55acee;}
+#memberInput .social_provider li.google a{background: url("../images/social_google.png") no-repeat; color: #dc4e41;}
+#memberInput .social_provider li.mixi a{background: url("../images/social_mixi.png") no-repeat; color: #d1ad59;}
+#memberInput .social_provider li.line a{background: url("../images/social_line.png") no-repeat; color: #00b300;}
+#memberInput .social_provider li.paypal a{background: url("../images/social_paypal.png") no-repeat; color: #293e7f;}
+#memberInput .social_provider ul li a span{padding: 14px 0 14px 25px; border: 1px solid #cdcdcd; border-left: 0px; margin: 0 0 0 53px; display: block; background: #FFF; line-height: 1; font-size: 14px;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;  
+	-moz-border-radius-topright: 3px;  
+	-moz-border-radius-bottomright: 3px;
+	}
+#memberInput .social_provider li.rakuten_regist a span{padding:0; border:0; margin:0; background:none;}
+
+/* =================================================================
+24.子会員リスト
+使用ファイル：child_member_list.xhtml
+=================================================================*/
+#childMemberList h3{display: block; font-size: 110%; margin: 30px 10px 10px; padding-bottom: 5px;}
+#childMemberList .table th{vertical-align: middle;}
+#childMemberList .table th.select{width: 70px;}
+#childMemberList .table th.select input[type="button"]{width: initial; padding: 6px 6px;}
+#childMemberList .table th.select input[type="button"] + input[type="button"]{margin-top: 5px;}
+#childMemberList .table td{vertical-align: middle;}
+#childMemberList .table td.select .id_and_check{display: inline-block; white-space: nowrap;}
+#childMemberList .table th.regist{width: 100px;}
+#childMemberList .pageguide{ float: left; width: 570px; font-size: 85%; padding-top: 4px;}
+#childMemberList .rearrange{float: left; width: 200px; font-size: 85%; text-align: right;}
+#childMemberList .pagelink{ clear: both; font-size: 85%; padding: 10px 0;}
+#childMemberList .nolink{color: #999;}
+#childMemberList .search .buttonarea,
+#childMemberList .bulk_update .buttonarea{padding: 20px 0 40px;}
+#childMemberList .bulk_update{margin: 20px 0 40px;}
+#childMemberList .bulk_update .explanation{display: block; margin: 10px 0 20px 0; padding: 10px; background: #EEE; color: #666; font-size: 90%;}
+#childMemberList .bulk_update .update_input_area{height: 35px; line-height: 35px;}
+#childMemberList .bulk_update .update_input_area .select{display: inline-block;}
+#childMemberList .bulk_update .update_input_area .button{display: inline-block; width: 160px; margin-left: 20px;}

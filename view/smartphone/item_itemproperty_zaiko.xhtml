@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- itemItempropertyZaiko -->
+<section id="content">
+	<h2>在庫表</h2>
+	<div class="sentence">
+		<p>商品名：<span m:id="ITEM_NAME_HERE">商品名</span></p>
+	</div>
+
+	<div m:id='LOOP_ITEMPROPERTY'>
+		<h3><span m:id='ITEMPROPERTY_NAME_HERE'>赤,M</span> [<span m:id="ITEM_ITEMPROPERTY_CD_HERE">ITEM01-RED-M</span>]</h3>
+		<div class="sentence">
+			<p m:id='IF_ITEM_PROPERTY_TEIKA'>価格：
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<span m:id='ITEM_ITEMPROPERTY_TEIKA_HERE'>1,175円</span>
+						<span m:id="IF_ITEM_ITEMPROPERTY_TEIKA" m:NOT="">
+							<span m:id="ORIGINAL_TEIKA_ZEIKOMI_HERE">1,175円</span>
+						</span>
+					</span>
+				</span>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<span m:id='ITEM_ITEMPROPERTY_TEIKA_HERE'>1,175円</span>
+					<span m:id="IF_ITEM_ITEMPROPERTY_TEIKA" m:NOT="">
+						<span m:id="ORIGINAL_TEIKA_ZEIKOMI_HERE">1,175円</span>
+					</span>
+				</span>
+			</p>
+			<p m:id="IF_ZAIKO_DISP">在庫数：<span m:id='ZAIKO_HERE'>10</span></p>
+			<p m:id="IF_ZAIKO_DISP" m:NOT="">在庫：<span m:id='IF_ZAIKO'>○</span><span m:id='IF_ZAIKO' m:NOT="">×</span></p>
+		</div>
+	</div>
+
+	<div class="buttonarea">
+		<a m:id="BACK_LINK_TAG" href="javascript:void(0)">商品詳細へ戻る</a>
+	</div>
+
+</section>
+<!-- / itemItempropertyZaiko -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

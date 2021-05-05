@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item/xxXx.html -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<!-- container -->
+<div id="container">
+<div id="main" class="no-sidebar">
+<!-- review -->
+	<form m:id='REVIEW_FORM_TAG'>
+		<h2>レビューの編集・削除</h2>
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+		
+		<p>
+			【編集に関して】<br />
+			<span m:id='IF_REVIEW_AUTH_NEED'>　編集頂いたレビューは管理者により確認された後、画面に表示されます。<br /></span>
+			<span m:id='IF_REVIEW_GOOD_BAD'>　レビューの編集を行うことで、これまでに他のユーザが評価した情報も削除されます。<br /></span>
+			　ニックネームを変更した場合は変更後のニックネームが会員情報に反映されます。
+		</p>
+		
+		<p>
+			【削除に関して】<br />
+			　削除後、この商品に対しての再レビューはできませんのでご注意ください。
+		</p>
+		
+		<table>
+			<tr>
+				<th class="title">ニックネーム</th>
+				<td><input type="text" m:id='REVIEW_NICKNAME_INPUT_HERE' /></td>
+			</tr>
+			<tr m:id='IF_STAR'>
+				<th class="title">評価</th>
+				<td>
+					<span m:id="REVIEW_STAR_INPUT_HERE">
+						<input type="radio" /> ★
+						　<input type="radio" /> ★★
+						　<input type="radio" /> ★★★
+						　<input type="radio" /> ★★★★
+						　<input type="radio" /> ★★★★★
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th class="title">タイトル</th>
+				<td><input type="text" m:id='REVIEW_TITLE_INPUT_HERE' size="60" /></td>
+			</tr>
+			<tr>
+				<th class="title">レビュー</th>
+				<td><textarea m:id='REVIEW_COMMENT_INPUT_HERE' rows="8" cols="60"></textarea></td>
+			</tr>
+			<tr m:id="common.IF_USE_REVIEW_IMAGE">
+				<th class="title">画像</th>
+				<td>
+					<!-- フォーム、ファイル名、画像を一斉に出力する場合は下記を使用 -->
+					<!-- <div m:id='REVIEW_IMAGE_INPUT_HERE'>
+						<input type="file" name="image-review" />
+						<input id="change" type="radio" name="image" value="変更する" />
+						<label for="change">変更する</label>
+						<input id="notchange" type="radio" name="image" value="変更しない" />
+						<label for="notchange">変更しない</label><br />
+						ファイル名：sample.jpg<br />
+						<img src="images/sample.jpg" alt="レビューイメージ" />
+					</div> -->
+					<div m:id='REVIEW_IMAGE_INPUT_PARTS_HERE'>
+						<input type="file" name="image-review" />
+						<input id="change" type="radio" name="image" value="変更する" />
+						<label for="change">変更する</label>
+						<input id="notchange" type="radio" name="image" value="変更しない" />
+						<label for="notchange">変更しない</label>
+					</div><br />
+					ファイル名：<span m:id='REVIEW_IMAGE_NAME_PARTS_HERE'>sample.jpg</span><br />
+					<img m:id='REVIEW_IMAGE_IMAGE_PARTS_HERE' src="images/sample.jpg" alt="レビューイメージ" />
+				</td>
+			</tr>
+		</table>
+		<div class="buttonarea">
+ 			<input m:id="REVIEW_BACK_BUTTON_TAG" type="submit" value="戻る" class="button negative medium" />
+			<input m:id="REVIEW_DELETE_BUTTON_TAG" type="submit" value="削除する" class="button negative medium" />
+			<input m:id="REVIEW_EDIT_BUTTON_TAG" type="submit" value="入力内容を確認する" class="button positive medium" />
+		</div>
+	</form>
+</div>
+</div>
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</body>
+</html>

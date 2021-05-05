@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="x-ua-compatible" content="IE=10" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+</head>
+<body m:id='CONTENT'>
+
+
+<!-- smartphone -->
+<div m:id='IF_SMARTPHONE_TERMINAL' id="smartphone">
+	<a href="#" m:id='common.SWITCH_PC_SMARTPHONE_SITE_LINK_TAG'>スマートフォン専用サイトをご覧になるにはこちらをタップしてください。</a>
+</div>
+<!-- / smartphone -->
+
+
+<!-- preview -->
+<div id="preview" m:id='common.IF_PREVIEW'>
+	<table summary="プレビュー">
+		<tr>
+			<td class="ico"><img src="../images/preview_ico.gif" width="24" height="27" alt="プレビュー" /></td>
+			<td class="content">プレビュー表示中です。実際のサイトの表示とは異なりますのでご注意ください。</td>
+		</tr>
+	</table>
+</div>
+<!-- / preview -->
+
+
+<!-- header -->
+<div id="header">
+	<div class="inner">
+		<h1><a href="/"><span m:id='common.SITE_TITLE_HERE'>ここにショップ名が入ります。</span></a></h1>
+		<h2><a href="rss.xml">RSSを購読する</a></h2>
+<!-- search -->
+		<div id="search">
+			<form m:id='common.KEYWORD_SEARCH_FORM_TAG'>
+				<input m:id='common.KEYWORD_SEARCH_INPUT_TAG' placeholder="キーワード検索" class="form" type="text" />
+				<input type="submit" class="button positive small" value="検索" />
+			</form>
+			<p><a href="item_detail_search.html">→条件を指定して検索する</a></p>
+			<p m:id="common.IF_EXISTS_ITEM_COMPARE_LIST">
+				<a m:id="common.ITEM_COMPARE_LIST_LINK_TAG" href="">→あとで購入リスト(<span m:id="common.ITEM_COMPARE_SIZE_HERE">1</span>件)</a>
+			</p>
+		</div>
+<!-- / search -->
+
+
+<!-- fontChanger - 文字サイズを変更するjs -->
+<!--
+	<div id="fontChanger">
+		<h2>文字のサイズ</h2>
+		<div class="icon">
+			<a href="#" class="__FONT_CHANGER_BUTTON_S_OFF">小</a>
+			<a href="#" class="__FONT_CHANGER_BUTTON_S_ON" style="display:none;">小</a>
+			<a href="#" class="__FONT_CHANGER_BUTTON_M_OFF" style="display:none;">中</a>
+			<a href="#" class="__FONT_CHANGER_BUTTON_M_ON">中</a>
+			<a href="#" class="__FONT_CHANGER_BUTTON_L_OFF">大</a>
+			<a href="#" class="__FONT_CHANGER_BUTTON_L_ON" style="display:none;">大</a>
+		</div>
+		<script type="text/javascript">
+			//<![CDATA[
+			eb$(function(){
+			// 文字サイズの処理を実行
+			Ebisu.FontChanger.view();
+			});
+			//]]>
+		</script>
+	</div>
+-->
+<!-- / fontChanger - 文字サイズを変更するjs -->
+
+
+	<!-- language -->
+	<div id="language" m:id="common.IF_LANGUAGE_OPTION">
+		<h2>言語</h2>
+		<p m:id="common.IF_LANGUAGE_JA"><a href="#" m:id="common.SWITCH_LANGUAGE_EN_TAG">ENG</a></p>
+		<p m:id="common.IF_LANGUAGE_EN"><a href="#" m:id="common.SWITCH_LANGUAGE_JA_TAG">JPN</a></p>
+	</div>
+	<!-- / language -->
+
+	</div>
+</div>
+<!-- / header -->
+
+
+<!-- menu -->
+<div id="menu">
+	<div class="inner">
+		<ul id="EBISU_MENU_LIST">
+			<li><a href="/" class="top" menuName="top" selectedClass="top_select">トップ</a></li>
+			<li><a href="ext/guide.html" class="guide" menuName="guide" selectedClass="guide_select">ご利用ガイド</a></li>
+			<li><a href="ext/tokushou.html" class="tokushou" menuName="tokushou" selectedClass="tokushou_select">特定商取引法に基づく表示</a></li>
+			<li><a href="ext/company.html" class="company" menuName="company" selectedClass="company_select">会社概要</a></li>
+			<li m:id="common.IF_APPLY_AVAILABLE" apply_no='APPLY1'><a href="apply.html?id=APPLY1" class="apply" menuName="apply" selectedClass="apply_select">お問合せ</a></li>
+		</ul>
+		<script type="text/javascript" src="../js/replace_menu_class.js"></script>
+	</div>
+</div>
+
+<!-- / menu -->
+
+
+<!-- shiborikomi - 絞り込みカテゴリ -->
+<!--
+<div id="shiborikomi" m:id="common.LOOP_NARROW_DOWN_CATEGORY">
+	<p>
+		<span m:id="common.NARROW_DOWN_CATEGORY_NAME_HERE">カテゴリ名</span>で商品を絞り込む：
+		<span m:id="common.IF_NARROW_DOWN_CATEGORY_ASSIGNED">
+			<a href="javascript:void(0);" m:id="common.CLEAR_NARROW_DOWN_CATEGORY_LINK_TAG">全て</a>
+		</span>
+		<span m:id="common.IF_NARROW_DOWN_CATEGORY_ASSIGNED" m:NOT="">
+			<span class="select">全て</span>
+		</span>
+		<span m:id="common.LOOP_SUB_CATEGORY">
+			<span m:id="common.IF_SUB_CATEGORY_SELECTED_NARROW_DOWN" class="select"><span m:id="common.SUB_CATEGORY_NAME_HERE">カテゴリ名</span></span>
+			<span m:id="common.IF_SUB_CATEGORY_SELECTED_NARROW_DOWN" m:NOT=""><a href="javascript:void(0);" m:id="common.NARROW_DOWN_SUB_CATEGORY_LINK_TAG"><span m:id="common.SUB_CATEGORY_NAME_HERE">カテゴリ名</span></a></span>
+		</span>
+	</p>
+</div>
+-->
+<!-- / shiborikomi -->
+
+
+</body>
+</html>

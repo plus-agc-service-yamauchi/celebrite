@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/address_input.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- address_confirm -->
+	<h2>
+		<span m:id="IF_ADDRESS_DELETE" m:NOT="">
+			<span m:id='IF_ADDRESS_NEW'>新規アドレス帳登録</span>
+			<span m:id='IF_ADDRESS_NEW' m:NOT="">アドレス帳情報変更</span>
+		</span>
+		<span m:id='IF_ADDRESS_DELETE'>アドレス帳情報削除</span>
+	</h2>
+	<p>
+		<span m:id="IF_ADDRESS_DELETE" m:NOT="">入力内容を確認してください。<br />正しければ「送信」ボタンを押してください。</span>
+		<span m:id="IF_ADDRESS_DELETE">アドレス帳情報を削除します。削除する内容をご確認してください。<br />正しければ「削除」ボタンを押してください。</span>
+	</p>
+	
+	<form m:id='FORM_TAG'>
+	
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+		
+		<table summary="アドレス帳情報">
+			<tr>
+				<th class="title">氏名（漢字）</th>
+				<td><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></td>
+			</tr>
+			<tr>
+				<th class="title">氏名（カナ）</th>
+				<td><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></td>
+			</tr>
+			<tr>
+				<th class="title">住所</th>
+				<td>
+					<span m:id='ZIP_HERE'>1234567</span> <span m:id='ADDRESS1_HERE'>東京都</span>
+					<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+				</td>
+			</tr>
+			<tr>
+				<th class="title">電話番号</th>
+				<td><span m:id='TEL_HERE'>03-1234-5678</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='1'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>自由項目１</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>自由項目１</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='2'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>自由項目２</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>自由項目２</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='3'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>自由項目３</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>自由項目３</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='4'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>自由項目４</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>自由項目４</span></td>
+			</tr>
+			<tr m:id='IF_FREE' m:free_item_no='5'>
+				<th class="title"><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>自由項目５</span></th>
+				<td><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>自由項目５</span></td>
+			</tr>
+		</table>
+	
+		<div class="buttonarea">
+			<a m:id='BACK_BUTTON_TAG' class="button negative medium">戻る</a>
+			<input m:id='IF_ADDRESS_DELETE' m:NOT="" type="submit" value="送信する" class="button positive medium" />
+			<input m:id='IF_ADDRESS_DELETE' type="submit" value="削除する" class="button negative medium" />
+		</div>
+	
+	</form>
+<!-- / address_confirm -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

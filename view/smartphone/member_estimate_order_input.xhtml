@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu_datepicker_uw.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_estimate_order_input.html -->
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" width="100%"></iframe>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="cart">
+	<div id="cartFlow">
+		<h2>見積詳細 <span m:id='IF_AVAILABLE_ESTIMATE_ORDER'>/ 注文情報入力</span></h2>
+		<form m:id='FORM_TAG'>
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+			<h3>商品情報</h3>
+			<div class="sentence" m:id='LOOP_ITEM'>
+				<div class="img_box">
+					<img m:id='ITEM_IMAGE_TAG' src="images/sample.jpg" alt="" />
+				</div>
+				<div class="text">
+					<p>商品コード：<span m:id='ITEM_ITEMPROPERTY_CD_HERE'>00001234</span></p>
+					<p class="item_name"><span m:id='ITEM_NAME_HERE'>ここに商品の名前が入ります</span></p>
+					<p class="information">数量：<span m:id='ITEM_AMOUNT_HERE'>2</span>個</p>
+					<p class="information" m:id='IF_EXISTS_LOT'> 個数： <span m:id='ITEM_LOT_HERE'>4</span>個</p>
+					<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+						<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+							<p class="information" m:id='IF_MAKER_TEIKA'>単価：<span m:id='ITEM_PRICE_HERE'>2,000円</span></p>
+							<p class="information">小計：<span m:id='ITEM_SYOKEI_PRICE_HERE'>4,000円</span></p>
+						</span>
+					</span>
+					<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+						<p class="information" m:id='IF_MAKER_TEIKA'>単価：<span m:id='ITEM_PRICE_HERE'>2,000円</span></p>
+						<p class="information">小計：<span m:id='ITEM_SYOKEI_PRICE_HERE'>4,000円</span></p>
+					</span>
+				</div>
+			</div>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" class="sentence price">
+				<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+					<p m:id='IF_MEMBER_DISCOUNT'>会員値引き：<strong>-<span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></strong></p>
+					<p>小計：<strong><span m:id='SYOKEI_HERE'>1,000円</span></strong></p>
+					<p m:id='common.IF_SOTOZEI'>消費税：<strong><span m:id='TAX_HERE'>50円</span></strong></p>
+					<p m:id='common.IF_UCHIZEI'>消費税：<strong>内税</strong></p>
+					<p>送料：<strong><span m:id='SORYO_HERE'>500円</span></strong></p>
+					<p m:id='IF_DAIBIKI'>代引き手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+					<p m:id='IF_KESSAI_TESURYO'>決済手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+					<p m:id='IF_COUPON_WARIBIKI'>クーポン割引：<strong>-<span m:id='COUPON_WARIBIKI_HERE'>500円</span></strong></p>
+					<p m:id='IF_POINT_USE'>ポイント値引き：<strong>-<span m:id='POINT_WARIBIKI_HERE'>500</span>円</strong></p>
+					<span m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+						<p m:id="IF_SALES_CAMPAIGN_WARIBIKI">キャンペーン割引額：<strong>-<span m:id='CAMPAIGN_WARIBIKI_HERE'>500円</span></strong></p>
+					</span>
+					<p m:id='IF_BUNDLE_SALE_WARIBIKI'>まとめ買い割引：<strong>-<span m:id='BUNDLE_SALE_WARIBIKI_HERE'>500円</span></strong></p>
+					<span m:id="IF_ESTIMATE_WARIBIKI">
+						<p>合計金額：<strong><span m:id='SEIKYU_PRICE_BEFORE_ESTIMATE_WARIBIKI_HERE'>500円</span></strong></p>
+						<p>出精割引額：<strong>-<span m:id='ESTIMATE_WARIBIKI_PRICE_HERE'>500円</span></strong></p>
+					</span>
+					<p class="total">販売金額：<strong><span m:id='GOKEI_HERE'>1,000円</span></strong></p>
+				</div>
+			</div>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="" class="sentence price">
+				<p m:id='IF_MEMBER_DISCOUNT'>会員値引き：<strong>-<span m:id='MEMBER_DISCOUNT_HERE'>1,000円</span></strong></p>
+				<p>小計：<strong><span m:id='SYOKEI_HERE'>1,000円</span></strong></p>
+				<p m:id='common.IF_SOTOZEI'>消費税：<strong><span m:id='TAX_HERE'>50円</span></strong></p>
+				<p m:id='common.IF_UCHIZEI'>消費税：<strong>内税</strong></p>
+				<p>送料：<strong><span m:id='SORYO_HERE'>500円</span></strong></p>
+				<p m:id='IF_DAIBIKI'>代引き手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+				<p m:id='IF_KESSAI_TESURYO'>決済手数料：<strong><span m:id='KESSAI_TESURYO_HERE'>500円</span></strong></p>
+				<p m:id='IF_COUPON_WARIBIKI'>クーポン割引：<strong>-<span m:id='COUPON_WARIBIKI_HERE'>500円</span></strong></p>
+				<p m:id='IF_POINT_USE'>ポイント値引き：<strong>-<span m:id='POINT_WARIBIKI_HERE'>500</span>円</strong></p>
+				<span m:id="common.IF_SALES_CAMPAIGN_BEYOND_OPTION">
+					<p m:id="IF_SALES_CAMPAIGN_WARIBIKI">キャンペーン割引額：<strong>-<span m:id='CAMPAIGN_WARIBIKI_HERE'>500円</span></strong></p>
+				</span>
+				<p m:id='IF_BUNDLE_SALE_WARIBIKI'>まとめ買い割引：<strong>-<span m:id='BUNDLE_SALE_WARIBIKI_HERE'>500円</span></strong></p>
+				<span m:id="IF_ESTIMATE_WARIBIKI">
+					<p>合計金額：<strong><span m:id='SEIKYU_PRICE_BEFORE_ESTIMATE_WARIBIKI_HERE'>500円</span></strong></p>
+					<p>出精割引額：<strong>-<span m:id='ESTIMATE_WARIBIKI_PRICE_HERE'>500円</span></strong></p>
+				</span>
+				<p class="total">販売金額：<strong><span m:id='GOKEI_HERE'>1,000円</span></strong></p>
+			</div>
+
+			<div m:id='IF_AVAILABLE_ESTIMATE_ORDER'>
+				<!-- ======================お届け日・お届け時間（複数配送先使用の場合はお届け先1の下に移設したほうが良い）====================== / -->
+				<section m:id="IF_DELIVERY">
+					<h3>お届け日・お届け時間</h3>
+					<div class="sentence">
+						<p>ご希望のお届け日・お届け時間を選択してください。</p>
+					</div>
+					<h4>お届け日</h4>
+					<div class="sentence">
+						<select m:id='DELIVERY_DATE_SELECT_INPUT_HERE'>
+							<option value="" selected="selected">----</option>
+							<option value="2016/3/1">2016/3/1</option>
+							<option value="2016/3/2">2016/3/2</option>
+							<option value="2016/3/3">2016/3/3</option>
+						</select>				
+					</div>
+					<h4>お届け時間</h4>
+					<div class="sentence">
+						<select m:id='DELIVERY_TIME_INPUT_HERE' name="hour">
+							<option value="" selected="selected">希望なし</option>
+							<option value="午前中">午前中</option>
+							<option value="12時から14時">12時から14時</option>
+							<option value="14時から16時">14時から16時</option>
+							<option value="16時から18時">16時から18時</option>
+							<option value="18時から20時">18時から20時</option>
+							<option value="20時から21時">20時から21時</option>
+						</select>
+					</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="1">
+						<h4>
+							<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="1">送付先自由項目1</span>
+						</h4>
+						<div class="sentence">
+							<p class="form_attention"><span m:id="SEND_FREE_HERE" m:free_item_no="1">送付先自由項目コメント1</span></p>
+						</div>
+					</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="2">
+						<h4>
+							<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="2">送付先自由項目2</span>
+						</h4>
+						<div class="sentence">
+							<p class="form_attention"><span m:id="SEND_FREE_HERE" m:free_item_no="2">送付先自由項目コメント2</span></p>
+						</div>
+					</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="3">
+						<h4>
+							<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="3">送付先自由項目3</span>
+						</h4>
+						<div class="sentence">
+							<p class="form_attention"><span m:id="SEND_FREE_HERE" m:free_item_no="3">送付先自由項目コメント3</span></p>
+						</div>
+					</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="4">
+						<h4>
+							<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="4">送付先自由項目4</span>
+						</h4>
+						<div class="sentence">
+							<p class="form_attention"><span m:id="SEND_FREE_HERE" m:free_item_no="4">送付先自由項目コメント4</span></p>
+						</div>
+					</div>
+					<div m:id="IF_SEND_FREE" m:free_item_no="5">
+						<h4>
+							<span m:id="SEND_FREE_TITLE_HERE" m:free_item_no="5">送付先自由項目5</span>
+						</h4>
+						<div class="sentence">
+							<p class="form_attention"><span m:id="SEND_FREE_HERE" m:free_item_no="5">送付先自由項目コメント5</span></p>
+						</div>
+					</div>
+				</section>
+				<!-- / ======================お届け日・お届け時間（複数配送先使用の場合はお届け先1の下に移設したほうが良い）====================== -->
+				
+				<!-- ======================お支払い方法====================== / -->		
+				<section m:id="KESSAI_AREA_TAG">
+					<script type="text/javascript">
+					//<![CDATA[
+					// クレジットカード番号入力時の制御
+					/*eb$(function() {
+						eb$('.cardnumber_td input[type="hidden"]').insertAfter('#CREDIT_NO4');
+						eb$('.cardnumber_td').find('input[type="text"]').addClass('cardnumber');
+						eb$('.cardnumber').bind('keyup', function() {
+							var thisValueLength = eb$(this).val().length;
+							if(thisValueLength >= 4) {
+								eb$(this).next().focus();
+							}
+						});
+					});*/
+					//]]>
+					</script>
+					<h3>お支払い情報 <img src="images/icon_hissu.gif" width="25" height="15" /></h3>
+					<h4>お支払方法</h4>
+					<div m:id='IF_CREDIT_TOKEN' class="sentence">
+						<span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
+					</div>
+					<div class="sentence">
+						<span m:id='KESSAI_NAME_HERE'>クレジットカード</span>
+					</div>
+					<div m:id='IF_CREDIT'>
+						<div m:id="IF_SAVED_CARD" m:NOT="">
+							<div m:id='IF_CREDIT_KAISU'>
+								<h4>お支払い回数</h4>
+								<div class="sentence">
+									<select m:id='CREDIT_KAISU_INPUT_HERE' name="card_count">
+										<option value="" selected="selected">-- 回数を指定 --</option>
+										<option value="01">1回</option>
+										<option value="02">2回</option>
+										<option value="03">3回</option>
+									</select>
+								</div>
+							</div>
+							<div m:id='IF_CREDIT_SECURITY_CD'>
+								<h4>セキュリティーコード</h4>
+								<div class="sentence">
+									<input m:id='SECURITY_CODE_INPUT_HERE' type="text" m:autocomplete="off" />
+									<label class="error_color" id="SECURITY_CD_ERROR" style="color :red;"></label>
+								</div>
+							</div>
+						</div>
+						<div m:id="IF_SAVED_CARD">
+							<h4>登録済みカード</h4>
+							<div class="sentence">
+								<div m:id='LOOP_SAVED_CARD'>
+									<input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' />****-****-****-<span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span>
+									<span class="expiration_date">
+										有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>02</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2019</span>
+									</span>
+								</div>
+								<div m:id='DUMMY'>
+									<input name="saved_card" type="radio" />****-****-****-4003
+									<span class="expiration_date">
+										有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>02</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2019</span>
+									</span>
+								</div>
+								<div m:id="IF_SAVED_CARD">
+									<input name="saved_card" type="radio" m:id='NEW_CARD_RADIO_TAG' />新規クレジットカード
+								</div>
+							</div>
+						</div>
+						<h4><span m:id="IF_SAVED_CARD">新規</span>カード名義</h4>
+						<div class="sentence">
+							<input m:id='CREDIT_NAME_INPUT_HERE' type="text" m:autocomplete="off" />
+							<label class="error_color" id="CREDIT_NAME_ERROR" style="color :red;"></label>
+							<p class="form_attention">例：TARO YAMADA</p>
+						</div>
+						<h4><span m:id="IF_SAVED_CARD">新規</span>カード番号</h4>
+						<div class="sentence cardnumber_td">
+							<!--<input m:id='CREDIT_NUMBER_INPUT_HERE' type="number" m:autocomplete="off" />-->
+							<input m:id='CREDIT_NUMBER1_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />-
+							<input m:id='CREDIT_NUMBER2_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />-
+							<input m:id='CREDIT_NUMBER3_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />-
+							<input m:id='CREDIT_NUMBER4_INPUT_HERE' name="card_number" type="text" size="4" maxlength="4" value="" m:autocomplete="off" />
+							<label class="error_color" id="CREDIT_NO_ERROR" style="color :red;"></label>
+							<p class="form_attention">例：1111222233334444<br />（ハイフンで区切らず数字を続けてご入力ください。）</p>
+						</div>
+						<h4><span m:id="IF_SAVED_CARD">新規カード</span>有効期限</h4>
+						<div class="sentence">
+							<table>
+								<tr>
+									<td>
+										<select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE'>
+											<option selected="selected">-- 月を指定 --</option>
+											<option value="01">1</option>
+											<option value="02">2</option>
+											<option value="03">3</option>
+											<option value="04">4</option>
+											<option value="05">5</option>
+											<option value="06">6</option>
+											<option value="07">7</option>
+											<option value="08">8</option>
+											<option value="09">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+									</td>
+									<td>月</td>
+									<td>
+										<select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE'>
+											<option selected="selected">-- 年を指定 --</option>
+											<option value="09">2009</option>
+											<option value="10">2010</option>
+											<option value="11">2011</option>
+											<option value="12">2012</option>
+											<option value="13">2013</option>
+											<option value="14">2014</option>
+											<option value="15">2015</option>
+											<option value="16">2016</option>
+											<option value="17">2017</option>
+											<option value="18">2018</option>
+											<option value="19">2019</option>
+										</select>
+									</td>
+									<td>年</td>
+								</tr>
+							</table>
+							<label class="error_color" id="CREDIT_LIMIT_ERROR" style="color :red;"></label>
+						</div>
+					</div>
+				</section>
+				<!-- / ======================お支払い情報====================== -->
+			</div>
+			
+			<!-- ======================見積情報====================== / -->
+			<section>
+				<h3>見積情報</h3>
+				<div class="buttonarea">
+					<a m:id="ESTIMATE_DOWNLOAD_LINK_TAG" href="#" class="estimate">見積書ダウンロード</a>
+				</div>
+				<h4>見積番号</h4>
+				<div class="sentence">
+					<span m:id='ESTIMATE_NO_HERE'>ESTIMATE_0001</span>
+				</div>
+				<h4>見積ステータス</h4>
+				<div class="sentence">
+					<span m:id='ESTIMATE_STATUS_HERE'>見積済</span>
+					<span m:id="IF_USE_MEMBER_HISTORY">
+						<span m:id='IF_ESTIMATE_ORDER'>
+							(受注番号：<a m:id='ESTIMATE_ORDER_NO_LINK_TAG' href="#"><span m:id='ESTIMATE_ORDER_NO_HERE'>受注番号</span></a>)
+						</span>
+					</span>
+				</div>
+				<h4>見積作成日</h4>
+				<div class="sentence">
+					<span m:id='ESTIMATE_DATE_YEAR_HERE'>2020</span>/<span m:id='ESTIMATE_DATE_MONTH_HERE'>2</span>/<span m:id='ESTIMATE_DATE_DAY_HERE'>2</span>
+				</div>
+				<div m:id='IF_ESTIMATE_LIMIT_DATE'>
+					<h4>見積有効期限</h4>
+					<div class="sentence">
+						<span m:id='ESTIMATE_LIMIT_DATE_YEAR_HERE'>2020</span>/<span m:id='ESTIMATE_LIMIT_DATE_MONTH_HERE'>2</span>/<span m:id='ESTIMATE_LIMIT_DATE_DAY_HERE'>2</span>
+					</div>
+				</div>
+				<div m:id="IF_ESTIMATE_COMMENT">
+					<h4>見積コメント</h4>
+					<div class="sentence">
+						<span m:id='ESTIMATE_COMMENT_HERE'>見積コメント</span>				
+					</div>
+				</div>
+				<div m:id='IF_ESTIMATE_REPLY_DATE'>
+					<h4>見積回答日</h4>
+					<div class="sentence">
+						<span m:id='ESTIMATE_REPLY_DATE_YEAR_HERE'>2020</span>/<span m:id='ESTIMATE_REPLY_DATE_MONTH_HERE'>2</span>/<span m:id='ESTIMATE_REPLY_DATE_DAY_HERE'>2</span>
+					</div>
+				</div>
+				<div m:id="IF_ESTIMATE_REPLY_COMMENT">
+					<h4>見積回答コメント</h4>
+					<div class="sentence">
+						<span m:id='ESTIMATE_REPLY_COMMENT_HERE'>見積回答コメント</span>				
+					</div>
+				</div>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<div m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+						<div m:id="IF_ESTIMATE_WARIBIKI">
+							<h4>合計金額</h4>
+							<div class="sentence">
+								<span m:id='SEIKYU_PRICE_BEFORE_ESTIMATE_WARIBIKI_HERE'>2,000円</span>
+							</div>
+							<h4>出精値引額</h4>
+							<div class="sentence">
+								-<span m:id='ESTIMATE_WARIBIKI_PRICE_HERE'>2,000円</span>
+							</div>
+						</div>
+						<h4>販売金額</h4>
+						<div class="sentence">
+							<span m:id='GOKEI_HERE'>2,000円</span>
+						</div>
+					</div>
+				</div>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<div m:id="IF_ESTIMATE_WARIBIKI">
+						<h4>合計金額</h4>
+						<div class="sentence">
+							<span m:id='SEIKYU_PRICE_BEFORE_ESTIMATE_WARIBIKI_HERE'>2,000円</span>			
+						</div>
+						<h4>出精値引額</h4>
+						<div class="sentence">
+							-<span m:id='ESTIMATE_WARIBIKI_PRICE_HERE'>2,000円</span>			
+						</div>
+					</div>
+					<h4>販売金額</h4>
+					<div class="sentence">
+						<span m:id='GOKEI_HERE'>2,000円</span>			
+					</div>
+				</div>
+			</section>
+			<!-- / ======================見積情報====================== -->
+			<!-- ======================配送方法====================== / -->
+			<section m:id='IF_HAISO'>
+				<h3>配送方法 </h3>
+				<div class="sentence">
+					<span m:id='HAISO_DISP_NAME_HERE'>ここに選択された配送方法名称が入ります。</span>
+				</div>
+			</section>
+			<!-- / ======================配送方法====================== -->
+			<!--  注文不可の場合だけ表示 -->
+			<section m:id='IF_AVAILABLE_ESTIMATE_ORDER'  m:NOT="">
+				<!-- ======================お支払い情報====================== / -->
+				<h3>お支払い情報</h3>
+				<h4>お支払方法</h4>
+				<div class="sentence">
+					<span m:id='KESSAI_NAME_HERE'>クレジットカード</span>
+				</div>
+				<!-- / ======================お支払い情報====================== -->
+			</section>
+			<!-- ======================ご依頼主（ご請求先）情報====================== / -->
+			<section>
+				<h3>ご依頼主（ご請求先）情報 </h3>
+				<h4>氏名（漢字）</h4>
+				<div class="sentence">
+					<span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span>
+				</div>
+				<h4>氏名（カナ）</h4>
+				<div class="sentence">
+					<span m:id='LAST_KANA_HERE'>ヤマダ</span> <span	m:id='FIRST_KANA_HERE'>タロウ</span>
+				</div>
+				<h4>メールアドレス</h4>
+				<div class="sentence">
+					<span m:id='PC_MAIL_HERE'>abc@abc.com</span>
+				</div>
+				<h4>住所</h4>
+				<div class="sentence">
+					〒<span m:id='ZIP_HERE'>1234567</span>
+					<span m:id='ADDRESS1_HERE'>東京都</span> <span m:id='ADDRESS2_HERE'>○○市 ○○町1-2-3</span>
+					<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+				</div>
+				<h4>電話番号</h4>
+				<div class="sentence">
+					<span m:id='TEL_HERE'>03-1234-5678</span>
+				</div>
+			</section>
+			<!-- / ======================ご依頼主（ご請求先）情報====================== -->
+
+			<!-- ======================お届け先情報====================== / -->
+			<section>
+				<h3>お届け先情報 </h3>
+				<h4>氏名（漢字）</h4>
+				<div class="sentence">
+					<span m:id='SEND_LAST_NAME_HERE'>山田</span> <span m:id='SEND_FIRST_NAME_HERE'>太郎</span>
+				</div>
+				<h4>氏名（カナ）</h4>
+				<div class="sentence">
+					<span m:id='SEND_LAST_KANA_HERE'>ヤマダ</span> <span	m:id='SEND_FIRST_KANA_HERE'>タロウ</span>
+				</div>
+				<h4>住所</h4>
+				<div class="sentence">
+					<span m:id='IF_SEND_SAME' m:NOT="">〒<span m:id='SEND_ZIP_HERE'>1234567</span></span>
+					<span m:id='SEND_ADDRESS1_HERE'>東京都</span> <span m:id='SEND_ADDRESS2_HERE'>○○市 ○○町1-2-3</span>
+					<span m:id='SEND_ADDRESS3_HERE'>○○ビル101</span>
+				</div>
+				<h4>電話番号</h4>
+				<div class="sentence">
+					<span m:id='SEND_TEL_HERE'>03-1234-5678</span>
+				</div>
+			</section>
+			<!-- / ======================ご依頼主（ご請求先）情報====================== -->
+			<!-- ======================その他====================== / -->
+			<section>
+				<h3>その他</h3>
+				<h4>備考</h4>
+				<div class="sentence">
+					<span m:id='BIKO_HERE'>ここに備考が入ります。ここに備考が入ります。ここに備考が入ります。</span>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='1'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="1">受注ヘッダ自由項目1</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="1">受注ヘッダ自由項目コメント1</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='2'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="2">受注ヘッダ自由項目2</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="2">受注ヘッダ自由項目コメント2</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='3'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="3">受注ヘッダ自由項目3</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="3">受注ヘッダ自由項目コメント3</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='4'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="4">受注ヘッダ自由項目4</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="4">受注ヘッダ自由項目コメント4</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='5'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="5">受注ヘッダ自由項目5</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="5">受注ヘッダ自由項目コメント5</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='6'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="6">受注ヘッダ自由項目6</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="6">受注ヘッダ自由項目コメント6</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='7'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="7">受注ヘッダ自由項目7</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="7">受注ヘッダ自由項目コメント7</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='8'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="8">受注ヘッダ自由項目8</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="8">受注ヘッダ自由項目コメント8</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='9'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="9">受注ヘッダ自由項目9</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="9">受注ヘッダ自由項目コメント9</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='10'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="10">受注ヘッダ自由項目10</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="10">受注ヘッダ自由項目コメント10</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='11'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="11">受注ヘッダ自由項目11</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="11">受注ヘッダ自由項目コメント11</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='12'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="12">受注ヘッダ自由項目12</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="12">受注ヘッダ自由項目コメント12</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='13'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="13">受注ヘッダ自由項目13</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="13">受注ヘッダ自由項目コメント13</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='14'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="14">受注ヘッダ自由項目14</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="14">受注ヘッダ自由項目コメント14</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='15'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="15">受注ヘッダ自由項目15</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="15">受注ヘッダ自由項目コメント15</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='16'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="16">受注ヘッダ自由項目16</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="16">受注ヘッダ自由項目コメント16</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='17'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="17">受注ヘッダ自由項目17</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="17">受注ヘッダ自由項目コメント17</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='18'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="18">受注ヘッダ自由項目18</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="18">受注ヘッダ自由項目コメント18</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='19'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="19">受注ヘッダ自由項目19</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="19">受注ヘッダ自由項目コメント19</span>
+					</div>
+				</div>
+				<div m:id='IF_FREE_ITEM' m:free_item_no='20'>
+					<h4><span m:id='FREE_TITLE_HERE' m:free_item_no="20">受注ヘッダ自由項目20</span></h4>
+					<div class="sentence">
+						<span m:id='FREE_ITEM_HERE' m:free_item_no="20">受注ヘッダ自由項目コメント20</span>
+					</div>
+				</div>
+			</section>
+			<div class="buttonarea">
+				<span m:id='IF_AVAILABLE_ESTIMATE_ORDER'><input m:id='IF_EXIST_KESSAI' type="submit" value="注文する"/></span>
+				<a href="#" class="cancel" m:id="BACK_LINK_TAG">戻る</a>
+			</div>
+			<!-- / ======================その他====================== -->
+		</form>
+	</div>
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%"></iframe>
+<div m:id='IF_CREDIT_TOKEN'>
+	<script m:id='CREDIT_TOKEN_JS_HERE' type="text/javascript">
+	// トークン決済JavaScript
+	</script>
+</div>
+</body>
+</html>

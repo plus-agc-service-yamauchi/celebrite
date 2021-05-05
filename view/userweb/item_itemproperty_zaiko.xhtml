@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_itemproperty_zaiko_sub.html?item_cd=xxx -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+
+<!-- subwindow -->
+<div id="subwindow">
+
+
+<!-- header -->
+	<div id="header">
+		<h1><a href="/" target="_blank">ここにショップ名が入ります。</a></h1>
+	</div>
+<!-- / header -->
+
+
+<!-- item_itemproperty_zaiko.xhtml -->
+	<div id="content">
+		<h2>在庫表</h2>
+		
+		<p>商品名：<span m:id='ITEM_NAME_HERE'>商品名</span></p>
+		<table>
+			<tr>
+				<th class="zaiko">商品属性名</th>
+				<th class="zaiko">商品属性コード</th>
+				<th class="zaiko" m:id='IF_ITEM_PROPERTY_TEIKA'>価格</th>
+				<th m:id="IF_ZAIKO_DISP" class="zaiko">在庫数</th>
+				<th m:id="IF_ZAIKO_DISP" m:NOT="" class="zaiko">在庫</th>
+			</tr>
+			<tr m:id="LOOP_ITEMPROPERTY">
+				<td><span m:id='ITEMPROPERTY_NAME_HERE'>赤,M</span></td>
+				<td><span m:id='ITEM_ITEMPROPERTY_CD_HERE'>ITEM01-RED-M</span></td>
+				<td class="number" m:id='IF_ITEM_PROPERTY_TEIKA'>
+					<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+						<span m:id="common.IF_CUSTOMER_MANAGEMENT_ENABLE_VIEW_PRICE">
+							<span m:id='ITEM_ITEMPROPERTY_TEIKA_HERE'>1,175円</span>
+							<span m:id="IF_ITEM_ITEMPROPERTY_TEIKA" m:NOT="">
+								<span m:id="ORIGINAL_TEIKA_ZEIKOMI_HERE">1,175円</span>
+							</span>
+						</span>
+					</span>
+					<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+					<span m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+						<span m:id='ITEM_ITEMPROPERTY_TEIKA_HERE'>1,175円</span>
+						<span m:id="IF_ITEM_ITEMPROPERTY_TEIKA" m:NOT="">
+							<span m:id="ORIGINAL_TEIKA_ZEIKOMI_HERE">1,175円</span>
+						</span>
+					</span>
+				</td>
+				<td class="number" m:id="IF_ZAIKO_DISP">
+					<span m:id='ZAIKO_HERE'>10</span>
+				</td>
+				<td m:id="IF_ZAIKO_DISP" m:NOT="" align="center">
+					<span m:id="IF_ZAIKO">○</span>
+					<span m:id="IF_ZAIKO" m:NOT="">×</span>
+				</td>
+			</tr>
+		</table>
+	
+		<p><a href="javascript:window.close()">×このウィンドウを閉じる</a></p>
+	
+	</div>
+<!-- / item_itemproperty_zaiko.xhtml -->
+
+
+</div>
+<!-- / subwindow -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

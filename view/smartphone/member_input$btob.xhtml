@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja" xmlns:social_plus_m="eb:SOCIAL_PLUS/view_member_input.json" xmlns:social_plus_c="eb:SOCIAL_PLUS/view_common.json" xmlns:social_plus2="eb:SOCIAL_PLUS/view_member_auth_provider.json">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- memberInput -->
+<section id="content">
+	<h2>
+		<span m:id='common.IF_MEMBER' m:NOT="">子会員登録</span>
+	</h2>
+	<div class="sentence">
+		<p>
+			<span m:id='common.IF_MEMBER' m:NOT="">会員登録をしたい方は、</span>
+			下記のフォームに必要事項を入力し「入力内容を確認する」ボタンを押してください。<br />
+			<img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+		</p>
+	</div>
+
+	<form m:id='FORM_TAG'>
+
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+		
+		<h3>会員登録用認証キー <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			<input m:id='MEMBER_REGIST_AUTH_KEY_INPUT_HERE' name="member_regist_auth_key" type="text" size="50" value="" /> 
+			ご不明な場合は管理者にお問い合わせください。
+		</div>		
+
+		<h3>氏名（漢字） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			姓 <input m:id='LAST_NAME_INPUT_HERE' type="text" />
+			名 <input m:id='FIRST_NAME_INPUT_HERE' type="text" />
+			<p class="form_attention">例：山田 太郎</p>
+		</div>
+
+		<h3>氏名（カナ） <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			セイ <input m:id='LAST_KANA_INPUT_HERE' type="text" />
+			メイ <input m:id='FIRST_KANA_INPUT_HERE' type="text" />
+			<p class="form_attention">例：ヤマダ タロウ （全角カナで入力してください。）</p>
+		</div>
+	
+		<h3>ニックネーム</h3>
+		<div class="sentence">
+			<input m:id='NICKNAME_INPUT_HERE' name="lastname_kana" type="text" size="20" value="" />
+			<p class="form_attention">例：タロー</p>
+		</div>
+
+		<div m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+			<h3>ログインID <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+			<div class="sentence">
+				<input m:id='LOGIN_ID_INPUT_HERE' type="text" />
+				<p class="form_attention">（半角英数字・20文字以内で入力してください。）</p>
+			</div>
+		</div>
+		<h3>パスワード <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			<input m:id='PASSWORD_INPUT_HERE' type="password" />
+			<p class="form_attention">（半角英数字・20文字以内で入力してください。）</p>
+		</div>
+		<div class="sentence">
+			<p>※確認のためパスワードを再入力してください。</p>
+			<input m:id='PASSWORD_CONFIRM_INPUT_HERE' type="password" />
+		</div>
+
+		<h3>性別 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_SEX_HISSU' /></h3>
+		<div class="sentence">
+			<ul class="radio">
+				<li><input type="radio" m:id='SEX_MAN_INPUT_TAG' /><label for="MEMBER_INPUT_SEX_MAN_INPUT">男性 </label></li>
+				<li><input type="radio" m:id='SEX_WOMAN_INPUT_TAG' /><label for="MEMBER_INPUT_SEX_FEMALE_INPUT">女性</label></li>
+				<li m:id="IF_SEX_OTHER_USE_FLG"><input type="radio" m:id='SEX_OTHER_INPUT_TAG' /><label for="MEMBER_INPUT_SEX_OTHER_INPUT">その他</label></li>
+			</ul>
+		</div>
+
+		<h3>生年月日 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_BIRTH_HISSU' /></h3>
+		<div class="sentence">
+			<table>
+				<tr>
+					<td><input m:id='BIRTH_YEAR_INPUT_HERE' type="number" /></td><td>年</td>
+					<td><input m:id='BIRTH_MONTH_INPUT_HERE' type="number" /></td><td>月</td>
+					<td><input m:id='BIRTH_DAY_INPUT_HERE' type="number" /></td><td>日</td>
+				</tr>
+			</table>
+			<p class="form_attention">例：1986年3月3日 （半角英数字で入力してください。）</p>
+		</div>
+
+		<h3>メールアドレス</h3>
+		<div class="sentence">
+			<div m:id='IF_MAIL_VALIDATED'>
+				<span m:id='PC_MAIL_HERE'>sample@example.jp</span>
+			</div>
+			<div m:id='IF_MAIL_VALIDATED' m:NOT="">
+				<input type="email" m:id='PC_MAIL_INPUT_HERE' />
+				<!--<p class="form_attention">PCメールアドレスか携帯メールアドレスのどちらかが必須です。</p>-->
+				<p class="form_attention">例：sample@example.jp （半角英数字で入力してください。）</p>
+			
+				<p>※確認のためメールアドレスを再入力してください。</p>
+				<table>
+					<tr>
+						<td><input type="text" m:id='PC_MAIL_CONFIRM1_INPUT_HERE' /></td><td>@</td>
+						<td><input type="text" m:id='PC_MAIL_CONFIRM2_INPUT_HERE' /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<!--<h3>メール形式</h3>
+		<div class="sentence">
+			<ul class="radio">
+				<li>
+					<input type="radio" m:id='PC_MAILTYPE_TEXT_INPUT_HERE' id='MEMBER_MAIL_TYPE_PC_TEXT' />
+					<label for="MEMBER_MAIL_TYPE_PC_TEXT">テキスト</label>
+				</li>
+				<li>
+					<input type="radio" m:id='PC_MAILTYPE_HTML_INPUT_HERE' id='MEMBER_MAIL_TYPE_PC_HTML' />
+					<label for="MEMBER_MAIL_TYPE_PC_HTML">HTML</label>
+				</li>
+			</ul>
+		</div>-->
+
+		<!--<h3>携帯メールアドレス</h3>
+		<div class="sentence">
+			<input type="email" m:id='MOBILE_MAIL_INPUT_HERE' />
+			<p class="form_attention">PCメールアドレスか携帯メールアドレスのどちらかが必須です。</p>
+			<p class="form_attention">例：sample@example.jp （半角英数字で入力してください。）</p>
+		</div>
+		<div class="sentence">
+			<p>※確認のためメールアドレスを再入力してください。</p>
+			<table>
+				<tr>
+					<td><input type="text" m:id='MOBILE_MAIL_CONFIRM1_INPUT_HERE' /></td><td>@</td>
+					<td><input type="text" m:id='MOBILE_MAIL_CONFIRM2_INPUT_HERE' /></td>
+				</tr>
+			</table>
+		</div>-->
+
+		<!--<h3>携帯メール形式</h3>
+		<div class="sentence">
+			<ul class="radio">
+				<li>
+					<input type="radio" m:id='MOBILE_MAILTYPE_TEXT_INPUT_HERE' id="MEMBER_MAIL_TYPE_MOBILE_TEXT" />
+					<label for="MEMBER_MAIL_TYPE_MOBILE_TEXT">テキスト</label>
+				</li>
+				<li>
+					<input type="radio" m:id='MOBILE_MAILTYPE_HTML_INPUT_HERE' id="MEMBER_MAIL_TYPE_MOBILE_HTML" />
+					<label for="MEMBER_MAIL_TYPE_MOBILE_HTML">HTML</label>
+				</li>
+			</ul>
+		</div>-->
+
+		<h3>郵便番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			<table>
+				<tr>
+					<td><input m:id='ZIP_INPUT_HERE' type="text" /></td>
+					<td><input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒反映" /></td>
+				</tr>
+			</table>
+			<p class="form_attention">例：1234567 （半角数字で入力してください。）</p>
+			<p><span m:id='ZIP_ADDRESS_MESSAGE_TAG'><!--ここに郵便番号反映メッセージが表示されます。--></span></p>
+		</div>
+
+		<h3>都道府県 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS1_HISSU' /></h3>
+		<div class="sentence">
+			<select m:id='ADDRESS1_INPUT_HERE'>
+				<option selected="selected">-- 選択してください --</option>
+			</select>
+		</div>
+
+		<h3>市区町村・番地 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS2_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='ADDRESS2_INPUT_HERE' type="text" />
+			<p class="form_attention">例：○○市○○町1-2-3</p>
+		</div>
+
+		<h3>ビル・マンション名 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_ADDRESS3_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='ADDRESS3_INPUT_HERE' type="text" />
+			<p class="form_attention">例：○○ビル101</p>
+		</div>
+
+		<h3>電話番号 <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_TEL_HISSU' /></h3>
+		<div class="sentence">
+			<input m:id='TEL_INPUT_HERE' type="tel" />
+			<p class="form_attention">例：03-1234-5678 （半角英数字で入力してください。）</p>
+		</div>
+
+		<h3>メールマガジン <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></h3>
+		<div class="sentence">
+			<ul class="radio">
+				<!--<li>
+					<input type="radio" m:id='MAILMAG_REGIST_INPUT_TAG' id="MEMBER_INPUT_MAILMAG_INPUT_ON" />
+					<label for="MEMBER_INPUT_MAILMAG_INPUT_ON">PC＋携帯</label>
+				</li>-->
+				<li>
+					<input type="radio" m:id='MAILMAG_REGIST_PC_INPUT_TAG' id="MEMBER_INPUT_MAILMAG_INPUT_ON_PC" />
+					<label for="MEMBER_INPUT_MAILMAG_INPUT_ON_PC">希望する</label>
+				</li>
+				<!--<li>
+					<input type="radio" m:id='MAILMAG_REGIST_MOBILE_INPUT_TAG' id="MEMBER_INPUT_MAILMAG_INPUT_ON_MOBILE" />
+					<label for="MEMBER_INPUT_MAILMAG_INPUT_ON_MOBILE">携帯</label>
+				</li>-->
+				<li>
+					<input type="radio" m:id='MAILMAG_NO_REGIST_INPUT_TAG' id="MEMBER_INPUT_MAILMAG_INPUT_OFF" />
+					<label for="MEMBER_INPUT_MAILMAG_INPUT_OFF">希望しない</label>
+				</li>
+			</ul>
+		</div>
+		
+		<h3>標準利用支払い方法</h3>
+		<div class="sentence">
+			<div m:id='LOOP_KESSAI'>
+				<span m:id='KESSAI_ID_INPUT_RADIO_HERE'><input type="radio" name="kessaiId" id="kessaiId1" /><label for="kessaiId1"> 銀行振込</label></span><br />
+				<span m:id='KESSAI_COMMENT_HERE'>ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。</span>
+			</div>
+			<div m:id='DUMMY'>
+				<input type="radio" name="kessaiId" id="kessaiId2" /><label for="kessaiId2"> クレジットカード</label><br />
+				ここに決済方法の説明文が入ります。ここに決済方法の説明文が入ります。
+			</div>
+			<br />
+			<div m:id='IF_CREDIT'>
+				<p>クレジットカードご利用の方のみご記入ください。</p>
+				<div m:id='IF_CREDIT_KAISU'>
+					<p>お支払い回数</p>
+					<select m:id='CREDIT_KAISU_INPUT_HERE'
+					name="card_count">
+					<option value="" selected="selected">-- 回数を指定 --</option>
+					<option value="01">1回</option>
+					<option value="02">2回</option>
+					<option value="03">3回</option>
+					</select>
+				</div>
+				<ul m:id='IF_SAVED_CARD'>
+					<li m:id='LOOP_SAVED_CARD'>
+						<input name="saved_card" type="radio" m:id='SAVED_CARD_SELECT_RADIO_TAG' /> ****-****-****-<span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span><br />
+						　　カード名義 : <span m:id='SAVED_CARD_CREDIT_NAME_HERE'>TEST TARO</span><br />
+						　　有効期限 : <span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>04</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2016</span>
+					</li>
+					<li m:id='DUMMY'>
+						<input name="saved_card" type="radio" /> ****-****-****-3012
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div m:id='IF_FREE' m:free_item_no='1'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>会員自由項目1</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='1' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='1'>会員自由項目1</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='1'>会員自由項目コメント1</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='2'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>会員自由項目2</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='2' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='2'>会員自由項目2</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='2'>会員自由項目コメント2</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='3'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>会員自由項目3</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='3' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='3'>会員自由項目3</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='3'>会員自由項目コメント3</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='4'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>会員自由項目4</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='4' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='4'>会員自由項目4</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='4'>会員自由項目コメント4</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='5'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>会員自由項目5</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='5' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='5'>会員自由項目5</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='5'>会員自由項目コメント5</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='6'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='6'>会員自由項目6</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='6' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='6'>会員自由項目6</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='6'>会員自由項目コメント6</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='7'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='7'>会員自由項目7</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='7' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='7'>会員自由項目7</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='7'>会員自由項目コメント7</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='8'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='8'>会員自由項目8</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='8' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='8'>会員自由項目8</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='8'>会員自由項目コメント8</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='9'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='9'>会員自由項目9</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='9' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='9'>会員自由項目9</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='9'>会員自由項目コメント9</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='10'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='10'>会員自由項目10</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='10' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='10'>会員自由項目10</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='10'>会員自由項目コメント10</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='11'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='11'>会員自由項目11</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='11' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='11'>会員自由項目11</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='11'>会員自由項目コメント11</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='12'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='12'>会員自由項目12</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='12' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='12'>会員自由項目12</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='12'>会員自由項目コメント12</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='13'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='13'>会員自由項目13</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='13' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='13'>会員自由項目13</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='13'>会員自由項目コメント13</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='14'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='14'>会員自由項目14</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='14' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='14'>会員自由項目14</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='14'>会員自由項目コメント14</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='15'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='15'>会員自由項目15</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='15' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='15'>会員自由項目15</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='15'>会員自由項目コメント15</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='16'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='16'>会員自由項目16</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='16' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='16'>会員自由項目16</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='16'>会員自由項目コメント16</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='17'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='17'>会員自由項目17</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='17' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='17'>会員自由項目17</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='17'>会員自由項目コメント17</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='18'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='18'>会員自由項目18</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='18' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='18'>会員自由項目18</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='18'>会員自由項目コメント18</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='19'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='19'>会員自由項目19</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='19' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='19'>会員自由項目19</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='19'>会員自由項目コメント19</span></p>
+			</div>
+		</div>
+		<div m:id='IF_FREE' m:free_item_no='20'>
+			<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='20'>会員自由項目20</span> <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_FREE_HISSU' m:free_item_no='20' /></h3>
+			<div class="sentence">
+				<span m:id='FREE_VALUE_INPUT_HERE' m:free_item_no='20'>会員自由項目20</span>
+			<p class="form_attention"><span m:id='FREE_COMMENT_HERE' m:free_item_no='20'>会員自由項目コメント20</span></p>
+			</div>
+		</div>
+		
+		<div class="buttonarea">
+			<input type="submit" value="入力内容を確認" />
+			<a m:id='common.IF_MEMBER' href="javascript:void(0);" onclick="window.history.back();" class="cancel">戻る</a>
+		</div>
+	</form>
+</section>
+<!-- / memberInput -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

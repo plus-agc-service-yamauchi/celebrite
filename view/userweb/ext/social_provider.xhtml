@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja" xmlns:social_plus_c="eb:SOCIAL_PLUS/view_common.json" xmlns:social_plus_m="eb:SOCIAL_PLUS/view_member_mypage.json" xmlns:social_plus2="eb:SOCIAL_PLUS/view_member_auth_provider.json">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+<script type="text/javascript" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+//<![CDATA[
+eb$(document).ready(function(){
+	// ソーシャルPLUSアプリをインストールしている時だけ記述します
+	if(document.getElementById('social_plus_error') != null){
+		document.getElementById('social_plus_error').style.display = 'none';
+		social_plus_message_disp();
+	}
+});
+//]]>
+</script>
+
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/ext/social_provider.html -->
+<script type="text/javascript" charset="utf-8" src="../js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="../common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+	
+	<div id="sidebar">
+		<iframe m:id='common.IMPORT_HERE' src="../common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+	</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+<!-- ext -->
+	<div id="ext" class="social_provider">
+		<h2>プロバイダの追加・解除</h2>
+		
+		<!-- social plus error -->
+		<div id="social_plus_error" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+			<div id="social_plus_error_tbl">
+				<table summary="メッセージ">
+					<tr>
+						<td class="ico"><img src="../images/icon_error.png" /></td>
+						<td class="content"><span id="social_plus_error_msg">ここにエラーメッセージが表示されます</span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- / social plus error -->
+	
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+			<div social_plus_c:write="SOCIAL_PLUS_ERROR_MSG_DISP_SCRIPT" m:HTML="">
+				<!-- メッセージ用スクリプト排出エリア -->
+			</div>
+		</div>
+		
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+			<div social_plus_m:write="SOCIAL_PLUS_PROVIDER_DEL_SCRIPT" m:HTML="">
+				<!-- 解除用スクリプト排出エリア -->
+			</div>
+		</div>
+	
+		<!-- social_plus -->
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS' id="social_plus">
+			<div social_plus_m:if="IS_SOCIAL_PLUS_MEMBER">
+				<form social_plus_m:attr="SOCIAL_PLUS_PROVIDER_FORM_TAG">
+					<input type="hidden" name="key" value="" />
+					
+					<div social_plus_m:write="SOCIAL_PLUS_PROVIDER_DEL_SCRIPT" m:HTML="">
+						<!-- 解除用スクリプト排出エリア -->
+					</div>
+					<div social_plus_c:write="SOCIAL_PLUS_ERROR_MSG_DISP_SCRIPT" m:HTML="">
+						<!-- エラー表示スクリプト排出エリア -->
+					</div>
+					<table>
+						<tr class="title">
+							<th class="service">サービス名</th>
+							<th>連携状況</th>
+						</tr>
+						<tr>
+							<th class="facebook">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_FACEBOOK_ASSOCIATION" m:NOT="" class="on"><p>Facebook ID</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_FACEBOOK_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_FACEBOOK_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_FACEBOOK_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_FACEBOOK_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_FACEBOOK_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="twitter">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_TWITTER_ASSOCIATION" m:NOT="" class="on"><p>twitter ID</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_TWITTER_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_TWITTER_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_TWITTER_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_TWITTER_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_TWITTER_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="google">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_GPLUS_ASSOCIATION" m:NOT="" class="on"><p>google ID</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_GPLUS_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_GPLUS_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_GPLUS_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_GPLUS_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_GPLUS_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="yahoo">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_YAHOO_ASSOCIATION" m:NOT="" class="on"><p>Yahoo! JAPAN ID</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_YAHOO_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_YAHOO_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_YAHOO_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_YAHOO_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_YAHOO_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="mixi">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_MIXI_ASSOCIATION" m:NOT="" class="on"><p>mixi</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_MIXI_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_MIXI_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_MIXI_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_MIXI_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_MIXI_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="line">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_LINE_ASSOCIATION" m:NOT="" class="on"><p>LINE</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_LINE_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_LINE_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_LINE_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_LINE_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_LINE_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr>
+							<th class="paypal">
+								<div social_plus_m:if="IS_SOCIAL_PLUS_PAYPAL_ASSOCIATION" m:NOT="" class="on"><p>PayPal</p></div>
+								<div social_plus_m:if="IS_SOCIAL_PLUS_PAYPAL_ASSOCIATION" class="off"><p>連携済み</p></div>
+							</th>
+							<td>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_PAYPAL_ASSOCIATION" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_PAYPAL_PROVIDER_ADD_TAG">連携する</a></span>
+								<span social_plus_m:if="IS_SOCIAL_PLUS_PAYPAL_ASSOCIATION"><a href="" social_plus_m:attr="SOCIAL_PLUS_PAYPAL_PROVIDER_DEL_TAG" m:HTML="">連携を解除する</a></span>
+							</td>
+						</tr>
+						<tr social_plus_m:if="IS_SOCIAL_PLUS_RAKUTEN_ASSOCIATION" m:NOT="">
+							<th class="rakuten">
+								<a href="" social_plus_m:attr="SOCIAL_PLUS_RAKUTEN_PROVIDER_ADD_TAG">
+									<img src="https://static.id.rakuten.co.jp/static/btn-japanese-2x/idconnect_01-login_r_390.png" width="195" alt="楽天IDでログイン" />
+								</a>
+							</th>
+							<td>
+								<a href="" social_plus_m:attr="SOCIAL_PLUS_RAKUTEN_PROVIDER_ADD_TAG">連携する</a>
+							</td>
+						</tr>
+						<tr social_plus_m:if="IS_SOCIAL_PLUS_RAKUTEN_ASSOCIATION">
+							<th class="rakuten" colspan="2">
+								<div social_plus2:if="IS_RAKUTEN_SOCIAL_PLUS_AUTH_PROVIDER">楽天ID連携は解除できません</div>
+								<div social_plus2:if="IS_RAKUTEN_SOCIAL_PLUS_AUTH_PROVIDER" m:NOT=""><a href="" social_plus_m:attr="SOCIAL_PLUS_RAKUTEN_PROVIDER_DEL_TAG" m:HTML="">楽天ID連携を解除する</a></div>
+							</th>
+						</tr>
+					</table>			
+				</form>
+			</div>
+				
+			<div social_plus_m:if="IS_SOCIAL_PLUS_MEMBER" m:NOT="">
+				<table>
+					<tr class="title">
+						<th class="service">サービス名</th>
+						<th>連携状況</th>
+					</tr>
+					<tr>
+						<th class="facebook"><a href="" social_plus_c:attr="SOCIAL_PLUS_FACEBOOK_LOGIN_TAG"><div class="on>"><p>facebook</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_FACEBOOK_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="twitter"><a href="" social_plus_c:attr="SOCIAL_PLUS_TWITTER_LOGIN_TAG"><div class="on>"><p>twitter</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_TWITTER_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="google"><a href="" social_plus_c:attr="SOCIAL_PLUS_GPLUS_LOGIN_TAG"><div class="on>"><p>google</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_GPLUS_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="yahoo"><a href="" social_plus_c:attr="SOCIAL_PLUS_YAHOO_LOGIN_TAG"><div class="on>"><p>Yahoo! JAPAN ID</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_YAHOO_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="mixi"><a href="" social_plus_c:attr="SOCIAL_PLUS_MIXI_LOGIN_TAG"><div class="on>"><p>mixi</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_MIXI_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="line"><a href="" social_plus_c:attr="SOCIAL_PLUS_LINE_LOGIN_TAG"><div class="on>"><p>LINE</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_LINE_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="paypal"><a href="" social_plus_c:attr="SOCIAL_PLUS_PAYPAL_LOGIN_TAG"><div class="on>"><p>PayPal</p></div></a></th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_PAYPAL_LOGIN_TAG">追加する</a></td>
+					</tr>
+					<tr>
+						<th class="rakuten">
+							<a href="" social_plus_c:attr="SOCIAL_PLUS_RAKUTEN_LOGIN_TAG"><img src="https://static.id.rakuten.co.jp/static/btn-japanese-2x/idconnect_01-login_r_390.png" width="195" alt="楽天IDでログイン" /></a>
+						</th>
+						<td><a href="" social_plus_c:attr="SOCIAL_PLUS_RAKUTEN_LOGIN_TAG">追加する</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- / social_plus -->
+		<!-- / ext -->
+	</div>
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="../common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

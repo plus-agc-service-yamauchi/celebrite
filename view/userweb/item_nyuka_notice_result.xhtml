@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/item_nyuka_notice.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<!-- subwindow -->
+<div id="subwindow">
+
+<!-- header -->
+	<div id="header">
+		<h1><a href="/">ここにショップ名が入ります。</a></h1>
+	</div>
+<!-- / header -->
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- nyuka -->
+	<div id="content" m:id="IF_NYUKA_NOTICE">
+		<h2>入荷お知らせ登録完了</h2>
+		<p>
+			「<span m:id="ITEM_NAME_HERE">入荷お知らせ商品</span>」の入荷お知らせ登録が完了しました。<br />対象の商品が入荷した場合、ご登録されているとメールアドレスに連絡が届きます。
+		</p>
+	</div>
+<!-- / nyuka -->
+
+<!-- nyuka -->
+	<div id="content" m:id="IF_NYUKA_NOTICE_INVALIDATE">
+		<h2>入荷お知らせ解除完了</h2>
+		<p>
+			「<span m:id="ITEM_NAME_HERE">入荷お知らせ商品</span>」の入荷お知らせ登録を解除しました。<br />ご利用ありがとうございました。
+		</p>
+	</div>
+<!-- / nyuka -->
+
+	<div class="buttonarea">
+		<a href="/" class="button positive medium">トップページへ</a>
+	</div>
+</div>
+<!-- / subwindow -->
+
+</body>
+</html>

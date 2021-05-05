@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/address_list.html -->
+
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- memberConfirm -->
+<section id="content">
+	<h2>アドレス帳一覧</h2>
+
+	<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe>
+
+	<div class="sentence" m:id='IF_ADDRESS_EXIST' m:NOT="">
+		<p>登録済みのアドレスはありません</p>
+	</div>
+	
+	<div m:id='IF_ADDRESS_EXIST'>
+		<div class="pageguide sentence"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></div>
+		<div class="listBorder" m:id='LOOP_ADDRESS_LIST'>
+			<h3>氏名（漢字）</h3>
+			<div class="sentence">
+				<p><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></p>
+			</div>
+
+			<h3>氏名（カナ）</h3>
+			<div class="sentence">
+				<p><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></p>
+			</div>
+
+			<h3>住所</h3>
+			<div class="sentence">
+				<p>
+					<span m:id='ZIP_HERE'>1234567</span> <span m:id='ADDRESS1_HERE'>東京都</span>
+					<span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span> <span m:id='ADDRESS3_HERE'>○○ビル101</span>
+				</p>
+			</div>
+
+			<h3>電話番号</h3>
+			<div class="sentence">
+				<p><span m:id='TEL_HERE'>03-1234-5678</span></p>
+			</div>
+
+			<div m:id='IF_FREE' m:free_item_no='1'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='1'>会員自由項目1</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='1'>会員自由項目1</span></p>
+				</div>
+			</div>
+
+			<div m:id='IF_FREE' m:free_item_no='2'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='2'>会員自由項目2</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='2'>会員自由項目2</span></p>
+				</div>
+			</div>
+
+			<div m:id='IF_FREE' m:free_item_no='3'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='3'>会員自由項目3</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='3'>会員自由項目3</span></p>
+				</div>
+			</div>
+
+			<div m:id='IF_FREE' m:free_item_no='4'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='4'>会員自由項目4</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='4'>会員自由項目4</span></p>
+				</div>
+			</div>
+
+			<div m:id='IF_FREE' m:free_item_no='5'>
+				<h3><span m:id='FREE_TITLE_HERE' m:free_item_no='5'>会員自由項目5</span></h3>
+				<div class="sentence">
+					<p><span m:id='FREE_VALUE_HERE' m:free_item_no='5'>会員自由項目5</span></p>
+				</div>
+			</div>
+
+			<h3>変更/削除</h3>
+			<div class="buttonarea">
+				<a m:id='ADDRESS_CHANGE_LINK_TAG' class="smallPositiveButton">変更する</a>
+				<a m:id='ADDRESS_DELETE_LINK_TAG' class="smallNegativeButton">削除する</a>
+			</div>
+			
+			<div m:id="IF_CART_SELECT">
+				<h3>配送先に追加</h3>
+				<div class="buttonarea">
+					<a m:id='SELECT_TO_CART_LINK_TAG' class="add">追加する</a>
+				</div>
+			</div>
+		</div>
+
+		<table class="pagelink">
+			<tr>
+				<td class="button"><span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">＜ 前へ</a></span></td>
+				<td class="link"><span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span></td>
+				<td class="button"><span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次へ ＞</a></span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="buttonarea" m:id="IF_BACK_LINK">
+		<a m:id='BACK_LINK_TAG' class="cancel">戻る</a>
+	</div>
+</section>
+<!-- / memberConfirm -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

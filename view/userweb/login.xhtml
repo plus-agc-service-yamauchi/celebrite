@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xmlns:aps="eb:AMAZON_PAYMENTS/view_amazon_payments.json" xmlns:social_plus="eb:SOCIAL_PLUS/view_common.json" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+<script type="text/javascript" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+//<![CDATA[
+eb$(document).ready(function(){
+	// ソーシャルPLUSアプリをインストールしている時だけ記述します
+	if(document.getElementById('social_plus_error') != null){
+		document.getElementById('social_plus_error').style.display = 'none';
+		social_plus_message_disp();
+	}
+});
+//]]>
+</script>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/jquery.latest.min.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/1.7.1.jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.tile.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	$('.box').tile(2);
+});
+//]]>
+</script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/login.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- login -->
+<div id="loginNew">
+	<h2>ログイン</h2>
+	<p>会員の方は、下のフォームにログインID・パスワードを入力して「ログイン」ボタンを押してください。</p>
+	
+	<form m:id='FORM_TAG'>
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+		<!-- amazon payments アプリがインストールされていた時の表示 -->
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+			<p aps:if="apsIsAmazon" class="amazon_comment">※Amazonログインではありません。</p>
+		</div>
+		
+		<!-- social_plus アプリがインストールされていない時の表示 -->
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS' m:NOT="">
+			<!-- / amazon payments アプリがインストールされていた時の表示 -->
+			<table summary="ログイン">
+				<tr>
+					<th class="title">ログインID</th>
+					<td><input m:id='ID_INPUT_HERE' name="id" type="text" size="50" value="" /></td>
+				</tr>
+				<tr>
+					<th class="title">パスワード</th>
+					<td><input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" /></td>
+				</tr>
+			</table>
+			<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+				<p align="right"><a href="password_reminder.html">→ログインID・パスワードを忘れた方</a></p>
+				<p align="right" m:id="common.IF_ENABLE_REGIST_MEMBER"><a href="member_regist_new.html">→会員登録をしていない方</a></p>
+				<p align="right" m:id="common.IF_ENABLE_REGIST_CHILD_MEMBER"><a m:id='common.CHILD_MEMBER_REGIST_LINK_TAG' href="javascript:void(0)">→子会員登録をしていない方</a></p>
+			</div>
+			<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+			<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+				<p align="right"><a href="password_reminder.html">→ログインID・パスワードを忘れた方</a></p>
+				<p align="right"><a href="member_regist_new.html">→会員登録をしていない方</a></p>
+			</div>
+
+			<!-- amazon payments アプリがインストールされていない時の表示 -->
+			<div class="buttonarea" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS' m:NOT="">
+				<input type="submit" value="ログイン" class="button positive medium" />
+			</div>
+			<!-- / amazon payments アプリがインストールされていない時の表示 -->
+	
+			<!-- amazon payments アプリがインストールされていた時の表示 -->
+			<div class="buttonarea" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+				<input aps:if="apsIsAmazon" type="submit" value="サイトにログイン" class="button positive medium" />
+				<input aps:if="apsIsAmazon" m:NOT="" type="submit" value="ログイン" class="button positive medium" />
+			</div>
+			<!-- / amazon payments アプリがインストールされていた時の表示 -->
+		</div>
+		<!-- / social_plus アプリがインストールされていない時の表示 -->
+
+		<!-- social_plus アプリがインストールされていた時の表示 -->
+		<div m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS' class="social_provider">
+			<!-- / amazon payments アプリがインストールされていた時の表示 -->
+			<div class="box">
+				<h3>サイト会員IDでログイン</h3>
+				<table summary="ログイン">
+					<tr>
+						<th class="title">ログインID</th>
+						<td><input m:id='ID_INPUT_HERE' name="id" type="text" size="50" value="" /></td>
+					</tr>
+					<tr>
+						<th class="title">パスワード</th>
+						<td><input m:id='PASSWORD_INPUT_HERE' name="pw" size="50" value="" type="password" /></td>
+					</tr>
+				</table>
+				<!-- ====================== ↓得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT">
+					<p align="right"><a href="password_reminder.html">→ログインID・パスワードを忘れた方</a></p>
+					<p align="right" m:id="common.IF_ENABLE_REGIST_MEMBER"><a href="member_regist_new.html">→会員登録をしていない方</a></p>
+					<p align="right" m:id="common.IF_ENABLE_REGIST_CHILD_MEMBER"><a m:id='common.CHILD_MEMBER_REGIST_LINK_TAG' href="javascript:void(0)">→子会員登録をしていない方</a></p>
+				</div>
+				<!-- ====================== ↑得意先管理オプションを使用する場合 ====================== -->
+				<div m:id="common.IF_USE_CUSTOMER_MANAGEMENT" m:NOT="">
+					<p align="right"><a href="password_reminder.html">→ログインID・パスワードを忘れた方</a></p>
+					<p align="right"><a href="member_regist_new.html">→会員登録をしていない方</a></p>
+				</div>
+		
+				<!-- amazon payments アプリがインストールされていない時の表示 -->
+				<div class="buttonarea" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS' m:NOT="">
+					<input type="submit" value="ログイン" class="button positive medium" />
+				</div>
+				<!-- / amazon payments アプリがインストールされていない時の表示 -->
+		
+				<!-- amazon payments アプリがインストールされていた時の表示 -->
+				<div class="buttonarea" m:id='common.IF_APP_INSTALLED' m:app_cd='AMAZON_PAYMENTS'>
+					<input aps:if="apsIsAmazon" type="submit" value="サイトにログイン" class="button positive medium" />
+					<input aps:if="apsIsAmazon" m:NOT="" type="submit" value="ログイン" class="button positive medium" />
+				</div>
+				<!-- / amazon payments アプリがインストールされていた時の表示 -->
+			</div>
+		
+			<div class="social_provider box">
+				<h3>他サイトのアカウントでログイン/新規会員登録</h3>
+				<!-- social plus error -->
+				<div id="social_plus_error" m:id='common.IF_APP_INSTALLED' m:app_cd='SOCIAL_PLUS'>
+					<div social_plus:write="SOCIAL_PLUS_ERROR_MSG_DISP_SCRIPT" m:HTML="">
+						<!-- メッセージ用スクリプト排出エリア -->
+					</div>
+					<div id="social_plus_error_tbl">
+						<table summary="メッセージ">
+							<tr>
+								<td class="ico"><img src="images/icon_error.png" /></td>
+								<td class="content"><span id="social_plus_error_msg">ここにエラーメッセージが表示されます</span></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- / social plus error -->
+				<ul>
+					<li class="facebook"><a href="#" social_plus:attr="SOCIAL_PLUS_FACEBOOK_LOGIN_TAG"><span>facebook</span></a></li>
+					<li class="twitter"><a href="#" social_plus:attr="SOCIAL_PLUS_TWITTER_LOGIN_TAG"><span>twitter</span></a></li>
+					<li class="google"><a href="#" social_plus:attr="SOCIAL_PLUS_GPLUS_LOGIN_TAG"><span>google</span></a></li>
+					<li class="yahoo"><a href="#" social_plus:attr="SOCIAL_PLUS_YAHOO_LOGIN_TAG"><span>yahoo!</span></a></li>
+					<li class="mixi"><a href="#" social_plus:attr="SOCIAL_PLUS_MIXI_LOGIN_TAG"><span>mixi</span></a></li>
+					<li class="line"><a href="#" social_plus:attr="SOCIAL_PLUS_LINE_LOGIN_TAG"><span>LINE</span></a></li>
+					<li class="paypal"><a href="#" social_plus:attr="SOCIAL_PLUS_PAYPAL_LOGIN_TAG"><span>PayPal</span></a></li>
+					<li class="rakuten"><a href="#" social_plus:attr="SOCIAL_PLUS_RAKUTEN_LOGIN_TAG"><img src="https://static.id.rakuten.co.jp/static/btn-japanese-2x/idconnect_01-login_r_390.png" width="195" alt="楽天IDでログイン" /></a></li>
+
+				</ul>
+			</div>
+		</div>
+		<!-- / social_plus アプリがインストールされていた時の表示 -->
+
+	</form>
+</div>
+<!-- / login -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

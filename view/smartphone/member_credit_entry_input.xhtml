@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<div m:id='IF_ZEUS_CREDIT_TOKEN'>
+	<span m:id='ZEUS_TOKEN_SET_HEAD_HERE'/>
+	<script type="text/javascript" charset="utf-8" src="js/zeus_token_form.js"></script>
+</div>	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+<div m:id='IF_ESCOTTPLUS_CREDIT_TOKEN'>
+	<script m:id='ESCOTTPLUS_CREDIT_TOKEN_JS_HERE' type="text/javascript"></script>
+</div>
+<div m:id='IF_PAYGENT_CREDIT_TOKEN'>
+	<script m:id='PAYGENT_CREDIT_TOKEN_JS_HERE' type="text/javascript"></script>
+</div>
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- content -->
+<div id="content">
+	<div id="credit">
+	<!-- main -->
+		<form m:id='FORM_TAG'>
+			
+			<h2>クレジットカード</h2>
+			
+			<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+            <div m:id="IF_SAVED_CARD">
+                <h3>クレジットカード情報一覧</h3>
+                    <div m:id="LOOP_SAVED_CARD" class="saved_card">
+                        <h4>
+                            カード番号：****-****-****-<span m:id='SAVED_CARD_CREDIT_NUMBER4_HERE'>4003</span><br />
+                            カード名義：<span m:id='SAVED_CARD_CREDIT_NAME_HERE'>4003</span><br />
+                            有効期限：<span m:id='SAVED_CARD_CREDIT_EXPIRE_MONTH_HERE'>04</span>/<span m:id='SAVED_CARD_CREDIT_EXPIRE_YEAR_HERE'>2016</span>
+                        </h4>
+                        <div class="buttonarea">
+                            <div m:id="IF_CAN_CARD_EDIT">
+                                <a href="javascript:void(0);" m:id="EDIT_ENTRY_CARD_BUTTON_TAG" class="smallPositiveButton">変更</a>
+                            </div>
+                            <div m:id="IF_CAN_CARD_DELETE">
+                                <a href="javascript:void(0);" m:id="DELETE_ENTORY_CARD_BUTTON_TAG" class="smallNegativeButton">削除</a>
+                            </div>
+                        </div>
+						<div class="buttonarea" m:id="IF_EXIST_CHANGE_TEIKI_ORDER_CARD">
+							<div m:id="IF_CHANGE_TEIKI_ORDER_CARD">
+                                <a href="javascript:void(0);" m:id="CHANGE_TEIKI_ORDER_CARD_BUTTON_TAG" class="add">定期注文で使用する</a>
+                            </div>
+							<div m:id="IF_CHANGE_TEIKI_ORDER_CARD" m:NOT="">定期注文で使用するカードに選択中です</div>
+						</div>
+                    </div>
+                </div>
+			
+			<h3 style="clear:both;">クレジットカード情報の追加</h3>
+			<div m:id="IF_CAN_REGIST_CARD">
+				<div class="sentence">
+					<p>クレジットカード情報を記入し、ボタンを押してください。</p>
+				</div>
+				
+				<div m:id='IF_CREDIT_TOKEN' class="sentence">
+					<span m:id='CREDIT_TOKEN_ERROR_MESSAGE_TAG' class="error"></span>
+					<!-- クロネコWEBコレクトのクレジットカードトークン決済を使用する場合は以下のコメントアウトを外して下さい。 -->
+					<!-- <input type='hidden' m:id='YAMATO_CREDIT_TOKEN_MEMBER_TAG' ></input> -->
+				</div>
+				
+				<div m:id='IF_ZEUS_CREDIT_TOKEN' m:NOT="">
+				<h4>カード名義</h4>
+				<div class="sentence">
+					<p><input type="text" m:id='CREDIT_NAME_INPUT_HERE' m:autocomplete="off" /></p>
+					<label class="error_color" id="CREDIT_NAME_ERROR" style="color:red;"></label>
+				</div>
+							
+				<h4>カード番号</h4>
+				<div class="sentence">
+					<table class="credit">
+						<tr>
+							<td><input type="text" m:id='CREDIT_NUMBER1_INPUT_HERE' m:autocomplete="off" /></td>
+							<td><input type="text" m:id='CREDIT_NUMBER2_INPUT_HERE' m:autocomplete="off" /></td>
+							<td><input type="text" m:id='CREDIT_NUMBER3_INPUT_HERE' m:autocomplete="off" /></td>
+							<td><input type="text" m:id='CREDIT_NUMBER4_INPUT_HERE' m:autocomplete="off" /></td>
+						</tr>
+					</table>
+					<label class="error_color" id="CREDIT_NO_ERROR" style="color:red;"></label>
+				</div>
+				<h4>有効期限</h4>
+				<div class="sentence">
+					<table>
+						<tr>
+							<td>
+								<select m:id='CREDIT_EXPIRE_MONTH_INPUT_HERE'>
+									<option value="">01</option>
+								</select>
+							</td>
+							<td>月</td>
+							<td>
+								<select m:id='CREDIT_EXPIRE_YEAR_INPUT_HERE'>
+									<option value="">15</option>
+								</select>
+							</td>
+							<td>年</td>
+						</tr>
+					</table>
+					<label class="error_color" id="CREDIT_LIMIT_ERROR" style="color:red;"></label>
+				</div>
+				<h4>セキュリティーコード</h4>
+				<div class="sentence">
+					<input type="text" m:id='SECURITY_CODE_INPUT_HERE' m:autocomplete="off" />
+					<label class="error_color" id="SECURITY_CD_ERROR" style="color:red;"></label>
+				</div>
+				</div>
+				<!-- ゼウストークン決済用入力フォーム -->
+				<div id="zeus_token_card_info_area" m:id='IF_ZEUS_CREDIT_TOKEN'>
+
+					<div id="zeus_token_action_type_new_area">
+						<input type='radio' value='new' id='zeus_token_action_type_new' name="zeus_card_option" />
+					</div>
+
+					<h4>カード名義</h4>
+					<div class="sentence">
+						<p><input type='text' value='' id='zeus_token_card_name' name='zeus_token_card_name' size='30' maxlength='60' /></p>
+					</div>
+
+					<h4>カード番号</h4>
+					<div class="sentence">
+						<input type="tel" value="" id="zeus_token_card_number" name="zeus_token_card_number" autocomplete="off" size="21" maxlength="20" />
+					</div>
+
+					<h4>有効期限</h4>
+					<div class="sentence">
+						<table>
+							<tr>
+								<td>
+									<select id="zeus_token_card_expires_month" name="zeus_token_card_expires_month">
+										<option>-- 月を指定 --</option>
+									</select>
+								</td>
+								<td>月</td>
+								<td>
+									<select id="zeus_token_card_expires_year" name="zeus_token_card_expires_year">
+										<option>-- 年を指定 --</option>
+									</select>
+								</td>
+								<td>年</td>
+							</tr>
+						</table>
+					</div>
+
+					<div id="zeus_token_card_cvv_area">
+						<h4>セキュリティーコード</h4>
+						<div class="sentence">
+							<input type="tel" value="" id="zeus_token_card_cvv" name="zeus_token_card_cvv" size="4" maxlength="5" />
+						</div>
+					</div>
+					<div id="zeus_token_card_hidden_area"></div>
+				</div>
+				<!-- ゼウストークン決済用入力フォーム ここまで-->
+				<!-- ======================リキャプチャー機能出力部分====================== / -->
+				<div m:id='IF_GOOGLE_RECAPTCHA_ENABLE' id="reCAPTCHA">
+					<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3' m:NOT="">
+						<script m:id='GOOGLE_RECAPTCHA_SCRIPT_TAG'></script>
+						<div m:id='GOOGLE_RECAPTCHA_TAG'></div>
+					</div>
+					<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3'>
+						<script m:id='GOOGLE_RECAPTCHA_V3_SCRIPT_TAG'></script>
+						<script m:id='GOOGLE_RECAPTCHA_V3_JS_HERE'></script>
+						<input type='hidden' m:id='GOOGLE_RECAPTCHA_V3_RESPONSE_HIDDEN_TAG' />
+					</div>
+				</div>
+				<!-- / ======================リキャプチャー機能出力部分====================== -->
+				<div class="buttonarea">				
+					<input type="submit" alt="登録する" />
+				</div>
+			</div>
+			<div m:id="IF_CAN_REGIST_CARD" m:NOT="" class="sentence">
+				<p>登録可能なカード数の上限に達しています。新たなカードを登録したい場合は登録済みのカードを削除してください。</p>
+				
+				<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+			</div>
+		</form>
+	<!-- /main -->
+	</div>
+</div>
+<!-- /content -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<div m:id='IF_CREDIT_TOKEN'>
+	<script m:id='CREDIT_TOKEN_JS_HERE' type="text/javascript">
+	// トークン決済JavaScript
+	</script>
+</div>
+</body>
+</html>

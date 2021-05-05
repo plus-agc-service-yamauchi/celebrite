@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/ext/privacy.html -->
+	
+<script type="text/javascript" charset="utf-8" src="../js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="../common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- container -->
+<div id="container">
+
+<div id="sidebar">
+<iframe m:id='common.IMPORT_HERE' src="../common/sidebar.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+</div>
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main">
+
+<!-- topics --> 
+<div id="ext">
+	<div id="sitemap">
+		<h2>サイトマップ</h2>
+		<h3>カテゴリ</h3>
+		<ul m:id='common.IF_TOP_CATEGORY'>
+			<li m:id='common.LOOP_TOP_CATEGORY'>
+				<a m:id='common.TOP_CATEGORY_LINK_TAG' href="#"><span m:id='common.TOP_CATEGORY_NAME_HERE'>カテゴリ名</span></a>
+			</li>
+		</ul>
+		<h3>会員メニュー</h3>
+		<ul>
+			<li m:id='common.IF_MEMBER' m:NOT="">
+				<a href="member_regist_new.html">新規会員登録</a>
+			</li>
+			<li m:id='common.IF_MEMBER' m:NOT="">
+				<a href="login.html">ログイン</a>
+			</li>
+			<li m:id='common.IF_MEMBER' m:NOT="">
+				<a href="password_reminder.html">パスワードを忘れた方</a>
+			</li>
+			<li m:id='common.IF_MEMBER'>
+				<a href="member_mypage.html">マイページ</a>
+			</li>
+			<li m:id='common.IF_MEMBER'>
+				<a href="member_regist.html?request=edit">会員情報変更</a>
+			</li>
+			<li>
+				<a href="cart_index.html">カートを見る</a>
+			</li>
+			<li>
+				<a href="mailmag.html">メールマガジンに申し込む</a>
+			</li>
+		</ul>
+		<h3>会員サポート</h3>
+		<ul>
+			<li>
+				<a href="ext/guide.html">ご利用ガイド</a>
+			</li>
+			<li>
+				<a href="ext/faq.html">よくあるご質問</a>
+			</li>
+			<li>
+				<a href="ext/privacy.html">プライバシーポリシー</a>
+			</li>
+			<li>
+				<a href="ext/tokushou.html">特定商取引法に基づく表記</a>
+			</li>
+			<li>
+				<a href="ext/company.html">会社概要</a>
+			</li>
+			<li>
+				<a href="ext/sitemap.html">サイトマップ</a>
+			</li>
+			<li m:id="common.IF_APPLY_AVAILABLE" apply_no='APPLY1'>
+				<a href="apply.html?id=APPLY1">お問い合わせ</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- / topics  -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="../common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

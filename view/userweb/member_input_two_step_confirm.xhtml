@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（PC）</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>
+</head>
+<body>
+<!-- このテンプレートのURLは右記になります。 ドメイン/member_regist.html -->
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+<!-- container -->
+<div id="container">
+
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ ================================================== -->
+<!-- =============================================================================== -->
+<div id="main" class="no-sidebar">
+
+<!-- member_confirm -->
+	<h2>
+		<span m:id='common.IF_MEMBER' m:NOT="">新規会員登録</span>
+		<span m:id='common.IF_MEMBER'>会員情報変更</span>
+	</h2>
+	<p>以下の欄を記入してください。<br /></p>
+	<form m:id='FORM_TAG'>
+
+		<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+		<div m:id='IF_USE_TWO_STEP_LOGIN'>
+			<p>メールを送信しました。メールに添付されている2段階ログイン用の確認コードを入力してください。</p>
+			<table summary="2段階ログイン確認コード入力欄">
+				<tr>
+					<th class="title">確認コード <img src="images/icon_hissu.gif" width="25" height="15" alt="必須" /></th>
+					<td> <input m:id='TWO_STEP_LOGIN_CODE_INPUT_HERE' type="text" size="20" value="" /></td>
+				</tr>
+			</table>
+		</div>
+		<div class="buttonarea">
+				<a m:id='BACK_BUTTON_TAG' href="#" class="button negative medium">戻る</a>
+				<input type="submit" value="送信する" class="button positive medium" />
+		</div>
+	</form>
+<!-- / member_confirm -->
+
+</div>
+<!-- =============================================================================== -->
+<!-- ==================メインコンテンツ END================================================== -->
+<!-- =============================================================================== -->
+
+</div>
+<!-- / container -->
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+
+</body>
+</html>

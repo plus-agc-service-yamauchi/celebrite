@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="../js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/ebisu.js"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8" src="../js/iframe.js" m:id='DUMMY'></script>
+
+
+<iframe m:id='common.IMPORT_HERE' src="../common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+<!-- inputApply -->
+<section id="content">
+	<h2>お問合せ</h2>
+	<div class="sentence" m:id='IF_AVAILABLE_APPLY' m:NOT=''>
+		<p>
+			このお問い合わせページは、表示期間を過ぎております。<br />
+		</p>
+		<div class="buttonarea">
+			<a href="/">トップページへ</a>
+		</div>
+	</div>
+	<div m:id='IF_AVAILABLE_APPLY'>
+	<div class="sentence">
+		<p m:id='IF_INPUT'>
+			以下のお問合せ項目を入力し、「入力内容を確認する」ボタンを押してください。<br />
+			<img src="../images/icon_hissu.gif" width="25" height="15" alt="必須" /> は必須項目です。必ず入力してください。
+		</p>
+		<p m:id='IF_CONFIRM'>
+			入力内容にお間違いがないか確認の上、「送信」ボタンを押してください。<br />
+			再度ご入力される場合は「戻る」ボタンを押してください。
+		</p>
+	</div>
+
+	<form m:id='FORM_TAG'>
+		<iframe m:id='common.IMPORT_HERE' src="../common/messages.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+			<div class="apply_area" m:id='LOOP_APPLY'>
+				<h3>
+					<span m:id='APPLY_KOUMOKU_HERE'>お問合せ項目</span>
+					<span m:id='IF_INPUT'><img src="../images/icon_hissu.gif" width="25" height="15" alt="必須" m:id='IF_HISSU' /></span>
+				</h3>
+				<div class="sentence">
+				 <span m:id='IF_DISP_ZIP'>
+	                <input m:id='APPLY_INPUT_HERE' type="text" /><br />
+					<div m:id="IF_FREE_IMAGE">
+						<span m:id="APPLY_LABEL_HTML_HERE">ラベル</span><br />
+					</div>
+					<div m:id="IF_FREE_IMAGE" m:NOT="">
+						<span m:id="APPLY_LABEL_HERE">ラベル</span><br />
+					</div>
+	                <span m:id='IF_INPUT'> 例：1234567 （半角英数字で入力してください。）
+			            <input m:id='GET_ZIP_ADDRESS_BUTTON_TAG' type="button" value="〒反映" />
+			            <span m:id='ZIP_ADDRESS_MESSAGE_TAG' class="minfo"><!--ここに郵便番号反映メッセージが表示されます。--></span>
+                	</span>
+            	</span>
+           		<span m:id='IF_NOT_DISP_ZIP'>
+	                <input m:id='APPLY_INPUT_HERE' type="text" />
+					<div m:id="IF_FREE_IMAGE">
+						<span m:id="APPLY_LABEL_HTML_HERE">ラベル</span><br />
+					</div>
+					<div m:id="IF_FREE_IMAGE" m:NOT="">
+						<span m:id="APPLY_LABEL_HERE">ラベル</span><br />
+					</div>
+	                <span m:id='IF_INPUT'><span m:id='APPLY_COMMENT_HERE'>ここにコメントを表示します。</span></span>
+            	</span>
+				</div>
+			</div>
+
+		<div class="buttonarea" m:id='IF_INPUT'>
+			<!-- ======================リキャプチャー機能出力部分====================== / -->
+			<div m:id='IF_GOOGLE_RECAPTCHA_ENABLE' id="reCAPTCHA">
+				<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3' m:NOT="">
+					<script m:id='GOOGLE_RECAPTCHA_SCRIPT_TAG'></script>
+					<div m:id='GOOGLE_RECAPTCHA_TAG'></div>
+				</div>
+				<div m:id='IF_USE_GOOGLE_RECAPTCHA_V3'>
+					<script m:id='GOOGLE_RECAPTCHA_V3_SCRIPT_TAG'></script>
+					<script m:id='GOOGLE_RECAPTCHA_V3_JS_HERE'></script>
+					<input type='hidden' m:id='GOOGLE_RECAPTCHA_V3_RESPONSE_HIDDEN_TAG' />
+				</div>		
+			</div>
+			<!-- / ======================リキャプチャー機能出力部分====================== -->
+			<input type="submit" value="入力内容を確認する" m:id='CONFIRM_BUTTON_TAG' />
+		</div>
+		<div class="buttonarea" m:id='IF_CONFIRM'>
+			<input type="submit" value="この内容で送信" m:id='SUBMIT_BUTTON_TAG' />
+			<a href="javascript:void(0);" m:id='BACK_BUTTON_TAG' class="cancel">戻る</a>
+		</div>
+	</form>
+	</div>
+</section>
+<!-- / inputApply -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="../common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>

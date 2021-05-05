@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type"  content="text/css" />
+<title>標準テンプレート（携帯）</title>
+<link m:id="common.MOBILE_STYLE_HERE" rel="stylesheet" href="css/mobile.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" charset="utf-8" src="css/iframe.js" m:id='DUMMY'></script>
+<a id="top" name="top"></a>
+
+<!-- header -->
+<div style="background:#333333; font-size:x-small; text-align:center;"><a href="/" style="color:#FFFFFF;"><span m:id='common.SITE_NAME_HERE'>ここにｼｮｯﾌﾟ名が入ります。</span></a></div>
+<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+<iframe m:id='common.IMPORT_HERE' src="common/header_cart.xhtml"	frameborder="0" scrolling="no" width="100%"	onload="resize_iframe(this)"></iframe>
+<!-- / header -->
+
+<!-- cartConfirm -->
+<div style="margin-bottom:5px; padding:3px; background:#CCCCCC; font-size:small;">入力内容の確認</div>
+<div style="font-size:x-small;">
+	入力内容を確認し、商品確認へﾎﾞﾀﾝを押してください。<br />
+	入力に誤りがあるときは、戻るﾎﾞﾀﾝで入力をやり直してください。
+</div>
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<div style="margin-top:5px; color:#996600; font-size:small;">氏名(漢字)</div>
+<div style="font-size:x-small;"><span m:id='LAST_NAME_HERE'>山田</span> <span m:id='FIRST_NAME_HERE'>太郎</span></div>
+<div style="margin-top:5px; color:#996600; font-size:small;">氏名(全角カナ)</div>
+<div style="font-size:x-small;"><span m:id='LAST_KANA_HERE'>ヤマダ</span> <span m:id='FIRST_KANA_HERE'>タロウ</span></div>
+<div m:id='IF_REGIST_MEMBER'>
+	<div m:id='common.IF_NOT_MAIL_LOGINID_CONFIG'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">ﾛｸﾞｲﾝID</div>
+		<div style="font-size:x-small;"><span m:id='LOGIN_ID_HERE'>sample</span></div>
+	</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">ﾊﾟｽﾜｰﾄﾞ</div>
+	<div style="font-size:x-small;"><span m:id='PASSWORD_HERE'>********</span></div>
+	<div m:id='IF_SEX'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">性別</div>
+		<div style="font-size:x-small;"><span m:id='IF_SEX_MAN'>男性</span><span m:id='IF_SEX_WOMAN'>女性</span></div>
+	</div>
+	<div m:id='IF_BIRTH'>
+		<div style="margin-top:5px; color:#996600; font-size:small;">生年月日</div>
+		<div style="font-size:x-small;"><span m:id='BIRTH_YEAR_HERE'>1986</span>年 <span m:id='BIRTH_MONTH_HERE'>3</span>月 <span m:id='BIRTH_DAY_HERE'>3</span>日</div>
+	</div>
+</div>
+<div style="margin-top:5px; color:#996600; font-size:small;">PCﾒｰﾙｱﾄﾞﾚｽ</div>
+<div style="font-size:x-small;"><span m:id='PC_MAIL_HERE'>sample@example.jp</span></div>
+<div style="margin-top:5px; color:#996600; font-size:small;">携帯ﾒｰﾙｱﾄﾞﾚｽ</div>
+<div style="font-size:x-small;"><span m:id='MOBILE_MAIL_HERE'>sample@example.jp</span></div>
+<div m:id='common.IF_NOT_MEMBER'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">PCﾒｰﾙﾀｲﾌﾟ</div>
+	<div m:id='IF_PC_MAIL_TYPE_TEXT' style="font-size:x-small;">ﾃｷｽﾄ</div>
+	<div m:id='IF_PC_MAIL_TYPE_HTML' style="font-size:x-small;">HTML</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">携帯ﾒｰﾙﾀｲﾌﾟ</div>
+	<div m:id='IF_MOBILE_MAIL_TYPE_TEXT' style="font-size:x-small;">ﾃｷｽﾄ</div>
+	<div m:id='IF_MOBILE_MAIL_TYPE_HTML' style="font-size:x-small;">HTML</div>
+</div>
+<div style="margin-top:5px; color:#996600; font-size:small;">住所</div>
+<div style="font-size:x-small;">
+	<span m:id='ZIP_HERE'>〒123-4567</span>
+	<span m:id='ADDRESS1_HERE'>東京都</span> <span m:id='ADDRESS2_HERE'>○○市○○町1-2-3</span>
+	<span m:id='ADDRESS3_HERE'>○○ビル101</span>
+</div>
+<div style="margin-top:5px; color:#996600; font-size:small;">電話番号</div>
+<div style="font-size:x-small;"><span m:id='TEL_HERE'>03-1234-5678</span></div>
+<div m:id='IF_REGIST_MEMBER'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">ﾒｰﾙﾏｶﾞｼﾞﾝ</div>
+	<div m:id="IF_MAILMAG_REGIST" style="font-size:x-small;">PC/携帯の両方で受け付ける</div>
+	<div m:id="IF_MAILMAG_REGIST_PC" style="font-size:x-small;">PCで受け付ける</div>
+	<div m:id="IF_MAILMAG_REGIST_MOBILE" style="font-size:x-small;">携帯で受け付ける</div>
+	<div m:id="IF_NOT_MAILMAG_REGIST" style="font-size:x-small;">受け付けない</div>
+</div>
+<div style="margin-top:5px; color:#996600; font-size:small;">決済方法</div>
+<div style="font-size:x-small;">
+	<span m:id='KESSAI_NAME_HERE'>郵便振替</span>
+</div>
+<div m:id='IF_SHOW_POINT_FORM'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">ﾎﾟｲﾝﾄ使用</div>
+	<div style="font-size:x-small;" m:id='IF_POINT_USE'>
+		<span m:id='POINT_USE_HERE'>500</span>ﾎﾟｲﾝﾄ使用(ﾎﾟｲﾝﾄ残高<span m:id='POINT_ZANDAKA_HERE'>42</span>ﾎﾟｲﾝﾄ)
+	</div>
+	<div style="font-size:x-small;" m:id='IF_NOT_POINT_USE'>使用しない</div>
+</div>
+<div m:id='IF_HAISO'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">配送方法</div>
+	<div style="font-size:x-small;">
+		<span m:id='HAISO_NAME_HERE'>メール便</span>
+	</div>
+</div>
+<div m:id='IF_TEIKI_MONTHLY'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">初回お届け月</div>
+	<div m:id='LOOP_TEIKI' style="font-size:x-small;">
+		<span m:id='IF_TEIKI_SELECTED'>
+			<span m:id='TEIKI_YM_HERE'>2010年06月分</span>
+			（お届け日：<span m:id='TEIKI_SEND_YOTEI_DATE_HERE'>2010年06月24日</span>）
+		</span>
+	</div>
+</div>
+
+<div m:id='IF_TEIKI_MONTHLY'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">毎月のお届け希望日</div>
+	<div style="font-size:x-small;"><span m:id='TEIKI_SEND_HOPE_MONTHLY_DAY_VALUE_HERE'>1日</span></div>
+</div>
+
+<div m:id='IF_DELIVERY'>
+	<div style="margin-top:5px; color:#996600; font-size:small;">配送希望日時</div>
+	<div style="font-size:x-small;" m:id='IF_DELIVERY_DATE'>
+		<span m:id='DELIVERY_YEAR_HERE'>2010</span>年 <span m:id='DELIVERY_MONTH_HERE'>3</span>月 <span m:id='DELIVERY_DAY_HERE'>3</span>日
+	</div>
+	<div style="font-size:x-small;" m:id='IF_NOT_DELIVERY_DATE'>希望なし</div>
+	<div style="margin-top:5px; color:#996600; font-size:small;">配送希望時間</div>
+	<div style="font-size:x-small;" m:id='IF_DELIVERY_TIME'><span m:id='DELIVERY_TIME_HERE'></span></div>
+	<div style="font-size:x-small;" m:id='IF_NOT_DELIVERY_TIME'>希望なし</div>
+</div>
+<div style="margin-top:5px; color:#996600; font-size:small;">備考</div>
+<div style="font-size:x-small;" m:id='BIKOU_HERE'>備考</div>
+<div m:id='IF_MEMBER_REGIST'>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='1'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='1'>会員自由項目1</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='1'>会員自由項目1</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='2'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='2'>会員自由項目2</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='2'>会員自由項目2</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='3'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='3'>会員自由項目3</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='3'>会員自由項目3</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='4'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='4'>会員自由項目4</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='4'>会員自由項目4</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='5'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='5'>会員自由項目5</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='5'>会員自由項目5</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='6'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='6'>会員自由項目6</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='6'>会員自由項目6</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='7'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='7'>会員自由項目7</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='7'>会員自由項目7</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='8'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='8'>会員自由項目8</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='8'>会員自由項目8</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='9'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='9'>会員自由項目9</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='9'>会員自由項目9</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='10'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='10'>会員自由項目10</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='10'>会員自由項目10</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='11'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='11'>会員自由項目11</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='11'>会員自由項目11</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='12'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='12'>会員自由項目12</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='12'>会員自由項目12</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='13'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='13'>会員自由項目13</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='13'>会員自由項目13</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='14'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='14'>会員自由項目14</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='14'>会員自由項目14</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='15'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='15'>会員自由項目15</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='15'>会員自由項目15</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='16'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='16'>会員自由項目16</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='16'>会員自由項目16</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='17'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='17'>会員自由項目17</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='17'>会員自由項目17</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='18'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='18'>会員自由項目18</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='18'>会員自由項目18</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='19'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='19'>会員自由項目19</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='19'>会員自由項目19</span></div>
+	</div>
+	<div m:id='IF_MEMBER_FREE' m:free_item_no='20'>
+		<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='MEMBER_FREE_TITLE_HERE' m:free_item_no='20'>会員自由項目20</span></div>
+		<div style="font-size:x-small;"><span m:id='MEMBER_FREE_VALUE_HERE' m:free_item_no='20'>会員自由項目20</span></div>
+	</div>
+</div>
+<div m:id='IF_FREE1'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE1_TITLE_HERE'>受注自由項目1</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE1_VALUE_HERE'>受注自由項目1</span></div>
+</div>
+<div m:id='IF_FREE2'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE2_TITLE_HERE'>受注自由項目2</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE2_VALUE_HERE'>受注自由項目2</span></div>
+</div>
+<div m:id='IF_FREE3'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE3_TITLE_HERE'>受注自由項目3</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE3_VALUE_HERE'>受注自由項目3</span></div>
+</div>
+<div m:id='IF_FREE4'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE4_TITLE_HERE'>受注自由項目4</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE4_VALUE_HERE'>受注自由項目4</span></div>
+</div>
+<div m:id='IF_FREE5'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE5_TITLE_HERE'>受注自由項目5</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE5_VALUE_HERE'>受注自由項目5</span></div>
+</div>
+<div m:id='IF_FREE6'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE6_TITLE_HERE'>受注自由項目6</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE6_VALUE_HERE'>受注自由項目6</span></div>
+</div>
+<div m:id='IF_FREE7'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE7_TITLE_HERE'>受注自由項目7</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE7_VALUE_HERE'>受注自由項目7</span></div>
+</div>
+<div m:id='IF_FREE8'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE8_TITLE_HERE'>受注自由項目8</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE8_VALUE_HERE'>受注自由項目8</span></div>
+</div>
+<div m:id='IF_FREE9'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE9_TITLE_HERE'>受注自由項目9</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE9_VALUE_HERE'>受注自由項目9</span></div>
+</div>
+<div m:id='IF_FREE10'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE10_TITLE_HERE'>受注自由項目10</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE10_VALUE_HERE'>受注自由項目10</span></div>
+</div>
+<div m:id='IF_FREE11'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE11_TITLE_HERE'>受注自由項目11</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE11_VALUE_HERE'>受注自由項目11</span></div>
+</div>
+<div m:id='IF_FREE12'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE12_TITLE_HERE'>受注自由項目12</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE12_VALUE_HERE'>受注自由項目12</span></div>
+</div>
+<div m:id='IF_FREE13'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE13_TITLE_HERE'>受注自由項目13</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE13_VALUE_HERE'>受注自由項目13</span></div>
+</div>
+<div m:id='IF_FREE14'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE14_TITLE_HERE'>受注自由項目14</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE14_VALUE_HERE'>受注自由項目14</span></div>
+</div>
+<div m:id='IF_FREE15'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE15_TITLE_HERE'>受注自由項目15</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE15_VALUE_HERE'>受注自由項目15</span></div>
+</div>
+<div m:id='IF_FREE16'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE16_TITLE_HERE'>受注自由項目16</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE16_VALUE_HERE'>受注自由項目16</span></div>
+</div>
+<div m:id='IF_FREE17'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE17_TITLE_HERE'>受注自由項目17</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE17_VALUE_HERE'>受注自由項目17</span></div>
+</div>
+<div m:id='IF_FREE18'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE18_TITLE_HERE'>受注自由項目18</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE18_VALUE_HERE'>受注自由項目18</span></div>
+</div>
+<div m:id='IF_FREE19'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE19_TITLE_HERE'>受注自由項目19</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE19_VALUE_HERE'>受注自由項目19</span></div>
+</div>
+<div m:id='IF_FREE20'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='FREE20_TITLE_HERE'>受注自由項目20</span></div>
+	<div style="font-size:x-small;"><span m:id='FREE20_VALUE_HERE'>受注自由項目20</span></div>
+</div>
+<div m:id='IF_SEND_FREE' m:free_item_no='1'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='1'>送付先自由項目1</span></div>
+	<div style="font-size:x-small;"><span m:id='SEND_FREE_VALUE_HERE' m:free_item_no='1'>送付先自由項目1</span></div>
+</div>
+<div m:id='IF_SEND_FREE' m:free_item_no='2'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='2'>送付先自由項目2</span></div>
+	<div style="font-size:x-small;"><span m:id='SEND_FREE_VALUE_HERE' m:free_item_no='2'>送付先自由項目2</span></div>
+</div>
+<div m:id='IF_SEND_FREE' m:free_item_no='3'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='3'>送付先自由項目3</span></div>
+	<div style="font-size:x-small;"><span m:id='SEND_FREE_VALUE_HERE' m:free_item_no='3'>送付先自由項目3</span></div>
+</div>
+<div m:id='IF_SEND_FREE' m:free_item_no='4'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='4'>送付先自由項目4</span></div>
+	<div style="font-size:x-small;"><span m:id='SEND_FREE_VALUE_HERE' m:free_item_no='4'>送付先自由項目4</span></div>
+</div>
+<div m:id='IF_SEND_FREE' m:free_item_no='5'>
+	<div style="margin-top:5px; color:#996600; font-size:small;"><span m:id='SEND_FREE_TITLE_HERE' m:free_item_no='5'>送付先自由項目5</span></div>
+	<div style="font-size:x-small;"><span m:id='SEND_FREE_VALUE_HERE' m:free_item_no='5'>送付先自由項目5</span></div>
+</div>
+<div style="text-align:center;">
+	<form m:id='FORM_TAG'><input type="submit" value="商品確認へ" accesskey="6" /></form>
+	<form m:id='BACK_FORM_TAG'><input type="submit" value="戻る" accesskey="4" /></form>
+</div>
+<!-- / cartConfirm -->
+
+<!-- footer -->
+<div style="clear:both; font-size:x-small; text-align:right;"><span style="color:#000000;">▲</span><a href="#top">上へ</a></div><hr />
+<div style="font-size:small;">
+	<span m:id='EMOJI_63715' /><a href="cart_index.html">買い物かご</a><br />
+	<span m:id='EMOJI_63888' /><a href="/" accesskey="0">TOP</a>
+	<hr style="border:1px solid #FFFFFF; background:#FFFFFF; color:#FFFFFF;" />
+</div>
+<div style="margin-bottom:5px; padding:3px; font-size:x-small; text-align:center;"><span m:id='common.COPYRIGHT_HERE'>ここにｺﾋﾟｰﾗｲﾄを表示します。</span></div>
+<iframe m:id='common.IMPORT_HERE' src="common/footer_cart.xhtml" frameborder="0" scrolling="no" width="100%" onload="resize_iframe(this)"></iframe>
+<!-- / footer -->
+
+</body>
+</html>

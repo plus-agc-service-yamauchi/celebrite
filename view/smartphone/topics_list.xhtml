@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:m="http://mayaa.seasar.org" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>標準テンプレート（スマートフォン）</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<script m:id="common.IF_USE_LATEST_JQUERY" type="text/javascript" charset="utf-8" src="js/ebisu_lib.latest.js"></script>
+<script m:id="common.IF_USE_LATEST_JQUERY" m:NOT="" type="text/javascript" charset="utf-8" src="js/ebisu_lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ebisu.js"></script>	
+<script type="text/javascript" charset="utf-8" src="js/iframe.js" m:id='DUMMY'></script>
+
+<iframe m:id='common.IMPORT_HERE' src="common/header.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+<!-- itemList -->
+<section id="itemListCategory">
+	<h2>トピックス一覧</h2>
+	<div m:id='IF_INFO_CATEGORY_EXIST' class="category">
+		<ul>
+			<li m:id='LOOP_INFO_CATEGORY'>
+				<span m:id='IF_INFO_CATEGORY_NAME_SELECTED'>
+					<a m:id='INFO_CATEGORY_NAME_LINK_TAG' href="" class="select">
+						<span m:id='INFO_CATEGORY_INFO_NAME_HERE'>大カテゴリ</span>
+					</a>　
+				</span>
+				<span m:id='IF_INFO_CATEGORY_NAME_SELECTED' m:NOT="">
+					<a m:id='INFO_CATEGORY_NAME_LINK_TAG' href="">
+						<span m:id='INFO_CATEGORY_INFO_NAME_HERE'>大カテゴリ</span>
+					</a>　
+				</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- / itemList -->
+<!-- messages -->
+<iframe m:id='common.IMPORT_HERE' src="common/messages.xhtml" width="100%" onload="resize_iframe(this)"></iframe> 
+<!-- / messages -->
+
+
+<!-- itemList -->
+<section id="itemList">
+	<div id="list">
+	
+	<!-- breadcrumbs -->
+	    <div class="breadcrumbs">
+		<a href="/">トップ</a> ＞ トピックス一覧
+	    </div>
+	<!-- / breadcrumbs -->
+	
+	
+		<div m:id='IF_INFO_EXIST'>
+			<p class="pageguide"><span m:id='PAGEGUIDE_HERE'>30件検索されました。1件目から5件目を表示しています。</span></p>
+		</div>
+		<div id="topics">
+			<div m:id='LOOP_INFO_LIST'>
+				<a href="#" m:id='INFO_DETAIL_LINK_TAG'>
+					<h3>
+						<span m:id="IF_INFO_DATE_EXIST"><span m:id="INFO_DATE_HERE">2015/01/01</span></span>
+						<span m:id="IF_INFO_CATEGORY_NAME_EXIST"><span m:id="INFO_CATEGORY_NAME_HERE">カテゴリ</span></span>
+					</h3>
+					<div class="img_box" m:id='IF_INFO_IMAGE'>
+						<img m:id="INFO_IMAGE_TAG" src="images/sample.jpg" />
+					</div>
+					<p>
+						<span m:id='IF_INFO_TITLE_EXIST'>
+							<span m:id="INFO_TITLE_HERE">トピックスタイトル</span><br />
+						</span>
+						<span m:id='INFO_MESSAGE_HERE'>ここにトピックスの内容が入ります。</span>
+					</p>
+				
+					<p m:id="IF_INFO_FREE" m:free_item_no="1">
+						<span m:id="IF_INFO_FREE_VALUE" m:free_item_no="1">
+							<span m:id="INFO_FREE_TITLE_HERE" m:free_item_no="1">自由項目タイトル</span>:<span m:id="INFO_FREE_VALUE_HERE" m:free_item_no="1">自由項目内容</span><br />
+							<!-- <span m:id="INFO_FREE_VALUE_HTML_HERE" m:free_item_no="1">自由項目内容のhtml出力</span> -->
+						</span>
+						<!-- 自由項目をリンクに設定した場合 -->
+						<!--<a href="javascript:void(0);" m:id="INFO_FREE_LINK_TAG" m:free_item_no="1">リンク</a>-->
+					</p>
+				</a>
+			</div>
+		</div>
+		
+		<div m:id='IF_INFO_EXIST'>
+			<table class="pagelink">
+				<tr>
+					<td class="button"><span m:id="IF_PREV_PAGE"><a m:id="PREV_PAGE_LINK_TAG" href="javascript:void(0);">＜ 前へ</a></span></td>
+					<td class="link"><span m:id='PAGE_NUMBER_LINKS_HERE' m:max_count='5'>1 | <a href="javascript:void(0);">2</a> | <a href="javascript:void(0);">3</a> | <a href="#">4</a> | <a href="#">5</a></span></td>
+					<td class="button"><span m:id="IF_NEXT_PAGE"><a m:id="NEXT_PAGE_LINK_TAG" href="javascript:void(0);">次へ ＞</a></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- / itemList -->
+
+
+<iframe m:id='common.IMPORT_HERE' src="common/footer.xhtml"  width="100%" onload="resize_iframe(this)"></iframe>
+
+
+</body>
+</html>
